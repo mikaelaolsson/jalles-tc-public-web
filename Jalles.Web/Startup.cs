@@ -34,6 +34,7 @@ public class Startup
             .AddWebsite()
             .AddDeliveryApi()
             .AddComposers()
+            .AddAzureBlobMediaFileSystem()
             .Build();
     }
 
