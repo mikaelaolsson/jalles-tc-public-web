@@ -31,5 +31,8 @@
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
     <UserSecretsId>c56ea76d-02f7-4528-ba77-cdec24aa8b26</UserSecretsId>
   </PropertyGroup>
-  
+
+	<PropertyGroup>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+	</PropertyGroup>
 </Project>
