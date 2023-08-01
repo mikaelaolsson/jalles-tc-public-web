@@ -23,15 +23,15 @@
       "applicationUrl": "https://localhost:44334;http://localhost:42165",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "Production": {
-        "commandName": "Project",
-        "dotnetRunMessages": true,
-        "launchBrowser": false,
-        "applicationUrl": "https://localhost:44334;http://localhost:42165",
-        "environmentVariables": {
-          "ASPNETCORE_ENVIRONMENT": "Production"
-        }
+      }
+    },
+    "Production": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:44334;http://localhost:42165",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
-}
+  }
