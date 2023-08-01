@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Umbraco.Web": {
+    "Jalles.Web": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
