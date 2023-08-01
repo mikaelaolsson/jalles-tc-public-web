@@ -1,56 +1,133 @@
+using Jalles.Core.Extensions;
+using Jalles.Web.Extensions;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Rewrite;
+using Microsoft.IdentityModel.Logging;
+using Umbraco.Cms.Core.Media.EmbedProviders;
+
 namespace Jalles.Web;
 
 public class Startup
 {
     private readonly IWebHostEnvironment _env;
-    private readonly IConfiguration _config;
+    private readonly IConfiguration _configuration;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Startup" /> class.
-    /// </summary>
-    /// <param name="webHostEnvironment">The web hosting environment.</param>
-    /// <param name="config">The configuration.</param>
-    /// <remarks>
-    /// Only a few services are possible to be injected here https://github.com/dotnet/aspnetcore/issues/9337.
-    /// </remarks>
     public Startup(IWebHostEnvironment webHostEnvironment, IConfiguration config)
     {
         _env = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
-        _config = config ?? throw new ArgumentNullException(nameof(config));
+        _configuration = config ?? throw new ArgumentNullException(nameof(config));
     }
 
-    /// <summary>
-    /// Configures the services.
-    /// </summary>
-    /// <param name="services">The services.</param>
-    /// <remarks>
-    /// This method gets called by the runtime. Use this method to add services to the container.
-    /// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940.
-    /// </remarks>
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddUmbraco(_env, _config)
+        IdentityModelEventSource.ShowPII = _env.IsDevelopment();
+
+        var umbraco = services.AddUmbraco(_env, _configuration);
+
+        umbraco.EmbedProviders()
+            .Replace<YouTube, YoutubeExtensions>()
+            .Replace<Vimeo, VimeoExtensions>();
+
+        umbraco
             .AddBackOffice()
             .AddWebsite()
             .AddDeliveryApi()
             .AddComposers()
             .AddAzureBlobMediaFileSystem()
             .Build();
+
+        services.AddHsts(options => options.MaxAge = TimeSpan.FromDays(183));
+
+        services.AddResponseCompression(options =>
+        {
+            options.Providers.Add<BrotliCompressionProvider>();
+            options.Providers.Add<GzipCompressionProvider>();
+            options.EnableForHttps = true;
+            options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
+        });
+
+        services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
     }
 
-    /// <summary>
-    /// Configures the application.
-    /// </summary>
-    /// <param name="app">The application builder.</param>
-    /// <param name="env">The web hosting environment.</param>
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
         }
+        else
+        {
+            //TODO: add custom error pages
+            //app.UseExceptionHandler("/error");
+            app.UseDeveloperExceptionPage();
+            app.UseHsts();
+            app.UseRewriter(new RewriteOptions()
+                .Add(new RedirectPublicDomainsToWww())
+            );
+        }
 
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection(); 
+        app.UseResponseCompression();
+
+        app.Use(async (context, next) =>
+        {
+            var requestPath = context.Request.Path;
+
+            context.Response.Headers.Add("X-Xss-Protection", "1; mode=block");
+            context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+            context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+            context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+            context.Response.Headers.Add("Feature-Policy",
+                "geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; fullscreen *; payment 'none';");
+
+            if (!requestPath.StartsWithSegments("/umbraco") && !requestPath.StartsWithSegments("/App_Plugins"))
+            {
+                context.Response.Headers.Add("Content-Security-Policy",
+                    "default-src data: blob: filesystem: about: ws: wss: frame-src: * 'unsafe-inline' 'unsafe-eval'; media-src *; script-src * data: blob: 'unsafe-inline'; connect-src * data: blob: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; style-src * data: blob: 'unsafe-inline';font-src * data: blob: 'unsafe-inline'; frame-ancestors * data: blob:; object-src 'none'; form-action 'self'");
+            }
+
+            await next();
+        });
+
+        app.Use(async (context, next) =>
+        {
+            var userAgent = context.Request.Headers.UserAgent.FirstOrDefault();
+
+            if (userAgent == "AlwaysOn")
+            {
+                context.Request.Path = "/keep-alive";
+            }
+
+            await next();
+        });
+
+        app.Use(async (context, next) =>
+        {
+            var path = context.Request.Path.Value;
+
+            if (path?.StartsWith("/umbraco/") != false)
+            {
+                await next();
+                return;
+            }
+
+            var cachableExtensions = new[] { ".js", ".css", ".woff", ".woff2", ".svgz", ".svg" };
+            if (cachableExtensions.Any(extension => path.EndsWith(extension)) || path.StartsWith("/media/"))
+            {
+                context.Response.Headers.Add("Cache-Control", "public, max-age=31536000");
+            }
+
+            await next();
+        });
+
+        app.UseRobotsTxt(env);
+        app.NoIndexOrFollow(env);
+
+        //TODO: fix when going live
+        //if (!env.IsProduction())
+        //{
+        //    app.NoIndexOrFollow(env);
+        //}
 
         app.UseUmbraco()
             .WithMiddleware(u =>
