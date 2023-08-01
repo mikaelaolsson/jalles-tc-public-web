@@ -28,10 +28,11 @@
     "Production": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false,
+      "launchBrowser": true,
       "applicationUrl": "https://localhost:44334;http://localhost:42165",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }
+}
