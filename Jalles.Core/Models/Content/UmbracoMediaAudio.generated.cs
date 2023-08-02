@@ -16,7 +16,7 @@ using Umbraco.Cms.Infrastructure.ModelsBuilder;
 using Umbraco.Cms.Core;
 using Umbraco.Extensions;
 
-namespace Jalles.Web.Models.Content
+namespace Jalles.Core.Models.Content
 {
 	/// <summary>Audio</summary>
 	[PublishedModel("umbracoMediaAudio")]
