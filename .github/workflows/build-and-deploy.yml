@@ -1,37 +1,26 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy ASP.Net Core app to Azure Web App - jalles-tc-public-web
 
 on:
   push:
     branches:
       - master
-      - develop
-
-    paths-ignore:
-      - 'README.md'
-      - '.vscode/*'
-
   workflow_dispatch:
 
 jobs:
   build:
-    name: 🏡 .NET Build
     runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '7.x'
-
-      - name: Set up dependency caching for faster builds
-        uses: actions/cache@v3
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
+          include-prerelease: true
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
@@ -46,8 +35,6 @@ jobs:
           path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
-    name: 🚀 Deploy to Production
-    if: github.ref == 'refs/heads/master'
     runs-on: windows-latest
     needs: build
     environment:
@@ -56,7 +43,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: .net-app
 
@@ -68,16 +55,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3724B8707D8B4AFB8CE132694487C915 }}
           package: .
-
-  cleanup:
-      name: 🧹 Cleanup
-      runs-on: ubuntu-latest
-      needs: [ deploy ]
-      if: always()
-  
-      steps:
-      - uses: geekyeggo/delete-artifact@v2
-        with:
-            name: |
-                frontend-artifacts
-                .net-app
