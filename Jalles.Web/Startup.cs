@@ -31,9 +31,9 @@ public class Startup
         umbraco
             .AddBackOffice()
             .AddWebsite()
-            .AddDeliveryApi()
+            //.AddDeliveryApi()
             .AddComposers()
-            //.AddAzureBlobMediaFileSystem()
+            .AddAzureBlobMediaFileSystem()
             .Build();
 
         services.AddHsts(options => options.MaxAge = TimeSpan.FromDays(183));
