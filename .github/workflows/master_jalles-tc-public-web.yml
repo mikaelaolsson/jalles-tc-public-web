@@ -60,7 +60,7 @@ jobs:
         with:
           app-name: 'jalles-tc-public-web'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3724B8707D8B4AFB8CE132694487C915 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B0749805528E465BA50F71458F017C0F }}
           package: .
 
   cleanup:
