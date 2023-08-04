@@ -1,0 +1,96 @@
+@import 'fonts.scss';
+@import 'variables.scss';
+
+@import 'mixins/visually-hidden.scss';
+
+
+:root {
+    font-size: 16px; // stylelint-disable-line declaration-property-unit-allowed-list
+}
+
+html {
+    min-height: 100%;
+
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $foreground-color-main;
+
+    &.hide-header {
+        margin-top: $spacing-vertical-large;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    line-height: $font-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    line-height: $font-line-height-heading;
+    color: $foreground-color-main;
+}
+
+h1 {
+    font-size: $font-size-heading-medium;
+}
+
+h2 {
+    font-size: $font-size-heading-medium;
+}
+
+h3 {
+    font-size: $font-size-heading-small;
+}
+
+h4, h5, h6 {
+    font-size: $font-size-heading-extra-small;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: $font-size;
+    font-family: $font-family;
+}
+
+a {
+    color: $foreground-color-main;
+    text-decoration-line: none;
+}
+
+.visually-hidden {
+    @include visually-hidden;
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+    body {
+        font-size: $font-size-desktop;
+
+        &.hide-header {
+            margin-top: $spacing-vertical-large-desktop;
+        }
+    }
+
+    h1 {
+        font-size: $font-size-heading-large;
+    }
+}

@@ -17,8 +17,8 @@
 
     @*
     TODO: Fix these
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/build/style.css" asp-append-version="true">*@
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">*@
+    <link rel="stylesheet" href="/build/style.css" asp-append-version="true">
 
 </head>
 
@@ -26,7 +26,6 @@
     <vc:main-menu content="@Model.Content"></vc:main-menu>
 
     @await Html.PartialAsync("../Partials/_Header", Model.Header)
-    @await Html.PartialAsync("../Blocks/_MediaBlock", Model.Header)
 
     @RenderBody()
 

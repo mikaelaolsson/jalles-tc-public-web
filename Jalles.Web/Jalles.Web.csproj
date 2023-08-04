@@ -54,4 +54,19 @@
 			<Watch Include="%(RazorWatch.FullPath)" />
 		</ItemGroup>
 	</Target>
+
+	<Target Name="NpmInstall" Inputs="package.json" Outputs="../Jalles.Frontend/node_modules/.install-stamp" Condition="'$(BuildingInsideVisualStudio)' == 'true' And '$(NCrunch)' != '1'">
+		<PropertyGroup>
+			<RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
+		</PropertyGroup>
+		<Exec Command="npm ci" WorkingDirectory="../Jalles.Frontend" Condition="'$(RestorePackagesWithLockFile)' == 'true'" />
+		<Exec Command="npm install" WorkingDirectory="../Jalles.Frontend" Condition="'$(RestorePackagesWithLockFile)' != 'true'" />
+
+		<!-- Write the stamp file, so incremental builds work -->
+		<Touch Files="../Jalles.Frontend/node_modules/.install-stamp" AlwaysCreate="true" />
+	</Target>
+
+	<Target Name="NpmRunBuild" DependsOnTargets="NpmInstall" BeforeTargets="BeforeBuild" Condition="'$(BuildingInsideVisualStudio)' == 'true' And '$(NCrunch)' != '1'">
+		<Exec Command="npm run build" WorkingDirectory="../Jalles.Frontend" />
+	</Target>
 </Project>
