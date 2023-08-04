@@ -1,0 +1,40 @@
+﻿@inherits UmbracoViewPage<LayoutViewModel>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="sv-SE" xml:lang="sv-SE">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+    <meta name="description" content="@Model.MetaDescription">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@Model.Title">
+    <meta property="og:description" content="@Model.MetaDescription">
+    <meta property="og:image" content="@Model.Thumbnail">
+    <meta property="og:url" content="@Model.Url">
+
+    @*
+    TODO: Fix these
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/build/style.css" asp-append-version="true">*@
+
+</head>
+
+<body>
+    <vc:main-menu content="@Model.Content"></vc:main-menu>
+
+    @await Html.PartialAsync("../Partials/_Header", Model.Header)
+    @await Html.PartialAsync("../Blocks/_MediaBlock", Model.Header)
+
+    @RenderBody()
+
+    <vc:footer content="@Model.Content"></vc:footer>
+
+    @*  TODO: Fix these
+    <script src="~/build/bundle.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)*@
+
+</body>
+</html>

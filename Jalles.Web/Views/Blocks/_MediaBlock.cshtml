@@ -1,0 +1,37 @@
+﻿@model MediaViewModel
+
+@{
+    var backgroundColor = Model.MediaType switch
+    {
+        MediaType.BackgroundColor => Model.BackgroundColor,
+        _ => "transparent"
+        };
+
+    var blur = Model.AddBlurOverlay ? "blur" : string.Empty;
+    var isLazy = Model.IsLazy ? "lazy" : "eager";
+}
+
+<div class="media @blur" style="background-color: @backgroundColor">
+    @if (Model.MediaType == MediaType.Image)
+    {
+        <picture>
+            <source srcset="@Model.MediaSource?width=1920&amp;format=webp" media="(min-width: 1600px)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=1920&amp;format=jpg" media="(min-width: 1600px)" type="image/jpeg">
+            <source srcset="@Model.MediaSource?width=1280&amp;format=webp" media="(min-width: 900px)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=1280&amp;format=jpg" media="(min-width: 900px)" type="image/jpeg">
+            <source srcset="@Model.MediaSource?width=700&amp;format=webp" media="(min-width: 500px)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=700&amp;format=jpg" media="(min-width: 500px)" type="image/jpeg">
+            <source srcset="@Model.MediaSource?width=600&amp;format=webp" media="(min-width: 0)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=600&amp;format=jpg" media="(min-width: 0)" type="image/jpeg">
+
+            <img src="@Model.MediaSource" alt="" loading="@isLazy" />
+        </picture>
+
+    }
+    @if (Model.MediaType == MediaType.Video)
+    {
+        <video tabindex="-1" aria-hidden="true" loop playsinline autoplay muted>
+            <source type="video/mp4" src="@Model.MediaSource" />
+        </video>
+    }
+</div>

@@ -1,4 +1,5 @@
 using Jalles.Core.Extensions;
+using Jalles.Core.MappingProfiles.Pages;
 using Jalles.Web.Extensions;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Rewrite;
@@ -45,6 +46,9 @@ public class Startup
             options.EnableForHttps = true;
             options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
         });
+
+        // Mappings
+        services.AddAutoMapper(typeof(BasePageProfile).Assembly);
 
         services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
     }

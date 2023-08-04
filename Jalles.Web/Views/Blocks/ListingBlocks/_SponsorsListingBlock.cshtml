@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SponsorViewModel>
+
+<div class="sponsors">
+    <ul>
+        @foreach (var sponsor in Model)
+        {
+            if (sponsor.Website?.Url is not null)
+            {
+                <li>
+                    <a href="@sponsor.Website.Url">
+                        <img src="@sponsor.Logo?.MediaUrl()" alt="@sponsor.Name">
+                    </a>
+                </li>
+
+            }
+            else
+            {
+                <li>
+                    <span>
+                        <img src="@sponsor.Logo?.MediaUrl()" alt="@sponsor.Name">
+                    </span>
+                </li>
+
+            }
+        }
+    </ul>
+</div>

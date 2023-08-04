@@ -1,4 +1,6 @@
-﻿namespace Jalles.Web.Extensions;
+﻿using File = System.IO.File;
+
+namespace Jalles.Web.Extensions;
 
 public static class ApplicationBuilderExtensions
 {

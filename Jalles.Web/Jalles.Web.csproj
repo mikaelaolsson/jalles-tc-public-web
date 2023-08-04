@@ -28,11 +28,6 @@
     <ProjectReference Include="..\Jalles.Core\Jalles.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
@@ -48,4 +43,15 @@
 	<PropertyGroup>
 		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
 	</PropertyGroup>
+
+	<PropertyGroup>
+		<CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+	</PropertyGroup>
+
+	<Target Name="RazorWatch" BeforeTargets="_CoreCollectWatchItems">
+		<ItemGroup>
+			<RazorWatch Include="**\*.cshtml" />
+			<Watch Include="%(RazorWatch.FullPath)" />
+		</ItemGroup>
+	</Target>
 </Project>

@@ -1,9 +1,17 @@
 @using Umbraco.Extensions
 @using Jalles.Web
+@using Jalles.Core.Enum
+@using Jalles.Core.ViewModels
+@using Jalles.Core.ViewModels.Blocks
+@using Jalles.Core.Models.Content
 @using Umbraco.Cms.Web.Common.PublishedModels
 @using Umbraco.Cms.Web.Common.Views
 @using Umbraco.Cms.Core.Models.PublishedContent
 @using Microsoft.AspNetCore.Html
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@addTagHelper *, Smidge
-@inject Smidge.SmidgeHelper SmidgeHelper
+@*@addTagHelper *, Smidge
+@inject Smidge.SmidgeHelper SmidgeHelper*@
+
+
+@addTagHelper *, Jalles.Web
+@addTagHelper *, Jalles.Core

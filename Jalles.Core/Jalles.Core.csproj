@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Models\Content\" />
-    <Folder Include="MappingProfiles\" />
   </ItemGroup>
 
 	<ItemGroup>
