@@ -20,7 +20,7 @@ namespace Jalles.Core.Models.Content
 {
 	/// <summary>Start Page</summary>
 	[PublishedModel("startPage")]
-	public partial class StartPage : PublishedContentModel, ITitleProperties
+	public partial class StartPage : PublishedContentModel, IMainMenuProperties, IStartPageProperties, IThumbnailProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,11 +50,59 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
+		/// Footer
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footer")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.FooterBlock> Footer => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.FooterBlock>>(_publishedValueFallback, "footer");
+
+		///<summary>
+		/// Header
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("header")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock> Header => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock>>(_publishedValueFallback, "header");
+
+		///<summary>
+		/// Facebook
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("facebook")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.SocialLink> Facebook => global::Jalles.Core.Models.Content.MainMenuProperties.GetFacebook(this, _publishedValueFallback);
+
+		///<summary>
+		/// Main Menu
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("mainMenu")]
+		public virtual global::System.Collections.Generic.List<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> MainMenu => global::Jalles.Core.Models.Content.MainMenuProperties.GetMainMenu(this, _publishedValueFallback);
+
+		///<summary>
+		/// Meta Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::Jalles.Core.Models.Content.StartPageProperties.GetMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
 		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("title")]
-		public virtual string Title => global::Jalles.Core.Models.Content.TitleProperties.GetTitle(this, _publishedValueFallback);
+		public virtual string Title => global::Jalles.Core.Models.Content.StartPageProperties.GetTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Thumbnail: Select thumbnail for the page.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("thumbnail")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Thumbnail => global::Jalles.Core.Models.Content.ThumbnailProperties.GetThumbnail(this, _publishedValueFallback);
 	}
 }

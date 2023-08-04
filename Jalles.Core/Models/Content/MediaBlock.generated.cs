@@ -18,24 +18,14 @@ using Umbraco.Extensions;
 
 namespace Jalles.Core.Models.Content
 {
-	// Mixin Content Type with alias "titleProperties"
-	/// <summary>Title Properties</summary>
-	public partial interface ITitleProperties : IPublishedElement
-	{
-		/// <summary>Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Title { get; }
-	}
-
-	/// <summary>Title Properties</summary>
-	[PublishedModel("titleProperties")]
-	public partial class TitleProperties : PublishedElementModel, ITitleProperties
+	/// <summary>Media Block</summary>
+	[PublishedModel("mediaBlock")]
+	public partial class MediaBlock : PublishedElementModel, IMediaProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
-		public new const string ModelTypeAlias = "titleProperties";
+		public new const string ModelTypeAlias = "mediaBlock";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
@@ -44,14 +34,14 @@ namespace Jalles.Core.Models.Content
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<TitleProperties, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<MediaBlock, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public TitleProperties(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public MediaBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -60,16 +50,26 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Title
+		/// Add Blur Overlay?: Check this box if you want to have a blur overlay over the media.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[ImplementPropertyType("addBlurOverlay")]
+		public virtual bool AddBlurOverlay => global::Jalles.Core.Models.Content.MediaProperties.GetAddBlurOverlay(this, _publishedValueFallback);
+
+		///<summary>
+		/// Background Color: Choose a background color for the media. This will only be rendered if there is no other media present.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => GetTitle(this, _publishedValueFallback);
+		[ImplementPropertyType("backgroundColor")]
+		public virtual string BackgroundColor => global::Jalles.Core.Models.Content.MediaProperties.GetBackgroundColor(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Title</summary>
+		///<summary>
+		/// Media: Choose media. If no media or background color is chosen, the default image will be rendered
+		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetTitle(ITitleProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "title");
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("media")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Media => global::Jalles.Core.Models.Content.MediaProperties.GetMedia(this, _publishedValueFallback);
 	}
 }

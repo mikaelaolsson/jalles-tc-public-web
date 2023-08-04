@@ -14,6 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Our.Umbraco.Community.Contentment" Version="4.4.4" />
     <PackageReference Include="Our.Umbraco.Community.Contentment.Core" Version="4.4.4" />
     <PackageReference Include="Umbraco.Cms" Version="12.0.1" />
     <PackageReference Include="Umbraco.Cms.Core" Version="12.0.1" />
@@ -21,6 +22,10 @@
 
   <ItemGroup>
     <Folder Include="Models\Content\" />
+    <Folder Include="MappingProfiles\" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Compile Remove="App_Plugins\**" />
+	</ItemGroup>
 </Project>
