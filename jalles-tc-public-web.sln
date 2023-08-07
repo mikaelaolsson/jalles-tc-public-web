@@ -10,8 +10,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jalles.Web", "Jalles.Web\Ja
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jalles.Core", "Jalles.Core\Jalles.Core.csproj", "{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jalles.Frontend", "Jalles.Frontend\Jalles.Frontend.csproj", "{16C94C49-B290-4619-B4CC-B71BF8CE04B7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,10 +24,6 @@ Global
 		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}.Release|Any CPU.Build.0 = Release|Any CPU
-		{16C94C49-B290-4619-B4CC-B71BF8CE04B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16C94C49-B290-4619-B4CC-B71BF8CE04B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16C94C49-B290-4619-B4CC-B71BF8CE04B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16C94C49-B290-4619-B4CC-B71BF8CE04B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

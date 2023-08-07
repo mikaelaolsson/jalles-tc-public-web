@@ -4,9 +4,40 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="wwwroot\css\pages\**" />
+    <Content Remove="wwwroot\css\pages\**" />
+    <EmbeddedResource Remove="wwwroot\css\pages\**" />
+    <None Remove="wwwroot\css\pages\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\css\blocks\footer.scss" />
+    <Content Remove="wwwroot\css\blocks\header.scss" />
+    <Content Remove="wwwroot\css\blocks\main-menu.scss" />
+    <Content Remove="wwwroot\css\blocks\media.scss" />
+    <Content Remove="wwwroot\css\blocks\text-block.scss" />
+    <Content Remove="wwwroot\css\blocks\text-blocks-collection-block.scss" />
+    <Content Remove="wwwroot\css\blocks\text-contact-block.scss" />
+    <Content Remove="wwwroot\css\fonts.scss" />
+    <Content Remove="wwwroot\css\jalles-icons.scss" />
+    <Content Remove="wwwroot\css\main.scss" />
+    <Content Remove="wwwroot\css\mixins\button.scss" />
+    <Content Remove="wwwroot\css\mixins\containers.scss" />
+    <Content Remove="wwwroot\css\mixins\embedded-video.scss" />
+    <Content Remove="wwwroot\css\mixins\icon.scss" />
+    <Content Remove="wwwroot\css\mixins\links.scss" />
+    <Content Remove="wwwroot\css\mixins\media.scss" />
+    <Content Remove="wwwroot\css\mixins\visually-hidden.scss" />
+    <Content Remove="wwwroot\css\variables.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\menu-toggle.ts" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="BuildWebCompiler2022" Version="1.14.10" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.6.0">
       <PrivateAssets>all</PrivateAssets>
@@ -26,6 +57,33 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Jalles.Core\Jalles.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="wwwroot\css\blocks\footer.scss" />
+    <None Include="wwwroot\css\blocks\header.scss" />
+    <None Include="wwwroot\css\blocks\main-menu.scss" />
+    <None Include="wwwroot\css\blocks\media.scss" />
+    <None Include="wwwroot\css\blocks\text-block.scss" />
+    <None Include="wwwroot\css\blocks\text-blocks-collection-block.scss" />
+    <None Include="wwwroot\css\blocks\text-contact-block.scss" />
+    <None Include="wwwroot\css\fonts.scss" />
+    <None Include="wwwroot\css\jalles-icons.scss" />
+    <None Include="wwwroot\css\main.scss" />
+    <None Include="wwwroot\css\mixins\button.scss" />
+    <None Include="wwwroot\css\mixins\containers.scss" />
+    <None Include="wwwroot\css\mixins\embedded-video.scss" />
+    <None Include="wwwroot\css\mixins\icon.scss" />
+    <None Include="wwwroot\css\mixins\links.scss" />
+    <None Include="wwwroot\css\mixins\media.scss" />
+    <None Include="wwwroot\css\mixins\visually-hidden.scss" />
+    <None Include="wwwroot\css\variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\build\" />
+    <Folder Include="scripts\" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -53,20 +111,5 @@
 			<RazorWatch Include="**\*.cshtml" />
 			<Watch Include="%(RazorWatch.FullPath)" />
 		</ItemGroup>
-	</Target>
-
-	<Target Name="NpmInstall" Inputs="package.json" Outputs="../Jalles.Frontend/node_modules/.install-stamp" Condition="'$(BuildingInsideVisualStudio)' == 'true' And '$(NCrunch)' != '1'">
-		<PropertyGroup>
-			<RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
-		</PropertyGroup>
-		<Exec Command="npm ci" WorkingDirectory="../Jalles.Frontend" Condition="'$(RestorePackagesWithLockFile)' == 'true'" />
-		<Exec Command="npm install" WorkingDirectory="../Jalles.Frontend" Condition="'$(RestorePackagesWithLockFile)' != 'true'" />
-
-		<!-- Write the stamp file, so incremental builds work -->
-		<Touch Files="../Jalles.Frontend/node_modules/.install-stamp" AlwaysCreate="true" />
-	</Target>
-
-	<Target Name="NpmRunBuild" DependsOnTargets="NpmInstall" BeforeTargets="BeforeBuild" Condition="'$(BuildingInsideVisualStudio)' == 'true' And '$(NCrunch)' != '1'">
-		<Exec Command="npm run build" WorkingDirectory="../Jalles.Frontend" />
 	</Target>
 </Project>
