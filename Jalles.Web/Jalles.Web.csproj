@@ -8,9 +8,7 @@
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="compilerconfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 
 	<ItemGroup>
