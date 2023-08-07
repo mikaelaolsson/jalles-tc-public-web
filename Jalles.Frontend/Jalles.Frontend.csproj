@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+	  <TargetFramework>netstandard2.0</TargetFramework>
 	  <IsPackable>false</IsPackable>
 	  <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -13,10 +13,6 @@
 		<Compile Remove="**" />
 		<None Include="**" />
 		<None Remove="node_modules/;obj/;.yarn/" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="src\styles\pages\" />
 	</ItemGroup>
 
 	<ItemGroup>
