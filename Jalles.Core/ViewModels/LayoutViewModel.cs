@@ -1,8 +1,6 @@
 ﻿using Jalles.Core.Extensions;
 using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels.Blocks;
-using Polly;
-using Umbraco.Cms.Core.Models;
+using Microsoft.AspNetCore.Http;
 using Umbraco.Cms.Core.Models.Blocks;
 using Umbraco.Cms.Core.Models.PublishedContent;
 
