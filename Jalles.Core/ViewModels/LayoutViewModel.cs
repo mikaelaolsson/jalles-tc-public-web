@@ -21,14 +21,18 @@ public class LayoutViewModel : ContentModel
         Thumbnail = (content?.Value<MediaWithCrops>("thumbnail")?.GetCropUrl("thumbnail") ?? host + "/images/jalles-logo-yellow.png");
 
         var headerProperty = content?.Value<BlockListItem<HeaderBlock>>("header")?.Content;
-        Header = headerProperty.GetMediaForHeader();
+        Header = new HeaderViewModel
+        {
+            Media = headerProperty.GetMediaForHeader(),
+            Content = content
+        };
     }
 
     public string Title { get; set; }
     public string MetaDescription { get; set; }
     public string Url { get; set; }
     public string Thumbnail { get; set; }
-    public MediaViewModel Header { get; set; }
+    public HeaderViewModel Header { get; set; }
 }
 
 public class LayoutViewModel<T> : LayoutViewModel where T : class

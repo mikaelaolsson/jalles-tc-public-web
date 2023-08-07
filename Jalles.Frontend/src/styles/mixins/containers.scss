@@ -1,0 +1,11 @@
+@mixin desktop-container-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $spacing-large;
+  row-gap: $spacing-vertical-medium-desktop;
+}
+
+@mixin desktop-container-content {
+  max-width: $max-width;
+  margin: 0 auto;
+}

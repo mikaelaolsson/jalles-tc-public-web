@@ -1,0 +1,163 @@
+.text-block {
+  overflow-wrap: break-word;
+
+  .media {
+    height: 240px;
+    border-radius: $border-radius;
+  }
+
+  .published-date {
+    color: $foreground-color-secondary;
+  }
+
+  h1 {
+    font-size: $font-size-heading-medium;
+    line-height: $font-line-height-heading;
+  }
+
+  h1, h2, h3 {
+    max-width: $text-max-width-large;
+  }
+
+  .ingress {
+    margin-bottom: $spacing-vertical-small;
+    font-size: $font-size-large;
+  }
+
+  p {
+    max-width: $text-max-width-large;
+
+    img {
+      width: 100%;
+      border-radius: $border-radius;
+    }
+
+    a {
+      @include link-with-color;
+
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  figure {
+    margin: 0;
+
+    img {
+      width: 100%;
+      border-radius: $border-radius;
+    }
+
+    figcaption {
+      color: $foreground-color-secondary;
+    }
+  }
+
+  .cta-block {
+    padding: $spacing-vertical-medium 0;
+
+    a {
+      @include button-secondary-on-light-background;
+    }
+  }
+
+  ul, ol {
+    margin-left: $spacing-vertical-small;
+    padding-inline-start: $spacing-small;
+
+    max-width: $text-max-width;
+
+    li {
+      padding: 0 0 $spacing-standard $spacing-small;
+      line-height: $font-line-height;
+      list-style-image: url('../images/arrow-right.svg');
+
+      ul, ol {
+        padding-top: $spacing-small;
+      }
+    }
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin: $spacing-vertical-medium 0;
+    border-radius: $border-radius;
+  }
+
+  table {
+    width: 100%;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+
+    caption {
+      display: none;
+    }
+
+    thead {
+      background-color: $color-petrolium;
+      color: $color-white;
+      white-space: nowrap;
+    }
+
+    tr {
+      &:first-child {
+        > th {
+          border-bottom: 0;
+        }
+
+        > td {
+          border-top: none;
+        }
+      }
+    }
+
+    th {
+      font-weight: $font-weight;
+    }
+
+    th,
+    td {
+      line-height: $font-line-height;
+      text-align: left;
+
+      padding: $spacing-standard $spacing-large;
+      border: none;
+      background-color: transparent;
+
+      p {
+        a {
+          @include link-with-color;
+        }
+      }
+
+      a {
+        @include link-with-color;
+      }
+    }
+
+    td {
+      background-color: $color-isabelline;
+    }
+  }
+
+  .embedded-video-container {
+    @include embedded-video;
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .text-block {
+    width: 100%;
+    max-width: $text-max-width-large;
+
+    .media {
+      height: 385px;
+    }
+
+    .ingress {
+      margin-bottom: $spacing-vertical-small-desktop;
+      font-size: $font-size-large-desktop;
+    }
+  }
+}

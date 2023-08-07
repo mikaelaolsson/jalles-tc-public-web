@@ -22,15 +22,21 @@ $font-weight-bold: 700;
 
 /* Color */
 
+$color-jalles-yellow: #FFEB19;
+$color-off-white: #FAFAEC ;
+$color-vanilla: #FFF8AD;
+$color-taupe: #463F3A;
+$color-battleship-gray: #8A817C;
+$color-black: #1E2022;
+$color-white: #FFFFFF;
+
 $color-xlent-yellow: #FFB300;
 $color-isabelline: #F0F2EF;
 $color-cambridge: #A3B6B4;
 $color-petrolium: #526664;
 $color-dark-grey: #1E2022;
-$color-black: #191919;
-$color-white: #FFFFFF;
 
-$bg-color-main: #FFFFFF;
+$bg-color-main: $color-taupe;
 $bg-color-secondary: $color-isabelline;
 $bg-color-tertiary: $color-cambridge;
 $bg-color-dark-main: $color-dark-grey;

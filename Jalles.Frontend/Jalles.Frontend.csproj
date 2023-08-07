@@ -13,4 +13,8 @@
 		<None Include="**" />
 		<None Remove="node_modules/;obj/;.yarn/" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="src\styles\pages\" />
+	</ItemGroup>
 </Project>

@@ -1,39 +1,31 @@
 ﻿@model MainMenuViewModel
 
-
-<nav id="menu">
-    <div class="menu-container">
-        <div class="top-bar">
-            @*            <a href="@Model.StartPageUrl">
-            <img class="logo" src="/images/jalles-logo-reverse.svg" alt="Jalles TC Startsida">
-            </a>*@
-
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <img src="/images/hamburger.svg" alt="">
-            </button>
-        </div>
+<div class="menu-container">
+    <nav class="menu">
+        <button class="open-menu-button" aria-label="Öppna menyn">
+            &#9776;
+        </button>
 
         <ul class="menu-items">
             @if (Model.MenuItems.Any())
             {
                 foreach (var item in Model.MenuItems)
                 {
-
                     <li>
                         <a href="@item?.PagePath">
                             @item?.Title
                         </a>
                     </li>
 
-
                 }
             }
-            @if (Model.Facebook.Url is not null)
+
+            @if (!string.IsNullOrWhiteSpace(Model.Facebook))
             {
                 <li>
-                    <a href="@Model.Facebook.Url">Facebook</a>
+                    <a href="@Model.Facebook" target="_blank" class="facebook"><img src="~/images/facebook.svg" alt="Facebook"></a>
                 </li>
             }
         </ul>
-    </div>
-</nav>
+    </nav>
+</div>

@@ -1,0 +1,13 @@
+@mixin link {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin link-with-color {
+  @include link;
+
+  color: $color-petrolium;
+}

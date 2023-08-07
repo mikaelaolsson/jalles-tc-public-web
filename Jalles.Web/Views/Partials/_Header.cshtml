@@ -1,9 +1,13 @@
-﻿@model MediaViewModel
+﻿@model HeaderViewModel
 
 <div class="header">
-    @await Html.PartialAsync("../Blocks/_MediaBlock.cshtml", Model)
+    @await Html.PartialAsync("../Blocks/_MediaBlock.cshtml", Model.Media)
 
     <div class="content">
-       @*TODO: Add logo + heading here*@
+        <a href="/" class="startpage-link">
+            <img class="logo" src="/images/jalles-logo-reverse.svg" alt="Jalles TC - Gå till startsida">
+        </a>
+        
+        <vc:main-menu content="@Model.Content"></vc:main-menu>
     </div>
 </div>

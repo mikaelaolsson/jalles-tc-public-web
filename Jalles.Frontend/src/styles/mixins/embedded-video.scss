@@ -1,0 +1,22 @@
+@mixin embedded-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  /*16:9*/
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  background-color: $color-black;
+  border-radius: $border-radius;
+
+  iframe, object, embed {
+    // We need the important statements here because of another framework interfering...
+    // stylelint-disable declaration-no-important
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: $border-radius !important;
+    // stylelint-enable declaration-no-important
+  }
+}

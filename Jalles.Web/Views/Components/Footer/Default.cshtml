@@ -7,13 +7,13 @@
         @if (Model.Sponsors.Any())
         {
             <h2>Sponsorer</h2>
-            @await Html.PartialAsync("../Blocks/ListingBlocks/_SponsorsListingBlock", Model.Sponsors)
+            @*@await Html.PartialAsync("../Blocks/ListingBlocks/_SponsorsListingBlock", Model.Sponsors)*@
         }
         
         @if (Model.UmemaranLogo is not null)
         {
             <h2>Stolt arrangör av</h2>
-            <img src="@Model.UmemaranLogo.MediaUrl()" alt="Umemaran Logo"/>
+            @*<img src="@Model.UmemaranLogo.MediaUrl()" alt="Umemaran Logo"/>*@
         }
 
         <span>Copyright &copy; @DateTime.Now.Year</span>

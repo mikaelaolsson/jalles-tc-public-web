@@ -1,0 +1,108 @@
+@mixin button {
+  padding: $button-padding;
+
+  font-family: $font-family;
+  font-size: $font-size;
+  text-decoration: none;
+
+  border: 1px solid transparent;
+  border-radius: 10rem;
+  box-sizing: border-box;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+  }
+
+  &:hover {
+    .xlent-icon-arrow-right {
+      @media (prefers-reduced-motion: no-preference) {
+        animation: arrow-animation 0.5s $animation-bounce-timing;
+        animation-delay: 0.1s;
+      }
+    }
+  }
+}
+
+@mixin button-on-dark-background {
+  @include button;
+
+  background-color: $button-light-bg-color;
+  color: $foreground-color-main;
+
+  &:hover {
+    background-color: transparent;
+    color: $foreground-color-dark-contrast;
+    border: 1px solid $button-secondary-dark-border-color;
+  }
+}
+
+@mixin button-on-light-background {
+  @include button;
+
+  background-color: $button-dark-bg-color;
+  color: $foreground-color-dark-contrast;
+
+  &:hover {
+    @include button-secondary-on-light-background;
+  }
+}
+
+@mixin button-secondary-on-dark-background {
+  @include button;
+
+  background-color: transparent;
+  color: $foreground-color-dark-contrast;
+  border: 1px solid $button-secondary-dark-border-color;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@mixin button-secondary-on-light-background {
+  @include button;
+
+  background-color: $button-light-bg-color;
+  color: $foreground-color-main;
+  border: 1px solid $button-secondary-light-border-color;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $foreground-color-secondary;
+  }
+}
+
+@mixin anchor-link-button {
+  @include button;
+  display: flex;
+  align-items: center;
+  gap: $spacing-small;
+
+  padding: $spacing-small $spacing-standard;
+  font-size: $font-size-small-desktop;
+
+  background-color: transparent;
+  color: $foreground-color-main;
+  border: 1px solid $button-secondary-light-border-color;
+
+  &:after {
+    width: $icon-size-small;
+    height: $icon-size-small;
+
+    transform: rotate(90deg);
+
+    content: '';
+    background-image: url('../images/arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+  }
+
+  &:hover {
+    &:after {
+      @media (prefers-reduced-motion: no-preference) {
+        animation: anchor-arrow-animation 0.45s $animation-bounce-timing;
+      }
+    }
+  }
+}

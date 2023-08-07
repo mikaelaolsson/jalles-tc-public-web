@@ -1,0 +1,28 @@
+@mixin vertical-center-with-icon {
+  display: flex;
+  align-items: center;
+  gap: $spacing-small;
+
+  i {
+    font-size: $icon-size;
+  }
+}
+
+@mixin vertical-center-with-small-icon {
+  display: flex;
+  align-items: center;
+  gap: $spacing-small;
+
+  i {
+    font-size: $icon-size-small;
+  }
+}
+
+@mixin enlarge-icon-to-min-touch-target-size {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: $min-touch-target-size;
+  min-width: $min-touch-target-size;
+}

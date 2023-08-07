@@ -1,0 +1,45 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: $header-height;
+  padding: $spacing-vertical-large $side-margins $spacing-vertical-medium;
+
+  .media {
+    @include fill-by-absolute-position;
+    @include darken-by-absolute-fill;
+  }
+
+  .content {
+    @include desktop-container-content;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 1;
+
+    .startpage-link {
+      display: flex;
+      justify-content: center;
+
+      img {
+        max-height: 15rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .header {
+    /*min-height: $header-height-desktop;*/
+    /*padding: $spacing-vertical-large-desktop $side-margins-desktop $spacing-vertical-medium-desktop;*/
+
+    .content {
+      a {
+        img {
+          max-height: 20rem;
+        }
+      }
+    }
+  }
+}

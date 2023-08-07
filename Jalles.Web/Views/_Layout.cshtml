@@ -23,7 +23,6 @@
 </head>
 
 <body>
-    <vc:main-menu content="@Model.Content"></vc:main-menu>
 
     @await Html.PartialAsync("../Partials/_Header", Model.Header)
 
@@ -31,9 +30,10 @@
 
     <vc:footer content="@Model.Content"></vc:footer>
 
-    @*  TODO: Fix these
-    <script src="~/build/bundle.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)*@
+    @*TODO: Fix these*@
+    <script src="~/build/scripts/menu-toggle.js" asp-append-version="true"></script>
+    @*<script src="~/build/scripts/menu-toggle.js" asp-append-version="true"></script>*@
+    @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>

@@ -36,6 +36,7 @@ public class MainMenuViewComponent : ViewComponent
         {
             StartPageTitle = startPage?.Title ?? string.Empty,
             StartPageUrl = startPage?.Url() ?? string.Empty,
+            Facebook = startPage?.Facebook?.First().Url ?? string.Empty,
             MenuItems = menuItems.ToList()
         };
 
