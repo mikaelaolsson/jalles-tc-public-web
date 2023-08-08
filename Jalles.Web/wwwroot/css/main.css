@@ -258,17 +258,18 @@ footer .content-container .legal-links span {
 .menu-container {
   position: fixed;
   top: 1rem;
+  right: 0;
+  left: 0;
   z-index: 100;
-  margin-right: 2rem;
+  width: 100%;
 }
 .menu-container a {
   color: #FAFAEC;
   text-decoration: none;
 }
 .menu-container .menu {
-  margin-top: 1rem;
+  margin: 1rem;
   padding: 0.5rem 1.25rem 0.5rem;
-  max-width: 100%;
   border-radius: 1rem;
   background-color: #463F3A;
   color: #FAFAEC;

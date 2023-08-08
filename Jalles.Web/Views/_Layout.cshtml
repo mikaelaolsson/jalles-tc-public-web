@@ -15,9 +15,7 @@
     <meta property="og:image" content="@Model.Thumbnail">
     <meta property="og:url" content="@Model.Url">
 
-    @*
-    TODO: Fix these
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">*@
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
 
 </head>
@@ -32,7 +30,6 @@
 
     @*TODO: Fix these*@
     <script src="~/build/scripts/menu-toggle.js" asp-append-version="true"></script>
-    @*<script src="~/build/scripts/menu-toggle.js" asp-append-version="true"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>
