@@ -2,12 +2,15 @@
 
 <div class="sponsors">
     <ul>
+        <li>
+            <h2>Sponsorer</h2>
+        </li>
         @foreach (var sponsor in Model)
         {
             if (sponsor.Website?.Url is not null)
             {
                 <li>
-                    <a href="@sponsor.Website.Url">
+                    <a href="@sponsor.Website.Url" target="_blank">
                         <img src="@sponsor.Logo?.MediaUrl()" alt="@sponsor.Name">
                     </a>
                 </li>

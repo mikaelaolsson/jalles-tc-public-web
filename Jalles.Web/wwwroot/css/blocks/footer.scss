@@ -1,87 +1,45 @@
 footer {
-  padding: $spacing-vertical-large $side-margins;
+  padding: $spacing-vertical-medium $side-margins;
 
-  background-color: $bg-color-dark-main;
-  color: $foreground-color-dark-contrast;
+  background-color: $color-taupe;
+  color: $color-off-white;
+  text-align: center;
 
-  .content-container {
-    > p {
-      margin-top: 0;
-      margin-bottom: $spacing-vertical-large;
+  p {
+    margin: 0 auto;
+    max-width: $text-max-width;
+  }
 
-      color: $foreground-color-dark-contrast-secondary;
-    }
+  span {
+    color: $color-battleship-gray;
+    font-size: $font-size-small;
+  }
 
-    a {
-      @include link;
-      color: $foreground-color-dark-contrast;
-    }
+  .content {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-large;
 
-    .contact {
+    padding: $spacing-vertical-small;
+
+    .umemaran {
       display: flex;
       flex-direction: column;
-      gap: $spacing-standard;
+      gap: $spacing-small;
 
-      margin-bottom: $spacing-vertical-large;
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
 
       h2 {
-        /*@include small-heading-on-dark-background;*/
         margin: 0;
+        font-size: $font-size;
+        color: $color-battleship-gray;
       }
 
-      .sibling-company-link {
-        margin-top: $spacing-standard;
-      }
-    }
-
-    .logo-container {
-      display: flex;
-      flex-direction: column;
-
-      margin-bottom: $spacing-vertical-small;
-
-      a {
-        img {
-          width: 6rem;
-          height: auto;
-        }
-      }
-
-      span {
-        color: $foreground-color-dark-contrast-secondary;
-        font-size: 0.75rem;
-      }
-    }
-
-    .social-media-links {
-      display: flex;
-
-      margin-bottom: $spacing-vertical-small;
-      margin-left: calc(0rem - $min-touch-target-size / 3);
-
-      font-size: 1.5rem;
-
-      > * {
-        @include enlarge-icon-to-min-touch-target-size;
-        text-decoration: none;
-      }
-    }
-
-    .legal-links {
-      display: flex;
-      flex-direction: column;
-
-      a {
-        @include enlarge-icon-to-min-touch-target-size;
-        @include link;
-
-        justify-content: start;
-      }
-
-      span {
-        display: flex;
-        align-items: center;
-        gap: $spacing-small;
+      img {
+        width: 8rem;
       }
     }
   }
@@ -89,53 +47,17 @@ footer {
 
 @media only screen and (min-width: $screen-min-desktop) {
   footer {
-    padding: $spacing-vertical-large-desktop $side-margins-desktop;
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
 
-    .content-container {
+    .content {
       @include desktop-container-content;
-      @include desktop-container-grid;
+      align-items: center;
 
-      > p, .contact, .logo-container, .social-media-links, .legal-links {
-        margin-bottom: 0;
-      }
-
-      > p {
-        grid-column: 1 / 8;
-        grid-row: 1;
-      }
-
-      .contact {
-        grid-column: 11 / 13;
-        grid-row: 1;
-        justify-self: flex-end;
-
-        margin-right: 1.7rem; // Align visually with social media links
-      }
-
-      .logo-container {
-        grid-column: 1 / 3;
-        grid-row: 2;
-        align-self: flex-end;
-      }
-
-      .legal-links {
-        grid-column: 3 / 11;
-        grid-row: 2;
-        align-self: flex-end;
-        justify-self: center;
-
-        display: flex;
+      .umemaran {
         flex-direction: row;
+        align-items: center;
+
         gap: $spacing-large;
-      }
-
-      .social-media-links {
-        grid-column: 11 / 13;
-        grid-row: 2;
-        align-self: flex-end;
-        justify-self: flex-end;
-
-        margin-right: 1.5rem;
       }
     }
   }
