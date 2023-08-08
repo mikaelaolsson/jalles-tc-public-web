@@ -12,7 +12,7 @@ function initCurrentPageHighlight(): void {
   const menuItemLinks = document.querySelectorAll('.menu-items li a') as NodeListOf<HTMLAnchorElement>;
 
   menuItemLinks.forEach((menuItemLink) => {
-    const menuItemUrl = '/' + cleanUrl(menuItemLink.getAttribute('href') ?? '');
+    const menuItemUrl = cleanUrl(menuItemLink.getAttribute('href') ?? '');
 
     const isStartPage = currentPageUrl === '';
     const isCurrentPage = currentPageUrl === menuItemUrl;

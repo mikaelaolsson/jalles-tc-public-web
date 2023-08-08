@@ -16,4 +16,9 @@ public class BasePageViewModel
     public MediaViewModel Header { get; set; }
     public MediaWithCrops? Thumbnail { get; set; }
     public string MetaDescription { get; set; } = "";
+
+    public string GetPageUrl()
+    {
+        return $"{ParentPagePath}/{PagePath}";
+    }
 }

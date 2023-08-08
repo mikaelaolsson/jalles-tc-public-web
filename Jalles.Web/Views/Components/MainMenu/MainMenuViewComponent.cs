@@ -30,7 +30,7 @@ public class MainMenuViewComponent : ViewComponent
             _logger.LogWarning("{StartPage.MainMenu} could not be found.", nameof(StartPage.MainMenu));
         }
 
-        var menuItems = _mapper.Map<IEnumerable<ListingPageViewModel>>(startPage?.MainMenu);
+        var menuItems = _mapper.Map<IEnumerable<BasePageViewModel>>(startPage?.MainMenu);
 
         var model = new MainMenuViewModel
         {

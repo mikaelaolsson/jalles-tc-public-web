@@ -15,5 +15,23 @@ public class BasePageProfile : Profile
         CreateMap<IThumbnailProperties, BasePageViewModel>()
             .ForMember(d => d.Thumbnail, opt => opt
                 .MapFrom(s => s.Thumbnail));
+
+        CreateMap<ContentPage, BasePageViewModel>()
+            .ForMember(d => d.Title, opt => opt
+                .MapFrom(s => s.Title))
+            .ForMember(d => d.Guid, opt => opt
+                .MapFrom(s => s.Key))
+            //.ForMember(d => d.ParentPagePath, opt => opt
+            //    .MapFrom(s => $"/{s.Parent!.UrlSegment}"))
+            .ForMember(d => d.PagePath, opt => opt
+                .MapFrom(s => s.UrlSegment));
+
+        CreateMap<ListingPage, BasePageViewModel>()
+            .ForMember(d => d.Guid, opt => opt
+                .MapFrom(s => s.Key))
+            .ForMember(d => d.Title, opt => opt
+                .MapFrom(s => s.Title))
+            .ForMember(d => d.PagePath, opt => opt
+                .MapFrom(s => s.UrlSegment));
     }
 }

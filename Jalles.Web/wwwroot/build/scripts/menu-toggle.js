@@ -9,7 +9,7 @@ function initCurrentPageHighlight() {
     const menuItemLinks = document.querySelectorAll('.menu-items li a');
     menuItemLinks.forEach((menuItemLink) => {
         var _a;
-        const menuItemUrl = '/' + cleanUrl((_a = menuItemLink.getAttribute('href')) !== null && _a !== void 0 ? _a : '');
+        const menuItemUrl = cleanUrl((_a = menuItemLink.getAttribute('href')) !== null && _a !== void 0 ? _a : '');
         const isStartPage = currentPageUrl === '';
         const isCurrentPage = currentPageUrl === menuItemUrl;
         if (!isStartPage && isCurrentPage) {

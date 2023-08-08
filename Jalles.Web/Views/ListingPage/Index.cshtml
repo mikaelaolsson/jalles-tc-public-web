@@ -1,17 +1,13 @@
 ﻿@inherits UmbracoViewPage<LayoutViewModel<ListingPageViewModel>>
 
 <main>
-    <p>@Model.ViewModel.Title</p>
+    <ul>
+        @foreach (var contentPage in Model.ViewModel.ContentPages)
+        {
+            <li>
+                <a href="@contentPage.GetPageUrl()">@contentPage.Title</a>
+            </li>
+        }
+    </ul>
 
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod aliquam est scelerisque eleifend. Aliquam ornare condimentum interdum. Etiam ligula turpis, laoreet sed enim eget, varius molestie felis. Pellentesque nec ipsum et lacus ultricies faucibus. Sed purus orci, vestibulum at vulputate eu, finibus a ante. Aenean lobortis urna ipsum, in posuere metus lacinia ac. Mauris dapibus nec ante at tempor. In rhoncus iaculis ultricies. Nullam ultricies arcu sed mauris ullamcorper, bibendum tempor libero pulvinar. Etiam sed urna magna. Donec suscipit quis nisi eu condimentum.
-
-        Duis ornare mauris sed mi tempus condimentum. Morbi sagittis, erat non auctor aliquet, elit urna porta arcu, ac accumsan eros ex in ligula. Vestibulum sagittis iaculis sapien, sed lacinia dui auctor eu. Nunc maximus, tortor non maximus porttitor, magna libero mollis erat, sit amet semper tortor purus in magna. Mauris elementum, sem luctus tempor cursus, nisl odio luctus est, et suscipit ligula risus a risus. Nullam imperdiet diam pretium, ornare odio id, consectetur velit. Etiam ut finibus nisl, nec laoreet orci. Nunc volutpat nibh sagittis lacus ornare, vel mattis ex rhoncus.
-
-        Duis quis ipsum pharetra, ultricies eros nec, venenatis libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas scelerisque malesuada enim vitae interdum. Duis et risus mattis, pellentesque mauris at, imperdiet leo. Quisque metus nulla, condimentum sed maximus eget, facilisis in neque. Vivamus id erat iaculis, congue nisl in, ullamcorper enim. In sollicitudin convallis dui eu consequat. Sed porta erat quis massa tincidunt auctor. Proin risus nunc, placerat nec mi ut, efficitur imperdiet nulla. Etiam velit metus, finibus eu sollicitudin id, blandit eget sem. Integer ornare tempor placerat. Nullam et feugiat urna, eu euismod turpis. Pellentesque ultricies turpis sapien, quis lacinia tortor dapibus non. Mauris quis lobortis tellus.
-
-        Vestibulum quis velit ut tellus imperdiet suscipit. Duis non quam pulvinar, consectetur purus vel, suscipit orci. Ut fermentum facilisis efficitur. Nam ac gravida magna. In eu neque in justo efficitur posuere ut a augue. Pellentesque eu nulla iaculis, hendrerit massa ullamcorper, scelerisque risus. Integer tempor est elit, pretium feugiat lorem consequat at.
-
-        Suspendisse nec molestie enim. Maecenas ac nibh et arcu fringilla aliquet. Fusce mollis ante eros, at volutpat tortor placerat nec. Curabitur sit amet efficitur ipsum, feugiat vulputate ipsum. Curabitur id consequat purus, sed aliquam magna. Sed vitae tempor justo. Quisque a turpis ipsum. Praesent dapibus accumsan suscipit. Donec ac luctus mi.
-    </p>
 </main>

@@ -14,7 +14,7 @@ public class ContentPageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => $"/{s.Parent!.UrlSegment}"))
+                .MapFrom(s => s.Parent!.UrlSegment == "jalles" ? "" : $"/{s.Parent!.UrlSegment}"))
             .ForMember(d => d.PagePath, opt => opt
                 .MapFrom(s => s.UrlSegment))
             .ForMember(d => d.LastEdited, opt => opt
