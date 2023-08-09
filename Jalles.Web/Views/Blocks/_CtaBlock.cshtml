@@ -1,0 +1,11 @@
+@model IEnumerable<CtaBlockViewModel>
+
+@if (Model.Any())
+{
+    <div class="cta-block">
+        @foreach (var cta in Model)
+        {
+            <a href="@cta.Link?.Url" target="@cta.Link?.Target">@cta.Title</a>
+        }
+    </div>
+}

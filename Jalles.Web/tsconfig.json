@@ -10,11 +10,10 @@
     "noEmitOnError": true,
     "noImplicitAny": false,
     "removeComments": false,
-    "outDir": "../Jalles.Web/wwwroot/build/scripts",
+    "outDir": "wwwroot/build/scripts",
     "strictNullChecks": false
   },
-  "exclude": [
-    "node_modules",
-    "wwwroot"
+  "include": [
+    "scripts/**/*"
   ]
 }

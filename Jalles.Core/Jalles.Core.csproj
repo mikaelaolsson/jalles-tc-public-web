@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Content\" />
+    <Folder Include="Contracts\" />
   </ItemGroup>
 
 	<ItemGroup>

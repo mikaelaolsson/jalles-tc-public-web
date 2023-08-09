@@ -1,6 +1,8 @@
+using Jalles.Core.Contracts;
 using Jalles.Core.Extensions;
 using Jalles.Core.MappingProfiles.Pages;
 using Jalles.Web.Extensions;
+using Jalles.Web.Services;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.IdentityModel.Logging;
@@ -46,6 +48,9 @@ public class Startup
             options.EnableForHttps = true;
             options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
         });
+
+        // Services
+        services.AddScoped<IMixedListingBlockService, MixedListingBlockService>();
 
         // Mappings
         services.AddAutoMapper(typeof(BasePageProfile).Assembly);

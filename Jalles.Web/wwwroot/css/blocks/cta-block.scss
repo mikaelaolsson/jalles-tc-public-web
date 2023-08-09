@@ -1,0 +1,16 @@
+.cta-block {
+  display: flex;
+  gap: $spacing-standard;
+
+  a {
+    @include button-on-dark-background;
+    display: flex;
+    align-items: center;
+
+    text-align: center;
+
+    &:not(:first-child) {
+      @include button-secondary-on-dark-background;
+    }
+  }
+}

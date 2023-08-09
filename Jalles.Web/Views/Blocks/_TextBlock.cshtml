@@ -1,0 +1,10 @@
+@model TextBlockViewModel
+
+<div class="text-block-container">
+    <div class="text-block ">
+        <h2>@Model.Heading</h2>
+
+        @Html.Raw(Model.Text)
+    </div>
+</div>
+

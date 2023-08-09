@@ -9,6 +9,8 @@ public class ContentPageProfile : Profile
     public ContentPageProfile()
     {
         CreateMap<ContentPage, ContentPageViewModel>()
+            .ForMember(d => d.Header, opt => opt
+                .MapFrom(s => s.Header))
             .ForMember(d => d.Title, opt => opt
                 .MapFrom(s => s.Title))
             .ForMember(d => d.Guid, opt => opt
@@ -18,6 +20,8 @@ public class ContentPageProfile : Profile
             .ForMember(d => d.PagePath, opt => opt
                 .MapFrom(s => s.UrlSegment))
             .ForMember(d => d.LastEdited, opt => opt
-                .MapFrom(s => s.UpdateDate));
+                .MapFrom(s => s.UpdateDate))
+            .ForMember(d => d.Blocks, opt => opt
+                .MapFrom(s => s.Blocks));
     }
 }

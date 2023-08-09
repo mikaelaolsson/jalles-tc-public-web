@@ -1,0 +1,42 @@
+@using Jalles.Core.Extensions
+
+@model ImageGalleryBlockViewModel
+
+@{
+    var backgroundColor = Model.BackgroundColor.GetBackgroundColorName();
+}
+
+<div class="image-gallery-container @backgroundColor">
+    @if (!string.IsNullOrWhiteSpace(Model.Heading))
+    {
+        <h2>@Model.Heading</h2>
+    }
+    <div class="image-gallery" id="@Model.Id">
+
+        @if (Model.ImageGallery.Count() >= 3)
+        {
+            var imageList = Model.ImageGallery.ToList();
+            var overlay = imageList.Count() > 3 ? "overlay" : string.Empty;
+
+            <img name="1" src="@imageList[0].Url()" alt=""/>
+
+            <div class="sub-container">
+                <span class="img-container">
+                    <img name="2" src="@imageList[1].Url()" alt=""/>
+                </span>
+
+                <span class="img-container @overlay">
+                    <img name="3" src="@imageList[2].Url()" alt=""/>
+                </span>
+            </div>
+        }
+        else
+        {
+            @foreach (var image in Model.ImageGallery)
+            {
+                <img src="@image.Url()" alt=""/>
+
+            }
+        }
+    </div>
+</div>

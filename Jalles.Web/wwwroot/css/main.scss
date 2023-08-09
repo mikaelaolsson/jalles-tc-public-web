@@ -10,14 +10,16 @@
 @import 'mixins/media.scss';
 @import 'mixins/visually-hidden.scss';
 
+@import 'blocks/content-block.scss';
+@import 'blocks/cta-block.scss';
 @import 'blocks/footer.scss';
 @import 'blocks/header.scss';
+@import 'blocks/image-gallery-block.scss';
+@import 'blocks/image-gallery-modal-block.scss';
 @import 'blocks/main-menu.scss';
 @import 'blocks/media.scss';
 @import 'blocks/sponsors.scss';
 @import 'blocks/text-block.scss';
-@import 'blocks/text-blocks-collection-block.scss';
-@import 'blocks/text-contact-block.scss';
 
 :root {
   font-size: 16px; // stylelint-disable-line declaration-property-unit-allowed-list
@@ -34,13 +36,12 @@ html {
 body {
   margin: 0;
   padding: 0;
+
   font-size: $font-size;
   font-family: $font-family;
-  color: $foreground-color-main;
+  color: $color-black;
 
-  &.hide-header {
-    margin-top: $spacing-vertical-large;
-  }
+  background-color: $color-off-white;
 }
 
 * {
@@ -55,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-family;
   font-weight: $font-weight;
   line-height: $font-line-height-heading;
-  color: $foreground-color-main;
+  color: $color-black;
 }
 
 h1 {
@@ -88,7 +89,7 @@ button {
 }
 
 a {
-  color: $foreground-color-main;
+  color: $color-black;
   text-decoration-line: none;
 }
 

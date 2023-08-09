@@ -1,0 +1,25 @@
+﻿@inject IMixedListingBlockService MixedListingBlockService
+
+@model IEnumerable<BlockListItem>
+
+@{
+    var hasImageGalleryBlock = Model.Any(b => b.Content.ContentType.Alias == "imageGalleryBlock");
+}
+
+@foreach (var block in Model)
+{
+    switch (block.Content.ContentType.Alias)
+    {
+
+        case "contentBlock":
+            @await Html.PartialAsync("../_ContentBlock.cshtml", MixedListingBlockService.MapContentBlock(block))
+            break;
+        case "textBlock":
+            @await Html.PartialAsync("../_TextBlock.cshtml", MixedListingBlockService.MapTextBlock(block))
+            break;
+        case "imageGalleryBlock":
+            @await Html.PartialAsync("../_ImageGalleryBlock.cshtml", MixedListingBlockService.MapImageGalleryBlock(block))
+            @await Html.PartialAsync("~/Views/Blocks/_ImageGalleryModalBlock.cshtml", MixedListingBlockService.MapImageGalleryBlock(block))
+            break;
+    }
+}

@@ -53,5 +53,16 @@ public class MediaBlockProfile : Profile
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
                 .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+
+        CreateMap<BlockListItem<HeaderBlock>, MediaViewModel>()
+            .ForMember(d => d.AddBlurOverlay, opt => opt
+                .MapFrom(s => s.Content.AddBlurOverlay))
+            .ForMember(d => d.Media, opt => opt
+                .MapFrom(s => s.Content.Media))
+            .ForMember(d => d.MediaType, opt => opt
+                .MapFrom(s => s.Content.GetMediaType()))
+            .ForMember(d => d.MediaSource, opt => opt
+                .MapFrom(s => s.Content.GetMediaSource(s.Content.GetMediaType())));
+
     }
 }
