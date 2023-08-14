@@ -13,13 +13,17 @@
 @import 'blocks/content-block.scss';
 @import 'blocks/cta-block.scss';
 @import 'blocks/footer.scss';
-@import 'blocks/header.scss';
 @import 'blocks/image-gallery-block.scss';
 @import 'blocks/image-gallery-modal-block.scss';
 @import 'blocks/main-menu.scss';
 @import 'blocks/media.scss';
 @import 'blocks/sponsors.scss';
 @import 'blocks/text-block.scss';
+
+@import 'pages/content-page.scss';
+@import 'pages/listing-page.scss';
+
+@import 'partials/header.scss';
 
 :root {
   font-size: 16px; // stylelint-disable-line declaration-property-unit-allowed-list

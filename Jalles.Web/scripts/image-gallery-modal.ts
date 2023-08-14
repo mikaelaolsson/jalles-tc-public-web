@@ -9,7 +9,7 @@ if (imageGalleries.length > 0) {
         openImageGalleryModal(element, imageGallery.id);
       });
     });
-  })
+  });
 }
 
 function openImageGalleryModal(element: MouseEvent, id: string): void {

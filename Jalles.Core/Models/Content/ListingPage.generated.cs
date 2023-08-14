@@ -50,12 +50,27 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
+		/// Display Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[ImplementPropertyType("displayTitle")]
+		public virtual bool DisplayTitle => this.Value<bool>(_publishedValueFallback, "displayTitle");
+
+		///<summary>
 		/// Header
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("header")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock> Header => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock>>(_publishedValueFallback, "header");
+
+		///<summary>
+		/// Highlights
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("highlights")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Highlights => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "highlights");
 
 		///<summary>
 		/// Pages

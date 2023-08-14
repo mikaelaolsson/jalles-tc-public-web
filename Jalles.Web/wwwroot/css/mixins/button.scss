@@ -6,41 +6,33 @@
   text-decoration: none;
 
   border: 1px solid transparent;
-  border-radius: 10rem;
+  border-radius: $border-radius;
   box-sizing: border-box;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
-  }
-
-  &:hover {
-    .xlent-icon-arrow-right {
-      @media (prefers-reduced-motion: no-preference) {
-        animation: arrow-animation 0.5s $animation-bounce-timing;
-        animation-delay: 0.1s;
-      }
-    }
   }
 }
 
 @mixin button-on-dark-background {
   @include button;
 
-  background-color: $button-light-bg-color;
-  color: $foreground-color-main;
+  background-color: $color-vanilla;
+  color: $color-taupe;
 
   &:hover {
-    background-color: transparent;
-    color: $foreground-color-dark-contrast;
-    border: 1px solid $button-secondary-dark-border-color;
+    background-color: rgb(250, 250, 236, 0.2);
+    color: $color-vanilla;
+    border: 1px solid $color-vanilla;
+    backdrop-filter: blur(0.5rem);
   }
 }
 
 @mixin button-on-light-background {
   @include button;
 
-  background-color: $button-dark-bg-color;
-  color: $foreground-color-dark-contrast;
+  background-color: $color-taupe;
+  color: $color-off-white;
 
   &:hover {
     @include button-secondary-on-light-background;
@@ -51,24 +43,25 @@
   @include button;
 
   background-color: transparent;
-  color: $foreground-color-dark-contrast;
-  border: 1px solid $button-secondary-dark-border-color;
+  color: $color-off-white;
+  border: 1px solid $color-off-white;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(250, 250, 236, 0.1);
+    backdrop-filter: blur(0.5rem);
   }
 }
 
 @mixin button-secondary-on-light-background {
   @include button;
 
-  background-color: $button-light-bg-color;
-  color: $foreground-color-main;
-  border: 1px solid $button-secondary-light-border-color;
+  background-color: transparent;
+  color: $color-taupe;
+  border: 1px solid $color-taupe;
 
   &:hover {
-    background-color: transparent;
-    border: 1px solid $foreground-color-secondary;
+    background-color: rgb(255, 248, 173, 0.6);
+    backdrop-filter: blur(0.5rem);
   }
 }
 

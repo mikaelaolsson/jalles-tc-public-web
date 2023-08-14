@@ -21,8 +21,6 @@ public class BasePageProfile : Profile
                 .MapFrom(s => s.Title))
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
-            //.ForMember(d => d.ParentPagePath, opt => opt
-            //    .MapFrom(s => $"/{s.Parent!.UrlSegment}"))
             .ForMember(d => d.PagePath, opt => opt
                 .MapFrom(s => s.UrlSegment));
 

@@ -1,8 +1,42 @@
 ﻿@inherits UmbracoViewPage<LayoutViewModel<ContentPageViewModel>>
 
-<main>
+@{
+    var hasUpdate = @Model.ViewModel.Published.ToString("yyyy-MM-dd") != @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd");
+    var hasImageGalleryBlock = Model.ViewModel.Blocks.Any(b => b.Content.ContentType.Alias == "imageGalleryBlock");
+}
+
+<main class="content-page">
+    @if (!string.IsNullOrWhiteSpace(Model.ViewModel.ParentPagePath))
+    {
+        <div class="back-button">
+            <a href="@Model.ViewModel.ParentPagePath"> &#10094; Tillbaka</a>
+        </div>
+
+    }
+
     @if (Model.ViewModel.Blocks.Any())
     {
         @await Html.PartialAsync("../Blocks/ListingBlocks/_MixedListingBlock.cshtml", Model.ViewModel.Blocks)
     }
+
+    @if (!string.IsNullOrWhiteSpace(Model.ViewModel.ParentPagePath))
+    {
+        <ul class="date">
+            <li>Publicerad: @Model.ViewModel.Published.ToString("yyyy-MM-dd")</li>
+            @if (hasUpdate)
+            {
+                <li>Uppdaterad: @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd")</li>
+            }
+        </ul>
+    }
 </main>
+
+@section Scripts
+{
+    @if (hasImageGalleryBlock)
+    {
+        <script src="~/build/scripts/image-gallery-modal.js" asp-append-version="true"></script>
+    }
+
+    <script src="~/build/scripts/background-color.js" asp-append-version="true"></script>
+}

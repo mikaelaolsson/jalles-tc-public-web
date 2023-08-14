@@ -1,0 +1,63 @@
+.content-page {
+  .back-button, .date {
+    margin: 0;
+    padding: 0 $side-margins $spacing-vertical-medium;
+    list-style: none;
+    text-align: right;
+    color: $color-battleship-gray;
+
+    &.color-jalles-yellow {
+      background-color: $color-jalles-yellow;
+    }
+
+    &.color-off-white {
+      background-color: $color-off-white;
+    }
+
+    &.color-vanilla {
+      background-color: $color-vanilla;
+    }
+
+    &.color-taupe {
+      background-color: $color-taupe;
+    }
+
+    &.color-battleship-gray {
+      background-color: $color-battleship-gray;
+    }
+
+    &.color-black {
+      background-color: $color-black;
+    }
+
+    &.color-taupe, &.color-black, &.color-battleship-gray {
+      li, a {
+        color: $color-off-white;
+      }
+    }
+  }
+
+  .back-button {
+    padding: $spacing-vertical-medium $side-margins 0;
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .content-page {
+    .back-button, .date {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+      gap: 0;
+
+      padding: 0 $side-margins-desktop $spacing-vertical-medium-desktop;
+
+      li, a {
+        grid-column: 3 / 11;
+      }
+    }
+
+    .back-button {
+      padding: $spacing-vertical-medium-desktop $side-margins-desktop 0;
+    }
+  }
+}

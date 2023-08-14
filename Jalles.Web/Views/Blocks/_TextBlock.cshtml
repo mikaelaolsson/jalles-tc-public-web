@@ -5,6 +5,19 @@
         <h2>@Model.Heading</h2>
 
         @Html.Raw(Model.Text)
+
+        @if (Model.Attachments.Any())
+        {
+            <h3>Bifogade Filer</h3>
+            <ul>
+                @foreach (var attachment in Model.Attachments)
+                {
+                    <li>
+                        <a class ="attachment" href="@attachment.File" download>@attachment.Text</a>
+                    </li>
+                }
+            </ul>
+        }
     </div>
 </div>
 

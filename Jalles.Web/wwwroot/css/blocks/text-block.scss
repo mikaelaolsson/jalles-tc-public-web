@@ -13,16 +13,16 @@
       max-width: $text-max-width-large;
     }
 
+    a {
+      @include link-with-color;
+      font-weight: $font-weight-bold;
+    }
+
     p {
       img {
         width: 100%;
         height: auto;
         border-radius: $border-radius;
-      }
-
-      a {
-        @include link-with-color;
-        font-weight: $font-weight-bold;
       }
     }
 

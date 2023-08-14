@@ -1,6 +1,9 @@
 .image-gallery-modal {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: $z-index-modal;
 
   display: none;
@@ -36,6 +39,7 @@
       align-items: center;
 
       padding: $spacing-standard;
+      margin-bottom: $spacing-standard;
       width: fit-content;
 
       background-color: $color-taupe;
