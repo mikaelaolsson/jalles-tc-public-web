@@ -9,9 +9,8 @@
     @if (!string.IsNullOrWhiteSpace(Model.ViewModel.ParentPagePath))
     {
         <div class="back-button">
-            <a href="@Model.ViewModel.ParentPagePath"> &#10094; Tillbaka</a>
+            <span class="wrapper"><a href="@Model.ViewModel.ParentPagePath">&#10094; Tillbaka</a></span>
         </div>
-
     }
 
     @if (Model.ViewModel.Blocks.Any())
@@ -22,17 +21,17 @@
     @if (!string.IsNullOrWhiteSpace(Model.ViewModel.ParentPagePath))
     {
         <ul class="date">
-            <li>Publicerad: @Model.ViewModel.Published.ToString("yyyy-MM-dd")</li>
+            <li><span>Publicerad: @Model.ViewModel.Published.ToString("yyyy-MM-dd")</span></li>
             @if (hasUpdate)
             {
-                <li>Uppdaterad: @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd")</li>
+                <li><span>Uppdaterad: @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd")</span></li>
             }
         </ul>
     }
 </main>
 
 @section Scripts
-{
+    {
     @if (hasImageGalleryBlock)
     {
         <script src="~/build/scripts/image-gallery-modal.js" asp-append-version="true"></script>

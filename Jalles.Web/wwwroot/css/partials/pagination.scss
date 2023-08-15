@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-standard;
+  margin-top: $spacing-standard;
+
+  button {
+    font-size: $font-size-large;
+    color: $foreground-color-secondary;
+
+    &.active {
+      color: $foreground-color-main;
+    }
+
+    svg {
+      path {
+        fill: $foreground-color-main;
+      }
+    }
+
+    &:disabled {
+      svg {
+        path {
+          fill: $color-battleship-gray;
+        }
+      }
+    }
+
+    &#previous {
+      transform: rotate(90deg);
+      margin-right: $spacing-standard;
+    }
+
+    &#next {
+      transform: rotate(-90deg);
+      margin-left: $spacing-standard;
+    }
+  }
+}

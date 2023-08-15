@@ -45,14 +45,20 @@
 @media only screen and (min-width: $screen-min-desktop) {
   .content-page {
     .back-button, .date {
-      @include desktop-container-content;
-      @include desktop-container-grid;
-      gap: 0;
-
       padding: 0 $side-margins-desktop $spacing-vertical-medium-desktop;
 
-      li, a {
-        grid-column: 3 / 11;
+      li, .wrapper {
+        @include desktop-container-content;
+        @include desktop-container-grid;
+        gap: 0;
+
+        span {
+          grid-column: 3 / 11;
+        }
+
+        a {
+          grid-column: 10 / 11;
+        }
       }
     }
 
