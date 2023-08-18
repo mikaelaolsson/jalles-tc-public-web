@@ -21,6 +21,6 @@ public class ContentBlockProfile : Profile
             .ForMember(d => d.Media, opt => opt
                 .MapFrom(s => s.Content.Media))
             .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.Content.BackgroundColor.GetMediaBackgroundColor()));
+                .MapFrom(s => s.Content.BackgroundColor.GetBackgroundColorName()));
     }
 }

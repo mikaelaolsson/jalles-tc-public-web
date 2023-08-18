@@ -95,16 +95,16 @@ public static class MediaBlockExtensions
         return Regex.Match(inputColor, "^#(?:[0-9a-fA-F]{3}){1,2}$").Success;
     }
 
-    public static string GetBackgroundColorName(this string backgroundColor)
+    public static string GetBackgroundColorName(this string? backgroundColor)
     {
-        return backgroundColor.ToUpper() switch
+        return backgroundColor?.ToUpper() switch
         {
-            "#FFEB19" => "color-jalles-yellow",
-            "#FAFAEC" => "color-off-white",
-            "#FFF8AD" => "color-vanilla",
-            "#463F3A" => "color-taupe",
-            "#8A817C" => "color-battleship-gray",
-            "#1E2022" => "color-black",
+            "FFEB19" => "color-jalles-yellow",
+            "FAFAEC" => "color-off-white",
+            "FFF8AD" => "color-vanilla",
+            "463F3A" => "color-taupe",
+            "8A817C" => "color-battleship-gray",
+            "1E2022" => "color-black",
             _ => "color-off-white"
         };
     }
