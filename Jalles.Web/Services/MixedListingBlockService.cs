@@ -27,4 +27,9 @@ public class MixedListingBlockService : IMixedListingBlockService
     {
         return _mapper.Map<TextBlockViewModel>(blockListItem);
     }
+
+    public HighlightBlockViewModel MapHighlightBlock(BlockListItem blockListItem)
+    {
+        return _mapper.Map<HighlightBlockViewModel>(blockListItem);
+    }
 }

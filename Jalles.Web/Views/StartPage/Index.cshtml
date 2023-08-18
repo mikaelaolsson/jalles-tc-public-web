@@ -1,8 +1,20 @@
 ﻿@inherits UmbracoViewPage<LayoutViewModel<StartPageViewModel>>
 
+@{
+    var hasImageGalleryBlock = Model.ViewModel.Blocks.Any(b => b.Content.ContentType.Alias == "imageGalleryBlock");
+}
+
 <main>
-    @if(Model.ViewModel.Blocks.Any())
+    @if (Model.ViewModel.Blocks.Any())
     {
         @await Html.PartialAsync("../Blocks/ListingBlocks/_MixedListingBlock.cshtml", Model.ViewModel.Blocks)
     }
 </main>
+
+@section Scripts
+{
+    @if (hasImageGalleryBlock)
+    {
+        <script src="~/build/scripts/image-gallery-modal.js" asp-append-version="true"></script>
+    }
+}

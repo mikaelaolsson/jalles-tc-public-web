@@ -33,12 +33,9 @@
         .content-container {
           @include button-on-dark-background;
 
-          /*width: 100%;*/
-
           h3 {
             margin: 0;
             font-weight: bold;
-            /*color: $color-white;*/
           }
         }
       }
