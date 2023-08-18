@@ -62,12 +62,12 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-            app.UseDeveloperExceptionPage();
+            app.UseExceptionHandler("/error");
+            //app.UseDeveloperExceptionPage();
         }
         else
         {
-            //TODO: add custom error pages
-            //app.UseExceptionHandler("/error");
+            app.UseExceptionHandler("/error");
             app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseRewriter(new RewriteOptions()
@@ -75,7 +75,6 @@ public class Startup
             );
         }
 
-        //app.UseHttpsRedirection(); 
         app.UseResponseCompression();
 
         app.Use(async (context, next) =>
