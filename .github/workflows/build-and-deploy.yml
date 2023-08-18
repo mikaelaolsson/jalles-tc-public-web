@@ -37,7 +37,7 @@ jobs:
         run: dotnet restore
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ./artifacts ./src/Jalles.Web/Jalles.Web.csproj
+        run: dotnet publish -c Release -o ./artifacts ./Jalles.Web/Jalles.Web.csproj
 
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.1
