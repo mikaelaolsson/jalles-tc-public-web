@@ -883,7 +883,7 @@ footer .content .umemaran img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 30rem;
+  min-height: 25rem;
   padding: 5rem 1.25rem 3rem;
 }
 .header .media {
