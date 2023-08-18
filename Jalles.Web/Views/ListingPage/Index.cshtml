@@ -1,6 +1,11 @@
 ﻿@inherits UmbracoViewPage<LayoutViewModel<ListingPageViewModel>>
 
 <main class="listing-page">
+    <form id="pagination-form" method="get">
+        <input type="hidden" id="page" name="page" value="@Model.ViewModel.Page" />
+    </form>
+
+
     @if (Model.ViewModel.DisplayTitle)
     {
         <h2>@Model.ViewModel.Title</h2>
@@ -23,3 +28,19 @@
         }
     </div>
 </main>
+
+@section Scripts
+    {
+    <script>
+        //TODO: find a way to submit this plz
+        window.addEventListener("load", (event) => {
+            console.log("page is fully loaded");
+            const filterForm = document.querySelector('#pagination-form');
+            if (filterForm !== null || undefined) {
+
+                filterForm.submit();
+            }
+        });
+
+    </script>
+}

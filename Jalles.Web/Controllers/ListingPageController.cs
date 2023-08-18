@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Jalles.Core.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Umbraco.Cms.Core.Web;
@@ -9,18 +10,21 @@ public class ListingPageController : RenderControllerBase
 {
     private readonly IPublishedValueFallback _publishedValueFallback;
     private readonly IMapper _mapper;
+    private readonly IPaginationService _paginationService;
 
     public ListingPageController(ICompositeViewEngine compositeViewEngine, 
         IUmbracoContextAccessor umbracoContextAccessor,
         IPublishedValueFallback publishedValueFallback,
         IMapper mapper,
+        IPaginationService paginationService,
         ILogger<RenderController> logger) : base(compositeViewEngine, umbracoContextAccessor, logger)
     {
         _publishedValueFallback = publishedValueFallback;
         _mapper = mapper;
+        _paginationService = paginationService;
     }
 
-    public async Task<IActionResult> IndexAsync()
+    public async Task<IActionResult> IndexAsync(int page)
     {
         var listingPage = new ListingPage(CurrentPage, _publishedValueFallback);
 

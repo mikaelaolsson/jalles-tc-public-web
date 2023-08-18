@@ -1,6 +1,7 @@
 using Jalles.Core.Contracts;
 using Jalles.Core.Extensions;
 using Jalles.Core.MappingProfiles.Pages;
+using Jalles.Core.Services;
 using Jalles.Web.Extensions;
 using Jalles.Web.Services;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -51,6 +52,7 @@ public class Startup
 
         // Services
         services.AddScoped<IMixedListingBlockService, MixedListingBlockService>();
+        services.AddScoped<IPaginationService, PaginationService>();
 
         // Mappings
         services.AddAutoMapper(typeof(BasePageProfile).Assembly);
