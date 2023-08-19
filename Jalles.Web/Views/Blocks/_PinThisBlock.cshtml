@@ -1,0 +1,19 @@
+﻿@model PinThisBlockViewModel
+
+<div class="pin-this-block">
+    <div class="wrapper">
+        <div class="listing-container">
+            @foreach (var pin in Model.Pins)
+            {
+                <a href="@pin.GetPageUrl()" class="pin">
+
+                    <div class="content">
+                        <div class="content-container">
+                            @pin.Title &#10095;
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

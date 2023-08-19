@@ -31,5 +31,13 @@ public class BasePageProfile : Profile
                 .MapFrom(s => s.Title))
             .ForMember(d => d.PagePath, opt => opt
                 .MapFrom(s => s.UrlSegment));
+
+        CreateMap<SecondaryListingPage, BasePageViewModel>()
+            .ForMember(d => d.Guid, opt => opt
+                .MapFrom(s => s.Key))
+            .ForMember(d => d.Title, opt => opt
+                .MapFrom(s => s.Title))
+            .ForMember(d => d.PagePath, opt => opt
+                .MapFrom(s => s.UrlSegment));
     }
 }

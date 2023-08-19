@@ -99,3 +99,15 @@
     }
   }
 }
+
+@mixin category-button {
+  @include button-secondary-on-light-background;
+  padding: $spacing-small $spacing-standard;
+
+  cursor: pointer;
+
+  &.selected {
+    background-color: rgb(255, 248, 173, 0.6);
+    backdrop-filter: blur(0.5rem);
+  }
+}

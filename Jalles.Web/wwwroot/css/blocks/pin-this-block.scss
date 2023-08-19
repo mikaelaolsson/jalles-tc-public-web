@@ -1,0 +1,33 @@
+.pin-this-block {
+  margin-bottom: -2rem;
+  padding: $spacing-vertical-medium $side-margins 0;
+
+  .wrapper {
+    .listing-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: $spacing-small;
+
+      .pin {
+        @include button-on-light-background;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .pin-this-block {
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop 0;
+    margin-bottom: -3rem;
+
+    .wrapper {
+      @include desktop-container-grid;
+      @include desktop-container-content;
+
+      .listing-container {
+        grid-column: 3 / 11;
+      }
+    }
+  }
+}

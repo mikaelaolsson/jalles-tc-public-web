@@ -58,6 +58,14 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Blocks => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "blocks");
 
 		///<summary>
+		/// Categories
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("categories")]
+		public virtual global::System.Collections.Generic.List<string> Categories => this.Value<global::System.Collections.Generic.List<string>>(_publishedValueFallback, "categories");
+
+		///<summary>
 		/// Header
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]

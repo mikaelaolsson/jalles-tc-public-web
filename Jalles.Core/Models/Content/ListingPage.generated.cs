@@ -20,7 +20,7 @@ namespace Jalles.Core.Models.Content
 {
 	/// <summary>Listing Page</summary>
 	[PublishedModel("listingPage")]
-	public partial class ListingPage : PublishedContentModel, IBasePageProperties, IThumbnailProperties
+	public partial class ListingPage : PublishedContentModel, IBasePageProperties, ICategoriesProperty, IThumbnailProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,6 +50,14 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
+		/// Displayed Categories: Select the categories that you want displayed on the page.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("displayedCategories")]
+		public virtual global::System.Collections.Generic.List<string> DisplayedCategories => this.Value<global::System.Collections.Generic.List<string>>(_publishedValueFallback, "displayedCategories");
+
+		///<summary>
 		/// Display Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
@@ -63,14 +71,6 @@ namespace Jalles.Core.Models.Content
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("header")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock> Header => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock>>(_publishedValueFallback, "header");
-
-		///<summary>
-		/// Highlights
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("highlights")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Highlights => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "highlights");
 
 		///<summary>
 		/// Pages
@@ -95,6 +95,14 @@ namespace Jalles.Core.Models.Content
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("title")]
 		public virtual string Title => global::Jalles.Core.Models.Content.BasePageProperties.GetTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Categories: The categories will only be gathered from the "Aktuellt" Listing Page, other values will be ignored.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("categories")]
+		public virtual global::System.Collections.Generic.IEnumerable<string> Categories => global::Jalles.Core.Models.Content.CategoriesProperty.GetCategories(this, _publishedValueFallback);
 
 		///<summary>
 		/// Thumbnail: Select thumbnail for the page.

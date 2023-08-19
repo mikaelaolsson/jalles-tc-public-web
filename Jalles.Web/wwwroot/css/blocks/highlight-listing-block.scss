@@ -44,7 +44,7 @@
       position: relative;
       display: flex;
       align-items: flex-end;
-      min-height: 270px;
+      min-height: 12rem;
 
       .media {
         @include fill-by-absolute-position;
@@ -142,4 +142,4 @@
       }
     }
   }
-  }
+}

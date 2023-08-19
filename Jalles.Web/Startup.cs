@@ -1,6 +1,7 @@
 using Jalles.Core.Contracts;
 using Jalles.Core.Extensions;
 using Jalles.Core.MappingProfiles.Pages;
+using Jalles.Core.Services;
 using Jalles.Web.Extensions;
 using Jalles.Web.Services;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -50,7 +51,9 @@ public class Startup
         });
 
         // Services
+        services.AddScoped<IContentAccessor, ContentAccessor>();
         services.AddScoped<IMixedListingBlockService, MixedListingBlockService>();
+        services.AddScoped<IFilterService, FilterService>();
 
         // Mappings
         services.AddAutoMapper(typeof(BasePageProfile).Assembly);
@@ -62,8 +65,7 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-            app.UseExceptionHandler("/error");
-            //app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage();
         }
         else
         {
