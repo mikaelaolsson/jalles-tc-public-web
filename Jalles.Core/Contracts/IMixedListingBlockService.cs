@@ -8,4 +8,5 @@ public interface IMixedListingBlockService
     ImageGalleryBlockViewModel MapImageGalleryBlock(BlockListItem blockListItem);
     ContentBlockViewModel MapContentBlock(BlockListItem blockListItem);
     TextBlockViewModel MapTextBlock(BlockListItem blockListItem);
+    HighlightBlockViewModel MapHighlightBlock(BlockListItem blockListItem);
 }

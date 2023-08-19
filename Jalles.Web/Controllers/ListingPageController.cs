@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Jalles.Core.Contracts;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.Extensions.Primitives;
+using System.Collections.Specialized;
+using System.Web;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 
@@ -11,24 +13,40 @@ public class ListingPageController : RenderControllerBase
     private readonly IPublishedValueFallback _publishedValueFallback;
     private readonly IMapper _mapper;
     private readonly IPaginationService _paginationService;
+    private readonly IFilterService _filterService;
 
-    public ListingPageController(ICompositeViewEngine compositeViewEngine, 
+    public ListingPageController(ICompositeViewEngine compositeViewEngine,
         IUmbracoContextAccessor umbracoContextAccessor,
         IPublishedValueFallback publishedValueFallback,
         IMapper mapper,
         IPaginationService paginationService,
+        IFilterService filterService,
         ILogger<RenderController> logger) : base(compositeViewEngine, umbracoContextAccessor, logger)
     {
         _publishedValueFallback = publishedValueFallback;
         _mapper = mapper;
         _paginationService = paginationService;
+        _filterService = filterService;
     }
 
-    public async Task<IActionResult> IndexAsync(int page)
+    public async Task<IActionResult> IndexAsync(string category, int page, string? selectedCategory)
     {
         var listingPage = new ListingPage(CurrentPage, _publishedValueFallback);
 
         var viewModel = _mapper.Map<ListingPageViewModel>(listingPage);
+
+        if (!string.IsNullOrEmpty(category) && category != "Alla")
+        {
+            viewModel.ContentPages = _filterService.GetFilteredContentPages(viewModel.ContentPages, category);
+            viewModel.SelectedCategory = category;
+        }
+        else if(!string.IsNullOrEmpty(selectedCategory) && selectedCategory != "Alla")
+        {
+            viewModel.ContentPages = _filterService.GetFilteredContentPages(viewModel.ContentPages, selectedCategory);
+            viewModel.SelectedCategory = selectedCategory;
+        }
+
+        viewModel = _paginationService.GetPaginatedViewModel(viewModel, page <= 0 ? 1 : page);
 
         var model = await LayoutViewModel<ListingPageViewModel>.CreateAsync(viewModel, CurrentPage!, HttpContext);
 

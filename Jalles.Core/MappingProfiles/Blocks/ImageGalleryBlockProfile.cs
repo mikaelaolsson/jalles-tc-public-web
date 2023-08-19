@@ -17,6 +17,6 @@ public class ImageGalleryBlockProfile : Profile
             .ForMember(d => d.Id, opt => opt
                 .MapFrom(s => s.Content.Key))
             .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.Content.BackgroundColor.GetMediaBackgroundColor()));
+                .MapFrom(s => s.Content.BackgroundColor.GetBackgroundColorName()));
     }
 }

@@ -1,0 +1,28 @@
+﻿@model ListingPageViewModel
+
+<form id="listing-page-form" class="listing-page-form" method="get">
+    <input type="hidden" id="page" name="page" value="@Model.Page" />
+    <input type="hidden" id="selected-input" name="selectedCategory" value="" />
+
+    @if (Model.DisplayedCategories.Any())
+    {
+        <div class="categories">
+            <button class="category-button @(Model.SelectedCategory == "Alla" ? "selected" : string.Empty)"
+                    id="clear-button"
+                    name="category"
+                    value="Alla">
+                Alla
+            </button>
+
+            @foreach (var category in Model.DisplayedCategories)
+            {
+                <button class="category-button @(Model.SelectedCategory == category.Value ? "selected" : string.Empty)"
+                        id="@category.Value"
+                        name="category"
+                        value="@category.Value">
+                    @category.Value
+                </button>
+            }
+        </div>
+    }
+</form>

@@ -1,7 +1,9 @@
-﻿namespace Jalles.Core.ViewModels;
+﻿using Umbraco.Cms.Core.Models.Blocks;
+
+namespace Jalles.Core.ViewModels;
 
 public class StartPageViewModel
 {
-    public string Title { get; set; } = string.Empty;
     public MediaWithCrops? Thumbnail { get; set; }
+    public IEnumerable<BlockListItem> Blocks { get; set; } = Enumerable.Empty<BlockListItem>();
 }

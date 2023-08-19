@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Jalles.Core.Extensions;
 using Jalles.Core.Models.Content;
 using Jalles.Core.ViewModels;
 
@@ -19,6 +20,10 @@ public class ListingPageProfile : Profile
                 .MapFrom(s => s.UrlSegment))
             .ForMember(d => d.DisplayTitle, opt => opt
                 .MapFrom(s => s.DisplayTitle))
+            .ForMember(d => d.DisplayedCategories, opt => opt
+                .MapFrom(s => s.DisplayedCategories.GetFilters()))
+            .ForMember(d => d.AllCategories, opt => opt
+                .MapFrom(s => s.Categories))
             .ForMember(d => d.ContentPages, opt => opt
                 .MapFrom(s => s.Children.OfType<ContentPage>().Where(c => c.IsVisible()).OrderByDescending(c => c.CreateDate)));
     }

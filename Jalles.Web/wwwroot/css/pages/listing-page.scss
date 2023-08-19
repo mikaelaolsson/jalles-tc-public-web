@@ -1,44 +1,45 @@
 .listing-page {
-  padding: $spacing-vertical-medium $side-margins;
-
-  h2 {
-    margin: 0;
-    padding-bottom: $spacing-standard;
-  }
-
-  .listings {
+  .main-content-container {
     display: flex;
     flex-direction: column;
     gap: $spacing-standard;
-    margin: 0;
-    padding: 0;
+    padding: $spacing-vertical-medium $side-margins;
 
-    .listing {
-      position: relative;
+    h2 {
+      margin: 0;
+    }
+
+    .listings {
       display: flex;
-      align-items: flex-end;
-      min-height: 270px;
+      flex-direction: column;
+      gap: $spacing-standard;
+      margin: 0;
+      padding: 0;
 
-      .media {
-        @include fill-by-absolute-position;
-        @include darken-with-rounded-borders-by-absolute-fill;
-        border-radius: $border-radius;
-      }
+      .listing {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        min-height: 270px;
 
-      .content {
-        padding: $puff-padding;
-        width: 100%;
-        z-index: 0;
+        .media {
+          @include fill-by-absolute-position;
+          @include darken-with-rounded-borders-by-absolute-fill;
+          border-radius: $border-radius;
+        }
 
-        .content-container {
-          @include button-on-dark-background;
+        .content {
+          padding: $puff-padding;
+          width: 100%;
+          z-index: 0;
 
-          /*width: 100%;*/
+          .content-container {
+            @include button-on-dark-background;
 
-          h3 {
-            margin: 0;
-            font-weight: bold;
-            /*color: $color-white;*/
+            h3 {
+              margin: 0;
+              font-weight: bold;
+            }
           }
         }
       }
@@ -48,21 +49,27 @@
 
 @media only screen and (min-width: $screen-min-desktop) {
   .listing-page {
-    @include desktop-container-content;
-    @include desktop-container-grid;
-    gap: 0;
+    .main-content-container {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+      gap: $spacing-standard;
+      padding: $spacing-vertical-medium-desktop $side-margins-desktop;
 
-    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
-    
-    h2 {
-      grid-row: 1;
-      grid-column: 3 / 11;
-    }
+      h2 {
+        grid-row: 1;
+        grid-column: 3 / 11;
+      }
 
-    .listings {
-      grid-row: 2;
-      grid-column: 3 / 11;
-      width: 100%;
+      .listing-page-form {
+        grid-row: 2;
+        grid-column: 3 / 11;
+      }
+
+      .listings {
+        grid-row: 3;
+        grid-column: 3 / 11;
+        width: 100%;
+      }
     }
   }
 }

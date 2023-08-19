@@ -6,11 +6,21 @@ namespace Jalles.Core.Services;
 
 public class PaginationService : IPaginationService
 {
-    public ListingPageViewModel GetPaginatedViewModel(ListingPageViewModel viewModel, ListingPageViewModel request)
+    public ListingPageViewModel GetPaginatedViewModel(ListingPageViewModel viewModel, int page)
     {
-        //throw new NotImplementedException();
+        viewModel.Page = page;
 
-        viewModel.Page = request.Page;
+        var contentPageViewModels = viewModel.ContentPages.ToList();
+
+        viewModel.Pagination = new Pagination(contentPageViewModels.Count, viewModel.Page);
+        viewModel.ContentPages = Paginate(contentPageViewModels, viewModel.Pagination);
+
+        return viewModel;
+    }
+
+    public SecondaryListingPageViewModel GetPaginatedViewModel(SecondaryListingPageViewModel viewModel, int page)
+    {
+        viewModel.Page = page;
 
         var contentPageViewModels = viewModel.ContentPages.ToList();
 

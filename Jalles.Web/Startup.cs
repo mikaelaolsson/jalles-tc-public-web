@@ -51,8 +51,10 @@ public class Startup
         });
 
         // Services
+        services.AddScoped<IContentAccessor, ContentAccessor>();
         services.AddScoped<IMixedListingBlockService, MixedListingBlockService>();
         services.AddScoped<IPaginationService, PaginationService>();
+        services.AddScoped<IFilterService, FilterService>();
 
         // Mappings
         services.AddAutoMapper(typeof(BasePageProfile).Assembly);
@@ -68,8 +70,7 @@ public class Startup
         }
         else
         {
-            //TODO: add custom error pages
-            //app.UseExceptionHandler("/error");
+            app.UseExceptionHandler("/error");
             app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseRewriter(new RewriteOptions()
@@ -77,7 +78,6 @@ public class Startup
             );
         }
 
-        //app.UseHttpsRedirection(); 
         app.UseResponseCompression();
 
         app.Use(async (context, next) =>

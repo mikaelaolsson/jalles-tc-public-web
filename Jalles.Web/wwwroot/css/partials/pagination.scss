@@ -10,6 +10,7 @@
 
     &.active {
       color: $foreground-color-main;
+      font-weight: $font-weight-bold;
     }
 
     svg {

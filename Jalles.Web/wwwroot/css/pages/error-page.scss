@@ -1,0 +1,25 @@
+.error-page {
+  display: flex;
+  justify-content: center;
+  padding: $spacing-vertical-medium $side-margins;
+  background-color: $color-vanilla;
+
+  main {
+    max-width: $text-max-width-large;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+    }
+
+    img {
+      height: 15rem;
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .error-page {
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+  }
+}

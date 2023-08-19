@@ -10,8 +10,8 @@ public class StartPageProfile : Profile
     {
         //TODO: Title can be removed
         CreateMap<StartPage, StartPageViewModel>()
-            .ForMember(d => d.Title, opt => opt
-                .MapFrom(s => s.Title))
+            .ForMember(d => d.Blocks, opt => opt
+                .MapFrom(s => s.Blocks))
             .ForMember(d => d.Thumbnail, opt => opt
                 .MapFrom(s => s.Thumbnail));
     }
