@@ -25,6 +25,12 @@
     background-color: $color-black;
   }
 
+  &.color-taupe, &.color-black {
+    h2 {
+      color: $color-white;
+    }
+  }
+
   h2 {
     margin: 0;
   }
@@ -34,18 +40,15 @@
     flex-direction: column;
     gap: $spacing-standard;
 
-    .highlight{
+    .highlight {
       position: relative;
-
       display: flex;
       align-items: flex-end;
-
       min-height: 270px;
 
       .media {
         @include fill-by-absolute-position;
         @include darken-with-rounded-borders-by-absolute-fill;
-
         border-radius: $border-radius;
       }
 
@@ -53,11 +56,9 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-
         padding: $puff-padding;
         height: 100%;
         width: 100%;
-
         z-index: 0;
 
         .content-container {
@@ -80,25 +81,31 @@
     .listing-container {
       @include desktop-container-content;
       @include desktop-container-grid;
-
       gap: $spacing-large;
 
       h2 {
-        grid-column: 1 / 13;
+        grid-column: 3 / 11;
         grid-row: 1;
       }
 
       &.single-highlight {
         .highlight {
-          grid-column: span 12;
+          grid-column: 3 / 11;
           min-height: 30rem;
         }
       }
 
       &.double-highlight {
         .highlight {
-          grid-column: span 6;
           min-height: 30rem;
+
+          &:nth-of-type(1) {
+            grid-column: 3 / 7;
+          }
+
+          &:nth-of-type(2) {
+            grid-column: 7 / 11;
+          }
         }
       }
 
@@ -111,9 +118,8 @@
       &:not(.single-highlight):not(.double-highlight) {
         .highlight {
           &:nth-of-type(1) {
-            grid-column: 1 / 8;
+            grid-column: 3 / 8;
             grid-row: 2 / 4;
-
             height: 100%;
 
             .content {
@@ -124,16 +130,16 @@
           }
 
           &:nth-of-type(2) {
-            grid-column: 8 / 13;
+            grid-column: 8 / 11;
             grid-row: 2;
           }
 
           &:nth-of-type(3) {
-            grid-column: 8 / 13;
+            grid-column: 8 / 11;
             grid-row: 3;
           }
         }
       }
     }
   }
-}
+  }
