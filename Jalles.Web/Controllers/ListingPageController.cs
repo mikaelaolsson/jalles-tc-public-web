@@ -29,21 +29,18 @@ public class ListingPageController : RenderControllerBase
         _filterService = filterService;
     }
 
-    public async Task<IActionResult> IndexAsync(string category, int page, string? selectedCategory)
+    public async Task<IActionResult> IndexAsync(List<string> categories, int page)
     {
         var listingPage = new ListingPage(CurrentPage, _publishedValueFallback);
 
         var viewModel = _mapper.Map<ListingPageViewModel>(listingPage);
 
-        if (!string.IsNullOrEmpty(category) && category != "Alla")
+        if (categories.Any(c => !string.IsNullOrWhiteSpace(c)))
         {
+            var category = categories.Find(c => !string.IsNullOrWhiteSpace(c));
+
             viewModel.ContentPages = _filterService.GetFilteredContentPages(viewModel.ContentPages, category);
-            viewModel.SelectedCategory = category;
-        }
-        else if(!string.IsNullOrEmpty(selectedCategory) && selectedCategory != "Alla")
-        {
-            viewModel.ContentPages = _filterService.GetFilteredContentPages(viewModel.ContentPages, selectedCategory);
-            viewModel.SelectedCategory = selectedCategory;
+            viewModel.SelectedCategory = category ?? "Alla";
         }
 
         viewModel = _paginationService.GetPaginatedViewModel(viewModel, page <= 0 ? 1 : page);

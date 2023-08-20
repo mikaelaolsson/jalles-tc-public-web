@@ -11,25 +11,24 @@ paginationForm?.addEventListener('submit', function () {
 const next = document.querySelector('#next');
 const previous = document.querySelector('#previous');
 
-pageButtons.forEach(function(pageButton) {
-  pageButton.addEventListener('click', function() {
+pageButtons.forEach(function (pageButton) {
+  pageButton.addEventListener('click', function () {
     currentPage.value = pageButton.value;
     submitPaginationForm();
   });
 });
 
-next?.addEventListener('click', function() {
+next?.addEventListener('click', function () {
   const value = currentPage.value;
   currentPage.value = (parseInt(value) + 1).toString();
   submitPaginationForm();
 });
 
-previous?.addEventListener('click', function() {
+previous?.addEventListener('click', function () {
   const value = currentPage.value;
   currentPage.value = (parseInt(value) - 1).toString();
   submitPaginationForm();
 });
-
 
 function submitPaginationForm() {
   const selectedInput = document.querySelector('#selected-input') as HTMLInputElement;
@@ -45,10 +44,10 @@ function submitPaginationForm() {
 function getPaginationForm(): HTMLFormElement | null {
   const forms = document.querySelectorAll('form') as NodeListOf<HTMLFormElement>;
 
-  for(const form of forms) {
+  for (const form of forms) {
     const pageInput = form.querySelector('#page');
 
-    if(pageInput !== undefined) {
+    if (pageInput !== undefined) {
       return form;
     }
   }

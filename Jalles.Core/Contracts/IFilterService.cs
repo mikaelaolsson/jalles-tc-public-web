@@ -4,5 +4,5 @@ namespace Jalles.Core.Contracts;
 
 public interface IFilterService
 {
-    IEnumerable<ContentPageViewModel> GetFilteredContentPages(IEnumerable<ContentPageViewModel> contentPages, string category);
+    IEnumerable<ContentPageViewModel> GetFilteredContentPages(IEnumerable<ContentPageViewModel> contentPages, string? category);
 }

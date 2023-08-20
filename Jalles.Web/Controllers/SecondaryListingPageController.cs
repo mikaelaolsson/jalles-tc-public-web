@@ -31,7 +31,7 @@ public class SecondaryListingPageController : RenderControllerBase
         _paginationService = paginationService;
     }
 
-    public async Task<IActionResult> IndexAsync(string category, int page, string? selectedCategory)
+    public async Task<IActionResult> IndexAsync(List<string> categories, int page)
     {
         var secondaryListingPage = new SecondaryListingPage(CurrentPage, _publishedValueFallback);
 
@@ -43,16 +43,14 @@ public class SecondaryListingPageController : RenderControllerBase
 
         viewModel.ContentPages = _filterService.GetFilteredContentPages(contentPages, viewModel.MainCategory);
 
-        if (!string.IsNullOrEmpty(category) && category != "Alla")
+        if (categories.Any(c => !string.IsNullOrWhiteSpace(c)))
         {
+            var category = categories.Find(c => !string.IsNullOrWhiteSpace(c));
+
             viewModel.ContentPages = _filterService.GetFilteredContentPages(viewModel.ContentPages, category);
-            viewModel.SelectedCategory = category;
+            viewModel.SelectedCategory = category ?? "Alla";
         }
-        else if (!string.IsNullOrEmpty(selectedCategory) && selectedCategory != "Alla")
-        {
-            viewModel.ContentPages = _filterService.GetFilteredContentPages(viewModel.ContentPages, selectedCategory);
-            viewModel.SelectedCategory = selectedCategory;
-        }
+
         viewModel = _paginationService.GetPaginatedViewModel(viewModel, page <= 0 ? 1 : page);
 
         var model = await LayoutViewModel<SecondaryListingPageViewModel>.CreateAsync(viewModel, CurrentPage!, HttpContext);

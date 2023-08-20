@@ -2,14 +2,14 @@
 
 <form id="listing-page-form" class="listing-page-form" method="get">
     <input type="hidden" id="page" name="page" value="@Model.Page" />
-    <input type="hidden" id="selected-input" name="selectedCategory" value="" />
+    <input type="hidden" id="selected-input" name="categories" value="" />
 
     @if (Model.DisplayedCategories.Any())
     {
         <div class="categories">
             <button class="category-button @(Model.SelectedCategory == "Alla" ? "selected" : string.Empty)"
                     id="clear-button"
-                    name="category"
+                    name="categories"
                     value="Alla">
                 Alla
             </button>
@@ -18,7 +18,7 @@
             {
                 <button class="category-button @(Model.SelectedCategory == category.Value ? "selected" : string.Empty)"
                         id="@category.Value"
-                        name="category"
+                        name="categories"
                         value="@category.Value">
                     @category.Value
                 </button>
