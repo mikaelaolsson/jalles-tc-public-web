@@ -25,6 +25,9 @@
                     @await Html.PartialAsync("_HighlightListingBlock.cshtml", highlightBlock)
                 }
                 break;
+            case "dataBlock":
+                @await Html.PartialAsync("../_DataBlock.cshtml", MixedListingBlockService.MapDataBlock(block))
+                break;
 
                 @*TODO: add excel block, pin this/kom ihåg block?*@
         }

@@ -1,0 +1,75 @@
+.data-block-container {
+  margin: $spacing-vertical-medium $side-margins;
+
+  .data-block {
+    overflow-wrap: break-word;
+
+    h1 {
+      font-size: $font-size-heading-medium;
+      line-height: $font-line-height-heading;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: $spacing-vertical-medium 0;
+      border-radius: $border-radius;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 0;
+
+      caption {
+        display: none;
+      }
+
+      tbody {
+        tr {
+          &:first-child {
+            border: none;
+            background-color: $color-taupe;
+            font-weight: $font-weight-bold;
+            color: $color-jalles-yellow;
+            white-space: nowrap;
+            overflow: hidden;
+
+            td {
+              border: none;
+
+              &:last-child {
+                border-radius: 0 1rem 0 0;
+              }
+            }
+          }
+          th {
+            font-weight: $font-weight;
+          }
+
+          th,
+          td {
+            line-height: $font-line-height;
+            text-align: left;
+            padding: $spacing-small $spacing-standard;
+            border: solid 0.25px $color-muted-battleship;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .data-block-container {
+    @include desktop-container-content;
+    @include desktop-container-grid;
+    margin: $spacing-vertical-medium-desktop $side-margins-desktop;
+
+    .data-block {
+      grid-column: 3 / 11;
+      width: 100%;
+    }
+  }
+}

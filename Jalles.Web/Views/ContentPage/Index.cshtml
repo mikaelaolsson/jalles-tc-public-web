@@ -1,8 +1,9 @@
 ﻿@inherits UmbracoViewPage<LayoutViewModel<ContentPageViewModel>>
 
 @{
-    var hasUpdate = @Model.ViewModel.Published.ToString("yyyy-MM-dd") != @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd");
+    var hasUpdate = Model.ViewModel.Published.ToString("yyyy-MM-dd") != @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd");
     var hasImageGalleryBlock = Model.ViewModel.Blocks.Any(b => b.Content.ContentType.Alias == "imageGalleryBlock");
+    var hasDataBlock = Model.ViewModel.Blocks.Any(b => b.Content.ContentType.Alias == "dataBlock");
 }
 
 <main class="content-page">
@@ -35,6 +36,10 @@
     @if (hasImageGalleryBlock)
     {
         <script src="~/build/scripts/image-gallery-modal.js" asp-append-version="true"></script>
+    }
+    @if (hasDataBlock)
+    {
+        <script src="~/build/scripts/table-wrapper.js" asp-append-version="true"></script>
     }
 
     <script src="~/build/scripts/background-color.js" asp-append-version="true"></script>
