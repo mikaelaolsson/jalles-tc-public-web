@@ -41,7 +41,7 @@ public class SecondaryListingPageController : RenderControllerBase
 
         var contentPages = _mapper.Map<IEnumerable<ContentPageViewModel>>(listingPage?.Children) ?? Enumerable.Empty<ContentPageViewModel>();
 
-        viewModel.ContentPages = _filterService.GetFilteredContentPages(contentPages, viewModel.MainCategory);
+        viewModel.ContentPages = _filterService.GetFilteredContentPages(contentPages, viewModel.MainCategory).OrderByDescending(c => c.DateBlock?.PublishedDate ?? c.Published);
 
         if (categories.Any(c => !string.IsNullOrWhiteSpace(c)))
         {

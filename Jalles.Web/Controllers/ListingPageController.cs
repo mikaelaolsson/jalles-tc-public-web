@@ -34,6 +34,7 @@ public class ListingPageController : RenderControllerBase
         var listingPage = new ListingPage(CurrentPage, _publishedValueFallback);
 
         var viewModel = _mapper.Map<ListingPageViewModel>(listingPage);
+        viewModel.ContentPages = viewModel.ContentPages.OrderByDescending(c => c.DateBlock?.PublishedDate ?? c.Published);
 
         if (categories.Any(c => !string.IsNullOrWhiteSpace(c)))
         {

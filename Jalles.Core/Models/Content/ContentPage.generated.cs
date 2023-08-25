@@ -74,6 +74,14 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock> Header => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock>>(_publishedValueFallback, "header");
 
 		///<summary>
+		/// Published Date: Add this on pages that have been previously published. (Ex. On pages with result lists from previous years.)
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("publishedDate")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel PublishedDate => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "publishedDate");
+
+		///<summary>
 		/// Meta Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]

@@ -26,7 +26,9 @@ public class ContentPageProfile : Profile
             .ForMember(d => d.Categories, opt => opt
                 .MapFrom(s => s.Categories))
             .ForMember(d => d.Blocks, opt => opt
-                .MapFrom(s => s.Blocks));
+                .MapFrom(s => s.Blocks))
+            .ForMember(d => d.DateBlock, opt => opt
+                .MapFrom(s => s.PublishedDate!.FirstOrDefault()));
 
         CreateMap<ListingPage, ContentPageViewModel>()
             .ForMember(d => d.Header, opt => opt

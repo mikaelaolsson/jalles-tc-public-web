@@ -22,7 +22,14 @@
     @if (!string.IsNullOrWhiteSpace(Model.ViewModel.ParentPagePath))
     {
         <ul class="date">
-            <li><span>Publicerad: @Model.ViewModel.Published.ToString("yyyy-MM-dd")</span></li>
+            @if (Model.ViewModel.DateBlock?.PublishedDate != null)
+            {
+                <li><span>Publicerad: @Model.ViewModel.DateBlock?.PublishedDate.ToString("yyyy-MM-dd")</span></li>
+            }
+            else
+            {
+                <li><span>Publicerad: @Model.ViewModel.Published.ToString("yyyy-MM-dd")</span></li>
+            }
             @if (hasUpdate)
             {
                 <li><span>Uppdaterad: @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd")</span></li>
@@ -32,7 +39,7 @@
 </main>
 
 @section Scripts
-{
+    {
     @if (hasImageGalleryBlock)
     {
         <script src="~/build/scripts/image-gallery-modal.js" asp-append-version="true"></script>
