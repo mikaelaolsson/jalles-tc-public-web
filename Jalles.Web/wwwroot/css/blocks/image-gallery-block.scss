@@ -26,12 +26,12 @@
   }
 
   &.color-taupe, &.color-black {
-    h2 {
+    h2, p {
       color: $color-white;
     }
   }
   .gallery-wrapper {
-    h2 {
+    h2, p {
       margin: 0;
     }
 
@@ -107,8 +107,13 @@
         grid-column: 3 / 11;
       }
 
-      .image-gallery {
+      p {
         grid-row: 2;
+        grid-column: 3 / 11;
+      }
+
+      .image-gallery {
+        grid-row: 3;
         grid-column: 3 / 11;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 35rem;

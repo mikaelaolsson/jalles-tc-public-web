@@ -12,6 +12,8 @@ public class ImageGalleryBlockProfile : Profile
         CreateMap<BlockListItem<ImageGalleryBlock>, ImageGalleryBlockViewModel>()
             .ForMember(d => d.Heading, opt => opt
                 .MapFrom(s => s.Content.Heading))
+            .ForMember(d => d.Text, opt => opt
+                .MapFrom(s => s.Content.Text))
             .ForMember(d => d.ImageGallery, opt => opt
                 .MapFrom(s => s.Content.ImageGallery))
             .ForMember(d => d.Id, opt => opt

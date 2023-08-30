@@ -6,6 +6,10 @@
         {
             <h2>@Model.Heading</h2>
         }
+        @if (!string.IsNullOrWhiteSpace(Model.Text))
+        {
+            <p>@Model.Text</p>
+        }
         <div class="image-gallery" id="@Model.Id">
 
             @if (Model.ImageGallery.Count() >= 3)
