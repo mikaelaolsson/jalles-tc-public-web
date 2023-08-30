@@ -1,7 +1,7 @@
-.text-block-container {
+.text-block-container, .attachment-block-container {
   margin: $spacing-vertical-medium $side-margins;
 
-  .text-block {
+  .text-block, .attachment-block {
     overflow-wrap: break-word;
 
     h1 {
@@ -69,12 +69,12 @@
 
 
 @media only screen and (min-width: $screen-min-desktop) {
-  .text-block-container {
+  .text-block-container, .attachment-block-container {
     @include desktop-container-content;
     @include desktop-container-grid;
     margin: $spacing-vertical-medium-desktop $side-margins-desktop;
 
-    .text-block {
+    .text-block, .attachment-block {
       grid-column: 3 / 11;
       width: 100%;
     }

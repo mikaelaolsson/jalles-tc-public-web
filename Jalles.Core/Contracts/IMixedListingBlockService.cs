@@ -10,4 +10,5 @@ public interface IMixedListingBlockService
     TextBlockViewModel MapTextBlock(BlockListItem blockListItem);
     HighlightBlockViewModel MapHighlightBlock(BlockListItem blockListItem);
     DataBlockViewModel MapDataBlock(BlockListItem blockListItem);
+    AttachmentBlockViewModel MapAttachmentBlock(BlockListItem blockListItem);
 }

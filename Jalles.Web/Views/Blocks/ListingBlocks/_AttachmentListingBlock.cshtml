@@ -1,0 +1,18 @@
+﻿@model AttachmentBlockViewModel
+
+@if (Model.Attachments.Any())
+{
+    <div class="attachment-block-container">
+        <div class="attachment-block">
+            <h3>Bifogade Filer</h3>
+            <ul>
+                @foreach (var attachment in Model.Attachments)
+                {
+                    <li>
+                        <a class="attachment" href="@attachment.File" download>@attachment.Text</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}

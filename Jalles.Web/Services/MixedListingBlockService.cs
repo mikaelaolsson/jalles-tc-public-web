@@ -37,4 +37,9 @@ public class MixedListingBlockService : IMixedListingBlockService
     {
         return _mapper.Map<DataBlockViewModel>(blockListItem);
     }
+
+    public AttachmentBlockViewModel MapAttachmentBlock(BlockListItem blockListItem)
+    {
+        return _mapper.Map<AttachmentBlockViewModel>(blockListItem);
+    }
 }
