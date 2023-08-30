@@ -1,9 +1,11 @@
 .listing-page {
+  padding: $spacing-vertical-medium $side-margins;
+
   .main-content-container {
     display: flex;
     flex-direction: column;
     gap: $spacing-standard;
-    padding: $spacing-vertical-medium $side-margins;
+
 
     h2 {
       margin: 0;
@@ -49,11 +51,13 @@
 
 @media only screen and (min-width: $screen-min-desktop) {
   .listing-page {
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
     .main-content-container {
       @include desktop-container-content;
       @include desktop-container-grid;
       gap: $spacing-standard;
-      padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
 
       h2 {
         grid-row: 1;

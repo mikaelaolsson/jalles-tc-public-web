@@ -4,7 +4,6 @@
   right: 0;
   left: 0;
   z-index: $z-index-main-menu;
-
   width: 100%;
 
   a {
@@ -15,7 +14,6 @@
   .menu {
     margin: $spacing-standard;
     padding: $spacing-small $side-margins $spacing-small;
-
     border-radius: $border-radius;
     background-color: $color-taupe;
     color: $color-off-white;
@@ -23,7 +21,6 @@
     .open-menu-button {
       display: flex;
       align-items: center;
-
       width: 100%;
       color: $color-off-white;
       font-size: 1.5rem;
@@ -31,11 +28,9 @@
 
     .menu-items {
       display: none;
-
       padding: 0;
       padding-top: $spacing-standard;
       margin: 0;
-
       width: 100%;
       list-style: none;
       color: $color-off-white;
@@ -44,18 +39,21 @@
         margin-bottom: $spacing-standard;
 
         a {
-          padding: 0.5rem 1rem;
-
           background-color: transparent;
           border-radius: $border-radius-small;
 
           &.current {
             background-color: $active-link-bg-color;
           }
+
+          &:not(.facebook) {
+            padding: 0.5rem 1rem;
+          }
         }
 
         .facebook {
           img {
+            padding-left: 1rem;
             height: 2rem;
           }
         }
@@ -72,9 +70,7 @@
   .menu-container {
     display: flex;
     justify-content: center;
-
     padding: 1rem $side-margins-desktop 1rem;
-
     width: 100%;
     font-size: $font-size-small-desktop;
 
@@ -88,13 +84,19 @@
       .menu-items {
         display: flex;
         gap: $spacing-large;
-
         padding: 0;
         margin: 0;
 
         li {
           margin-bottom: 0;
           margin: auto;
+
+          .facebook {
+            img {
+              padding-left: 0;
+              padding-top: 6px;
+            }
+          }
         }
 
         &.show {
