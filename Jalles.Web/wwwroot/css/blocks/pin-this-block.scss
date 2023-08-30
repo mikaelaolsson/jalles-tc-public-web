@@ -1,6 +1,5 @@
 .pin-this-block {
-  margin-bottom: -2rem;
-  padding: $spacing-vertical-medium $side-margins 0;
+  padding-bottom: 2rem;
 
   .wrapper {
     .listing-container {
@@ -18,9 +17,6 @@
 
 @media only screen and (min-width: $screen-min-desktop) {
   .pin-this-block {
-    padding: $spacing-vertical-medium-desktop $side-margins-desktop 0;
-    margin-bottom: -3rem;
-
     .wrapper {
       @include desktop-container-grid;
       @include desktop-container-content;
