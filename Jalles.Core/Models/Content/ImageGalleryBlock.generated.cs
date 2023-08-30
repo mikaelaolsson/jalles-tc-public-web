@@ -72,5 +72,13 @@ namespace Jalles.Core.Models.Content
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("imageGallery")]
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> ImageGallery => global::Jalles.Core.Models.Content.ImageGalleryProperties.GetImageGallery(this, _publishedValueFallback);
+
+		///<summary>
+		/// Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("text")]
+		public virtual string Text => global::Jalles.Core.Models.Content.ImageGalleryProperties.GetText(this, _publishedValueFallback);
 	}
 }

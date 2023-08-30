@@ -550,10 +550,10 @@ footer .content .umemaran img {
 .image-gallery-container.color-black {
   background-color: #1E2022;
 }
-.image-gallery-container.color-taupe h2, .image-gallery-container.color-black h2 {
+.image-gallery-container.color-taupe h2, .image-gallery-container.color-taupe p, .image-gallery-container.color-black h2, .image-gallery-container.color-black p {
   color: #FFFFFF;
 }
-.image-gallery-container .gallery-wrapper h2 {
+.image-gallery-container .gallery-wrapper h2, .image-gallery-container .gallery-wrapper p {
   margin: 0;
 }
 .image-gallery-container .gallery-wrapper .image-gallery {
@@ -622,8 +622,12 @@ footer .content .umemaran img {
     grid-row: 1;
     grid-column: 3/11;
   }
-  .image-gallery-container .gallery-wrapper .image-gallery {
+  .image-gallery-container .gallery-wrapper p {
     grid-row: 2;
+    grid-column: 3/11;
+  }
+  .image-gallery-container .gallery-wrapper .image-gallery {
+    grid-row: 3;
     grid-column: 3/11;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 35rem;
