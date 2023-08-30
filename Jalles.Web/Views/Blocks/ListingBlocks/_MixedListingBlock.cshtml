@@ -28,6 +28,9 @@
             case "dataBlock":
                 @await Html.PartialAsync("../_DataBlock.cshtml", MixedListingBlockService.MapDataBlock(block))
                 break;
+            case "attachmentBlock":
+                @await Html.PartialAsync("_AttachmentListingBlock.cshtml", MixedListingBlockService.MapAttachmentBlock(block))
+                break;
 
                 @*TODO: add excel block, pin this/kom ihåg block?*@
         }

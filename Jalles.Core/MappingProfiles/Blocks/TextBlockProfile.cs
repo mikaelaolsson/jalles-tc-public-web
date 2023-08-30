@@ -13,8 +13,6 @@ public class TextBlockProfile : Profile
             .ForMember(d => d.Heading, opt => opt
                 .MapFrom(s => s.Content.Heading))
             .ForMember(d => d.Text, opt => opt
-                .MapFrom(s => s.Content.Text))
-            .ForMember(d => d.Attachments, opt => opt
-                .MapFrom(s => s.Content.Attachments));
+                .MapFrom(s => s.Content.Text));
     }
 }

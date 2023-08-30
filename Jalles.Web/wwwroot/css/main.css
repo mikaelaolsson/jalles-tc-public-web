@@ -900,59 +900,59 @@ footer .content .umemaran img {
     gap: 2rem;
   }
 }
-.text-block-container {
+.text-block-container, .attachment-block-container {
   margin: 3rem 1.25rem;
 }
-.text-block-container .text-block {
+.text-block-container .text-block, .text-block-container .attachment-block, .attachment-block-container .text-block, .attachment-block-container .attachment-block {
   overflow-wrap: break-word;
 }
-.text-block-container .text-block h1 {
+.text-block-container .text-block h1, .text-block-container .attachment-block h1, .attachment-block-container .text-block h1, .attachment-block-container .attachment-block h1 {
   font-size: 2.25rem;
   line-height: 130%;
 }
-.text-block-container .text-block h1, .text-block-container .text-block h2, .text-block-container .text-block h3 {
+.text-block-container .text-block h1, .text-block-container .text-block h2, .text-block-container .text-block h3, .text-block-container .attachment-block h1, .text-block-container .attachment-block h2, .text-block-container .attachment-block h3, .attachment-block-container .text-block h1, .attachment-block-container .text-block h2, .attachment-block-container .text-block h3, .attachment-block-container .attachment-block h1, .attachment-block-container .attachment-block h2, .attachment-block-container .attachment-block h3 {
   max-width: 950px;
 }
-.text-block-container .text-block a {
+.text-block-container .text-block a, .text-block-container .attachment-block a, .attachment-block-container .text-block a, .attachment-block-container .attachment-block a {
   text-decoration: underline;
   color: #463F3A;
   font-weight: 700;
 }
-.text-block-container .text-block a:hover {
+.text-block-container .text-block a:hover, .text-block-container .attachment-block a:hover, .attachment-block-container .text-block a:hover, .attachment-block-container .attachment-block a:hover {
   text-decoration: none;
 }
-.text-block-container .text-block p img {
+.text-block-container .text-block p img, .text-block-container .attachment-block p img, .attachment-block-container .text-block p img, .attachment-block-container .attachment-block p img {
   width: 100%;
   height: auto;
   border-radius: 1rem;
 }
-.text-block-container .text-block figure {
+.text-block-container .text-block figure, .text-block-container .attachment-block figure, .attachment-block-container .text-block figure, .attachment-block-container .attachment-block figure {
   margin: 0;
 }
-.text-block-container .text-block figure img {
+.text-block-container .text-block figure img, .text-block-container .attachment-block figure img, .attachment-block-container .text-block figure img, .attachment-block-container .attachment-block figure img {
   width: 100%;
   height: auto;
   border-radius: 1rem;
 }
-.text-block-container .text-block figure figcaption {
+.text-block-container .text-block figure figcaption, .text-block-container .attachment-block figure figcaption, .attachment-block-container .text-block figure figcaption, .attachment-block-container .attachment-block figure figcaption {
   color: #535353;
 }
-.text-block-container .text-block ul, .text-block-container .text-block ol {
+.text-block-container .text-block ul, .text-block-container .text-block ol, .text-block-container .attachment-block ul, .text-block-container .attachment-block ol, .attachment-block-container .text-block ul, .attachment-block-container .text-block ol, .attachment-block-container .attachment-block ul, .attachment-block-container .attachment-block ol {
   margin-left: 2rem;
   padding-inline-start: 0.5rem;
   max-width: 800px;
 }
-.text-block-container .text-block ul li, .text-block-container .text-block ol li {
+.text-block-container .text-block ul li, .text-block-container .text-block ol li, .text-block-container .attachment-block ul li, .text-block-container .attachment-block ol li, .attachment-block-container .text-block ul li, .attachment-block-container .text-block ol li, .attachment-block-container .attachment-block ul li, .attachment-block-container .attachment-block ol li {
   padding: 0 0 1rem 0.5rem;
   line-height: 170%;
 }
-.text-block-container .text-block ul li ul, .text-block-container .text-block ul li ol, .text-block-container .text-block ol li ul, .text-block-container .text-block ol li ol {
+.text-block-container .text-block ul li ul, .text-block-container .text-block ul li ol, .text-block-container .text-block ol li ul, .text-block-container .text-block ol li ol, .text-block-container .attachment-block ul li ul, .text-block-container .attachment-block ul li ol, .text-block-container .attachment-block ol li ul, .text-block-container .attachment-block ol li ol, .attachment-block-container .text-block ul li ul, .attachment-block-container .text-block ul li ol, .attachment-block-container .text-block ol li ul, .attachment-block-container .text-block ol li ol, .attachment-block-container .attachment-block ul li ul, .attachment-block-container .attachment-block ul li ol, .attachment-block-container .attachment-block ol li ul, .attachment-block-container .attachment-block ol li ol {
   padding-top: 0.5rem;
 }
-.text-block-container .text-block ul li {
+.text-block-container .text-block ul li, .text-block-container .attachment-block ul li, .attachment-block-container .text-block ul li, .attachment-block-container .attachment-block ul li {
   list-style-image: url("../images/arrow-right.svg");
 }
-.text-block-container .text-block .embedded-video-container {
+.text-block-container .text-block .embedded-video-container, .text-block-container .attachment-block .embedded-video-container, .attachment-block-container .text-block .embedded-video-container, .attachment-block-container .attachment-block .embedded-video-container {
   position: relative;
   padding-bottom: 56.25%;
   /*16:9*/
@@ -962,7 +962,7 @@ footer .content .umemaran img {
   background-color: #1E2022;
   border-radius: 1rem;
 }
-.text-block-container .text-block .embedded-video-container iframe, .text-block-container .text-block .embedded-video-container object, .text-block-container .text-block .embedded-video-container embed {
+.text-block-container .text-block .embedded-video-container iframe, .text-block-container .text-block .embedded-video-container object, .text-block-container .text-block .embedded-video-container embed, .text-block-container .attachment-block .embedded-video-container iframe, .text-block-container .attachment-block .embedded-video-container object, .text-block-container .attachment-block .embedded-video-container embed, .attachment-block-container .text-block .embedded-video-container iframe, .attachment-block-container .text-block .embedded-video-container object, .attachment-block-container .text-block .embedded-video-container embed, .attachment-block-container .attachment-block .embedded-video-container iframe, .attachment-block-container .attachment-block .embedded-video-container object, .attachment-block-container .attachment-block .embedded-video-container embed {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -972,7 +972,7 @@ footer .content .umemaran img {
 }
 
 @media only screen and (min-width: 1200px) {
-  .text-block-container {
+  .text-block-container, .attachment-block-container {
     max-width: 1980px;
     margin: 0 auto;
     display: grid;
@@ -981,7 +981,7 @@ footer .content .umemaran img {
     row-gap: 5rem;
     margin: 5rem 5rem;
   }
-  .text-block-container .text-block {
+  .text-block-container .text-block, .text-block-container .attachment-block, .attachment-block-container .text-block, .attachment-block-container .attachment-block {
     grid-column: 3/11;
     width: 100%;
   }
