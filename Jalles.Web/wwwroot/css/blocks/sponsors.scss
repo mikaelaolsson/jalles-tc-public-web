@@ -1,19 +1,30 @@
+.sponsor-block {
+  padding: $spacing-vertical-medium $side-margins;
+}
+
+.footer-sponsors {
+  max-width: 500px;
+}
+
 .sponsors {
+  h2 {
+    margin: 0;
+    padding-bottom: $spacing-small;
+    font-size: $font-size;
+    color: $color-battleship-gray;
+  }
+
   ul {
     display: flex;
-    flex-direction: column;
-    gap: $spacing-small;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: $spacing-small;
+    column-gap: $spacing-standard;
 
     padding: 0;
     margin: 0;
     list-style: none;
-
-    h2 {
-      margin: 0;
-
-      font-size: $font-size;
-      color: $color-battleship-gray;
-    }
 
     img {
       width: 8rem;
@@ -22,6 +33,19 @@
 }
 
 @media only screen and (min-width: $screen-min-desktop) {
+  .sponsor-block {
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
+    .content-container {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+
+      .sponsors {
+        grid-column: 4 / 10;
+      }
+    }
+  }
+
   .sponsors {
     ul {
       flex-direction: row;

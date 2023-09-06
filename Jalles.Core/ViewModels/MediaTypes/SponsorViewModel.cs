@@ -1,4 +1,4 @@
-﻿namespace Jalles.Core.ViewModels;
+﻿namespace Jalles.Core.ViewModels.MediaTypes;
 
 public class SponsorViewModel
 {

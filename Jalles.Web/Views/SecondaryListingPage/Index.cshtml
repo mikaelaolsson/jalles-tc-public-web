@@ -1,12 +1,6 @@
 ﻿@inherits UmbracoViewPage<LayoutViewModel<SecondaryListingPageViewModel>>
 
 <main class="listing-page">
-
-    @if (Model.ViewModel.HighlightBlock != null)
-    {
-        @await Html.PartialAsync("../Blocks/ListingBlocks/_HighlightListingBlock", Model.ViewModel.HighlightBlock)
-    }
-
     @if (Model.ViewModel.PinThisBlock != null)
     {
         @await Html.PartialAsync("../Blocks/_PinThisBlock", Model.ViewModel.PinThisBlock)

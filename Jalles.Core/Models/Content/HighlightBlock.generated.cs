@@ -50,7 +50,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Background Color
+		/// Background Color: Bakgrundsfärg
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +58,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string BackgroundColor => global::Jalles.Core.Models.Content.HighlightBlockProperties.GetBackgroundColor(this, _publishedValueFallback);
 
 		///<summary>
-		/// Heading
+		/// Heading: Rubrik
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -66,7 +66,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string Heading => global::Jalles.Core.Models.Content.HighlightBlockProperties.GetHeading(this, _publishedValueFallback);
 
 		///<summary>
-		/// Highlights: Add up to 3 highlights. Only Content Pages and Listing Pages will be rendered.
+		/// Highlights: Lägg till upp till 3 höjdpunkter. Endast innehållssidor och listningssidor kommer att renderas.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

@@ -50,7 +50,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Displayed Categories: Select the categories that you want displayed on the page.
+		/// Displayed Categories: Välj kategorier som visas på sidan.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,14 +58,14 @@ namespace Jalles.Core.Models.Content
 		public virtual global::System.Collections.Generic.List<string> DisplayedCategories => this.Value<global::System.Collections.Generic.List<string>>(_publishedValueFallback, "displayedCategories");
 
 		///<summary>
-		/// Display Title
+		/// Display Title: Välj om titeln ska visas på sidan
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[ImplementPropertyType("displayTitle")]
 		public virtual bool DisplayTitle => this.Value<bool>(_publishedValueFallback, "displayTitle");
 
 		///<summary>
-		/// Header
+		/// Header: Sidhuvud Block
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -73,7 +73,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock> Header => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock>>(_publishedValueFallback, "header");
 
 		///<summary>
-		/// Pages
+		/// Pages: Underssidor
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -81,7 +81,7 @@ namespace Jalles.Core.Models.Content
 		public virtual object Pages => this.Value(_publishedValueFallback, "pages");
 
 		///<summary>
-		/// Meta Description
+		/// Meta Description: Metabeskrivning: Är bra för google och när ni delar sidorna.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -89,7 +89,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string MetaDescription => global::Jalles.Core.Models.Content.BasePageProperties.GetMetaDescription(this, _publishedValueFallback);
 
 		///<summary>
-		/// Title
+		/// Title: Titel
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -97,7 +97,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string Title => global::Jalles.Core.Models.Content.BasePageProperties.GetTitle(this, _publishedValueFallback);
 
 		///<summary>
-		/// Categories: The categories will only be gathered from the "Aktuellt" Listing Page, other values will be ignored.
+		/// Categories: Kategorierna kommer endast att samlas in från "Aktuellts" listningssida, andra värden kommer att ignoreras.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -105,7 +105,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::System.Collections.Generic.IEnumerable<string> Categories => global::Jalles.Core.Models.Content.CategoriesProperty.GetCategories(this, _publishedValueFallback);
 
 		///<summary>
-		/// Thumbnail: Select thumbnail for the page.
+		/// Thumbnail: Välj miniatyrbild/delningsbild för sidan.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

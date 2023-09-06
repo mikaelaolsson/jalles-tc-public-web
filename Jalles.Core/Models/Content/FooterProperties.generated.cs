@@ -70,7 +70,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Footer Text
+		/// Footer Text: Sidfot text
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -83,7 +83,7 @@ namespace Jalles.Core.Models.Content
 		public static string GetFooterText(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "footerText");
 
 		///<summary>
-		/// Sponsors
+		/// Sponsors: Sponsorer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -96,7 +96,7 @@ namespace Jalles.Core.Models.Content
 		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> GetSponsors(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops>>(publishedValueFallback, "sponsors");
 
 		///<summary>
-		/// UmeMaran Logo
+		/// UmeMaran Logo: Logo för Umemaran
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

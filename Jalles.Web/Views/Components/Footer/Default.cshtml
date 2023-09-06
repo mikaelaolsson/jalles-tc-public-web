@@ -6,12 +6,14 @@
 
 
         <div class="content">
-            @if (Model.Sponsors.Any())
+            @if(Model.Sponsors.Any())
             {
-                @await Html.PartialAsync("../Blocks/ListingBlocks/_SponsorsListingBlock", Model.Sponsors)
+                <div class="footer-sponsors">
+                    @await Html.PartialAsync("../Blocks/ListingBlocks/_SponsorsListingBlock", new SponsorBlockViewModel{Heading = "Sponsorer", Sponsors = Model.Sponsors})
+                </div>
             }
 
-            @if (Model.UmemaranLogo is not null)
+            @if(Model.UmemaranLogo is not null)
             {
                 <ul class="umemaran">
                     <li>

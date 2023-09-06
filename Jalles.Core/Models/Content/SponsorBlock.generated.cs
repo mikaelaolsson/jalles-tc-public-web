@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Jalles.Core.Models.Content
 {
-	/// <summary>Secondary Highlight Block</summary>
-	[PublishedModel("secondaryHighlightBlock")]
-	public partial class SecondaryHighlightBlock : PublishedElementModel, ISecondaryHighlightBlockProperties
+	/// <summary>Sponsor Block</summary>
+	[PublishedModel("sponsorBlock")]
+	public partial class SponsorBlock : PublishedElementModel, ISponsorBlockProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
-		public new const string ModelTypeAlias = "secondaryHighlightBlock";
+		public new const string ModelTypeAlias = "sponsorBlock";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
@@ -34,14 +34,14 @@ namespace Jalles.Core.Models.Content
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<SecondaryHighlightBlock, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<SponsorBlock, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public SecondaryHighlightBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public SponsorBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,19 +50,19 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Background Color
+		/// Heading: Rubrik
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("backgroundColor")]
-		public virtual string BackgroundColor => global::Jalles.Core.Models.Content.SecondaryHighlightBlockProperties.GetBackgroundColor(this, _publishedValueFallback);
+		[ImplementPropertyType("heading")]
+		public virtual string Heading => global::Jalles.Core.Models.Content.SponsorBlockProperties.GetHeading(this, _publishedValueFallback);
 
 		///<summary>
-		/// Highlights: Add up to 3 highlights. Only Content Pages will be rendered.
+		/// Sponsors: Välj sponsorer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("highlights")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights => global::Jalles.Core.Models.Content.SecondaryHighlightBlockProperties.GetHighlights(this, _publishedValueFallback);
+		[ImplementPropertyType("sponsors")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Sponsors => global::Jalles.Core.Models.Content.SponsorBlockProperties.GetSponsors(this, _publishedValueFallback);
 	}
 }

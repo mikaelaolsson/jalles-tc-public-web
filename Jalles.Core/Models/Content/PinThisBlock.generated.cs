@@ -50,7 +50,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Pins
+		/// Pins: Sidor ni vill att folk ska komma ihåg!
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

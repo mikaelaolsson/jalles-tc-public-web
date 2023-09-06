@@ -18,29 +18,29 @@ using Umbraco.Extensions;
 
 namespace Jalles.Core.Models.Content
 {
-	// Mixin Content Type with alias "secondaryHighlightBlockProperties"
-	/// <summary>Secondary Highlight Block Properties</summary>
-	public partial interface ISecondaryHighlightBlockProperties : IPublishedElement
+	// Mixin Content Type with alias "sponsorBlockProperties"
+	/// <summary>Sponsor Block Properties</summary>
+	public partial interface ISponsorBlockProperties : IPublishedElement
 	{
-		/// <summary>Background Color</summary>
+		/// <summary>Heading</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string BackgroundColor { get; }
+		string Heading { get; }
 
-		/// <summary>Highlights</summary>
+		/// <summary>Sponsors</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights { get; }
+		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Sponsors { get; }
 	}
 
-	/// <summary>Secondary Highlight Block Properties</summary>
-	[PublishedModel("secondaryHighlightBlockProperties")]
-	public partial class SecondaryHighlightBlockProperties : PublishedElementModel, ISecondaryHighlightBlockProperties
+	/// <summary>Sponsor Block Properties</summary>
+	[PublishedModel("sponsorBlockProperties")]
+	public partial class SponsorBlockProperties : PublishedElementModel, ISponsorBlockProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
-		public new const string ModelTypeAlias = "secondaryHighlightBlockProperties";
+		public new const string ModelTypeAlias = "sponsorBlockProperties";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
@@ -49,14 +49,14 @@ namespace Jalles.Core.Models.Content
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<SecondaryHighlightBlockProperties, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<SponsorBlockProperties, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public SecondaryHighlightBlockProperties(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public SponsorBlockProperties(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -65,29 +65,29 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Background Color
+		/// Heading: Rubrik
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("backgroundColor")]
-		public virtual string BackgroundColor => GetBackgroundColor(this, _publishedValueFallback);
+		[ImplementPropertyType("heading")]
+		public virtual string Heading => GetHeading(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Background Color</summary>
+		/// <summary>Static getter for Heading</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetBackgroundColor(ISecondaryHighlightBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backgroundColor");
+		public static string GetHeading(ISponsorBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "heading");
 
 		///<summary>
-		/// Highlights: Add up to 3 highlights. Only Content Pages will be rendered.
+		/// Sponsors: Välj sponsorer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("highlights")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights => GetHighlights(this, _publishedValueFallback);
+		[ImplementPropertyType("sponsors")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Sponsors => GetSponsors(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Highlights</summary>
+		/// <summary>Static getter for Sponsors</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> GetHighlights(ISecondaryHighlightBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>>(publishedValueFallback, "highlights");
+		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> GetSponsors(ISponsorBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops>>(publishedValueFallback, "sponsors");
 	}
 }

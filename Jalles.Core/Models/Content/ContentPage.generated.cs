@@ -50,7 +50,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Blocks
+		/// Blocks: Lägg till olika blocks för att visas på sidan
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +58,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Blocks => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "blocks");
 
 		///<summary>
-		/// Categories
+		/// Categories: Välj vilka kategorier den här sidan tillhör. (Påverkar inte sidor som ligger direkt i huvudmenyn)
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -66,7 +66,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::System.Collections.Generic.List<string> Categories => this.Value<global::System.Collections.Generic.List<string>>(_publishedValueFallback, "categories");
 
 		///<summary>
-		/// Header
+		/// Header: Sidhuvud Block
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -74,7 +74,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock> Header => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.HeaderBlock>>(_publishedValueFallback, "header");
 
 		///<summary>
-		/// Published Date: Add this on pages that have been previously published. (Ex. On pages with result lists from previous years.)
+		/// Published Date: Lägg till detta på sidor som  ni vill bakåtdatera. (Ex. På sidor med resultatlistor från tidigare år.) Andra sidor får sitt datum automatiskt.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -82,7 +82,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel PublishedDate => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "publishedDate");
 
 		///<summary>
-		/// Meta Description
+		/// Meta Description: Metabeskrivning: Är bra för google och när ni delar sidorna.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -90,7 +90,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string MetaDescription => global::Jalles.Core.Models.Content.BasePageProperties.GetMetaDescription(this, _publishedValueFallback);
 
 		///<summary>
-		/// Title
+		/// Title: Titel
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -98,7 +98,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string Title => global::Jalles.Core.Models.Content.BasePageProperties.GetTitle(this, _publishedValueFallback);
 
 		///<summary>
-		/// Thumbnail: Select thumbnail for the page.
+		/// Thumbnail: Välj miniatyrbild/delningsbild för sidan.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

@@ -60,7 +60,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Attachments
+		/// Attachments: Bifogade Filer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

@@ -55,7 +55,7 @@
         flex-direction: column;
         gap: $spacing-standard;
         height: 100%;
-        overflow: hidden;
+        /*overflow: hidden;*/
 
         .img-container {
           height: auto;
@@ -129,7 +129,7 @@
 
         .sub-container {
           .img-container {
-            height: 50%;
+            height: calc(50% - 8px) ;
           }
         }
       }

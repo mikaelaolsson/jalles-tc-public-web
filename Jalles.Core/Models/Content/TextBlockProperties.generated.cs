@@ -65,7 +65,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Heading
+		/// Heading: Rubrik
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -78,7 +78,7 @@ namespace Jalles.Core.Models.Content
 		public static string GetHeading(ITextBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "heading");
 
 		///<summary>
-		/// Text
+		/// Text: Brödtext
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

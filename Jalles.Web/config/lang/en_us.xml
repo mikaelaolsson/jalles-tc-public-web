@@ -1,0 +1,15 @@
+<language culture="en-US">
+	<area alias="login">
+		<key alias="greeting0">Welcome to Jalles TC</key>
+		<key alias="greeting1">Welcome to Jalles TC</key>
+		<key alias="greeting2">Welcome to Jalles TC</key>
+		<key alias="greeting3">Welcome to Jalles TC</key>
+		<key alias="greeting4">Welcome to Jalles TC</key>
+		<key alias="greeting5">Welcome to Jalles TC</key>
+		<key alias="greeting6">Welcome to Jalles TC</key>
+	</area>
+
+	<area alias="dashboardTabs">
+		<key alias="startDashboard">Welcome</key>
+	</area>
+</language>
