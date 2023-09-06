@@ -26,8 +26,6 @@ public class SecondaryListingPageProfile : Profile
                 .MapFrom(s => s.MainCategory))
             .ForMember(d => d.PinThisBlock, opt => opt
                 .MapFrom(s => s.Block != null && s.Block.FirstOrDefault() != null && s.Block.First().Content.ContentType.Alias == "pinThisBlock" ? s.Block.FirstOrDefault() : null))
-            .ForMember(d => d.HighlightBlock, opt => opt
-                .MapFrom(s => s.Block != null && s.Block.FirstOrDefault() != null && s.Block.First().Content.ContentType.Alias == "secondaryHighlightBlock" ? s.Block.FirstOrDefault() : null))
             .ForMember(d => d.ContentPages, opt => opt
                 .MapFrom(s => s.Children.OfType<ContentPage>().Where(c => c.IsVisible()).OrderByDescending(c => c.CreateDate)));
     }

@@ -3,9 +3,9 @@
 @model IEnumerable<BlockListItem>
 
 <div class="mixed-listing-block">
-    @foreach (var block in Model)
+    @foreach(var block in Model)
     {
-        switch (block.Content.ContentType.Alias)
+        switch(block.Content.ContentType.Alias)
         {
 
             case "contentBlock":
@@ -20,7 +20,7 @@
             case "highlightBlock":
                 var highlightBlock = MixedListingBlockService.MapHighlightBlock(block);
 
-                if (highlightBlock.Highlights.Any())
+                if(highlightBlock.Highlights.Any())
                 {
                     @await Html.PartialAsync("_HighlightListingBlock.cshtml", highlightBlock)
                 }
@@ -31,8 +31,14 @@
             case "attachmentBlock":
                 @await Html.PartialAsync("_AttachmentListingBlock.cshtml", MixedListingBlockService.MapAttachmentBlock(block))
                 break;
-
-                @*TODO: add excel block, pin this/kom ihåg block?*@
+            case "sponsorBlock":
+                <div class="sponsor-block">
+                    <div class="content-container">
+                        @await Html.PartialAsync("_SponsorsListingBlock.cshtml", MixedListingBlockService.MapSponsorBlock(block))
+                    </div>
+                </div>
+                break;
+                @*TODO: add excel block*@
         }
     }
 </div>

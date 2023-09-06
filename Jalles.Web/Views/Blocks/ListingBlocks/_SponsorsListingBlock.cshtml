@@ -1,11 +1,9 @@
-﻿@model IEnumerable<SponsorViewModel>
+﻿@model SponsorBlockViewModel 
 
 <div class="sponsors">
+    <h2>@Model.Heading</h2>
     <ul>
-        <li>
-            <h2>Sponsorer</h2>
-        </li>
-        @foreach (var sponsor in Model)
+        @foreach (var sponsor in Model.Sponsors)
         {
             if (sponsor.Website?.Url is not null)
             {

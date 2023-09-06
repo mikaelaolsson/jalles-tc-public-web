@@ -42,4 +42,9 @@ public class MixedListingBlockService : IMixedListingBlockService
     {
         return _mapper.Map<AttachmentBlockViewModel>(blockListItem);
     }
+
+    public SponsorBlockViewModel MapSponsorBlock(BlockListItem blockListItem)
+    {
+        return _mapper.Map<SponsorBlockViewModel>(blockListItem);
+    }
 }
