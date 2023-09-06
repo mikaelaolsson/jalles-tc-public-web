@@ -8,6 +8,12 @@
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Plugins\StartDashboard\StartDashboard.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Plugins\BackofficeStyles\backoffice.css" />
+    <None Include="App_Plugins\BackofficeStyles\package.manifest" />
+    <None Include="App_Plugins\StartDashboard\dashboard.html" />
     <None Include="compilerconfig.json" />
   </ItemGroup>
 
