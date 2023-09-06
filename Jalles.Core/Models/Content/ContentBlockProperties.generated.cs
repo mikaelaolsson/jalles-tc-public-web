@@ -85,7 +85,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Background Color
+		/// Background Color: Bakgrundsfärg
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -98,7 +98,7 @@ namespace Jalles.Core.Models.Content
 		public static string GetBackgroundColor(IContentBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "backgroundColor");
 
 		///<summary>
-		/// CTA
+		/// CTA: Lägg till upp till 2st knappar/länkar.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -111,7 +111,7 @@ namespace Jalles.Core.Models.Content
 		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetCta(IContentBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "cta");
 
 		///<summary>
-		/// Heading
+		/// Heading: Rubrik
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -124,7 +124,7 @@ namespace Jalles.Core.Models.Content
 		public static string GetHeading(IContentBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "heading");
 
 		///<summary>
-		/// Media: Choose either a video or an image.
+		/// Media: Välj antingen en video eller en bild.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -137,7 +137,7 @@ namespace Jalles.Core.Models.Content
 		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.SimpleMediaBlock> GetMedia(IContentBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.SimpleMediaBlock>>(publishedValueFallback, "media");
 
 		///<summary>
-		/// Media Align
+		/// Media Align: Mediejustering: Höger eller vänster
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

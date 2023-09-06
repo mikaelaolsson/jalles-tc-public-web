@@ -65,7 +65,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Meta Description
+		/// Meta Description: Metabeskrivning: Är bra för google och när ni delar sidorna.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -78,7 +78,7 @@ namespace Jalles.Core.Models.Content
 		public static string GetMetaDescription(IBasePageProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "metaDescription");
 
 		///<summary>
-		/// Title
+		/// Title: Titel
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

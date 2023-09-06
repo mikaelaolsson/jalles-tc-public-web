@@ -50,7 +50,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Data Table
+		/// Data Table: Tabell: Klistra in från excelfil
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +58,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString DataTable => global::Jalles.Core.Models.Content.DataBlockProperties.GetDataTable(this, _publishedValueFallback);
 
 		///<summary>
-		/// Heading: This property will not be rendered, but is here to make navigating the backoffice a bit easier.
+		/// Heading: Denna rubrik kommer inte att renderas, men är här för att göra överblicken i Backoffice lite klarare.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

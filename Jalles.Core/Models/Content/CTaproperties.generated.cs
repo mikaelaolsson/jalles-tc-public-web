@@ -65,7 +65,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Link
+		/// Link: Länk
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -78,7 +78,7 @@ namespace Jalles.Core.Models.Content
 		public static global::Umbraco.Cms.Core.Models.Link GetLink(ICTaproperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Link>(publishedValueFallback, "link");
 
 		///<summary>
-		/// Title
+		/// Title: Titel
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

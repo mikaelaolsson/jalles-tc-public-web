@@ -50,7 +50,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Background Color
+		/// Background Color: Bakgrundsfärg
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +58,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string BackgroundColor => global::Jalles.Core.Models.Content.ContentBlockProperties.GetBackgroundColor(this, _publishedValueFallback);
 
 		///<summary>
-		/// CTA
+		/// CTA: Lägg till upp till 2st knappar/länkar.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -66,7 +66,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Cta => global::Jalles.Core.Models.Content.ContentBlockProperties.GetCta(this, _publishedValueFallback);
 
 		///<summary>
-		/// Heading
+		/// Heading: Rubrik
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -74,7 +74,7 @@ namespace Jalles.Core.Models.Content
 		public virtual string Heading => global::Jalles.Core.Models.Content.ContentBlockProperties.GetHeading(this, _publishedValueFallback);
 
 		///<summary>
-		/// Media: Choose either a video or an image.
+		/// Media: Välj antingen en video eller en bild.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -82,7 +82,7 @@ namespace Jalles.Core.Models.Content
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListItem<global::Jalles.Core.Models.Content.SimpleMediaBlock> Media => global::Jalles.Core.Models.Content.ContentBlockProperties.GetMedia(this, _publishedValueFallback);
 
 		///<summary>
-		/// Media Align
+		/// Media Align: Mediejustering: Höger eller vänster
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

@@ -60,7 +60,7 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Categories: The categories will only be gathered from the "Aktuellt" Listing Page, other values will be ignored.
+		/// Categories: Kategorierna kommer endast att samlas in från "Aktuellts" listningssida, andra värden kommer att ignoreras.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.0.1+20a4e47")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
