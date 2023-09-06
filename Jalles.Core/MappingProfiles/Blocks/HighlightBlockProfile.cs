@@ -15,13 +15,7 @@ public class HighlightBlockProfile : Profile
             .ForMember(d => d.Heading, opt => opt
                 .MapFrom(s => s.Content.Heading))
             .ForMember(d => d.Highlights, opt => opt
-                .MapFrom(s => s.Content.Highlights != null ? s.Content.Highlights.Where(h => h.ContentType.Alias == "contentPage" || h.ContentType.Alias == "listingPage") : new List<IPublishedContent>()))
-            .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.Content.BackgroundColor.GetBackgroundColorName()));
-
-        CreateMap<BlockListItem<SecondaryHighlightBlock>, HighlightBlockViewModel>()
-            .ForMember(d => d.Highlights, opt => opt
-                .MapFrom(s => s.Content.Highlights != null ? s.Content.Highlights.Where(h => h.ContentType.Alias == "contentPage") : new List<IPublishedContent>()))
+                .MapFrom(s => s.Content.Highlights != null ? s.Content.Highlights.Where(h => h.ContentType.Alias == "contentPage" || h.ContentType.Alias == "listingPage" || h.ContentType.Alias == "secondaryListingPage") : new List<IPublishedContent>()))
             .ForMember(d => d.BackgroundColor, opt => opt
                 .MapFrom(s => s.Content.BackgroundColor.GetBackgroundColorName()));
     }
