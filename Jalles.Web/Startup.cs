@@ -64,7 +64,7 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
+        if(env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
         }
@@ -91,7 +91,7 @@ public class Startup
             context.Response.Headers.Add("Feature-Policy",
                 "geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; fullscreen *; payment 'none';");
 
-            if (!requestPath.StartsWithSegments("/umbraco") && !requestPath.StartsWithSegments("/App_Plugins"))
+            if(!requestPath.StartsWithSegments("/umbraco") && !requestPath.StartsWithSegments("/App_Plugins"))
             {
                 context.Response.Headers.Add("Content-Security-Policy",
                     "default-src data: blob: filesystem: about: ws: wss: frame-src: * 'unsafe-inline' 'unsafe-eval'; media-src *; script-src * data: blob: 'unsafe-inline'; connect-src * data: blob: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; style-src * data: blob: 'unsafe-inline';font-src * data: blob: 'unsafe-inline'; frame-ancestors * data: blob:; object-src 'none'; form-action 'self'");
@@ -104,7 +104,7 @@ public class Startup
         {
             var userAgent = context.Request.Headers.UserAgent.FirstOrDefault();
 
-            if (userAgent == "AlwaysOn")
+            if(userAgent == "AlwaysOn")
             {
                 context.Request.Path = "/keep-alive";
             }
@@ -116,14 +116,14 @@ public class Startup
         {
             var path = context.Request.Path.Value;
 
-            if (path?.StartsWith("/umbraco/") != false)
+            if(path?.StartsWith("/umbraco/") != false)
             {
                 await next();
                 return;
             }
 
             var cachableExtensions = new[] { ".js", ".css", ".woff", ".woff2", ".svgz", ".svg" };
-            if (cachableExtensions.Any(extension => path.EndsWith(extension)) || path.StartsWith("/media/"))
+            if(cachableExtensions.Any(extension => path.EndsWith(extension)) || path.StartsWith("/media/"))
             {
                 context.Response.Headers.Add("Cache-Control", "public, max-age=31536000");
             }
@@ -132,13 +132,11 @@ public class Startup
         });
 
         app.UseRobotsTxt(env);
-        app.NoIndexOrFollow(env);
 
-        //TODO: fix when going live
-        //if (!env.IsProduction())
-        //{
-        //    app.NoIndexOrFollow(env);
-        //}
+        if(!env.IsProduction())
+        {
+            app.NoIndexOrFollow(env);
+        }
 
         app.UseUmbraco()
             .WithMiddleware(u =>
