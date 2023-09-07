@@ -7,13 +7,31 @@
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
+	<ItemGroup>
+		<Compile Include="App_Plugins\StartDashboard\StartDashboard.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	<Content Include="App_Plugins\BackofficeStyles\backoffice.css">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	</Content>
+	<Content Include="App_Plugins\StartDashboard\dashboard.html">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	</Content>
+	<Content Include="config\lang\sv.xml">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+	<Content Include="config\lang\en_us.xml">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+	<Content Include="robots.txt">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+</ItemGroup>
+
   <ItemGroup>
-    <Compile Include="App_Plugins\StartDashboard\StartDashboard.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App_Plugins\BackofficeStyles\backoffice.css" />
-    <None Include="App_Plugins\BackofficeStyles\package.manifest" />
-    <None Include="App_Plugins\StartDashboard\dashboard.html" />
+	  <None Include="App_Plugins\BackofficeStyles\package.manifest" />
     <None Include="compilerconfig.json" />
   </ItemGroup>
 
