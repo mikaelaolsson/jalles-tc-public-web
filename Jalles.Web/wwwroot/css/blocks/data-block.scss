@@ -9,6 +9,14 @@
       line-height: $font-line-height-heading;
     }
 
+    p {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius;
+      }
+    }
+
     .table-wrapper {
       overflow-x: auto;
       margin: $spacing-vertical-medium 0;
@@ -43,6 +51,7 @@
               }
             }
           }
+
           th {
             font-weight: $font-weight;
           }
