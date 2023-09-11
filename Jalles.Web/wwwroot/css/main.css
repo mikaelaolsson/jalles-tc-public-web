@@ -891,7 +891,7 @@ footer .content .umemaran img {
     grid-column: 3/11;
   }
 }
-.sponsor-block {
+.our-sponsor-block {
   padding: 3rem 1.25rem;
 }
 
@@ -921,10 +921,10 @@ footer .content .umemaran img {
 }
 
 @media only screen and (min-width: 1200px) {
-  .sponsor-block {
+  .our-sponsor-block {
     padding: 5rem 5rem;
   }
-  .sponsor-block .content-container {
+  .our-sponsor-block .content-container {
     max-width: 1980px;
     margin: 0 auto;
     display: grid;
@@ -932,7 +932,7 @@ footer .content .umemaran img {
     column-gap: 2rem;
     row-gap: 5rem;
   }
-  .sponsor-block .content-container .sponsors {
+  .our-sponsor-block .content-container .sponsors {
     grid-column: 4/10;
   }
   .sponsors ul {

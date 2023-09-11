@@ -1,4 +1,4 @@
-.sponsor-block {
+.our-sponsor-block {
   padding: $spacing-vertical-medium $side-margins;
 }
 
@@ -33,7 +33,7 @@
 }
 
 @media only screen and (min-width: $screen-min-desktop) {
-  .sponsor-block {
+  .our-sponsor-block {
     padding: $spacing-vertical-medium-desktop $side-margins-desktop;
 
     .content-container {

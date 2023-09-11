@@ -30,6 +30,12 @@
 	</Content>
 </ItemGroup>
 
+	<ItemGroup>
+		<Content Update="web.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
   <ItemGroup>
 	  <None Include="App_Plugins\BackofficeStyles\package.manifest" />
     <None Include="compilerconfig.json" />
