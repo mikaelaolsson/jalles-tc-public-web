@@ -68,6 +68,12 @@
     <ProjectReference Include="..\Jalles.Core\Jalles.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="uSync\v9\ContentTypes\" />
+    <Folder Include="uSync\v9\Content\" />
+    <Folder Include="uSync\v9\Media\" />
+  </ItemGroup>
+
 	<PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
