@@ -281,7 +281,7 @@
   line-height: 130%;
 }
 .data-block-container .data-block p img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }
@@ -318,11 +318,21 @@
 }
 .data-block-container .data-block table tbody tr th,
 .data-block-container .data-block table tbody tr td {
-  line-height: 170%;
-  text-align: left;
   padding: 0.5rem 1rem;
+  line-height: 170%;
+  font-size: 1rem;
+  text-align: left;
   border: solid 0.25px rgba(138, 129, 124, 0.5);
   background-color: transparent;
+}
+.data-block-container .data-block table tbody tr th h1, .data-block-container .data-block table tbody tr th h2, .data-block-container .data-block table tbody tr th h3, .data-block-container .data-block table tbody tr th h4, .data-block-container .data-block table tbody tr th h5, .data-block-container .data-block table tbody tr th h6,
+.data-block-container .data-block table tbody tr td h1,
+.data-block-container .data-block table tbody tr td h2,
+.data-block-container .data-block table tbody tr td h3,
+.data-block-container .data-block table tbody tr td h4,
+.data-block-container .data-block table tbody tr td h5,
+.data-block-container .data-block table tbody tr td h6 {
+  font-size: 1rem;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -953,7 +963,7 @@ footer .content .umemaran img {
   text-decoration: none;
 }
 .text-block-container .text-block p img, .text-block-container .attachment-block p img, .attachment-block-container .text-block p img, .attachment-block-container .attachment-block p img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }
@@ -1219,6 +1229,17 @@ footer .content .umemaran img {
   content: "";
   background-color: rgba(0, 0, 0, 0.3);
 }
+.header .login {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  padding: 1rem;
+}
+.header .login a {
+  color: transparent;
+}
 .header .content {
   max-width: 1980px;
   margin: 0 auto;
@@ -1234,6 +1255,9 @@ footer .content .umemaran img {
 @media only screen and (min-width: 1200px) {
   .header {
     padding: 7rem 5rem 5rem;
+  }
+  .header .login {
+    display: block;
   }
   .header .content a img {
     max-height: 20rem;

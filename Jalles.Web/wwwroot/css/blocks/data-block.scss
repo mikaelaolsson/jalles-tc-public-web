@@ -11,7 +11,7 @@
 
     p {
       img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
         border-radius: $border-radius;
       }
@@ -58,11 +58,16 @@
 
           th,
           td {
-            line-height: $font-line-height;
-            text-align: left;
             padding: $spacing-small $spacing-standard;
+            line-height: $font-line-height;
+            font-size: $font-size;
+            text-align: left;
             border: solid 0.25px $color-muted-battleship;
             background-color: transparent;
+
+            h1, h2, h3, h4, h5, h6 {
+              font-size: $font-size;
+            }
           }
         }
       }
