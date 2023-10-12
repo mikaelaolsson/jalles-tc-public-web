@@ -14,7 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Our.Umbraco.Community.Contentment" Version="4.4.5" />
+    <PackageReference Include="Our.Umbraco.Community.Contentment" Version="4.5.0" />
     <PackageReference Include="Our.Umbraco.Community.Contentment.Core" Version="4.4.5" />
     <PackageReference Include="Umbraco.Cms" Version="12.1.2" />
     <PackageReference Include="Umbraco.Cms.Core" Version="12.1.2" />
