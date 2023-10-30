@@ -40,7 +40,7 @@ jobs:
         run: dotnet publish -c Release -o ./artifacts ./Jalles.Web/Jalles.Web.csproj
 
       - name: Archive Release
-        uses: thedoctor0/zip-release@0.7.1
+        uses: thedoctor0/zip-release@0.7.5
         with:
           type: 'zip'
           filename: ../artifacts.zip # This path is relative to the directory where the artifact is stored
