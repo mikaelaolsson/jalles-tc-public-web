@@ -8,14 +8,6 @@ public class SponsorProfile : Profile
 {
     public SponsorProfile()
     {
-        CreateMap<MediaWithCrops<Sponsor>, SponsorViewModel>()
-            .ForMember(d => d.Name, opt => opt
-                .MapFrom(s => s.Content.SponsorName))
-            .ForMember(d => d.Logo, opt => opt
-                .MapFrom(s => s.Content.SponsorLogo))
-            .ForMember(d => d.Website, opt => opt
-                .MapFrom(s => s.Content.SponsorWebsite));
-
         CreateMap<Sponsor, SponsorViewModel>()
             .ForMember(d => d.Name, opt => opt
                 .MapFrom(s => s.SponsorName))

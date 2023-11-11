@@ -10,59 +10,51 @@ public class MediaBlockProfile : Profile
 {
     public MediaBlockProfile()
     {
-        CreateMap<BlockListItem<MediaBlock>, MediaViewModel>()
-            .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.Content.BackgroundColor.GetMediaBackgroundColor()))
-            .ForMember(d => d.AddBlurOverlay, opt => opt
-                .MapFrom(s => s.Content.AddBlurOverlay))
-            .ForMember(d => d.Media, opt => opt
-                .MapFrom(s => s.Content.Media))
-            .ForMember(d => d.MediaType, opt => opt
-                .MapFrom(s => s.Content.GetMediaType()))
-            .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.Content.GetMediaSource(s.Content.GetMediaType())));
-
-        CreateMap<IMediaProperties, MediaViewModel>()
+        CreateMap<MediaBlock, MediaViewModel>()
+            .ForMember(d => d.IsLazy, opt => opt
+                .MapFrom(_ => true))
             .ForMember(d => d.BackgroundColor, opt => opt
                 .MapFrom(s => s.BackgroundColor.GetMediaBackgroundColor()))
-            .ForMember(d => d.AddBlurOverlay, opt => opt
-                .MapFrom(s => s.AddBlurOverlay))
-            .ForMember(d => d.Media, opt => opt
-                .MapFrom(s => s.Media))
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
                 .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
 
-        CreateMap<BlockListItem<SimpleMediaBlock>, MediaViewModel>()
-            .ForMember(d => d.AddBlurOverlay, opt => opt
-                .MapFrom(s => s.Content.AddBlurOverlay))
-            .ForMember(d => d.Media, opt => opt
-                .MapFrom(s => s.Content.Media))
+        CreateMap<IMediaProperties, MediaViewModel>()
+            .ForMember(d => d.IsLazy, opt => opt
+                .MapFrom(_ => true))
+            .ForMember(d => d.BackgroundColor, opt => opt
+                .MapFrom(s => s.BackgroundColor.GetMediaBackgroundColor()))
             .ForMember(d => d.MediaType, opt => opt
-                .MapFrom(s => s.Content.GetMediaType()))
+                .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.Content.GetMediaSource(s.Content.GetMediaType())));
+                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+
+        CreateMap<SimpleMediaBlock, MediaViewModel>()
+            .ForMember(d => d.IsLazy, opt => opt
+                .MapFrom(_ => true))
+            .ForMember(d => d.BackgroundColor, opt => opt.Ignore())
+            .ForMember(d => d.MediaType, opt => opt
+                .MapFrom(s => s.GetMediaType()))
+            .ForMember(d => d.MediaSource, opt => opt
+                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
 
         CreateMap<ISimpleMediaProperties, MediaViewModel>()
-            .ForMember(d => d.AddBlurOverlay, opt => opt
-                .MapFrom(s => s.AddBlurOverlay))
-            .ForMember(d => d.Media, opt => opt
-                .MapFrom(s => s.Media))
+            .ForMember(d => d.IsLazy, opt => opt
+                .MapFrom(_ => true))
+            .ForMember(d => d.BackgroundColor, opt => opt.Ignore())
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
                 .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
 
-        CreateMap<BlockListItem<HeaderBlock>, MediaViewModel>()
-            .ForMember(d => d.AddBlurOverlay, opt => opt
-                .MapFrom(s => s.Content.AddBlurOverlay))
-            .ForMember(d => d.Media, opt => opt
-                .MapFrom(s => s.Content.Media))
+        CreateMap<HeaderBlock, MediaViewModel>()
+            .ForMember(d => d.IsLazy, opt => opt
+                .MapFrom(_ => false))
             .ForMember(d => d.MediaType, opt => opt
-                .MapFrom(s => s.Content.GetMediaType()))
+                .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.Content.GetMediaSource(s.Content.GetMediaType())));
+                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
 
     }
 }

@@ -12,7 +12,7 @@
         <div class="listings">
             @foreach (var contentPage in Model.ViewModel.ContentPages)
             {
-                <a href="@contentPage.GetPageUrl()" class="listing">
+                <a href="@contentPage.PagePath" class="listing">
 
                     @await Html.PartialAsync("../Blocks/_MediaBlock", contentPage.Header)
                     <div class="content">

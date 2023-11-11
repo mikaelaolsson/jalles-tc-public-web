@@ -9,8 +9,8 @@ public class DateBlockProfile : Profile
 {
     public DateBlockProfile()
     {
-        CreateMap<BlockListItem<DateBlock>, DateBlockViewModel>()
+        CreateMap<DateBlock, DateBlockViewModel>()
             .ForMember(d => d.PublishedDate, opt => opt
-                .MapFrom(s => s.Content.Date));
+                .MapFrom(s => s.Date));
     }
 }
