@@ -962,16 +962,24 @@ footer .content .umemaran img {
 .text-block-container .text-block a:hover, .text-block-container .attachment-block a:hover, .attachment-block-container .text-block a:hover, .attachment-block-container .attachment-block a:hover {
   text-decoration: none;
 }
+.text-block-container .text-block p, .text-block-container .attachment-block p, .attachment-block-container .text-block p, .attachment-block-container .attachment-block p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .text-block-container .text-block p img, .text-block-container .attachment-block p img, .attachment-block-container .text-block p img, .attachment-block-container .attachment-block p img {
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }
 .text-block-container .text-block figure, .text-block-container .attachment-block figure, .attachment-block-container .text-block figure, .attachment-block-container .attachment-block figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
 }
 .text-block-container .text-block figure img, .text-block-container .attachment-block figure img, .attachment-block-container .text-block figure img, .attachment-block-container .attachment-block figure img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }

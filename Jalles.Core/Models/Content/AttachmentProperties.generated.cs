@@ -22,10 +22,15 @@ namespace Jalles.Core.Models.Content
 	/// <summary>Attachment Properties</summary>
 	public partial interface IAttachmentProperties : IPublishedElement
 	{
-		/// <summary>Attachments</summary>
+		/// <summary>Bifogad fil</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Attachments { get; }
+		global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent File { get; }
+
+		/// <summary>Titel</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string Title { get; }
 	}
 
 	/// <summary>Attachment Properties</summary>
@@ -60,16 +65,29 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Attachments: Bifogade Filer
+		/// Bifogad fil
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("attachments")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Attachments => GetAttachments(this, _publishedValueFallback);
+		[ImplementPropertyType("file")]
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent File => GetFile(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Attachments</summary>
+		/// <summary>Static getter for Bifogad fil</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> GetAttachments(IAttachmentProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops>>(publishedValueFallback, "attachments");
+		public static global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent GetFile(IAttachmentProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(publishedValueFallback, "file");
+
+		///<summary>
+		/// Titel
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => GetTitle(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Titel</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetTitle(IAttachmentProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "title");
 	}
 }
