@@ -20,14 +20,14 @@ namespace Jalles.Core.Models.Content
 {
 	/// <summary>Attachment</summary>
 	[PublishedModel("attachment")]
-	public partial class Attachment : PublishedContentModel
+	public partial class Attachment : PublishedElementModel, IAttachmentProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		public new const string ModelTypeAlias = "attachment";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
-		public new const PublishedItemType ModelItemType = PublishedItemType.Media;
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
@@ -41,7 +41,7 @@ namespace Jalles.Core.Models.Content
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public Attachment(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public Attachment(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,19 +50,19 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// File
+		/// Bifogad fil
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("file")]
-		public virtual string File => this.Value<string>(_publishedValueFallback, "file");
+		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent File => global::Jalles.Core.Models.Content.AttachmentProperties.GetFile(this, _publishedValueFallback);
 
 		///<summary>
-		/// Text
+		/// Titel
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("text")]
-		public virtual string Text => this.Value<string>(_publishedValueFallback, "text");
+		[ImplementPropertyType("title")]
+		public virtual string Title => global::Jalles.Core.Models.Content.AttachmentProperties.GetTitle(this, _publishedValueFallback);
 	}
 }

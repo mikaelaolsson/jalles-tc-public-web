@@ -20,7 +20,7 @@ namespace Jalles.Core.Models.Content
 {
 	/// <summary>Attachment Block</summary>
 	[PublishedModel("attachmentBlock")]
-	public partial class AttachmentBlock : PublishedElementModel, IAttachmentProperties
+	public partial class AttachmentBlock : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,11 +50,11 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Attachments: Bifogade Filer
+		/// Bifogade filer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("attachments")]
-		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Attachments => global::Jalles.Core.Models.Content.AttachmentProperties.GetAttachments(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Attachments => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "attachments");
 	}
 }
