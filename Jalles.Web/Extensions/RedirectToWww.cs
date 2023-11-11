@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Rewrite;
+﻿using J2N.Text;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Net.Http.Headers;
 using System.Net;
 
@@ -19,6 +20,29 @@ public class RedirectPublicDomainsToWww : IRule
         }
 
         var wwwPath = request.Scheme + "://www." + host.Value + request.PathBase + request.Path + request.QueryString;
+
+        var response = context.HttpContext.Response;
+        response.StatusCode = (int)HttpStatusCode.MovedPermanently;
+        response.Headers[HeaderNames.Location] = wwwPath;
+        context.Result = RuleResult.EndResponse;
+    }
+}
+
+public class RedirectFromAzureWebsites : IRule
+{
+    private readonly string NewHost = "jallestc.se";
+    public void ApplyRule(RewriteContext context)
+    {
+        var request = context.HttpContext.Request;
+        var host = request.Host;
+
+        if (!host.Host.StartsWith("jalles-tc-public-web.azurewebsites.net"))
+        {
+            context.Result = RuleResult.ContinueRules;
+            return;
+        }
+
+        var wwwPath = request.Scheme + "://www." + NewHost + request.PathBase + request.Path + request.QueryString;
 
         var response = context.HttpContext.Response;
         response.StatusCode = (int)HttpStatusCode.MovedPermanently;

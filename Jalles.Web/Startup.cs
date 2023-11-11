@@ -67,6 +67,10 @@ public class Startup
         if(env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
+
+            app.UseRewriter(new RewriteOptions()
+                .Add(new RedirectFromAzureWebsites())
+            );
         }
         else
         {
