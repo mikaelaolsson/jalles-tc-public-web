@@ -8,10 +8,6 @@ public class CtaBlockProfile : Profile
 {
     public CtaBlockProfile()
     {
-        CreateMap<BlockListItem<CTablock>, CtaBlockViewModel>()
-            .ForMember(d => d.Link, opt => opt
-                .MapFrom(s => s.Content.Link))
-            .ForMember(d => d.Title, opt => opt
-                .MapFrom(s => s.Content.Title));
+        CreateMap<CTablock, CtaBlockViewModel>();
     }
 }

@@ -9,10 +9,8 @@ public class DataBlockProfile : Profile
 {
     public DataBlockProfile()
     {
-        CreateMap<BlockListItem<DataBlock>, DataBlockViewModel>()
-            .ForMember(d => d.Heading, opt => opt
-                .MapFrom(s => s.Content.Heading))
+        CreateMap<DataBlock, DataBlockViewModel>()
             .ForMember(d => d.Data, opt => opt
-                .MapFrom(s => s.Content.DataTable));
+                .MapFrom(s => s.DataTable!.ToHtmlString()));
     }
 }
