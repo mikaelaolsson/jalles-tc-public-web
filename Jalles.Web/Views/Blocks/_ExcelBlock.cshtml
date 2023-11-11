@@ -1,0 +1,56 @@
+﻿@using MiniExcelLibs
+@model ExcelBlockViewModel
+
+<div class="excel-block">
+    <h2>@Model.Heading</h2>
+
+    @if(Model.ExcelFile != null)
+    {
+        var mediaUrl = "https://" + Context.Request.Host + Model.ExcelFile.MediaUrl();
+
+        // ReSharper disable once RedundantNameQualifier
+        using var httpClient = new System.Net.Http.HttpClient();
+        try
+        {
+            var response = await httpClient.GetAsync(mediaUrl);
+
+            if(response.IsSuccessStatusCode)
+            {
+                var tempFilePath = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".xlsx";
+                var excelBytes = await response.Content.ReadAsByteArrayAsync();
+                await System.IO.File.WriteAllBytesAsync(tempFilePath, excelBytes);
+                var rows = (await MiniExcel.QueryAsync(tempFilePath, sheetName: MiniExcel.GetSheetNames(tempFilePath).First(), useHeaderRow: true)).ToList();
+
+                <table border="1">
+                    <thead>
+                    <tr>
+                        @foreach (var header in ((IDictionary<string, object>)rows[0]).Keys)
+                        {
+                            <th>@header</th>
+                        }
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(var row in rows)
+                    {
+                        <tr>
+                            @foreach(var property in ((IDictionary<string, object>)row).Values)
+                            {
+                                <td>@property</td>
+                            }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+</div>

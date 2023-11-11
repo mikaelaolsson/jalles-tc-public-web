@@ -38,7 +38,9 @@
                     </div>
                 </div>
                 break;
-                @*TODO: add excel block*@
+            case "excelBlock":
+                @await Html.PartialAsync("../_ExcelBlock.cshtml", MixedListingBlockService.MapExcelBlock(block))
+                break;
         }
     }
 </div>

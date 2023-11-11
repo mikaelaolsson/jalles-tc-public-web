@@ -50,12 +50,12 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Excel File: Excel-fil: Endast .xls och .xlsx kommer att renderas.
+		/// File: Behöver vara av .xlsx
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("excel")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Excel => global::Jalles.Core.Models.Content.ExcelBlockProperties.GetExcel(this, _publishedValueFallback);
+		[ImplementPropertyType("file")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops File => global::Jalles.Core.Models.Content.ExcelBlockProperties.GetFile(this, _publishedValueFallback);
 
 		///<summary>
 		/// Heading: Rubrik

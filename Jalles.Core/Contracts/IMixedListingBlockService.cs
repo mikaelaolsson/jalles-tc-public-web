@@ -12,4 +12,5 @@ public interface IMixedListingBlockService
     DataBlockViewModel MapDataBlock(BlockListItem blockListItem);
     AttachmentBlockViewModel MapAttachmentBlock(BlockListItem blockListItem);
     SponsorBlockViewModel MapSponsorBlock(BlockListItem blockListItem);
+    ExcelBlockViewModel MapExcelBlock(BlockListItem blockListItem);
 }

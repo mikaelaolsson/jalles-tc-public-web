@@ -42,6 +42,7 @@
   </ItemGroup>
 
 	<ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.2" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.7.0">
@@ -53,6 +54,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MiniExcel" Version="1.31.2" />
     <PackageReference Include="Umbraco.Cms" Version="12.3.1" />
   </ItemGroup>
 

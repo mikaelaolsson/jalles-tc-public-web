@@ -12,6 +12,6 @@ public class ExcelBlockProfile : Profile
     {
         CreateMap<ExcelBlock, ExcelBlockViewModel>()
             .ForMember(d => d.ExcelFile, opt => opt
-                .MapFrom(s => s.Excel));
+                .MapFrom(s => s.File));
     }
 }

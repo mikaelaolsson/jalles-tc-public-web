@@ -48,4 +48,9 @@ public class MixedListingBlockService : IMixedListingBlockService
     {
         return _mapper.Map<SponsorBlockViewModel>(blockListItem.GetElement<SponsorBlock>());
     }
+
+    public ExcelBlockViewModel MapExcelBlock(BlockListItem blockListItem)
+    {
+        return _mapper.Map<ExcelBlockViewModel>(blockListItem.GetElement<ExcelBlock>());
+    }
 }

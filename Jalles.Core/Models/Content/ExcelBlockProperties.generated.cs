@@ -22,10 +22,10 @@ namespace Jalles.Core.Models.Content
 	/// <summary>Excel Block Properties</summary>
 	public partial interface IExcelBlockProperties : IPublishedElement
 	{
-		/// <summary>Excel File</summary>
+		/// <summary>File</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.MediaWithCrops Excel { get; }
+		global::Umbraco.Cms.Core.Models.MediaWithCrops File { get; }
 
 		/// <summary>Heading</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
@@ -65,17 +65,17 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
-		/// Excel File: Excel-fil: Endast .xls och .xlsx kommer att renderas.
+		/// File: Behöver vara av .xlsx
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("excel")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Excel => GetExcel(this, _publishedValueFallback);
+		[ImplementPropertyType("file")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops File => GetFile(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Excel File</summary>
+		/// <summary>Static getter for File</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetExcel(IExcelBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "excel");
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetFile(IExcelBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "file");
 
 		///<summary>
 		/// Heading: Rubrik
