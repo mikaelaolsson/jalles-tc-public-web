@@ -67,10 +67,6 @@ public class Startup
         if(env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-
-            app.UseRewriter(new RewriteOptions()
-                .Add(new RedirectFromAzureWebsites())
-            );
         }
         else
         {
@@ -79,6 +75,7 @@ public class Startup
             app.UseHsts();
             app.UseRewriter(new RewriteOptions()
                 .Add(new RedirectPublicDomainsToWww())
+                .Add(new RedirectFromAzureWebsites())
             );
         }
 
