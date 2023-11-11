@@ -3,6 +3,7 @@ using Jalles.Core.Extensions;
 using Jalles.Core.Helpers;
 using Jalles.Core.Models.Content;
 using Jalles.Core.ViewModels;
+using Umbraco.Extensions;
 
 namespace Jalles.Core.MappingProfiles.Pages;
 

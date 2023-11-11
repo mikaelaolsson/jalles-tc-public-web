@@ -3,6 +3,7 @@ using Jalles.Core.Models.Content;
 using Microsoft.AspNetCore.Http;
 using Umbraco.Cms.Core.Models.Blocks;
 using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Extensions;
 
 namespace Jalles.Core.ViewModels;
 

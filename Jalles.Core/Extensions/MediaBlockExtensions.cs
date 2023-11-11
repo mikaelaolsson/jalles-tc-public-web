@@ -1,6 +1,7 @@
 ﻿using Jalles.Core.Models.Content;
 using Jalles.Core.ViewModels.Blocks;
 using System.Text.RegularExpressions;
+using Umbraco.Extensions;
 using MediaType = Jalles.Core.Enum.MediaType;
 
 namespace Jalles.Core.Extensions;

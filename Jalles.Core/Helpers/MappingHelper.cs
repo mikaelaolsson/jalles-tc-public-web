@@ -1,4 +1,5 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Extensions;
 
 namespace Jalles.Core.Helpers;
 
