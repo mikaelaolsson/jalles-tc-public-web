@@ -9,18 +9,12 @@ public class ContentBlockProfile : Profile
 {
     public ContentBlockProfile()
     {
-        CreateMap<BlockListItem<ContentBlock>, ContentBlockViewModel>()
-            .ForMember(d => d.Heading, opt => opt
-                .MapFrom(s => s.Content.Heading))
-            .ForMember(d => d.Text, opt => opt
-                .MapFrom(s => s.Content.Text))
+        CreateMap<ContentBlock, ContentBlockViewModel>()
             .ForMember(d => d.CtaBlocks, opt => opt
-                .MapFrom(s => s.Content.Cta))
-            .ForMember(d => d.MediaAlign, opt => opt
-                .MapFrom(s => s.Content.MediaAlign))
+                .MapFrom(s => s.Cta.GetElements<CTablock>()))
             .ForMember(d => d.Media, opt => opt
-                .MapFrom(s => s.Content.Media))
+                .MapFrom(s => s.Media.GetElement<MediaBlock>()))
             .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.Content.BackgroundColor.GetBackgroundColorName()));
+                .MapFrom(s => s.BackgroundColor.GetBackgroundColorName()));
     }
 }

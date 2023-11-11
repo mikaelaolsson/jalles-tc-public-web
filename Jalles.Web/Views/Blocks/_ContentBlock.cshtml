@@ -6,23 +6,26 @@
 
 <div class="content-block @Model.BackgroundColor ">
     <div class="content-container @mediaAlign">
-        <div class="media-container">
-            @await Html.PartialAsync("_MediaBlock.cshtml", Model.Media)
+        @if(Model.Media?.MediaSource is not null)
+        {
+            <div class="media-container">
+                @await Html.PartialAsync("_MediaBlock.cshtml", Model.Media)
 
-        </div>
+            </div>
+        }
 
         <div class="content">
-            @if (!string.IsNullOrWhiteSpace(Model.Heading))
+            @if(!string.IsNullOrWhiteSpace(Model.Heading))
             {
                 <h2>@Model.Heading</h2>
             }
 
-            @if (!string.IsNullOrWhiteSpace(Model.Text))
+            @if(!string.IsNullOrWhiteSpace(Model.Text))
             {
                 <p>@Model.Text</p>
             }
 
-            @if (Model.CtaBlocks.Any())
+            @if(Model.CtaBlocks.Any())
             {
                 @await Html.PartialAsync("_CtaBlock.cshtml", Model.CtaBlocks)
             }

@@ -9,16 +9,10 @@ public class ImageGalleryBlockProfile : Profile
 {
     public ImageGalleryBlockProfile()
     {
-        CreateMap<BlockListItem<ImageGalleryBlock>, ImageGalleryBlockViewModel>()
-            .ForMember(d => d.Heading, opt => opt
-                .MapFrom(s => s.Content.Heading))
-            .ForMember(d => d.Text, opt => opt
-                .MapFrom(s => s.Content.Text))
-            .ForMember(d => d.ImageGallery, opt => opt
-                .MapFrom(s => s.Content.ImageGallery))
+        CreateMap<ImageGalleryBlock, ImageGalleryBlockViewModel>()
             .ForMember(d => d.Id, opt => opt
-                .MapFrom(s => s.Content.Key))
+                .MapFrom(s => s.Key))
             .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.Content.BackgroundColor.GetBackgroundColorName()));
+                .MapFrom(s => s.BackgroundColor.GetBackgroundColorName()));
     }
 }
