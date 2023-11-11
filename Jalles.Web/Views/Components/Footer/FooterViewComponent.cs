@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Jalles.Core.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jalles.Web.Views.Components.Footer;
@@ -25,7 +24,7 @@ public class FooterViewComponent : ViewComponent
             throw new NullReferenceException(nameof(StartPage));
         }
 
-        var footer = _mapper.Map<FooterViewModel>(startPage.Footer.GetElement<FooterBlock>());
+        var footer = _mapper.Map<FooterViewModel>(startPage.Footer);
 
         return View(footer);
     }

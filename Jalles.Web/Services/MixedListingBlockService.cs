@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Jalles.Core.Contracts;
-using Jalles.Core.Extensions;
 using Umbraco.Cms.Core.Models.Blocks;
 
 namespace Jalles.Web.Services;
@@ -16,36 +15,36 @@ public class MixedListingBlockService : IMixedListingBlockService
 
     public ImageGalleryBlockViewModel MapImageGalleryBlock(BlockListItem blockListItem)
     {
-        return _mapper.Map<ImageGalleryBlockViewModel>(blockListItem.GetElement<ImageGalleryBlock>());
+        return _mapper.Map<ImageGalleryBlockViewModel>(blockListItem);
     }
 
     public ContentBlockViewModel MapContentBlock(BlockListItem blockListItem)
     {
-        return _mapper.Map<ContentBlockViewModel>(blockListItem.GetElement<ContentBlock>());
+        return _mapper.Map<ContentBlockViewModel>(blockListItem);
     }
 
     public TextBlockViewModel MapTextBlock(BlockListItem blockListItem)
     {
-        return _mapper.Map<TextBlockViewModel>(blockListItem.GetElement<TextBlock>());
+        return _mapper.Map<TextBlockViewModel>(blockListItem);
     }
 
     public HighlightBlockViewModel MapHighlightBlock(BlockListItem blockListItem)
     {
-        return _mapper.Map<HighlightBlockViewModel>(blockListItem.GetElement<HighlightBlock>());
+        return _mapper.Map<HighlightBlockViewModel>(blockListItem);
     }
 
     public DataBlockViewModel MapDataBlock(BlockListItem blockListItem)
     {
-        return _mapper.Map<DataBlockViewModel>(blockListItem.GetElement<DataBlock>());
+        return _mapper.Map<DataBlockViewModel>(blockListItem);
     }
 
     public AttachmentBlockViewModel MapAttachmentBlock(BlockListItem blockListItem)
     {
-        return _mapper.Map<AttachmentBlockViewModel>(blockListItem.GetElement<AttachmentBlock>());
+        return _mapper.Map<AttachmentBlockViewModel>(blockListItem);
     }
 
     public SponsorBlockViewModel MapSponsorBlock(BlockListItem blockListItem)
     {
-        return _mapper.Map<SponsorBlockViewModel>(blockListItem.GetElement<SponsorBlock>());
+        return _mapper.Map<SponsorBlockViewModel>(blockListItem);
     }
 }

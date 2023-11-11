@@ -11,18 +11,15 @@
 
 <div class="highlight-listing-block @Model.BackgroundColor">
     <div class="listing-container @highlights">
-        @if(!string.IsNullOrWhiteSpace(Model.Heading))
+        @if (!string.IsNullOrWhiteSpace(Model.Heading))
         {
             <h2>@Model.Heading</h2>
         }
 
-        @foreach(var highlight in Model.Highlights)
+        @foreach (var highlight in Model.Highlights)
         {
-            <a href="@highlight.PagePath" class="highlight">
-                @if(highlight.Header?.MediaSource is not null)
-                {
-                    @await Html.PartialAsync("../_MediaBlock.cshtml", highlight.Header)
-                }
+            <a href="@highlight.GetPageUrl()" class="highlight">
+                @await Html.PartialAsync("../_MediaBlock.cshtml", highlight.Header)
 
                 <div class="content">
                     <div class="content-container">

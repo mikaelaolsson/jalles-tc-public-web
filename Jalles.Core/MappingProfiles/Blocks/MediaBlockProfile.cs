@@ -10,51 +10,59 @@ public class MediaBlockProfile : Profile
 {
     public MediaBlockProfile()
     {
-        CreateMap<MediaBlock, MediaViewModel>()
-            .ForMember(d => d.IsLazy, opt => opt
-                .MapFrom(_ => true))
+        CreateMap<BlockListItem<MediaBlock>, MediaViewModel>()
             .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.BackgroundColor.GetMediaBackgroundColor()))
+                .MapFrom(s => s.Content.BackgroundColor.GetMediaBackgroundColor()))
+            .ForMember(d => d.AddBlurOverlay, opt => opt
+                .MapFrom(s => s.Content.AddBlurOverlay))
+            .ForMember(d => d.Media, opt => opt
+                .MapFrom(s => s.Content.Media))
             .ForMember(d => d.MediaType, opt => opt
-                .MapFrom(s => s.GetMediaType()))
+                .MapFrom(s => s.Content.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom(s => s.Content.GetMediaSource(s.Content.GetMediaType())));
 
         CreateMap<IMediaProperties, MediaViewModel>()
-            .ForMember(d => d.IsLazy, opt => opt
-                .MapFrom(_ => true))
             .ForMember(d => d.BackgroundColor, opt => opt
                 .MapFrom(s => s.BackgroundColor.GetMediaBackgroundColor()))
+            .ForMember(d => d.AddBlurOverlay, opt => opt
+                .MapFrom(s => s.AddBlurOverlay))
+            .ForMember(d => d.Media, opt => opt
+                .MapFrom(s => s.Media))
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
                 .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
 
-        CreateMap<SimpleMediaBlock, MediaViewModel>()
-            .ForMember(d => d.IsLazy, opt => opt
-                .MapFrom(_ => true))
-            .ForMember(d => d.BackgroundColor, opt => opt.Ignore())
+        CreateMap<BlockListItem<SimpleMediaBlock>, MediaViewModel>()
+            .ForMember(d => d.AddBlurOverlay, opt => opt
+                .MapFrom(s => s.Content.AddBlurOverlay))
+            .ForMember(d => d.Media, opt => opt
+                .MapFrom(s => s.Content.Media))
             .ForMember(d => d.MediaType, opt => opt
-                .MapFrom(s => s.GetMediaType()))
+                .MapFrom(s => s.Content.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom(s => s.Content.GetMediaSource(s.Content.GetMediaType())));
 
         CreateMap<ISimpleMediaProperties, MediaViewModel>()
-            .ForMember(d => d.IsLazy, opt => opt
-                .MapFrom(_ => true))
-            .ForMember(d => d.BackgroundColor, opt => opt.Ignore())
+            .ForMember(d => d.AddBlurOverlay, opt => opt
+                .MapFrom(s => s.AddBlurOverlay))
+            .ForMember(d => d.Media, opt => opt
+                .MapFrom(s => s.Media))
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
                 .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
 
-        CreateMap<HeaderBlock, MediaViewModel>()
-            .ForMember(d => d.IsLazy, opt => opt
-                .MapFrom(_ => false))
+        CreateMap<BlockListItem<HeaderBlock>, MediaViewModel>()
+            .ForMember(d => d.AddBlurOverlay, opt => opt
+                .MapFrom(s => s.Content.AddBlurOverlay))
+            .ForMember(d => d.Media, opt => opt
+                .MapFrom(s => s.Content.Media))
             .ForMember(d => d.MediaType, opt => opt
-                .MapFrom(s => s.GetMediaType()))
+                .MapFrom(s => s.Content.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom(s => s.Content.GetMediaSource(s.Content.GetMediaType())));
 
     }
 }

@@ -9,8 +9,10 @@ public class TextBlockProfile : Profile
 {
     public TextBlockProfile()
     {
-        CreateMap<TextBlock, TextBlockViewModel>()
+        CreateMap<BlockListItem<TextBlock>, TextBlockViewModel>()
+            .ForMember(d => d.Heading, opt => opt
+                .MapFrom(s => s.Content.Heading))
             .ForMember(d => d.Text, opt => opt
-                .MapFrom(s => s.Text!.ToHtmlString()));
+                .MapFrom(s => s.Content.Text));
     }
 }

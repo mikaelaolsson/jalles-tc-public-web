@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Jalles.Core.Extensions;
-using Jalles.Core.Helpers;
 using Jalles.Core.Models.Content;
 using Jalles.Core.ViewModels;
 
@@ -12,54 +10,60 @@ public class ContentPageProfile : Profile
     {
         CreateMap<ContentPage, ContentPageViewModel>()
             .ForMember(d => d.Header, opt => opt
-                .MapFrom(s => s.Header.GetElement<HeaderBlock>()))
+                .MapFrom(s => s.Header))
+            .ForMember(d => d.Title, opt => opt
+                .MapFrom(s => s.Title))
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom(s => s.Parent!.ContentType.Alias == "startPage" ? "" : $"/{s.Parent!.UrlSegment}"))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom(s => s.UrlSegment))
             .ForMember(d => d.LastEdited, opt => opt
                 .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.Published, opt => opt
                 .MapFrom(s => s.CreateDate))
+            .ForMember(d => d.Categories, opt => opt
+                .MapFrom(s => s.Categories))
+            .ForMember(d => d.Blocks, opt => opt
+                .MapFrom(s => s.Blocks))
             .ForMember(d => d.DateBlock, opt => opt
-                .MapFrom(s => s.PublishedDate.GetElements<DateBlock>().FirstOrDefault()));
+                .MapFrom(s => s.PublishedDate!.FirstOrDefault()));
 
         CreateMap<ListingPage, ContentPageViewModel>()
             .ForMember(d => d.Header, opt => opt
-                .MapFrom(s => s.Header.GetElement<HeaderBlock>()))
+                .MapFrom(s => s.Header))
+            .ForMember(d => d.Title, opt => opt
+                .MapFrom(s => s.Title))
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom(s => s.Parent!.ContentType.Alias == "startPage" ? "" : $"/{s.Parent!.UrlSegment}"))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom(s => s.UrlSegment))
             .ForMember(d => d.LastEdited, opt => opt
                 .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.Published, opt => opt
                 .MapFrom(s => s.CreateDate))
             .ForMember(d => d.Categories, opt => opt
-                .MapFrom(s => s.DisplayedCategories))
-            .ForMember(d => d.DateBlock, opt => opt.Ignore())
-            .ForMember(d => d.Blocks, opt => opt.Ignore());
+                .MapFrom(s => s.DisplayedCategories));
 
         CreateMap<SecondaryListingPage, ContentPageViewModel>()
             .ForMember(d => d.Header, opt => opt
-                .MapFrom(s => s.Header.GetElement<HeaderBlock>()))
+                .MapFrom(s => s.Header))
+            .ForMember(d => d.Title, opt => opt
+                .MapFrom(s => s.Title))
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom(s => s.Parent!.ContentType.Alias == "startPage" ? "" : $"/{s.Parent!.UrlSegment}"))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom(s => s.UrlSegment))
             .ForMember(d => d.LastEdited, opt => opt
                 .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.Published, opt => opt
                 .MapFrom(s => s.CreateDate))
             .ForMember(d => d.Categories, opt => opt
-                .MapFrom(s => s.DisplayedCategories))
-            .ForMember(d => d.DateBlock, opt => opt.Ignore())
-            .ForMember(d => d.Blocks, opt => opt.Ignore());
+                .MapFrom(s => s.DisplayedCategories));
     }
 }

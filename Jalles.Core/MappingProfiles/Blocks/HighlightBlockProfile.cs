@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
 using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels;
 using Jalles.Core.ViewModels.Blocks;
 using Umbraco.Cms.Core.Models.Blocks;
 using Umbraco.Cms.Core.Models.PublishedContent;
@@ -12,42 +11,12 @@ public class HighlightBlockProfile : Profile
 {
     public HighlightBlockProfile()
     {
-        CreateMap<HighlightBlock, HighlightBlockViewModel>()
+        CreateMap<BlockListItem<HighlightBlock>, HighlightBlockViewModel>()
+            .ForMember(d => d.Heading, opt => opt
+                .MapFrom(s => s.Content.Heading))
             .ForMember(d => d.Highlights, opt => opt
-                .MapFrom<HighlightsResolver>())
+                .MapFrom(s => s.Content.Highlights != null ? s.Content.Highlights.Where(h => h.ContentType.Alias == "contentPage" || h.ContentType.Alias == "listingPage" || h.ContentType.Alias == "secondaryListingPage") : new List<IPublishedContent>()))
             .ForMember(d => d.BackgroundColor, opt => opt
-                .MapFrom(s => s.BackgroundColor.GetBackgroundColorName()));
-    }
-}
-
-public class HighlightsResolver
-    : IValueResolver<HighlightBlock, HighlightBlockViewModel, IEnumerable<ContentPageViewModel>>
-{
-    public IEnumerable<ContentPageViewModel> Resolve(HighlightBlock source, HighlightBlockViewModel destination, IEnumerable<ContentPageViewModel> destMember,
-        ResolutionContext context)
-    {
-        var highlights = source.Highlights;
-        if(highlights == null)
-            return Enumerable.Empty<ContentPageViewModel>();
-
-        var viewModels = new List<ContentPageViewModel>();
-
-        foreach (var highlight in highlights)
-        {
-            switch (highlight.ContentType.Alias)
-            {
-                case "contentPage":
-                    viewModels.Add(context.Mapper.Map<ContentPageViewModel>(highlight as ContentPage));
-                    break;
-                case "listingPage":
-                    viewModels.Add(context.Mapper.Map<ContentPageViewModel>(highlight as ListingPage));
-                    break;
-                case "secondaryListingPage":
-                    viewModels.Add(context.Mapper.Map<ContentPageViewModel>(highlight as SecondaryListingPage));
-                    break;
-            }
-        }
-
-        return viewModels;
+                .MapFrom(s => s.Content.BackgroundColor.GetBackgroundColorName()));
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Jalles.Core.Extensions;
 using Jalles.Core.Models.Content;
 using Jalles.Core.ViewModels.Blocks;
 using Umbraco.Cms.Core.Models.Blocks;
@@ -11,8 +10,11 @@ public class PinThisBlockProfile : Profile
 {
     public PinThisBlockProfile()
     {
-        CreateMap<PinThisBlock, PinThisBlockViewModel>()
+        CreateMap<BlockListItem<PinThisBlock>, PinThisBlockViewModel>()
             .ForMember(d => d.Pins, opt => opt
-                .MapFrom(s => s.Pins.GetElements<ContentPage>()));
+                .MapFrom(s =>
+                    s.Content.Pins != null
+                        ? s.Content.Pins.Where(h => h.ContentType.Alias == "contentPage")
+                        : new List<IPublishedContent>()));
     }
 }
