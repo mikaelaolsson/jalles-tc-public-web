@@ -21,27 +21,38 @@
                 await System.IO.File.WriteAllBytesAsync(tempFilePath, excelBytes);
                 var rows = (await MiniExcel.QueryAsync(tempFilePath, sheetName: MiniExcel.GetSheetNames(tempFilePath).First(), useHeaderRow: true)).ToList();
 
-                <table border="1">
-                    <thead>
-                    <tr>
-                        @foreach (var header in ((IDictionary<string, object>)rows[0]).Keys)
-                        {
-                            <th>@header</th>
-                        }
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach(var row in rows)
-                    {
-                        <tr>
-                            @foreach(var property in ((IDictionary<string, object>)row).Values)
-                            {
-                                <td>@property</td>
-                            }
-                        </tr>
-                    }
-                    </tbody>
-                </table>
+                <div class="container">
+                    <div class="extra-scroller">
+                        <div>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                            <tr>
+                                @foreach(var header in ((IDictionary<string, object>)rows[0]).Keys)
+                                {
+                                    <th>@header</th>
+                                }
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach(var row in rows)
+                                {
+                                    <tr>
+                                        @foreach(var property in ((IDictionary<string, object>)row).Values)
+                                        {
+                                            <td title="@property">@property</td>
+                                        }
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             }
             else
             {

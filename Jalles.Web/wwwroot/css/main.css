@@ -350,6 +350,99 @@
     width: 100%;
   }
 }
+.excel-block {
+  margin: 3rem 1.25rem;
+}
+.excel-block .container {
+  width: 100%;
+}
+.excel-block .container .extra-scroller {
+  width: 100%;
+  border: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 20px;
+}
+.excel-block .container .extra-scroller div {
+  width: 1000px;
+  height: 20px;
+}
+.excel-block .container .table-wrapper {
+  overflow-x: auto;
+}
+.excel-block .container .table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.excel-block .container .table-wrapper table thead {
+  display: table-header-group;
+  background-color: #463F3A;
+  font-weight: 700;
+  color: #FFEB19;
+  white-space: nowrap;
+}
+.excel-block .container .table-wrapper table thead tr {
+  display: table-row;
+}
+.excel-block .container .table-wrapper table thead tr th {
+  padding: 0.5rem 1rem;
+  line-height: 170%;
+  font-size: 1rem;
+  text-align: left;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  border: none;
+}
+.excel-block .container .table-wrapper table tbody {
+  display: table-row-group;
+}
+.excel-block .container .table-wrapper table tbody tr {
+  display: table-row;
+}
+.excel-block .container .table-wrapper table tbody tr:hover {
+  background-color: rgba(138, 129, 124, 0.2) !important;
+}
+.excel-block .container .table-wrapper table tbody tr td {
+  padding: 0.5rem 1rem;
+  line-height: 170%;
+  font-size: 1rem;
+  text-align: left;
+  border: none;
+}
+.excel-block .container .table-wrapper table tbody tr td:nth-child(even) {
+  background-color: rgba(255, 248, 173, 0.2);
+}
+.excel-block .container .table-wrapper table tbody tr td:hover {
+  background-color: #FFF8AD !important;
+}
+.excel-block .container .table-wrapper table tbody tr:nth-child(even) {
+  background-color: rgba(255, 248, 173, 0.5);
+}
+.excel-block .container .table-wrapper .highlight-column {
+  background-color: rgba(138, 129, 124, 0.2) !important;
+}
+
+@media only screen and (min-width: 1200px) {
+  .excel-block {
+    max-width: 1980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 2rem;
+    row-gap: 5rem;
+    margin: 5rem 5rem;
+  }
+  .excel-block h2 {
+    grid-row: 1;
+    grid-column: 3/11;
+  }
+  .excel-block .container {
+    grid-column: 3/11;
+    width: 100%;
+  }
+}
 footer {
   padding: 3rem 1.25rem;
   background-color: #463F3A;
