@@ -1,6 +1,10 @@
 .excel-block {
   margin: $spacing-vertical-medium $side-margins;
 
+  h2 {
+    margin: 0;
+  }
+
   .container {
     width: 100%;
 

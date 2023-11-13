@@ -2,7 +2,10 @@
 @model ExcelBlockViewModel
 
 <div class="excel-block">
-    <h2>@Model.Heading</h2>
+    @if(!string.IsNullOrWhiteSpace(Model.Heading))
+    {
+        <h2>@Model.Heading</h2>
+    }
 
     @if(Model.ExcelFile != null)
     {
@@ -30,12 +33,12 @@
                     <div class="table-wrapper">
                         <table>
                             <thead>
-                            <tr>
-                                @foreach(var header in ((IDictionary<string, object>)rows[0]).Keys)
-                                {
-                                    <th>@header</th>
-                                }
-                            </tr>
+                                <tr>
+                                    @foreach(var header in ((IDictionary<string, object>)rows[0]).Keys)
+                                    {
+                                        <th>@header</th>
+                                    }
+                                </tr>
                             </thead>
 
                             <tbody>

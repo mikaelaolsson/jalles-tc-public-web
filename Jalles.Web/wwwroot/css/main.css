@@ -83,7 +83,7 @@
 /* Breakpoints */
 /* Animations */
 .content-block {
-  padding: 5rem 1.25rem;
+  padding: 3rem 1.25rem;
 }
 .content-block.color-off-white .content-container .content .cta-block a, .content-block.color-jalles-yellow .content-container .content .cta-block a, .content-block.color-vanilla .content-container .content .cta-block a, .content-block.color-battleship-gray .content-container .content .cta-block a {
   padding: 1rem 2rem;
@@ -167,7 +167,7 @@
 .content-block .content-container {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
 }
 .content-block .content-container .media-container .media {
   height: 15rem;
@@ -186,7 +186,7 @@
 
 @media only screen and (min-width: 1200px) {
   .content-block {
-    padding: 7rem 5rem;
+    padding: 5rem 5rem;
   }
   .content-block .content-container {
     max-width: 1980px;
@@ -194,7 +194,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
+    row-gap: 3rem;
   }
   .content-block .content-container .media-container {
     grid-column: 3/7;
@@ -271,7 +271,7 @@
 }
 
 .data-block-container {
-  margin: 3rem 1.25rem;
+  margin: 2rem 1.25rem;
 }
 .data-block-container .data-block {
   overflow-wrap: break-word;
@@ -287,7 +287,7 @@
 }
 .data-block-container .data-block .table-wrapper {
   overflow-x: auto;
-  margin: 3rem 0;
+  margin: 2rem 0;
   border-radius: 1rem;
 }
 .data-block-container .data-block table {
@@ -342,8 +342,8 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
-    margin: 5rem 5rem;
+    row-gap: 3rem;
+    margin: 3rem 5rem;
   }
   .data-block-container .data-block {
     grid-column: 3/11;
@@ -351,7 +351,10 @@
   }
 }
 .excel-block {
-  margin: 3rem 1.25rem;
+  margin: 2rem 1.25rem;
+}
+.excel-block h2 {
+  margin: 0;
 }
 .excel-block .container {
   width: 100%;
@@ -431,8 +434,8 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
-    margin: 5rem 5rem;
+    row-gap: 3rem;
+    margin: 3rem 5rem;
   }
   .excel-block h2 {
     grid-row: 1;
@@ -444,7 +447,7 @@
   }
 }
 footer {
-  padding: 3rem 1.25rem;
+  padding: 2rem 1.25rem;
   background-color: #463F3A;
   color: #FAFAEC;
   text-align: center;
@@ -461,7 +464,7 @@ footer .content {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 footer .content .umemaran {
   display: flex;
@@ -482,7 +485,7 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   footer {
-    padding: 5rem 5rem;
+    padding: 3rem 5rem;
   }
   footer .content {
     max-width: 1980px;
@@ -496,7 +499,7 @@ footer .content .umemaran img {
   }
 }
 .highlight-listing-block {
-  padding: 3rem 1.25rem;
+  padding: 2rem 1.25rem;
 }
 .highlight-listing-block.color-jalles-yellow {
   background-color: #FFEB19;
@@ -589,7 +592,7 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   .highlight-listing-block {
-    padding: 5rem 5rem;
+    padding: 3rem 5rem;
   }
   .highlight-listing-block .listing-container {
     max-width: 1980px;
@@ -597,7 +600,7 @@ footer .content .umemaran img {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
+    row-gap: 3rem;
     gap: 2rem;
   }
   .highlight-listing-block .listing-container h2 {
@@ -638,7 +641,7 @@ footer .content .umemaran img {
   }
 }
 .image-gallery-container {
-  padding: 5rem 1.25rem;
+  padding: 2rem 1.25rem;
 }
 .image-gallery-container.color-jalles-yellow {
   background-color: #FFEB19;
@@ -715,7 +718,7 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   .image-gallery-container {
-    padding: 7rem 5rem;
+    padding: 5rem 5rem;
   }
   .image-gallery-container .gallery-wrapper {
     max-width: 1980px;
@@ -723,7 +726,7 @@ footer .content .umemaran img {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
+    row-gap: 3rem;
     gap: 1rem;
   }
   .image-gallery-container .gallery-wrapper h2 {
@@ -976,7 +979,7 @@ footer .content .umemaran img {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
+    row-gap: 3rem;
     max-width: 1980px;
     margin: 0 auto;
   }
@@ -985,7 +988,7 @@ footer .content .umemaran img {
   }
 }
 .our-sponsor-block {
-  padding: 3rem 1.25rem;
+  padding: 2rem 1.25rem;
 }
 
 .footer-sponsors {
@@ -1015,7 +1018,7 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   .our-sponsor-block {
-    padding: 5rem 5rem;
+    padding: 3rem 5rem;
   }
   .our-sponsor-block .content-container {
     max-width: 1980px;
@@ -1023,7 +1026,7 @@ footer .content .umemaran img {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
+    row-gap: 3rem;
   }
   .our-sponsor-block .content-container .sponsors {
     grid-column: 4/10;
@@ -1035,7 +1038,7 @@ footer .content .umemaran img {
   }
 }
 .text-block-container, .attachment-block-container {
-  margin: 3rem 1.25rem;
+  margin: 2rem 1.25rem;
 }
 .text-block-container .text-block, .text-block-container .attachment-block, .attachment-block-container .text-block, .attachment-block-container .attachment-block {
   overflow-wrap: break-word;
@@ -1080,7 +1083,7 @@ footer .content .umemaran img {
   color: #535353;
 }
 .text-block-container .text-block ul, .text-block-container .text-block ol, .text-block-container .attachment-block ul, .text-block-container .attachment-block ol, .attachment-block-container .text-block ul, .attachment-block-container .text-block ol, .attachment-block-container .attachment-block ul, .attachment-block-container .attachment-block ol {
-  margin-left: 2rem;
+  margin-left: 1.5rem;
   padding-inline-start: 0.5rem;
   max-width: 800px;
 }
@@ -1120,8 +1123,8 @@ footer .content .umemaran img {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
-    margin: 5rem 5rem;
+    row-gap: 3rem;
+    margin: 3rem 5rem;
   }
   .text-block-container .text-block, .text-block-container .attachment-block, .attachment-block-container .text-block, .attachment-block-container .attachment-block {
     grid-column: 3/11;
@@ -1130,7 +1133,7 @@ footer .content .umemaran img {
 }
 .content-page .back-button, .content-page .date {
   margin: 0;
-  padding: 0 1.25rem 3rem;
+  padding: 0 1.25rem 2rem;
   list-style: none;
   text-align: right;
   color: #8A817C;
@@ -1157,12 +1160,12 @@ footer .content .umemaran img {
   color: #FAFAEC;
 }
 .content-page .back-button {
-  padding: 3rem 1.25rem 0;
+  padding: 2rem 1.25rem 0;
 }
 
 @media only screen and (min-width: 1200px) {
   .content-page .back-button, .content-page .date {
-    padding: 0 5rem 5rem;
+    padding: 0 5rem 3rem;
   }
   .content-page .back-button li, .content-page .back-button .wrapper, .content-page .date li, .content-page .date .wrapper {
     max-width: 1980px;
@@ -1170,7 +1173,7 @@ footer .content .umemaran img {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
+    row-gap: 3rem;
     gap: 0;
   }
   .content-page .back-button li span, .content-page .back-button .wrapper span, .content-page .date li span, .content-page .date .wrapper span {
@@ -1180,13 +1183,13 @@ footer .content .umemaran img {
     grid-column: 10/11;
   }
   .content-page .back-button {
-    padding: 5rem 5rem 0;
+    padding: 3rem 5rem 0;
   }
 }
 .error-page {
   display: flex;
   justify-content: center;
-  padding: 3rem 1.25rem;
+  padding: 2rem 1.25rem;
   background-color: #FFF8AD;
 }
 .error-page main {
@@ -1202,11 +1205,11 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   .error-page {
-    padding: 5rem 5rem;
+    padding: 3rem 5rem;
   }
 }
 .listing-page {
-  padding: 3rem 1.25rem;
+  padding: 2rem 1.25rem;
 }
 .listing-page .main-content-container {
   display: flex;
@@ -1281,7 +1284,7 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   .listing-page {
-    padding: 5rem 5rem;
+    padding: 3rem 5rem;
   }
   .listing-page .main-content-container {
     max-width: 1980px;
@@ -1289,7 +1292,7 @@ footer .content .umemaran img {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
-    row-gap: 5rem;
+    row-gap: 3rem;
     gap: 1rem;
   }
   .listing-page .main-content-container h2 {
@@ -1312,7 +1315,7 @@ footer .content .umemaran img {
   flex-direction: column;
   justify-content: flex-end;
   min-height: 25rem;
-  padding: 5rem 1.25rem 3rem;
+  padding: 3rem 1.25rem 2rem;
 }
 .header .media {
   position: absolute;
@@ -1355,7 +1358,7 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   .header {
-    padding: 7rem 5rem 5rem;
+    padding: 5rem 5rem 3rem;
   }
   .header .login {
     display: block;
@@ -1515,7 +1518,7 @@ a {
     font-size: 1.125rem;
   }
   body.hide-header {
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
   h1 {
     font-size: 5rem;
