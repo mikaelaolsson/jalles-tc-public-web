@@ -19,6 +19,12 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  actions: write
+
 jobs:
   build:
     name: 🏡 .NET Build
@@ -88,5 +94,6 @@ jobs:
       steps:
       - uses: geekyeggo/delete-artifact@v4
         with:
+            token: ${{ secrets.GITHUB_TOKEN }}
             name: |
                 dotnet-artifacts
