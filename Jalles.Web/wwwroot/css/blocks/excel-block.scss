@@ -1,92 +1,94 @@
 .excel-block {
   margin: $spacing-vertical-medium $side-margins;
 
-  h2 {
-    margin: 0;
-  }
-
-  .container {
-    width: 100%;
-
-    .extra-scroller {
-      width: 100%;
-      border: none;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      height: 20px;
-
-      div {
-        width: 1000px;
-        height: 20px;
-      }
+  .wrapper {
+    h2 {
+      margin: 0;
     }
 
-    .table-wrapper {
-      overflow-x: auto;
+    .container {
+      width: 100%;
 
-      table {
+      .extra-scroller {
         width: 100%;
-        border-collapse: collapse;
-        overflow: hidden;
-        border-radius: $border-radius;
+        border: none;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: 20px;
 
-        thead {
-          display: table-header-group;
-          background-color: $color-taupe;
-          font-weight: $font-weight-bold;
-          color: $color-jalles-yellow;
-          white-space: nowrap;
-
-          tr {
-            display: table-row;
-
-            th {
-              padding: $spacing-small $spacing-standard;
-              line-height: $font-line-height;
-              font-size: $font-size;
-              text-align: left;
-              writing-mode: vertical-rl;
-              text-transform: uppercase;
-              border: none;
-            }
-          }
-        }
-
-        tbody {
-          display: table-row-group;
-
-          tr {
-            display: table-row;
-
-            &:hover {
-              background-color: $color-battleship-more-muted !important;
-            }
-
-            td {
-              padding: $spacing-small $spacing-standard;
-              line-height: $font-line-height;
-              font-size: $font-size;
-              text-align: left;
-              border: none;
-
-              &:nth-child(even) {
-                background-color: $color-vanilla-more-muted;
-              }
-
-              &:hover {
-                background-color: $color-vanilla !important;
-              }
-            }
-
-            &:nth-child(even) {
-              background-color: $color-vanilla-muted;
-            }
-          }
+        div {
+          width: 1000px;
+          height: 20px;
         }
       }
 
-      .highlight-column {
-        background-color: $color-battleship-more-muted !important;
+      .table-wrapper {
+        overflow-x: auto;
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          overflow: hidden;
+          border-radius: $border-radius;
+
+          thead {
+            display: table-header-group;
+            background-color: $color-taupe;
+            font-weight: $font-weight-bold;
+            color: $color-jalles-yellow;
+            white-space: nowrap;
+
+            tr {
+              display: table-row;
+
+              th {
+                padding: $spacing-small $spacing-standard;
+                line-height: $font-line-height;
+                font-size: $font-size;
+                text-align: left;
+                writing-mode: vertical-rl;
+                text-transform: uppercase;
+                border: none;
+              }
+            }
+          }
+
+          tbody {
+            display: table-row-group;
+
+            tr {
+              display: table-row;
+
+              &:hover {
+                background-color: $color-battleship-more-muted !important;
+              }
+
+              td {
+                padding: $spacing-small $spacing-standard;
+                line-height: $font-line-height;
+                font-size: $font-size;
+                text-align: left;
+                border: none;
+
+                &:nth-child(even) {
+                  background-color: $color-vanilla-more-muted;
+                }
+
+                &:hover {
+                  background-color: $color-vanilla !important;
+                }
+              }
+
+              &:nth-child(even) {
+                background-color: $color-vanilla-muted;
+              }
+            }
+          }
+        }
+
+        .highlight-column {
+          background-color: $color-battleship-more-muted !important;
+        }
       }
     }
   }
@@ -94,18 +96,21 @@
 
 @media only screen and (min-width: $screen-min-desktop) {
   .excel-block {
-    @include desktop-container-content;
-    @include desktop-container-grid;
-    margin: $spacing-vertical-medium-desktop $side-margins-desktop;
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
 
-    h2 {
-      grid-row: 1;
-      grid-column: 3 / 11;
-    }
+    .wrapper {
+      @include desktop-container-content;
+      @include desktop-container-grid;
 
-    .container {
-      grid-column: 3 / 11;
-      width: 100%;
+      h2 {
+        grid-row: 1;
+        grid-column: 3 / 11;
+      }
+
+      .container {
+        grid-column: 3 / 11;
+        width: 100%;
+      }
     }
   }
 }

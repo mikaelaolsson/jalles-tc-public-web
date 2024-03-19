@@ -13,7 +13,7 @@ public class ContentBlockProfile : Profile
             .ForMember(d => d.CtaBlocks, opt => opt
                 .MapFrom(s => s.Cta.GetElements<CTablock>()))
             .ForMember(d => d.Media, opt => opt
-                .MapFrom(s => s.Media.GetElement<MediaBlock>()))
+                .MapFrom(s => s.Media.GetElement<SimpleMediaBlock>()))
             .ForMember(d => d.BackgroundColor, opt => opt
                 .MapFrom(s => s.BackgroundColor.GetBackgroundColorName()));
     }

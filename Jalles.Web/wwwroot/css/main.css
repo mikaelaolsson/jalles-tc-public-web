@@ -273,33 +273,33 @@
 .data-block-container {
   margin: 2rem 1.25rem;
 }
-.data-block-container .data-block {
+.data-block-container .wrapper .data-block {
   overflow-wrap: break-word;
 }
-.data-block-container .data-block h1 {
+.data-block-container .wrapper .data-block h1 {
   font-size: 2.25rem;
   line-height: 130%;
 }
-.data-block-container .data-block p img {
+.data-block-container .wrapper .data-block p img {
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }
-.data-block-container .data-block .table-wrapper {
+.data-block-container .wrapper .data-block .table-wrapper {
   overflow-x: auto;
   margin: 2rem 0;
   border-radius: 1rem;
 }
-.data-block-container .data-block table {
+.data-block-container .wrapper .data-block table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   border: 0;
 }
-.data-block-container .data-block table caption {
+.data-block-container .wrapper .data-block table caption {
   display: none;
 }
-.data-block-container .data-block table tbody tr:first-child {
+.data-block-container .wrapper .data-block table tbody tr:first-child {
   border: none;
   background-color: #463F3A;
   font-weight: 700;
@@ -307,17 +307,17 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.data-block-container .data-block table tbody tr:first-child td {
+.data-block-container .wrapper .data-block table tbody tr:first-child td {
   border: none;
 }
-.data-block-container .data-block table tbody tr:first-child td:last-child {
+.data-block-container .wrapper .data-block table tbody tr:first-child td:last-child {
   border-radius: 0 1rem 0 0;
 }
-.data-block-container .data-block table tbody tr th {
+.data-block-container .wrapper .data-block table tbody tr th {
   font-weight: 400;
 }
-.data-block-container .data-block table tbody tr th,
-.data-block-container .data-block table tbody tr td {
+.data-block-container .wrapper .data-block table tbody tr th,
+.data-block-container .wrapper .data-block table tbody tr td {
   padding: 0.5rem 1rem;
   line-height: 170%;
   font-size: 1rem;
@@ -325,27 +325,29 @@
   border: solid 0.25px rgba(138, 129, 124, 0.5);
   background-color: transparent;
 }
-.data-block-container .data-block table tbody tr th h1, .data-block-container .data-block table tbody tr th h2, .data-block-container .data-block table tbody tr th h3, .data-block-container .data-block table tbody tr th h4, .data-block-container .data-block table tbody tr th h5, .data-block-container .data-block table tbody tr th h6,
-.data-block-container .data-block table tbody tr td h1,
-.data-block-container .data-block table tbody tr td h2,
-.data-block-container .data-block table tbody tr td h3,
-.data-block-container .data-block table tbody tr td h4,
-.data-block-container .data-block table tbody tr td h5,
-.data-block-container .data-block table tbody tr td h6 {
+.data-block-container .wrapper .data-block table tbody tr th h1, .data-block-container .wrapper .data-block table tbody tr th h2, .data-block-container .wrapper .data-block table tbody tr th h3, .data-block-container .wrapper .data-block table tbody tr th h4, .data-block-container .wrapper .data-block table tbody tr th h5, .data-block-container .wrapper .data-block table tbody tr th h6,
+.data-block-container .wrapper .data-block table tbody tr td h1,
+.data-block-container .wrapper .data-block table tbody tr td h2,
+.data-block-container .wrapper .data-block table tbody tr td h3,
+.data-block-container .wrapper .data-block table tbody tr td h4,
+.data-block-container .wrapper .data-block table tbody tr td h5,
+.data-block-container .wrapper .data-block table tbody tr td h6 {
   font-size: 1rem;
 }
 
 @media only screen and (min-width: 1200px) {
   .data-block-container {
+    padding: 3rem 5rem;
+  }
+  .data-block-container .wrapper {
     max-width: 1980px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
     row-gap: 3rem;
-    margin: 3rem 5rem;
   }
-  .data-block-container .data-block {
+  .data-block-container .wrapper .data-block {
     grid-column: 3/11;
     width: 100%;
   }
@@ -353,43 +355,43 @@
 .excel-block {
   margin: 2rem 1.25rem;
 }
-.excel-block h2 {
+.excel-block .wrapper h2 {
   margin: 0;
 }
-.excel-block .container {
+.excel-block .wrapper .container {
   width: 100%;
 }
-.excel-block .container .extra-scroller {
+.excel-block .wrapper .container .extra-scroller {
   width: 100%;
   border: none;
   overflow-x: scroll;
   overflow-y: hidden;
   height: 20px;
 }
-.excel-block .container .extra-scroller div {
+.excel-block .wrapper .container .extra-scroller div {
   width: 1000px;
   height: 20px;
 }
-.excel-block .container .table-wrapper {
+.excel-block .wrapper .container .table-wrapper {
   overflow-x: auto;
 }
-.excel-block .container .table-wrapper table {
+.excel-block .wrapper .container .table-wrapper table {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
   border-radius: 1rem;
 }
-.excel-block .container .table-wrapper table thead {
+.excel-block .wrapper .container .table-wrapper table thead {
   display: table-header-group;
   background-color: #463F3A;
   font-weight: 700;
   color: #FFEB19;
   white-space: nowrap;
 }
-.excel-block .container .table-wrapper table thead tr {
+.excel-block .wrapper .container .table-wrapper table thead tr {
   display: table-row;
 }
-.excel-block .container .table-wrapper table thead tr th {
+.excel-block .wrapper .container .table-wrapper table thead tr th {
   padding: 0.5rem 1rem;
   line-height: 170%;
   font-size: 1rem;
@@ -398,50 +400,52 @@
   text-transform: uppercase;
   border: none;
 }
-.excel-block .container .table-wrapper table tbody {
+.excel-block .wrapper .container .table-wrapper table tbody {
   display: table-row-group;
 }
-.excel-block .container .table-wrapper table tbody tr {
+.excel-block .wrapper .container .table-wrapper table tbody tr {
   display: table-row;
 }
-.excel-block .container .table-wrapper table tbody tr:hover {
+.excel-block .wrapper .container .table-wrapper table tbody tr:hover {
   background-color: rgba(138, 129, 124, 0.2) !important;
 }
-.excel-block .container .table-wrapper table tbody tr td {
+.excel-block .wrapper .container .table-wrapper table tbody tr td {
   padding: 0.5rem 1rem;
   line-height: 170%;
   font-size: 1rem;
   text-align: left;
   border: none;
 }
-.excel-block .container .table-wrapper table tbody tr td:nth-child(even) {
+.excel-block .wrapper .container .table-wrapper table tbody tr td:nth-child(even) {
   background-color: rgba(255, 248, 173, 0.2);
 }
-.excel-block .container .table-wrapper table tbody tr td:hover {
+.excel-block .wrapper .container .table-wrapper table tbody tr td:hover {
   background-color: #FFF8AD !important;
 }
-.excel-block .container .table-wrapper table tbody tr:nth-child(even) {
+.excel-block .wrapper .container .table-wrapper table tbody tr:nth-child(even) {
   background-color: rgba(255, 248, 173, 0.5);
 }
-.excel-block .container .table-wrapper .highlight-column {
+.excel-block .wrapper .container .table-wrapper .highlight-column {
   background-color: rgba(138, 129, 124, 0.2) !important;
 }
 
 @media only screen and (min-width: 1200px) {
   .excel-block {
+    padding: 3rem 5rem;
+  }
+  .excel-block .wrapper {
     max-width: 1980px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
     row-gap: 3rem;
-    margin: 3rem 5rem;
   }
-  .excel-block h2 {
+  .excel-block .wrapper h2 {
     grid-row: 1;
     grid-column: 3/11;
   }
-  .excel-block .container {
+  .excel-block .wrapper .container {
     grid-column: 3/11;
     width: 100%;
   }
@@ -1040,64 +1044,64 @@ footer .content .umemaran img {
 .text-block-container, .attachment-block-container {
   margin: 2rem 1.25rem;
 }
-.text-block-container .text-block, .text-block-container .attachment-block, .attachment-block-container .text-block, .attachment-block-container .attachment-block {
+.text-block-container .wrapper .text-block, .text-block-container .wrapper .attachment-block, .attachment-block-container .wrapper .text-block, .attachment-block-container .wrapper .attachment-block {
   overflow-wrap: break-word;
 }
-.text-block-container .text-block h1, .text-block-container .attachment-block h1, .attachment-block-container .text-block h1, .attachment-block-container .attachment-block h1 {
+.text-block-container .wrapper .text-block h1, .text-block-container .wrapper .attachment-block h1, .attachment-block-container .wrapper .text-block h1, .attachment-block-container .wrapper .attachment-block h1 {
   font-size: 2.25rem;
   line-height: 130%;
 }
-.text-block-container .text-block h1, .text-block-container .text-block h2, .text-block-container .text-block h3, .text-block-container .attachment-block h1, .text-block-container .attachment-block h2, .text-block-container .attachment-block h3, .attachment-block-container .text-block h1, .attachment-block-container .text-block h2, .attachment-block-container .text-block h3, .attachment-block-container .attachment-block h1, .attachment-block-container .attachment-block h2, .attachment-block-container .attachment-block h3 {
+.text-block-container .wrapper .text-block h1, .text-block-container .wrapper .text-block h2, .text-block-container .wrapper .text-block h3, .text-block-container .wrapper .attachment-block h1, .text-block-container .wrapper .attachment-block h2, .text-block-container .wrapper .attachment-block h3, .attachment-block-container .wrapper .text-block h1, .attachment-block-container .wrapper .text-block h2, .attachment-block-container .wrapper .text-block h3, .attachment-block-container .wrapper .attachment-block h1, .attachment-block-container .wrapper .attachment-block h2, .attachment-block-container .wrapper .attachment-block h3 {
   max-width: 950px;
 }
-.text-block-container .text-block a, .text-block-container .attachment-block a, .attachment-block-container .text-block a, .attachment-block-container .attachment-block a {
+.text-block-container .wrapper .text-block a, .text-block-container .wrapper .attachment-block a, .attachment-block-container .wrapper .text-block a, .attachment-block-container .wrapper .attachment-block a {
   text-decoration: underline;
   color: #463F3A;
   font-weight: 700;
 }
-.text-block-container .text-block a:hover, .text-block-container .attachment-block a:hover, .attachment-block-container .text-block a:hover, .attachment-block-container .attachment-block a:hover {
+.text-block-container .wrapper .text-block a:hover, .text-block-container .wrapper .attachment-block a:hover, .attachment-block-container .wrapper .text-block a:hover, .attachment-block-container .wrapper .attachment-block a:hover {
   text-decoration: none;
 }
-.text-block-container .text-block p, .text-block-container .attachment-block p, .attachment-block-container .text-block p, .attachment-block-container .attachment-block p {
+.text-block-container .wrapper .text-block p, .text-block-container .wrapper .attachment-block p, .attachment-block-container .wrapper .text-block p, .attachment-block-container .wrapper .attachment-block p {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.text-block-container .text-block p img, .text-block-container .attachment-block p img, .attachment-block-container .text-block p img, .attachment-block-container .attachment-block p img {
+.text-block-container .wrapper .text-block p img, .text-block-container .wrapper .attachment-block p img, .attachment-block-container .wrapper .text-block p img, .attachment-block-container .wrapper .attachment-block p img {
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }
-.text-block-container .text-block figure, .text-block-container .attachment-block figure, .attachment-block-container .text-block figure, .attachment-block-container .attachment-block figure {
+.text-block-container .wrapper .text-block figure, .text-block-container .wrapper .attachment-block figure, .attachment-block-container .wrapper .text-block figure, .attachment-block-container .wrapper .attachment-block figure {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
 }
-.text-block-container .text-block figure img, .text-block-container .attachment-block figure img, .attachment-block-container .text-block figure img, .attachment-block-container .attachment-block figure img {
+.text-block-container .wrapper .text-block figure img, .text-block-container .wrapper .attachment-block figure img, .attachment-block-container .wrapper .text-block figure img, .attachment-block-container .wrapper .attachment-block figure img {
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }
-.text-block-container .text-block figure figcaption, .text-block-container .attachment-block figure figcaption, .attachment-block-container .text-block figure figcaption, .attachment-block-container .attachment-block figure figcaption {
+.text-block-container .wrapper .text-block figure figcaption, .text-block-container .wrapper .attachment-block figure figcaption, .attachment-block-container .wrapper .text-block figure figcaption, .attachment-block-container .wrapper .attachment-block figure figcaption {
   color: #535353;
 }
-.text-block-container .text-block ul, .text-block-container .text-block ol, .text-block-container .attachment-block ul, .text-block-container .attachment-block ol, .attachment-block-container .text-block ul, .attachment-block-container .text-block ol, .attachment-block-container .attachment-block ul, .attachment-block-container .attachment-block ol {
+.text-block-container .wrapper .text-block ul, .text-block-container .wrapper .text-block ol, .text-block-container .wrapper .attachment-block ul, .text-block-container .wrapper .attachment-block ol, .attachment-block-container .wrapper .text-block ul, .attachment-block-container .wrapper .text-block ol, .attachment-block-container .wrapper .attachment-block ul, .attachment-block-container .wrapper .attachment-block ol {
   margin-left: 1.5rem;
   padding-inline-start: 0.5rem;
   max-width: 800px;
 }
-.text-block-container .text-block ul li, .text-block-container .text-block ol li, .text-block-container .attachment-block ul li, .text-block-container .attachment-block ol li, .attachment-block-container .text-block ul li, .attachment-block-container .text-block ol li, .attachment-block-container .attachment-block ul li, .attachment-block-container .attachment-block ol li {
+.text-block-container .wrapper .text-block ul li, .text-block-container .wrapper .text-block ol li, .text-block-container .wrapper .attachment-block ul li, .text-block-container .wrapper .attachment-block ol li, .attachment-block-container .wrapper .text-block ul li, .attachment-block-container .wrapper .text-block ol li, .attachment-block-container .wrapper .attachment-block ul li, .attachment-block-container .wrapper .attachment-block ol li {
   padding: 0 0 1rem 0.5rem;
   line-height: 170%;
 }
-.text-block-container .text-block ul li ul, .text-block-container .text-block ul li ol, .text-block-container .text-block ol li ul, .text-block-container .text-block ol li ol, .text-block-container .attachment-block ul li ul, .text-block-container .attachment-block ul li ol, .text-block-container .attachment-block ol li ul, .text-block-container .attachment-block ol li ol, .attachment-block-container .text-block ul li ul, .attachment-block-container .text-block ul li ol, .attachment-block-container .text-block ol li ul, .attachment-block-container .text-block ol li ol, .attachment-block-container .attachment-block ul li ul, .attachment-block-container .attachment-block ul li ol, .attachment-block-container .attachment-block ol li ul, .attachment-block-container .attachment-block ol li ol {
+.text-block-container .wrapper .text-block ul li ul, .text-block-container .wrapper .text-block ul li ol, .text-block-container .wrapper .text-block ol li ul, .text-block-container .wrapper .text-block ol li ol, .text-block-container .wrapper .attachment-block ul li ul, .text-block-container .wrapper .attachment-block ul li ol, .text-block-container .wrapper .attachment-block ol li ul, .text-block-container .wrapper .attachment-block ol li ol, .attachment-block-container .wrapper .text-block ul li ul, .attachment-block-container .wrapper .text-block ul li ol, .attachment-block-container .wrapper .text-block ol li ul, .attachment-block-container .wrapper .text-block ol li ol, .attachment-block-container .wrapper .attachment-block ul li ul, .attachment-block-container .wrapper .attachment-block ul li ol, .attachment-block-container .wrapper .attachment-block ol li ul, .attachment-block-container .wrapper .attachment-block ol li ol {
   padding-top: 0.5rem;
 }
-.text-block-container .text-block ul li, .text-block-container .attachment-block ul li, .attachment-block-container .text-block ul li, .attachment-block-container .attachment-block ul li {
+.text-block-container .wrapper .text-block ul li, .text-block-container .wrapper .attachment-block ul li, .attachment-block-container .wrapper .text-block ul li, .attachment-block-container .wrapper .attachment-block ul li {
   list-style-image: url("../images/arrow-right.svg");
 }
-.text-block-container .text-block .embedded-video-container, .text-block-container .attachment-block .embedded-video-container, .attachment-block-container .text-block .embedded-video-container, .attachment-block-container .attachment-block .embedded-video-container {
+.text-block-container .wrapper .text-block .embedded-video-container, .text-block-container .wrapper .attachment-block .embedded-video-container, .attachment-block-container .wrapper .text-block .embedded-video-container, .attachment-block-container .wrapper .attachment-block .embedded-video-container {
   position: relative;
   padding-bottom: 56.25%;
   /*16:9*/
@@ -1107,7 +1111,7 @@ footer .content .umemaran img {
   background-color: #1E2022;
   border-radius: 1rem;
 }
-.text-block-container .text-block .embedded-video-container iframe, .text-block-container .text-block .embedded-video-container object, .text-block-container .text-block .embedded-video-container embed, .text-block-container .attachment-block .embedded-video-container iframe, .text-block-container .attachment-block .embedded-video-container object, .text-block-container .attachment-block .embedded-video-container embed, .attachment-block-container .text-block .embedded-video-container iframe, .attachment-block-container .text-block .embedded-video-container object, .attachment-block-container .text-block .embedded-video-container embed, .attachment-block-container .attachment-block .embedded-video-container iframe, .attachment-block-container .attachment-block .embedded-video-container object, .attachment-block-container .attachment-block .embedded-video-container embed {
+.text-block-container .wrapper .text-block .embedded-video-container iframe, .text-block-container .wrapper .text-block .embedded-video-container object, .text-block-container .wrapper .text-block .embedded-video-container embed, .text-block-container .wrapper .attachment-block .embedded-video-container iframe, .text-block-container .wrapper .attachment-block .embedded-video-container object, .text-block-container .wrapper .attachment-block .embedded-video-container embed, .attachment-block-container .wrapper .text-block .embedded-video-container iframe, .attachment-block-container .wrapper .text-block .embedded-video-container object, .attachment-block-container .wrapper .text-block .embedded-video-container embed, .attachment-block-container .wrapper .attachment-block .embedded-video-container iframe, .attachment-block-container .wrapper .attachment-block .embedded-video-container object, .attachment-block-container .wrapper .attachment-block .embedded-video-container embed {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -1118,15 +1122,17 @@ footer .content .umemaran img {
 
 @media only screen and (min-width: 1200px) {
   .text-block-container, .attachment-block-container {
+    padding: 3rem 5rem;
+  }
+  .text-block-container .wrapper, .attachment-block-container .wrapper {
     max-width: 1980px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 2rem;
     row-gap: 3rem;
-    margin: 3rem 5rem;
   }
-  .text-block-container .text-block, .text-block-container .attachment-block, .attachment-block-container .text-block, .attachment-block-container .attachment-block {
+  .text-block-container .wrapper .text-block, .text-block-container .wrapper .attachment-block, .attachment-block-container .wrapper .text-block, .attachment-block-container .wrapper .attachment-block {
     grid-column: 3/11;
     width: 100%;
   }

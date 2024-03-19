@@ -1,5 +1,4 @@
-﻿using J2N.Text;
-using Microsoft.AspNetCore.Rewrite;
+﻿using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Net.Http.Headers;
 using System.Net;
 
@@ -7,7 +6,7 @@ namespace Jalles.Web.Extensions;
 
 public class RedirectPublicDomainsToWww : IRule
 {
-    private readonly string[] _publicHostNamesWithoutWww = new[] { "jallestc.se" };
+    private readonly string[] _publicHostNamesWithoutWww = { "jallestc.se" };
 
     public void ApplyRule(RewriteContext context)
     {
@@ -30,7 +29,8 @@ public class RedirectPublicDomainsToWww : IRule
 
 public class RedirectFromAzureWebsites : IRule
 {
-    private readonly string NewHost = "jallestc.se";
+    private const string _newHost = "jallestc.se";
+
     public void ApplyRule(RewriteContext context)
     {
         var request = context.HttpContext.Request;
@@ -42,7 +42,7 @@ public class RedirectFromAzureWebsites : IRule
             return;
         }
 
-        var wwwPath = request.Scheme + "://www." + NewHost + request.PathBase + request.Path + request.QueryString;
+        var wwwPath = request.Scheme + "://www." + _newHost + request.PathBase + request.Path + request.QueryString;
 
         var response = context.HttpContext.Response;
         response.StatusCode = (int)HttpStatusCode.MovedPermanently;

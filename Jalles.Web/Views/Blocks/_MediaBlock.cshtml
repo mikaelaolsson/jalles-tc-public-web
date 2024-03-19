@@ -15,14 +15,14 @@
     @if (Model.MediaType == MediaType.Image)
     {
         <picture>
-            <source srcset="@Model.MediaSource?width=1920&amp;format=webp" media="(min-width: 1600px)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=1920&amp;format=jpg" media="(min-width: 1600px)" type="image/jpeg">
-            <source srcset="@Model.MediaSource?width=1280&amp;format=webp" media="(min-width: 900px)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=1280&amp;format=jpg" media="(min-width: 900px)" type="image/jpeg">
-            <source srcset="@Model.MediaSource?width=700&amp;format=webp" media="(min-width: 500px)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=700&amp;format=jpg" media="(min-width: 500px)" type="image/jpeg">
-            <source srcset="@Model.MediaSource?width=600&amp;format=webp" media="(min-width: 0)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=600&amp;format=jpg" media="(min-width: 0)" type="image/jpeg">
+            <source srcset="@Model.MediaSource?width=1920&amp;autoorient=false&amp;format=webp" media="(min-width: 1600px)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=1920&amp;autoorient=false&amp;format=jpg" media="(min-width: 1600px)" type="image/jpeg">
+            <source srcset="@Model.MediaSource?width=1280&amp;autoorient=false&amp;format=webp" media="(min-width: 900px)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=1280&amp;autoorient=false&amp;format=jpg" media="(min-width: 900px)" type="image/jpeg">
+            <source srcset="@Model.MediaSource?width=700&amp;autoorient=false&amp;format=webp" media="(min-width: 500px)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=700&amp;autoorient=false&amp;format=jpg" media="(min-width: 500px)" type="image/jpeg">
+            <source srcset="@Model.MediaSource?width=600&amp;autoorient=false&amp;format=webp" media="(min-width: 0)" type="image/webp">
+            <source srcset="@Model.MediaSource?width=600&amp;autoorient=false&amp;format=jpg" media="(min-width: 0)" type="image/jpeg">
 
             <img src="@Model.MediaSource" alt="" loading="@isLazy" />
         </picture>
