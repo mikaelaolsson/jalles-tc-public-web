@@ -7,13 +7,13 @@ const colors = [
     'color-battleship-gray',
     'color-black'
 ];
-if (mixedListingBlock !== null || undefined && mixedListingBlock.childElementCount > 0) {
+if (mixedListingBlock && mixedListingBlock.childElementCount > 0) {
     const backButton = document.querySelector('.back-button');
     const dateBlock = document.querySelector('.date');
-    if (backButton !== null || undefined) {
+    if (backButton) {
         getBackgroundColor(backButton, 'first');
     }
-    if (dateBlock !== null || undefined) {
+    if (dateBlock) {
         getBackgroundColor(dateBlock, 'last');
     }
 }

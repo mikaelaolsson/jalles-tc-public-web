@@ -9,15 +9,15 @@ const colors = [
   'color-black'
 ];
 
-if (mixedListingBlock !== null || undefined && mixedListingBlock.childElementCount > 0) {
+if (mixedListingBlock && mixedListingBlock.childElementCount > 0) {
   const backButton = document.querySelector('.back-button') as HTMLElement;
   const dateBlock = document.querySelector('.date') as HTMLElement;
 
-  if (backButton !== null || undefined) {
+  if (backButton) {
     getBackgroundColor(backButton, 'first');
   }
 
-  if (dateBlock !== null || undefined) {
+  if (dateBlock) {
     getBackgroundColor(dateBlock, 'last');
   }
 }
@@ -27,8 +27,7 @@ function getBackgroundColor(sourceElement: HTMLElement, firstOrLast: string): vo
 
   if (firstOrLast == 'last') {
     element = mixedListingBlock.children[mixedListingBlock.childElementCount - 1] as HTMLElement;
-  }
-  else {
+  } else {
     element = mixedListingBlock.children[0] as HTMLElement;
   }
 
