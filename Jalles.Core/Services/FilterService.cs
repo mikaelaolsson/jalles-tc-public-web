@@ -7,7 +7,7 @@ public class FilterService : IFilterService
 {
     public IEnumerable<ContentPageViewModel> GetFilteredContentPages(IEnumerable<ContentPageViewModel> contentPages, string? category)
     {
-        if (string.IsNullOrEmpty(category) || category == "Alla") return contentPages;
+        if(string.IsNullOrEmpty(category) || category == "Alla") return contentPages;
 
         var filteredContentPages = contentPages
             .Where(p => p.Categories.Any(c => c == category));

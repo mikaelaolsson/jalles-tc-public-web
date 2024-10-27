@@ -6,6 +6,6 @@ public class MainMenuViewModel
 {
     public string StartPageUrl { get; set; } = string.Empty;
     public string StartPageTitle { get; set; } = string.Empty;
-    public IReadOnlyCollection<BasePageViewModel> MenuItems { get; set; } = new List<BasePageViewModel>();
+    public IReadOnlyCollection<BasePageViewModel> MenuItems { get; set; } = [];
     public string Facebook { get; set; } = string.Empty;
 }

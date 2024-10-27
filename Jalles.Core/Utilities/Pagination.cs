@@ -4,7 +4,7 @@ public class Pagination
 {
     public Pagination(int numberOfItems, int pageIndex)
     {
-        DisplayedPages = Enumerable.Empty<int>();
+        DisplayedPages = [];
         Page = pageIndex <= 0 ? 1 : pageIndex;
         TotalPages = (int)Math.Ceiling(numberOfItems / (decimal)PageSize);
         GetDisplayedPages();
