@@ -6,10 +6,10 @@
 
 <div class="content-block @Model.BackgroundColor ">
     <div class="content-container @mediaAlign">
-        @if(Model.Media?.MediaSource is not null)
+        @if(Model.MediaBlock?.MediaSource is not null)
         {
             <div class="media-container">
-                @await Html.PartialAsync("_MediaBlock.cshtml", Model.Media)
+                @await Html.PartialAsync("_MediaBlock.cshtml", Model.MediaBlock)
 
             </div>
         }

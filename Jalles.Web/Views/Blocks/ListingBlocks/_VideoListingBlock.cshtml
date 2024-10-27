@@ -1,0 +1,29 @@
+@model VideoListingBlockViewModel
+
+<div class="video-listing-block">
+
+    @if (!string.IsNullOrWhiteSpace(Model.Heading) || !string.IsNullOrWhiteSpace(Model.Description))
+    {
+        <div class="video-listing-header">
+            @if (!string.IsNullOrWhiteSpace(Model.Heading))
+            {
+                <h2>@Model.Heading</h2>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Description))
+            {
+                <p>@Model.Description</p>
+            }
+        </div>
+    }
+
+    @if (Model.Videos.Any())
+    {
+        <div class="videos">
+            @foreach (var video in Model.Videos)
+            {
+                @await Html.PartialAsync("~/Views/Blocks/_MediaBlock.cshtml", video)
+            }
+        </div>
+    }
+
+</div>

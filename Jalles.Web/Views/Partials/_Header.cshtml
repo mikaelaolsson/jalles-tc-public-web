@@ -1,9 +1,9 @@
 ﻿@model HeaderViewModel
 
 <div class="header">
-    @if(Model.Media?.MediaSource is not null)
+    @if(Model.MediaBlock?.MediaSource is not null)
     {
-        @await Html.PartialAsync("../Blocks/_MediaBlock.cshtml", Model.Media)
+        @await Html.PartialAsync("../Blocks/_MediaBlock.cshtml", Model.MediaBlock)
     }
 
     <div class="login"><a href="/umbraco">Logga in</a></div>

@@ -53,4 +53,9 @@ public class MixedListingBlockService : IMixedListingBlockService
     {
         return _mapper.Map<ExcelBlockViewModel>(blockListItem.GetElement<ExcelBlock>());
     }
+
+    public VideoListingBlockViewModel MapVideoListingBlock(BlockListItem blockListItem)
+    {
+        return _mapper.Map<VideoListingBlockViewModel>(blockListItem.GetElement<VideoListingBlock>());
+    }
 }

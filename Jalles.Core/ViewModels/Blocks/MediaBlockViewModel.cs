@@ -3,7 +3,7 @@ using MediaType = Jalles.Core.Enum.MediaType;
 
 namespace Jalles.Core.ViewModels.Blocks;
 
-public class MediaViewModel
+public class MediaBlockViewModel
 {
     private const string _defaultFallbackMedia = "/images/jalles-media.jpg";
 
@@ -13,4 +13,6 @@ public class MediaViewModel
     public bool AddBlurOverlay { get; set; }
     public MediaType MediaType { get; set; }
     public bool IsLazy { get; set; } = true;
+    public bool IsEmbeddedVideo { get; set; }
+    public string AltText { get; set; } = string.Empty;
 }

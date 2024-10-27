@@ -41,6 +41,9 @@
             case "excelBlock":
                 @await Html.PartialAsync("../_ExcelBlock.cshtml", MixedListingBlockService.MapExcelBlock(block))
                 break;
+            case "videoListingBlock":
+                @await Html.PartialAsync("_VideoListingBlock.cshtml", MixedListingBlockService.MapVideoListingBlock(block))
+                break;
         }
     }
 </div>

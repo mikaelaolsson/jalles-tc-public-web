@@ -8,14 +8,19 @@ namespace Jalles.Core.Extensions;
 
 public static class MediaBlockExtensions
 {
+    private static readonly Regex _vimeoRegex = new(@"(?:vimeo\.com/(?:.*#|.*videos?/|.*channels/.*/)?(?<VideoId>[0-9]+))|(?:vimeo\.com/showcase/(?<ShowcaseId>[0-9]+))",
+        RegexOptions.CultureInvariant | RegexOptions.Compiled);
+
+    private static readonly Regex _youTubeRegex = new("youtu(?:\\.be|be\\.com)/(?:.*v(?:/|=)|(?:.*/)?)(?<VideoId>[a-zA-Z0-9-_]+)", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+
     private const string _defaultFallbackMedia = "/images/jalles-media.jpg";
 
-    public static MediaViewModel GetMediaForHeader(this HeaderBlock? headerBlock)
+    public static MediaBlockViewModel GetMediaForHeader(this HeaderBlock? headerBlock)
     {
-        if (headerBlock == null) return new MediaViewModel();
+        if (headerBlock == null) return new MediaBlockViewModel();
 
         var mediaType = headerBlock.GetMediaType();
-        return new MediaViewModel
+        return new MediaBlockViewModel
         {
             Media = headerBlock.Media,
             BackgroundColor = headerBlock.BackgroundColor.GetMediaBackgroundColor(),
@@ -56,6 +61,33 @@ public static class MediaBlockExtensions
         }
 
         return mediaType;
+    }
+
+    public static string GetMediaSource(this IVideoBlockProperties? videoProperties)
+    {
+        if(videoProperties?.VideoUrl is null)
+            return string.Empty;
+
+        var videoUrl = videoProperties.VideoUrl;
+
+        var vimeoMatch = _vimeoRegex.Match(videoUrl);
+        if(vimeoMatch.Success)
+        {
+            var vimeoVideoId = vimeoMatch.Groups["VideoId"].Value;
+            var vimeoShowcaseId = vimeoMatch.Groups["ShowcaseId"].Value;
+
+            if(!string.IsNullOrEmpty(vimeoVideoId))
+                return $"https://player.vimeo.com/video/{vimeoVideoId}?title=0&byline=0&portrait=0";
+            else if(!string.IsNullOrEmpty(vimeoShowcaseId))
+                return $"https://vimeo.com/showcase/{vimeoShowcaseId}/embed";
+        }
+
+        var youTubeMatch = _youTubeRegex.Match(videoUrl);
+        if(!youTubeMatch.Success)
+            return string.Empty;
+
+        var youTubeVideoId = youTubeMatch.Groups["VideoId"].Value;
+        return $"https://www.youtube.com/embed/{youTubeVideoId}";
     }
 
     public static string GetMediaSource(this IMediaProperties mediaProperties, MediaType mediaType)

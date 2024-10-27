@@ -930,6 +930,24 @@ footer .content .umemaran img {
   width: 100%;
   object-fit: cover;
 }
+.media .embedded-video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /*16:9*/
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  background-color: #1E2022;
+  border-radius: 1rem;
+}
+.media .embedded-video-container iframe, .media .embedded-video-container object, .media .embedded-video-container embed {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 1rem !important;
+}
 
 .pin-this-block {
   padding-bottom: 2rem;
@@ -1135,6 +1153,64 @@ footer .content .umemaran img {
   .text-block-container .wrapper .text-block, .text-block-container .wrapper .attachment-block, .attachment-block-container .wrapper .text-block, .attachment-block-container .wrapper .attachment-block {
     grid-column: 3/11;
     width: 100%;
+  }
+}
+.video-listing-block {
+  margin: 2rem 1.25rem;
+  text-align: center;
+}
+.video-listing-block .video-listing-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+.video-listing-block .video-listing-header h2 {
+  margin-bottom: 1rem;
+  color: #1E2022;
+}
+.video-listing-block .video-listing-header p {
+  margin: 0;
+}
+.video-listing-block .videos {
+  margin: 0 auto;
+}
+.video-listing-block .videos .media:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.video-listing-block .videos.embedded-video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /*16:9*/
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  background-color: #1E2022;
+  border-radius: 1rem;
+}
+.video-listing-block .videos.embedded-video-container iframe, .video-listing-block .videos.embedded-video-container object, .video-listing-block .videos.embedded-video-container embed {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 1rem !important;
+}
+
+@media screen and (min-width: 1200px) {
+  .video-listing-block {
+    padding: 3rem 5rem;
+    max-width: 1980px;
+    margin: 0 auto;
+  }
+  .video-listing-block .video-listing-header {
+    margin-bottom: 2rem;
+    max-width: 950px;
+  }
+  .video-listing-block .videos {
+    width: 80%;
   }
 }
 .content-page .back-button, .content-page .date {

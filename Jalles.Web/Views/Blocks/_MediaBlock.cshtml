@@ -1,4 +1,4 @@
-﻿@model MediaViewModel
+﻿@model MediaBlockViewModel
 
 @{
     var backgroundColor = Model.MediaType switch
@@ -15,23 +15,45 @@
     @if (Model.MediaType == MediaType.Image)
     {
         <picture>
-            <source srcset="@Model.MediaSource?width=1920&amp;autoorient=false&amp;format=webp" media="(min-width: 1600px)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=1920&amp;autoorient=false&amp;format=jpg" media="(min-width: 1600px)" type="image/jpeg">
-            <source srcset="@Model.MediaSource?width=1280&amp;autoorient=false&amp;format=webp" media="(min-width: 900px)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=1280&amp;autoorient=false&amp;format=jpg" media="(min-width: 900px)" type="image/jpeg">
-            <source srcset="@Model.MediaSource?width=700&amp;autoorient=false&amp;format=webp" media="(min-width: 500px)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=700&amp;autoorient=false&amp;format=jpg" media="(min-width: 500px)" type="image/jpeg">
-            <source srcset="@Model.MediaSource?width=600&amp;autoorient=false&amp;format=webp" media="(min-width: 0)" type="image/webp">
-            <source srcset="@Model.MediaSource?width=600&amp;autoorient=false&amp;format=jpg" media="(min-width: 0)" type="image/jpeg">
+            @if (!Model.MediaSource.EndsWith(".svg"))
+            {
+                <source srcset="@Model.MediaSource?width=1920&amp;autoorient=false&amp;format=webp" media="(min-width: 1600px)" type="image/webp">
+                <source srcset="@Model.MediaSource?width=1920&amp;autoorient=false&amp;format=jpg" media="(min-width: 1600px)" type="image/jpeg">
+                <source srcset="@Model.MediaSource?width=1280&amp;autoorient=false&amp;format=webp" media="(min-width: 900px)" type="image/webp">
+                <source srcset="@Model.MediaSource?width=1280&amp;autoorient=false&amp;format=jpg" media="(min-width: 900px)" type="image/jpeg">
+                <source srcset="@Model.MediaSource?width=700&amp;autoorient=false&amp;format=webp" media="(min-width: 500px)" type="image/webp">
+                <source srcset="@Model.MediaSource?width=700&amp;autoorient=false&amp;format=jpg" media="(min-width: 500px)" type="image/jpeg">
+                <source srcset="@Model.MediaSource?width=600&amp;autoorient=false&amp;format=webp" media="(min-width: 0)" type="image/webp">
+                <source srcset="@Model.MediaSource?width=600&amp;autoorient=false&amp;format=jpg" media="(min-width: 0)" type="image/jpeg">
+            }
 
-            <img src="@Model.MediaSource" alt="" loading="@isLazy" />
+            <img src="@Model.MediaSource" alt="" loading="@isLazy"/>
         </picture>
 
     }
-    @if (Model.MediaType == MediaType.Video)
+    @if(Model?.MediaType == MediaType.Video)
     {
-        <video tabindex="-1" aria-hidden="true" loop playsinline autoplay muted>
-            <source type="video/mp4" src="@Model.MediaSource" />
-        </video>
+        if(Model.IsEmbeddedVideo)
+        {
+            @if(!string.IsNullOrWhiteSpace(Model.MediaSource))
+            {
+                            <div class="embedded-video-container">
+                                <iframe src="@Model.MediaSource" allow="autoplay; fullscreen;"></iframe>
+
+                                <meta property="og:video" content="@Model.AltText">
+                            </div>
+            }
+            else
+            {
+                            <p>Ops! Nu är videolänken trasig</p>
+            }
+        }
+        else
+        {
+                    <video tabindex="-1" aria-hidden="true" loop playsinline autoplay muted>
+                        <source type="video/mp4" src="@Model.MediaSource" />
+                        <meta property="og:video" content="@Model.AltText">
+                    </video>
+        }
     }
 </div>

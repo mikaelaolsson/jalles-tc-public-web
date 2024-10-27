@@ -22,7 +22,7 @@ public class LayoutViewModel : ContentModel
         var headerProperty = content?.Value<BlockListItem<HeaderBlock>>("header")?.Content;
         Header = new HeaderViewModel
         {
-            Media = headerProperty.GetMediaForHeader(),
+            MediaBlock = headerProperty.GetMediaForHeader(),
             Content = content
         };
     }
