@@ -37,11 +37,13 @@ public class PropertyDataDataSource : IDataListSource
         var content = umbracoContextReference.UmbracoContext.Content?.GetById(guid);
 
         var propertyAlias = config["propAlias"].ToString();
+        if (string.IsNullOrWhiteSpace(propertyAlias))
+            throw new ArgumentException("Property alias must not be null or empty", nameof(propertyAlias));
 
-        var prop = content?.GetProperty(propertyAlias);
+        var prop = content?.GetProperty(propertyAlias!);
         return prop == null
             ? throw new NullReferenceException("Property not found on node")
-            : (content?.GetProperty(propertyAlias)?.GetValue() as string[] ?? Array.Empty<string>())
+            : (content?.GetProperty(propertyAlias!)?.GetValue() as string[] ?? Array.Empty<string>())
             .Select(value => new DataListItem { Name = value, Value = value }).ToList();
     }
 }

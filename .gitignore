@@ -425,3 +425,4 @@ FodyWeavers.xsd
 /Jalles.Core/appsettings-schema.Umbraco.Cms.json
 /Jalles.Core/App_Plugins/Contentment
 /Jalles.Frontend/Properties/launchSettings.json
+/db-snapshots

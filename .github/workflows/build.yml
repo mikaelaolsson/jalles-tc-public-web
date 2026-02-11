@@ -1,0 +1,85 @@
+name: Build and publish .NET app
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+    paths-ignore:
+      - 'README.md'
+      - '.vscode/*'
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  actions: write
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_NOLOGO: true
+  AZURE_WEBAPP_PACKAGE_PATH: './artifacts.zip'
+  ARTIFACTS_DIRECTORY: './artifacts/'
+  WEB_PROJECT: './src/Jalles.Web/Jalles.Web.csproj'
+  WWWROOT_DIRECTORY: './src/Jalles.Web/wwwroot/'
+
+jobs:
+  build:
+    name: 🏡 .NET Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up .NETs
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: .NET Restore
+        run: dotnet restore
+
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{ env.ARTIFACTS_DIRECTORY }} ${{ env.WEB_PROJECT }}
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: 'zip'
+          filename: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          directory: ${{ env.ARTIFACTS_DIRECTORY }}
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-artifacts
+          path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          if-no-files-found: error
+
+  deploy-production:
+    name: 🚀 Deploy to Production
+    needs: [ build ]
+    if: github.ref == 'refs/heads/master'
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    uses: ./.github/workflows/deploy-to-environment.yml
+    secrets: inherit
+    with:
+      environment: Production
+      app-name: jalles-tc-public-web
+      url: https://www.jalles.se/
+
+  cleanup:
+    name: 🧹 Cleanup
+    runs-on: ubuntu-latest
+    needs: [ deploy-production ]
+    if: always()
+    steps:
+      - uses: geekyeggo/delete-artifact@v5
+        with:
+          name: |
+            dotnet-artifacts

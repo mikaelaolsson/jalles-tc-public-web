@@ -1,0 +1,39 @@
+name: Deploy to environment
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      app-name:
+        required: true
+        type: string
+      url:
+        required: false
+        type: string
+
+env:
+  AZURE_WEBAPP_PACKAGE_PATH: './artifacts.zip'
+
+jobs:
+  deploy:
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+      url: ${{ inputs.url || steps.deploy-to-webapp.outputs.webapp-url }}
+    steps:
+      - name: Download .NET artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dotnet-artifacts
+          path: ./
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ inputs.app-name }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}

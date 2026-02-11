@@ -31,7 +31,10 @@ public static class ApplicationBuilderExtensions
                 context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync(output);
             }
-            else await next();
+            else
+            {
+                await next();
+            }
         });
     }
 
@@ -49,7 +52,7 @@ public static class ApplicationBuilderExtensions
 
         return app.Use(async (context, next) =>
         {
-            context.Response.Headers.Add("X-Robots-Tag", "noindex, nofollow");
+            context.Response.Headers.Append("X-Robots-Tag", "noindex, nofollow");
             await next();
         });
     }
