@@ -5,6 +5,7 @@ on:
     branches:
       - develop
       - master
+      - 'feature/**'
     paths-ignore:
       - 'README.md'
       - '.vscode/*'
@@ -37,6 +38,14 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: npm install
+        run: npm install
 
       - name: .NET Restore
         run: dotnet restore

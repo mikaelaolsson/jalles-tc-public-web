@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const tableWrapper = document.querySelector(".table-wrapper") as HTMLElement;
+  const tableWrapper = document.querySelector(".table-wrapper");
 
   if (tableWrapper) {
     tableWrapper.addEventListener("mouseover", function (event) {
-      const target = event.target as HTMLTableCellElement;
+      const target = event.target;
 
       if (target.tagName === "TD") {
         const colIndex = target.cellIndex;

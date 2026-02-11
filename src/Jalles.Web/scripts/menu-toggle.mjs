@@ -1,5 +1,5 @@
-const menuItems = document.querySelector('.menu .menu-items') as HTMLElement;
-const menuToggle = document.querySelector('.menu .open-menu-button') as HTMLElement;
+const menuItems = document.querySelector('.menu .menu-items');
+const menuToggle = document.querySelector('.menu .open-menu-button');
 
 menuToggle?.addEventListener('click', function() {
   menuItems?.classList.toggle('show');
@@ -7,9 +7,9 @@ menuToggle?.addEventListener('click', function() {
 
 initCurrentPageHighlight();
 
-function initCurrentPageHighlight(): void {
+function initCurrentPageHighlight() {
   const currentPageUrl = cleanUrl(window.location.pathname);
-  const menuItemLinks = document.querySelectorAll('.menu-items li a') as NodeListOf<HTMLAnchorElement>;
+  const menuItemLinks = document.querySelectorAll('.menu-items li a');
 
   menuItemLinks.forEach((menuItemLink) => {
     const menuItemUrl = cleanUrl(menuItemLink.getAttribute('href') ?? '');
@@ -26,7 +26,7 @@ function initCurrentPageHighlight(): void {
   });
 }
 
-function cleanUrl(url: string): string {
+function cleanUrl(url) {
   const cleanUrlPattern = /\/$/;
   return url.replace(cleanUrlPattern, '');
 }

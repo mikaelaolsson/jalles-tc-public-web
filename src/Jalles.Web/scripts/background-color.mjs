@@ -1,4 +1,4 @@
-const mixedListingBlock = document.querySelector('.mixed-listing-block') as HTMLElement;
+const mixedListingBlock = document.querySelector('.mixed-listing-block');
 
 const colors = [
   'color-jalles-yellow',
@@ -10,8 +10,8 @@ const colors = [
 ];
 
 if (mixedListingBlock && mixedListingBlock.childElementCount > 0) {
-  const backButton = document.querySelector('.back-button') as HTMLElement;
-  const dateBlock = document.querySelector('.date') as HTMLElement;
+  const backButton = document.querySelector('.back-button');
+  const dateBlock = document.querySelector('.date');
 
   if (backButton) {
     getBackgroundColor(backButton, 'first');
@@ -22,13 +22,13 @@ if (mixedListingBlock && mixedListingBlock.childElementCount > 0) {
   }
 }
 
-function getBackgroundColor(sourceElement: HTMLElement, firstOrLast: string): void {
+function getBackgroundColor(sourceElement, firstOrLast) {
   let element = null;
 
   if (firstOrLast == 'last') {
-    element = mixedListingBlock.children[mixedListingBlock.childElementCount - 1] as HTMLElement;
+    element = mixedListingBlock.children[mixedListingBlock.childElementCount - 1];
   } else {
-    element = mixedListingBlock.children[0] as HTMLElement;
+    element = mixedListingBlock.children[0];
   }
 
   colors.forEach(color => {

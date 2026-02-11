@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const extraScroller = document.querySelector(".extra-scroller") as HTMLElement;
-  const tableWrapper = document.querySelector(".table-wrapper") as HTMLElement;
+  const extraScroller = document.querySelector(".extra-scroller");
+  const tableWrapper = document.querySelector(".table-wrapper");
 
   function toggleExtraScroller() {
     extraScroller.style.display =

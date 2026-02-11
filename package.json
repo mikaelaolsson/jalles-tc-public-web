@@ -2,6 +2,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "update-packages": "dotnet outdated --upgrade --version-lock Major"
+    "update-packages": "dotnet outdated --upgrade --version-lock Major",
+    "copy-mjs": "node src/Jalles.Web/scripts/copy-mjs-to-build.js"
   }
 }

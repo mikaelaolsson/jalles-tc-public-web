@@ -53,4 +53,8 @@
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
   </PropertyGroup>
 
+  <Target Name="CopyMjsToBuild" AfterTargets="Build">
+    <Exec Command="npm run copy-mjs" WorkingDirectory="$(ProjectDir)" />
+  </Target>
+
 </Project>

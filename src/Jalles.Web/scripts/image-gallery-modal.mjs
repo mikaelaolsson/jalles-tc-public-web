@@ -1,8 +1,8 @@
-const imageGalleries = document.querySelectorAll('.image-gallery') as NodeListOf<HTMLElement>;
+const imageGalleries = document.querySelectorAll('.image-gallery');
 
 if (imageGalleries.length > 0) {
   imageGalleries.forEach(imageGallery => {
-    const modalImageLinks = imageGallery.querySelectorAll('.image-gallery img, .image-gallery .overlay') as NodeListOf<HTMLElement>;
+    const modalImageLinks = imageGallery.querySelectorAll('.image-gallery img, .image-gallery .overlay');
 
     modalImageLinks.forEach(button => {
       button.addEventListener('click', function (element) {
@@ -12,13 +12,13 @@ if (imageGalleries.length > 0) {
   });
 }
 
-function openImageGalleryModal(element: MouseEvent, id: string): void {
-  const imageGalleryModal = document.getElementById('image-gallery-modal-' + id) as HTMLElement;
+function openImageGalleryModal(element, id) {
+  const imageGalleryModal = document.getElementById('image-gallery-modal-' + id);
 
-  const srcElement = element.target as HTMLImageElement;
+  const srcElement = element.target;
   imageGalleryModal.classList.add('open');
 
-  const imageToBeDisplayed = document.getElementById(srcElement.name) as HTMLImageElement;
+  const imageToBeDisplayed = document.getElementById(srcElement.name);
   if (imageToBeDisplayed !== null && imageToBeDisplayed !== undefined) {
     imageToBeDisplayed.scrollIntoView({
       behavior: 'smooth',
@@ -26,13 +26,13 @@ function openImageGalleryModal(element: MouseEvent, id: string): void {
     });
   }
 
-  const closeModal = imageGalleryModal.querySelector('.close-button') as HTMLElement;
+  const closeModal = imageGalleryModal.querySelector('.close-button');
   closeModal.addEventListener('click', function () {
     imageGalleryModal.classList.remove('open');
   });
 
   imageGalleryModal.addEventListener('click', function (event) {
-    const imageGalleryModalImages = imageGalleryModal.querySelectorAll('img') as NodeListOf<HTMLImageElement>;
+    const imageGalleryModalImages = imageGalleryModal.querySelectorAll('img');
     let isImage = false;
     imageGalleryModalImages.forEach(image => {
       if (event.target === image) {

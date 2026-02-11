@@ -1,8 +1,8 @@
 const paginationForm = getPaginationForm();
-const currentPage = document.querySelector('#page') as HTMLInputElement;
+const currentPage = document.querySelector('#page');
 
 // Add event listeners for numbers
-const pageButtons = document.querySelectorAll('.pagination .page-button') as NodeListOf<HTMLButtonElement>;
+const pageButtons = document.querySelectorAll('.pagination .page-button');
 
 paginationForm?.addEventListener('submit', function () {
   currentPage.value = '1';
@@ -31,8 +31,8 @@ previous?.addEventListener('click', function () {
 });
 
 function submitPaginationForm() {
-  const selectedInput = document.querySelector('#selected-input') as HTMLInputElement;
-  const selectedCategory = listingPageForm.querySelector('.category-button.selected') as HTMLButtonElement;
+  const selectedInput = document.querySelector('#selected-input');
+  const selectedCategory = listingPageForm.querySelector('.category-button.selected');
 
   if (selectedInput?.value !== undefined || null || 'Alla') {
     selectedInput.value = selectedCategory.value;
@@ -41,8 +41,8 @@ function submitPaginationForm() {
   paginationForm?.submit();
 }
 
-function getPaginationForm(): HTMLFormElement | null {
-  const forms = document.querySelectorAll('form') as NodeListOf<HTMLFormElement>;
+function getPaginationForm() {
+  const forms = document.querySelectorAll('form');
 
   for (const form of forms) {
     const pageInput = form.querySelector('#page');
