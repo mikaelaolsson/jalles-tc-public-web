@@ -9,6 +9,7 @@ using RobotsTxt;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.IdentityModel.Logging;
 using Umbraco.Cms.Core.Media.EmbedProviders;
+using Umbraco.StorageProviders.AzureBlob.ImageSharp;
 
 namespace Jalles.Web;
 
@@ -36,9 +37,9 @@ public class Startup
         umbraco
             .AddBackOffice()
             .AddWebsite()
-            //.AddDeliveryApi()
             .AddComposers()
             .AddAzureBlobMediaFileSystem()
+            .AddAzureBlobImageSharpCache()
             .Build();
 
         services.AddHsts(options => options.MaxAge = TimeSpan.FromDays(183));
