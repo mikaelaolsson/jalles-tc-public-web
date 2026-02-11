@@ -1,0 +1,61 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/bin": true,
+    "**/obj": true,
+    "**/dist": true,
+    "**/tmp": true,
+    "**/.yarn": true,
+    "**/coverage": true
+  },
+  "search.exclude": {
+    "**/yarn.lock": true
+  },
+  "files.associations": {
+    ".browserslistrc": "plaintext"
+  },
+  "files.eol": "\n",
+  "[powershell]": {
+    "files.eol": "\n"
+  },
+  "[shellscript]": {
+    "files.eol": "\n"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[scss]": {
+    "editor.tabSize": 2
+  },
+  "eslint.packageManager": "yarn",
+  "eslint.enable": true,
+  "eslint.workingDirectories": [
+    "./src/Jalles.Web/"
+  ],
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "stylelint.packageManager": "yarn",
+  "stylelint.configBasedir": "./src/Jalles.Web/",
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "postcss"
+  ],
+  "debug.internalConsoleOptions": "neverOpen",
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "gitlens.autolinks": [
+    {
+      "prefix": "JALLES-",
+      "url": "https://your-jira-instance/browse/JALLES-<num>"
+    }
+  ],
+  "dotnet.defaultSolution": "jalles-tc-public-web.slnx",
+  "eslint.format.enable": true
+}

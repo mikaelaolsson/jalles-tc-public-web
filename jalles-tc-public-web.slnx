@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Jalles.Core/Jalles.Core.csproj" />
+  <Project Path="Jalles.Web/Jalles.Web.csproj">
+    <BuildDependency Project="Jalles.Core/Jalles.Core.csproj" />
+  </Project>
+</Solution>
