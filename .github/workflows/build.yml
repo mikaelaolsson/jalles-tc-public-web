@@ -48,15 +48,15 @@ jobs:
         uses: thedoctor0/zip-release@0.7.6
         with:
           type: 'zip'
-          filename: ../artifacts.zip
-          directory: ./artifacts/
+          filename: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          directory: ${{ env.ARTIFACTS_DIRECTORY }}
 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: dotnet-artifacts
-          path: ./artifacts.zip
+          path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
           if-no-files-found: error
 
   deploy-production:
