@@ -1,4 +1,5 @@
 ﻿@inherits UmbracoViewPage<LayoutViewModel>
+@inject Shorthand.Vite.Contracts.IViteService Vite
 @{
     Layout = null;
 }
@@ -15,8 +16,13 @@
     <meta property="og:image" content="@Model.Thumbnail">
     <meta property="og:url" content="@Model.Url">
 
+
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
+
+    <environment exclude="Development">
+        <link rel="modulepreload" href="@await Vite.GetAssetUrlAsync("scripts/index.mjs")" as="script" />
+        <link rel="stylesheet" href="@await Vite.GetAssetUrlAsync("style.css")" />
+    </environment>
 
 </head>
 
@@ -28,7 +34,8 @@
 
     <vc:footer content="@Model.Content"></vc:footer>
 
-    <script src="~/build/scripts/menu-toggle.js" asp-append-version="true"></script>
+
+    <script type="module" src="@await Vite.GetAssetUrlAsync("scripts/index.mjs")"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>

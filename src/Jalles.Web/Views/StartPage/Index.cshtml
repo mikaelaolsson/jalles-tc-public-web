@@ -10,11 +10,3 @@
         @await Html.PartialAsync("../Blocks/ListingBlocks/_MixedListingBlock.cshtml", Model.ViewModel.Blocks)
     }
 </main>
-
-@section Scripts
-{
-    @if (hasImageGalleryBlock)
-    {
-        <script src="~/build/scripts/image-gallery-modal.js" asp-append-version="true"></script>
-    }
-}

@@ -1,0 +1,113 @@
+@mixin button {
+  padding: $button-padding;
+
+  font-family: $font-family;
+  font-size: $font-size;
+  text-decoration: none;
+
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+  }
+}
+
+@mixin button-on-dark-background {
+  @include button;
+
+  background-color: $color-vanilla;
+  color: $color-taupe;
+
+  &:hover {
+    background-color: rgb(250, 250, 236, 0.20%);
+    color: $color-vanilla;
+    border: 1px solid $color-vanilla;
+    backdrop-filter: blur(0.5rem);
+  }
+}
+
+@mixin button-on-light-background {
+  @include button;
+
+  background-color: $color-taupe;
+  color: $color-off-white;
+
+  &:hover {
+    @include button-secondary-on-light-background;
+  }
+}
+
+@mixin button-secondary-on-dark-background {
+  @include button;
+
+  background-color: transparent;
+  color: $color-off-white;
+  border: 1px solid $color-off-white;
+
+  &:hover {
+    background-color: rgb(250, 250, 236, 10%);
+    backdrop-filter: blur(0.5rem);
+  }
+}
+
+@mixin button-secondary-on-light-background {
+  @include button;
+
+  background-color: transparent;
+  color: $color-taupe;
+  border: 1px solid $color-taupe;
+
+  &:hover {
+    background-color: rgb(255, 248, 173, 60%);
+    backdrop-filter: blur(0.5rem);
+  }
+}
+
+@mixin anchor-link-button {
+  @include button;
+  display: flex;
+  align-items: center;
+  gap: $spacing-small;
+
+  padding: $spacing-small $spacing-standard;
+  font-size: $font-size-small-desktop;
+
+  background-color: transparent;
+  color: $foreground-color-main;
+  border: 1px solid $button-secondary-light-border-color;
+
+  &:after {
+    width: $icon-size-small;
+    height: $icon-size-small;
+
+    transform: rotate(90deg);
+
+    content: '';
+    background-image: url('../static/images/arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: contain;
+  }
+
+  &:hover {
+    &:after {
+      @media (prefers-reduced-motion: no-preference) {
+        animation: anchor-arrow-animation 0.45s $animation-bounce-timing;
+      }
+    }
+  }
+}
+
+@mixin category-button {
+  @include button-secondary-on-light-background;
+  padding: $spacing-small $spacing-standard;
+
+  cursor: pointer;
+
+  &.selected {
+    background-color: rgb(255, 248, 173, 60%);
+    backdrop-filter: blur(0.5rem);
+  }
+}

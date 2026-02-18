@@ -476,3 +476,11 @@ appsettings-schema.*.json
 
 # Media files
 /wwwroot/media/
+/wwwroot/static/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!.yarn/cache

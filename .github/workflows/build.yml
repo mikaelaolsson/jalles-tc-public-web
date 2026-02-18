@@ -60,8 +60,6 @@ jobs:
           filename: ../artifacts.zip
           directory: ./artifacts/
 
-
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:

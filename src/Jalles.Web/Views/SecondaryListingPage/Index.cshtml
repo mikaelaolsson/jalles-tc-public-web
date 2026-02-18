@@ -31,7 +31,7 @@
             {
                 <p>Inga resultat</p>
             }
-            
+
             @if (Model.ViewModel.Pagination is {TotalPages: > 1 })
             {
                 @await Html.PartialAsync("~/Views/Partials/_Pagination.cshtml", Model.ViewModel.Pagination)
@@ -39,9 +39,3 @@
         </div>
     </div>
 </main>
-
-@section Scripts
-{
-    <script src="~/build/scripts/listing-page-form.js" asp-append-version="true"></script>
-    <script src="~/build/scripts/pagination.js" asp-append-version="true"></script>
-}

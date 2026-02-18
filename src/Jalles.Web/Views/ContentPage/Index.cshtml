@@ -39,23 +39,3 @@
         </ul>
     }
 </main>
-
-@section Scripts
-    {
-    @if (hasImageGalleryBlock)
-    {
-        <script src="~/build/scripts/image-gallery-modal.js" asp-append-version="true"></script>
-    }
-    @if (hasDataBlock)
-    {
-        <script src="~/build/scripts/table-wrapper.js" asp-append-version="true"></script>
-    }
-    @if (hasExcelBlock)
-    {
-        <script src="~/build/scripts/extra-side-scroller.js" asp-append-version="true"></script>
-        <script src="~/build/scripts/highlight-column.js" asp-append-version="true"></script>
-
-    }
-
-    <script src="~/build/scripts/background-color.js" asp-append-version="true"></script>
-}

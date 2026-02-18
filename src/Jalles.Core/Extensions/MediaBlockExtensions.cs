@@ -13,7 +13,7 @@ public static class MediaBlockExtensions
 
     private static readonly Regex _youTubeRegex = new("youtu(?:\\.be|be\\.com)/(?:.*v(?:/|=)|(?:.*/)?)(?<VideoId>[a-zA-Z0-9-_]+)", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
-    private const string _defaultFallbackMedia = "/images/jalles-media.jpg";
+    private const string _defaultFallbackMedia = "/static/images/jalles-media.jpg";
 
     public static MediaBlockViewModel GetMediaForHeader(this HeaderBlock? headerBlock)
     {

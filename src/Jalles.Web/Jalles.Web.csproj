@@ -5,14 +5,8 @@
   </PropertyGroup>
 
   <!-- Force include of Vite 5 manifest (todo: we need to add vite!) -->
-  <!-- <ItemGroup>
-    <Content Include="wwwroot\.vite\**" CopyToPublishDirectory="PreserveNewest" Exclude="$(DefaultItemExcludes)" />
-  </ItemGroup> -->
-
-  <!-- TODO: Both of these should be removed -->
   <ItemGroup>
-    <None Include="App_Plugins\BackofficeStyles\package.manifest" />
-    <None Include="compilerconfig.json" />
+    <Content Include="wwwroot\.vite\**" CopyToPublishDirectory="PreserveNewest" Exclude="$(DefaultItemExcludes)" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +24,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MiniExcel" />
+    <PackageReference Include="Shorthand.Vite" />
     <PackageReference Include="Umbraco.Cms" />
     <PackageReference Include="Umbraco.StorageProviders.AzureBlob" />
     <PackageReference Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" />
@@ -52,9 +47,5 @@
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
   </PropertyGroup>
-
-  <Target Name="CopyMjsToBuild" AfterTargets="Build">
-    <Exec Command="npm run copy-mjs" WorkingDirectory="$(ProjectDir)" />
-  </Target>
 
 </Project>

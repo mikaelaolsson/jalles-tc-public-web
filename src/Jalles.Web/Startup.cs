@@ -1,3 +1,4 @@
+using Shorthand.Vite;
 using Jalles.Core.Contracts;
 using Jalles.Core.Extensions;
 using Jalles.Core.MappingProfiles.Pages;
@@ -60,6 +61,14 @@ public class Startup
 
         // Mappings
         services.AddAutoMapper(typeof(BasePageProfile).Assembly);
+
+        // Vite integration
+        services.AddVite(options =>
+        {
+            options.ManifestFileName = ".vite/manifest.json";
+            options.Port = 5010;
+            options.Https = true;
+        });
 
         services.AddRobotsTxt();
 

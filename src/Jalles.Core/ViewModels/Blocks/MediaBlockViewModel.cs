@@ -5,7 +5,7 @@ namespace Jalles.Core.ViewModels.Blocks;
 
 public class MediaBlockViewModel
 {
-    private const string _defaultFallbackMedia = "/images/jalles-media.jpg";
+    private const string _defaultFallbackMedia = "/static/images/jalles-media.jpg";
 
     public string MediaSource { get; set; } = _defaultFallbackMedia;
     public MediaWithCrops? Media { get; set; }
