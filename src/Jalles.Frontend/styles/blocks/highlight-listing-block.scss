@@ -1,0 +1,145 @@
+.highlight-listing-block {
+  padding: $spacing-vertical-medium $side-margins;
+
+  &.color-jalles-yellow {
+    background-color: $color-jalles-yellow;
+  }
+
+  &.color-off-white {
+    background-color: $color-off-white;
+  }
+
+  &.color-vanilla {
+    background-color: $color-vanilla;
+  }
+
+  &.color-taupe {
+    background-color: $color-taupe;
+  }
+
+  &.color-battleship-gray {
+    background-color: $color-battleship-gray;
+  }
+
+  &.color-black {
+    background-color: $color-black;
+  }
+
+  &.color-taupe, &.color-black {
+    h2 {
+      color: $color-white;
+    }
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .listing-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-standard;
+
+    .highlight {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 12rem;
+
+      .media {
+        @include fill-by-absolute-position;
+        @include darken-with-rounded-borders-by-absolute-fill;
+        border-radius: $border-radius;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: $puff-padding;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+
+        .content-container {
+          @include button-on-dark-background;
+
+          h3 {
+            margin: 0;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .highlight-listing-block {
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
+    .listing-container {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+      gap: $spacing-large;
+
+      h2 {
+        grid-column: 3 / 11;
+        grid-row: 1;
+      }
+
+      &.single-highlight {
+        .highlight {
+          grid-column: 3 / 11;
+          min-height: 30rem;
+        }
+      }
+
+      &.double-highlight {
+        .highlight {
+          min-height: 30rem;
+
+          &:nth-of-type(1) {
+            grid-column: 3 / 7;
+          }
+
+          &:nth-of-type(2) {
+            grid-column: 7 / 11;
+          }
+        }
+      }
+
+      .highlight {
+        .content {
+          padding: $puff-padding-desktop;
+        }
+      }
+
+      &:not(.single-highlight, .double-highlight) {
+        .highlight {
+          &:nth-of-type(1) {
+            grid-column: 3 / 8;
+            grid-row: 2 / 4;
+            height: 100%;
+
+            .content {
+              h3 {
+                font-size: $font-size-heading-medium;
+              }
+            }
+          }
+
+          &:nth-of-type(2) {
+            grid-column: 8 / 11;
+            grid-row: 2;
+          }
+
+          &:nth-of-type(3) {
+            grid-column: 8 / 11;
+            grid-row: 3;
+          }
+        }
+      }
+    }
+  }
+}

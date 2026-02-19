@@ -1,0 +1,13 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Our.Umbraco.Community.Contentment" />
+    <PackageReference Include="Our.Umbraco.Community.Contentment.Core" />
+    <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" />
+  </ItemGroup>
+
+</Project>

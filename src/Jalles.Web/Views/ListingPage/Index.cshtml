@@ -1,0 +1,39 @@
+﻿@inherits UmbracoViewPage<LayoutViewModel<ListingPageViewModel>>
+
+<main class="listing-page">
+    <div class="main-content-container">
+        @if (Model.ViewModel.DisplayTitle)
+        {
+            <h2>@Model.ViewModel.Title</h2>
+        }
+
+        @await Html.PartialAsync("../Partials/_ListingPageForm.cshtml", Model.ViewModel)
+
+        <div class="listings">
+            @foreach (var contentPage in Model.ViewModel.ContentPages)
+            {
+                <a href="@contentPage.PagePath" class="listing">
+
+                    @await Html.PartialAsync("../Blocks/_MediaBlock", contentPage.Header)
+                    <div class="content">
+                        <div class="content-container">
+                            <h3>@contentPage.Title</h3>
+                            <span>Läs mer &#10095;</span>
+                        </div>
+                    </div>
+                </a>
+            }
+            @if (!Model.ViewModel.ContentPages.Any())
+            {
+                <p>Inga resultat</p>
+            }
+
+            @if (Model.ViewModel.Pagination is {TotalPages: > 1 })
+            {
+                @await Html.PartialAsync("~/Views/Partials/_Pagination.cshtml", Model.ViewModel.Pagination)
+            }
+        </div>
+    </div>
+
+</main>
+

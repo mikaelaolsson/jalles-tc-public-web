@@ -1,34 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.6.33815.320
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jalles.Web", "Jalles.Web\Jalles.Web.csproj", "{8AF66736-2B7E-4BC4-B060-73B97EECD197}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31} = {6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CA8F621E-1EFB-431B-BDC6-0EA873DEF7E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jalles.Core", "Jalles.Core\Jalles.Core.csproj", "{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jalles.Core", "src\Jalles.Core\Jalles.Core.csproj", "{0FD42E13-D87C-4EEF-B1FE-9EAB55B3A972}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jalles.Web", "src\Jalles.Web\Jalles.Web.csproj", "{24FEDFA6-6697-4546-B248-36AE4B6FB80F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jalles.Frontend", "src\Jalles.Frontend\Jalles.Frontend.csproj", "{A1B2C3D4-1234-5678-ABCD-1234567890AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8AF66736-2B7E-4BC4-B060-73B97EECD197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8AF66736-2B7E-4BC4-B060-73B97EECD197}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8AF66736-2B7E-4BC4-B060-73B97EECD197}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8AF66736-2B7E-4BC4-B060-73B97EECD197}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DA82A54-9D0A-4F6F-A062-8DF5ECF3FE31}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8C19DFDC-5366-4780-ADA7-026E989BE027}
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FD42E13-D87C-4EEF-B1FE-9EAB55B3A972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD42E13-D87C-4EEF-B1FE-9EAB55B3A972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD42E13-D87C-4EEF-B1FE-9EAB55B3A972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD42E13-D87C-4EEF-B1FE-9EAB55B3A972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24FEDFA6-6697-4546-B248-36AE4B6FB80F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FEDFA6-6697-4546-B248-36AE4B6FB80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FEDFA6-6697-4546-B248-36AE4B6FB80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FEDFA6-6697-4546-B248-36AE4B6FB80F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0FD42E13-D87C-4EEF-B1FE-9EAB55B3A972} = {CA8F621E-1EFB-431B-BDC6-0EA873DEF7E6}
+		{24FEDFA6-6697-4546-B248-36AE4B6FB80F} = {CA8F621E-1EFB-431B-BDC6-0EA873DEF7E6}
+		{A1B2C3D4-1234-5678-ABCD-1234567890AB} = {CA8F621E-1EFB-431B-BDC6-0EA873DEF7E6}
 	EndGlobalSection
 EndGlobal

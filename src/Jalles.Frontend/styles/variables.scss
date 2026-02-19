@@ -1,0 +1,135 @@
+/* Font */
+
+$font-family: 'DM Sans', 'Trebuchet MS', sans-serif, verdana, tahoma;
+
+$font-size-small: 0.875rem;
+$font-size: 1rem;
+$font-size-large: 1.125rem;
+$font-size-small-desktop: 1rem;
+$font-size-desktop: 1.125rem;
+$font-size-large-desktop: 1.375rem;
+
+$font-size-heading-extra-small: 1.375rem;
+$font-size-heading-small: 1.5rem;
+$font-size-heading-medium: 2.25rem;
+$font-size-heading-large: 5rem;
+
+$font-line-height: 170%;
+$font-line-height-heading: 130%;
+
+$font-weight: 400;
+$font-weight-bold: 700;
+
+/* Color */
+
+$color-jalles-yellow: #FFEB19;
+$color-off-white: #FAFAEC ;
+$color-vanilla: #FFF8AD;
+$color-taupe: #463F3A;
+$color-battleship-gray: #8A817C;
+$color-black: #1E2022;
+$color-white: #FFF;
+$color-battleship-muted: rgb(138, 129, 124, 50%);
+$color-battleship-more-muted: rgb(138, 129, 124, 20%);
+$color-vanilla-muted: rgb(255, 248, 173, 50%);
+$color-vanilla-more-muted: rgb(255, 248, 173, 20%);
+
+$color-xlent-yellow: #FFB300;
+$color-isabelline: #F0F2EF;
+$color-cambridge: #A3B6B4;
+$color-petrolium: #526664;
+$color-dark-grey: #1E2022;
+
+$bg-color-main: $color-taupe;
+$bg-color-secondary: $color-isabelline;
+$bg-color-tertiary: $color-cambridge;
+$bg-color-dark-main: $color-dark-grey;
+$bg-color-dark-secondary: $color-petrolium;
+
+$foreground-color-main: $color-black;
+$foreground-color-secondary: #535353;
+$foreground-color-dark-contrast: $color-white;
+$foreground-color-dark-contrast-secondary: #C7C7C7;
+
+/* $button-light-bg-color: rgba(255, 255, 255, 0.8); */
+$button-dark-bg-color: $color-dark-grey;
+$button-secondary-light-border-color: rgb(0, 0, 0, 20%);
+$button-secondary-dark-border-color: $foreground-color-dark-contrast;
+
+$active-link-bg-color: rgb(255, 255, 255, 10%);
+
+$overlay-bg-color: rgb(0, 0, 0, 30%);
+$line-separator-color: rgb(0, 0, 0, 10%);
+
+/* Border */
+$border-radius-small: 0.5rem;
+$border-radius: 1rem;
+
+$line-separator: 0.1rem;
+
+/* Sizes */
+
+$max-width: 1980px;
+$heading-max-width: 1200px;
+$text-max-width: 800px;
+$text-max-width-large: 950px;
+
+$icon-size-small: 0.75rem;
+$icon-size: 1rem;
+$icon-size-large: 2.5rem;
+
+$checkbox-size: 1.25rem;
+
+$office-icon-height-small: 4.875rem;
+$office-icon-height: 9.5rem;
+$office-icon-height-desktop: 12rem;
+
+$coworker-image-height: 9rem;
+$coworker-image-height-desktop: 15rem;
+
+$min-touch-target-size: 3rem;
+
+$header-height: 25rem;
+$header-height-desktop: 30rem;
+
+/* Spacing and padding */
+
+$spacing-small: 0.5rem;
+$spacing-standard: 1rem;
+$spacing-large: 2rem;
+
+$spacing-vertical-small: 1.5rem;
+$spacing-vertical-medium: 2rem;
+$spacing-vertical-large: 3rem;
+$spacing-vertical-small-desktop: 2rem;
+$spacing-vertical-medium-desktop: 3rem;
+$spacing-vertical-large-desktop: 5rem;
+
+$spacing-two-column-layout-desktop: 4rem;
+
+$button-padding: 1rem 2rem;
+
+$puff-padding: 1.5rem 1.25rem;
+$puff-padding-small: 1rem 1rem;
+$puff-padding-desktop: 2.5rem 2rem;
+$puff-padding-small-desktop: 1.5rem 1.5rem;
+
+$side-margins: 1.25rem;
+$side-margins-desktop: 5rem;
+
+$scroll-offset: 7rem;
+
+/* z-index */
+
+$z-index-main-menu: 100;
+$z-index-search-modal: 50;
+$z-index-modal: 150;
+
+/* Breakpoints */
+
+$screen-min-tablet: 700px;
+$screen-min-desktop: 1200px;
+
+/* Animations */
+
+$animation-bounce-timing: cubic-bezier(0.175, 0.885, 0.32, 1.275);

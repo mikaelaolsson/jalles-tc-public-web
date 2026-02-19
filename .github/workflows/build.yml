@@ -1,0 +1,202 @@
+name: Build and publish .NET app
+
+on:
+  push:
+    branches:
+      - develop
+      - test
+      - master
+      - 'feature/**'
+    paths-ignore:
+      - 'README.md'
+      - '.vscode/*'
+      - 'scripts/*'
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  actions: write
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_NOLOGO: true
+  AZURE_WEBAPP_PACKAGE_PATH: './artifacts.zip'
+  ARTIFACTS_DIRECTORY: './artifacts/'
+  WEB_PROJECT: './src/Jalles.Web/Jalles.Web.csproj'
+  WWWROOT_DIRECTORY: './src/Jalles.Web/wwwroot/'
+  FRONTEND_DIRECTORY: './src/Jalles.Frontend/'
+
+
+jobs:
+  frontend-test:
+    name: 🖌️ Frontend tests
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set GIT to use CRLF
+        run: |
+          git config --global core.autocrlf true
+          git config --global core.eol crlf
+
+      - name: Checkout sources
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          check-latest: true
+          package-manager-cache: false
+
+      - name: Run Yarn
+        run: yarn --immutable --immutable-cache
+        working-directory: ${{ env.FRONTEND_DIRECTORY }}
+
+      - name: Run frontend linting
+        run: |
+          yarn lint:js
+          yarn lint:css
+        working-directory: ${{ env.FRONTEND_DIRECTORY }}
+
+  # net-test:
+  #   name: "⚗️ .NET tests"
+  #   if: ${{ github.actor != 'dependabot[bot]' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout sources
+  #       uses: actions/checkout@v6
+  #
+  #     - name: Install .NET
+  #       uses: actions/setup-dotnet@v5
+  #       with:
+  #         global-json-file: global.json
+  #
+  #     - name: Restore NuGet packages
+  #       run: dotnet restore --verbosity minimal
+  #
+  #     - name: Run .NET tests
+  #       run: dotnet test --configuration Release
+  #
+  #     - name: Upload test results
+  #       uses: actions/upload-artifact@v6
+  #       with:
+  #         name: net-test-results
+  #         path: |
+  #           ./**/*.trx
+  #           ./**/coverage.cobertura.xml
+
+  frontend-build:
+    name: 🎨 Frontend build
+    runs-on: ubuntu-latest
+    needs: [ frontend-test ]
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          check-latest: true
+          package-manager-cache: false
+
+      - name: Run Yarn
+        run: yarn --immutable --immutable-cache
+        working-directory: ${{ env.FRONTEND_DIRECTORY }}
+
+      - name: Build Frontend
+        run: yarn build
+        working-directory: ${{ env.FRONTEND_DIRECTORY }}
+
+      - name: Upload frontend artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: frontend-artifacts
+          path: ${{ env.WWWROOT_DIRECTORY }}
+          include-hidden-files: true
+          if-no-files-found: error
+
+  net-build:
+    name: 🏡 .NET Build
+    runs-on: ubuntu-latest
+    needs: [ frontend-build ]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+
+      - name: Set up .NETs
+        uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - name: .NET Restore
+        run: dotnet restore
+
+      - name: Download frontend artifacts
+        uses: actions/download-artifact@v7.0.0
+        with:
+          name: frontend-artifacts
+          path: ${{ env.WWWROOT_DIRECTORY }}
+
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ./artifacts ./src/Jalles.Web/Jalles.Web.csproj
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: 'zip'
+          filename: ../artifacts.zip
+          directory: ./artifacts/
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v6
+        with:
+          name: dotnet-artifacts
+          path: ./artifacts.zip
+          if-no-files-found: error
+
+
+  deploy-test:
+    name: 🚀 Deploy to Test
+    needs: [ net-build ]
+    if: startsWith(github.ref, 'refs/heads/test')
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    uses: ./.github/workflows/deploy-to-environment.yml
+    secrets: inherit
+    with:
+      environment: Test
+      app-name: jalles-tc-public-web-test
+      url: https://test.jalles.se/
+
+  deploy-production:
+    name: 🚀 Deploy to Production
+    needs: [ net-build ]
+    if: github.ref == 'refs/heads/master'
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    uses: ./.github/workflows/deploy-to-environment.yml
+    secrets: inherit
+    with:
+      environment: Production
+      app-name: jalles-tc-public-web
+      url: https://www.jalles.se/
+
+  cleanup:
+    name: 🧹 Cleanup
+    runs-on: ubuntu-latest
+    needs: [ deploy-test, deploy-production ]
+    if: always()
+    steps:
+      - uses: geekyeggo/delete-artifact@v5
+        with:
+          name: |
+            dotnet-artifacts
+            frontend-artifacts

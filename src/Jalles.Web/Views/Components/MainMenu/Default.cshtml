@@ -1,0 +1,31 @@
+﻿@model MainMenuViewModel
+
+<div class="menu-container">
+    <nav class="menu">
+        <button class="open-menu-button" aria-label="Öppna menyn">
+            &#9776;
+        </button>
+
+        <ul class="menu-items">
+            @if (Model.MenuItems.Any())
+            {
+                foreach (var item in Model.MenuItems)
+                {
+                    <li>
+                        <a href="@item?.PagePath">
+                            @item?.Title
+                        </a>
+                    </li>
+
+                }
+            }
+
+            @if (!string.IsNullOrWhiteSpace(Model.Facebook))
+            {
+                <li>
+                    <a href="@Model.Facebook" target="_blank" class="facebook"><img src="/static/images/facebook.svg" alt="Facebook"></a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
