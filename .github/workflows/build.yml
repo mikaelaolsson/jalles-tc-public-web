@@ -142,7 +142,7 @@ jobs:
           path: ${{ env.WWWROOT_DIRECTORY }}
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ./artifacts ./src/Jalles.Web/Jalles.Web.csproj
+        run: dotnet publish -c Release --runtime linux-x64 --self-contained -o ./artifacts ./src/Jalles.Web/Jalles.Web.csproj
 
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.6
@@ -172,7 +172,7 @@ jobs:
     with:
       environment: Test
       app-name: jalles-tc-public-web-test
-      url: https://test.jalles.se/
+      url: https://jalles-tc-public-web-test.azurewebsites.net/
 
   deploy-production:
     name: 🚀 Deploy to Production
