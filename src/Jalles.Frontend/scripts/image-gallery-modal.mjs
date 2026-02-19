@@ -6,7 +6,7 @@ export default function initImageGalleryModal() {
       const modalImageLinks = imageGallery.querySelectorAll('.image-gallery img, .image-gallery .overlay');
 
       modalImageLinks.forEach(button => {
-        button.addEventListener('click', function (element) {
+        button.addEventListener('click', function(element) {
           openImageGalleryModal(element, imageGallery.id);
         });
       });
@@ -28,11 +28,11 @@ export default function initImageGalleryModal() {
     }
 
     const closeModal = imageGalleryModal.querySelector('.close-button');
-    closeModal.addEventListener('click', function () {
+    closeModal.addEventListener('click', function() {
       imageGalleryModal.classList.remove('open');
     });
 
-    imageGalleryModal.addEventListener('click', function (event) {
+    imageGalleryModal.addEventListener('click', function(event) {
       const imageGalleryModalImages = imageGalleryModal.querySelectorAll('img');
       let isImage = false;
       imageGalleryModalImages.forEach(image => {

@@ -115,7 +115,7 @@
         }
       }
 
-      &:not(.single-highlight):not(.double-highlight) {
+      &:not(.single-highlight, .double-highlight) {
         .highlight {
           &:nth-of-type(1) {
             grid-column: 3 / 8;

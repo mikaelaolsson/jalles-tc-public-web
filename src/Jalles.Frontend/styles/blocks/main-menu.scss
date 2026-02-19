@@ -70,7 +70,7 @@
   .menu-container {
     display: flex;
     justify-content: center;
-    padding: 1rem $side-margins-desktop 1rem;
+    padding: 1rem $side-margins-desktop;
     width: 100%;
     font-size: $font-size-small-desktop;
 
@@ -88,7 +88,6 @@
         margin: 0;
 
         li {
-          margin-bottom: 0;
           margin: auto;
 
           .facebook {

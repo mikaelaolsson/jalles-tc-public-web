@@ -18,7 +18,7 @@ export default function initMenuToggle() {
       const isStartPage = currentPageUrl === '';
       const isCurrentPage = currentPageUrl === menuItemUrl;
 
-      if(!isStartPage && isCurrentPage) {
+      if (!isStartPage && isCurrentPage) {
         // Because of the way the way that different menu items need to be highlighted,
         // we need to do some extra checks to see what item to highlight.
 

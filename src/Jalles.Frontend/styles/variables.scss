@@ -28,11 +28,11 @@ $color-vanilla: #FFF8AD;
 $color-taupe: #463F3A;
 $color-battleship-gray: #8A817C;
 $color-black: #1E2022;
-$color-white: #FFFFFF;
-$color-battleship-muted: rgb(138, 129, 124, 0.5);
-$color-battleship-more-muted: rgb(138, 129, 124, 0.2);
-$color-vanilla-muted: rgb(255, 248, 173, 0.5);
-$color-vanilla-more-muted: rgb(255, 248, 173, 0.2);
+$color-white: #FFF;
+$color-battleship-muted: rgb(138, 129, 124, 50%);
+$color-battleship-more-muted: rgb(138, 129, 124, 20%);
+$color-vanilla-muted: rgb(255, 248, 173, 50%);
+$color-vanilla-more-muted: rgb(255, 248, 173, 20%);
 
 $color-xlent-yellow: #FFB300;
 $color-isabelline: #F0F2EF;
@@ -51,15 +51,15 @@ $foreground-color-secondary: #535353;
 $foreground-color-dark-contrast: $color-white;
 $foreground-color-dark-contrast-secondary: #C7C7C7;
 
-/*$button-light-bg-color: rgba(255, 255, 255, 0.8);*/
+/* $button-light-bg-color: rgba(255, 255, 255, 0.8); */
 $button-dark-bg-color: $color-dark-grey;
-$button-secondary-light-border-color: rgba(0, 0, 0, 0.2);
+$button-secondary-light-border-color: rgb(0, 0, 0, 20%);
 $button-secondary-dark-border-color: $foreground-color-dark-contrast;
 
-$active-link-bg-color: rgba(255, 255, 255, 0.1);
+$active-link-bg-color: rgb(255, 255, 255, 10%);
 
-$overlay-bg-color: rgba(0, 0, 0, 0.3);
-$line-separator-color: rgba(0, 0, 0, 0.1);
+$overlay-bg-color: rgb(0, 0, 0, 30%);
+$line-separator-color: rgb(0, 0, 0, 10%);
 
 /* Border */
 $border-radius-small: 0.5rem;

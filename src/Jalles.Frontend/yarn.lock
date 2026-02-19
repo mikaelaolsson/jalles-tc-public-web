@@ -2261,6 +2261,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globals@npm:^17.3.0":
+  version: 17.3.0
+  resolution: "globals@npm:17.3.0"
+  checksum: 10/44ba2b7db93eb6a2531dfba09219845e21f2e724a4f400eb59518b180b7d5bcf7f65580530e3d3023d7dc2bdbacf5d265fd87c393f567deb9a2b0472b51c9d5e
+  languageName: node
+  linkType: hard
+
 "globby@npm:10.0.1":
   version: 10.0.1
   resolution: "globby@npm:10.0.1"
@@ -2578,6 +2585,7 @@ __metadata:
     esbuild-plugin-browserslist: "npm:^2.0.0"
     eslint: "npm:^10.0.0"
     eslint-plugin-jsdoc: "npm:^62.6.0"
+    globals: "npm:^17.3.0"
     rollup-plugin-copy: "npm:^3.5.0"
     sass-embedded: "npm:^1.97.3"
     stylelint: "npm:^17.3.0"

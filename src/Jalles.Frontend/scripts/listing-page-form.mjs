@@ -3,7 +3,7 @@ export default function initListingPageForm() {
   if (!listingPageForm) return;
   const categoryButtons = listingPageForm.querySelectorAll('.category-button');
   categoryButtons.forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
       listingPageForm.submit();
     });
   });

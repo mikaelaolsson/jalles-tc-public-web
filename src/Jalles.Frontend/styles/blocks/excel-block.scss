@@ -60,7 +60,7 @@
               display: table-row;
 
               &:hover {
-                background-color: $color-battleship-more-muted !important;
+                background-color: $color-battleship-more-muted;
               }
 
               td {
@@ -75,7 +75,7 @@
                 }
 
                 &:hover {
-                  background-color: $color-vanilla !important;
+                  background-color: $color-vanilla;
                 }
               }
 
@@ -87,7 +87,7 @@
         }
 
         .highlight-column {
-          background-color: $color-battleship-more-muted !important;
+          background-color: $color-battleship-more-muted;
         }
       }
     }

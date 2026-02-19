@@ -25,6 +25,8 @@ const baseConfig = {
   rules: {
     ...js.configs.recommended.rules,
     ...jsdoc.configs.recommended.rules,
+    'jsdoc/require-jsdoc': 'off',
+    'require-jsdoc': 'off',
     'eqeqeq': 'error',
     'no-extra-boolean-cast': 'off',
     'no-var': 'error',

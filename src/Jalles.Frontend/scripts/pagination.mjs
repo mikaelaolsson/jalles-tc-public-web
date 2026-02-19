@@ -15,21 +15,21 @@ export default function initPagination() {
   const currentPage = document.querySelector('#page');
   const pageButtons = document.querySelectorAll('.pagination .page-button');
 
-  paginationForm.addEventListener('submit', function () {
+  paginationForm.addEventListener('submit', function() {
     if (currentPage) currentPage.value = '1';
   });
 
   const next = document.querySelector('#next');
   const previous = document.querySelector('#previous');
 
-  pageButtons.forEach(function (pageButton) {
-    pageButton.addEventListener('click', function () {
+  pageButtons.forEach(function(pageButton) {
+    pageButton.addEventListener('click', function() {
       if (currentPage) currentPage.value = pageButton.value;
       submitPaginationForm();
     });
   });
 
-  next?.addEventListener('click', function () {
+  next?.addEventListener('click', function() {
     if (currentPage) {
       const value = currentPage.value;
       currentPage.value = (parseInt(value) + 1).toString();
@@ -37,7 +37,7 @@ export default function initPagination() {
     }
   });
 
-  previous?.addEventListener('click', function () {
+  previous?.addEventListener('click', function() {
     if (currentPage) {
       const value = currentPage.value;
       currentPage.value = (parseInt(value) - 1).toString();

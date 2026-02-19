@@ -8,7 +8,6 @@
 @import 'mixins/icon';
 @import 'mixins/links';
 @import 'mixins/media';
-@import 'mixins/visually-hidden';
 
 @import 'blocks/content-block';
 @import 'blocks/cta-block';
@@ -103,10 +102,6 @@ button {
 a {
   color: $color-black;
   text-decoration-line: none;
-}
-
-.visually-hidden {
-  @include visually-hidden;
 }
 
 @media only screen and (min-width: $screen-min-desktop) {

@@ -30,6 +30,7 @@
       color: $color-white;
     }
   }
+
   .gallery-wrapper {
     h2, p {
       margin: 0;
@@ -45,7 +46,7 @@
       img {
         width: 100%;
         height: auto;
-        border-radius: $border-radius !important;
+        border-radius: $border-radius;
         object-fit: cover;
         cursor: pointer;
       }
@@ -55,7 +56,6 @@
         flex-direction: column;
         gap: $spacing-standard;
         height: 100%;
-        /*overflow: hidden;*/
 
         .img-container {
           height: auto;

@@ -26,7 +26,7 @@ export default function initBackgroundColor() {
   function getBackgroundColor(sourceElement, firstOrLast) {
     let element = null;
 
-    if (firstOrLast == 'last') {
+    if (firstOrLast === 'last') {
       element = mixedListingBlock.children[mixedListingBlock.childElementCount - 1];
     } else {
       element = mixedListingBlock.children[0];
