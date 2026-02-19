@@ -28,6 +28,7 @@ export default defineConfig({
     assetsDir: 'assets',
     manifest: true,
     manifestDir: '.vite',
+    cssCodeSplit: false,
     sourcemap: true,
     rollupOptions: {
       input: resolve(__dirname, 'scripts/index.mjs'),
