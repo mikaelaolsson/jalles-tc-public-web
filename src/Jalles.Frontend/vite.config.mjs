@@ -1,4 +1,4 @@
-
+/* global __dirname */
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import mkcert from 'vite-plugin-mkcert';
@@ -27,6 +27,7 @@ export default defineConfig({
     emptyOutDir: false,
     assetsDir: 'assets',
     manifest: true,
+    manifestDir: '.vite',
     sourcemap: true,
     rollupOptions: {
       input: resolve(__dirname, 'scripts/index.mjs'),
