@@ -84,7 +84,6 @@ public class Startup
         else
         {
             app.UseExceptionHandler("/error");
-            app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseRewriter(new RewriteOptions()
                 .Add(new RedirectPublicDomainsToWww())
