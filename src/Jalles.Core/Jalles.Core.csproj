@@ -1,9 +1,12 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AutoMapper" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="Our.Umbraco.Community.Contentment" />
     <PackageReference Include="Our.Umbraco.Community.Contentment.Core" />
     <PackageReference Include="System.Text.Json" />

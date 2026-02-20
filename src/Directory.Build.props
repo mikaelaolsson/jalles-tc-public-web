@@ -11,6 +11,7 @@
     <Using Include="Microsoft.Extensions.Logging.Abstractions" />
     <Using Include="System.Diagnostics.CodeAnalysis" />
     <Using Include="Microsoft.AspNetCore.Mvc" />
+    <Using Include="Umbraco.Cms.Core.Models" />
     <Using Include="Umbraco.Cms.Core.Models.PublishedContent" />
     <Using Include="Jalles.Core.Models.Content" />
     <Using Include="Jalles.Core.ViewModels" />
