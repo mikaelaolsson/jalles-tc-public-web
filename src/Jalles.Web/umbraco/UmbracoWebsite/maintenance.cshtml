@@ -1,0 +1,77 @@
+@using Jalles.Core.Constants
+@inject Shorthand.Vite.Contracts.IViteService Vite
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="sv-SE" xml:lang="sv-SE">
+<head>
+    <meta charset="UTF-8">
+    <title>Jalles TC - Underhåll</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            html, body {
+                background-color: #FAFAEC;
+            }
+
+            .maintenance-page {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+
+                padding: 2rem 1.25rem;
+
+                font-family: 'DM Sans', 'Trebuchet MS', sans-serif, verdana, tahoma;
+            }
+
+            .maintenance-page h1 {
+                margin: 0;
+            }
+
+            .maintenance-cta a {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                padding: 1rem;
+
+                background: #463F3A;
+                color: #FAFAEC;
+
+                border-radius: 1rem;
+                text-decoration: none;
+                transition: background 0.2s;
+            }
+
+            .maintenance-cta a:hover {
+                background: #8A817C;
+            }
+
+            .maintenance-cta img {
+                height: 1.5rem;
+            }
+
+            @@media only screen and (min-width: 1200px) {
+                .maintenance-page {
+                    padding: 3rem 5rem;
+                    text-align: center;
+                }
+            }
+        </style>
+</head>
+
+<body>
+    <main class="maintenance-page">
+        <h1>Webbplatsen är under underhåll</h1>
+        <p>Återkom om några minuter så bör vi vara på banan igen!</p>
+
+        <div class="maintenance-cta">
+            <a href="@JallesConstants.FacebookUrl"><img src="/static/images/facebook.svg" alt="Facebook">Här hittar du oss på Facebook!</a>
+        </div>
+    </main>
+</body>
+</html>

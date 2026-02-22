@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jalles TC - Opsie!</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <style>
+            html, body {
+                background-color: #FAFAEC;
+            }
+
+            .boot-failed-page {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+
+                padding: 2rem 1.25rem;
+
+                font-family: 'DM Sans', 'Trebuchet MS', sans-serif, verdana, tahoma;
+            }
+
+            .boot-failed-page h1 {
+                margin: 0;
+            }
+
+            .boot-failed-page p {
+                max-width: 60ch;
+            }
+
+            .boot-failed-cta a {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                padding: 1rem;
+
+                background: #463F3A;
+                color: #FAFAEC;
+
+                border-radius: 1rem;
+                text-decoration: none;
+                transition: background 0.2s;
+            }
+
+            .boot-failed-cta a:hover {
+                background: #8A817C;
+            }
+
+            .boot-failed-cta img {
+                height: 1.5rem;
+            }
+
+            @media only screen and (min-width: 1200px) {
+                .boot-failed-page {
+                    padding: 3rem 5rem;
+                    text-align: center;
+                }
+
+                .boot-failed-page p {
+                    margin: auto;
+                }
+            }
+        </style>
+</head>
+
+<body>
+    <main class="boot-failed-page">
+        <h1>Sidan fungerar inte som förväntat</h1>
+        <p>Vi är medvetna om felet och arbetar för att åtgärda det. Under tiden kan du försöka ladda om sidan eller vänta några minuter och försöka igen.</p>
+
+        <div class="boot-failed-cta">
+            <a href="https://www.facebook.com/JallesTC/"><img src="/static/images/facebook.svg" alt="Facebook">Här hittar du oss på Facebook!</a>
+        </div>
+    </main>
+</body>
+
+</html>
