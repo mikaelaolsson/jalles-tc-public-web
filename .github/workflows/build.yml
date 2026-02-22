@@ -28,7 +28,8 @@ env:
   WEB_PROJECT: './src/Jalles.Web/Jalles.Web.csproj'
   WWWROOT_DIRECTORY: './src/Jalles.Web/wwwroot/'
   FRONTEND_DIRECTORY: './src/Jalles.Frontend/'
-
+  BACKOFFICE_DIRECTORY: './src/Jalles.BackofficeExtensions/Client/'
+  BACKOFFICE_WWWROOT_DIRECTORY: './src/Jalles.BackofficeExtensions/wwwroot/'
 
 jobs:
   frontend-test:
@@ -60,6 +61,31 @@ jobs:
           yarn lint:js
           yarn lint:css
         working-directory: ${{ env.FRONTEND_DIRECTORY }}
+
+  backoffice-test:
+    name: 🧪 Backoffice QA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+
+      - name: Set node version
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          check-latest: true
+
+      - name: Restore node packages
+        run: npm ci
+        working-directory: ${{ env.BACKOFFICE_DIRECTORY }}
+
+      - name: Run backoffice linting
+        run: npm run lint
+        working-directory: ${{ env.BACKOFFICE_DIRECTORY }}
+
+      - name: Run backoffice tests
+        run: npm run test
+        working-directory: ${{ env.BACKOFFICE_DIRECTORY }}
 
   # net-test:
   #   name: "⚗️ .NET tests"
@@ -119,10 +145,39 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
 
+  backoffice-build:
+    name: 🎨 Backoffice Build
+    runs-on: ubuntu-latest
+    needs: backoffice-test
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+
+      - name: Set node version
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          check-latest: true
+
+      - name: Install node packages
+        run: npm ci
+        working-directory: ${{ env.BACKOFFICE_DIRECTORY }}
+
+      - name: Build backoffice
+        run: npm run build
+        working-directory: ${{ env.BACKOFFICE_DIRECTORY }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: backoffice-artifacts
+          path: ${{ env.BACKOFFICE_WWWROOT_DIRECTORY }}
+          include-hidden-files: true
+
   net-build:
     name: 🏡 .NET Build
     runs-on: ubuntu-latest
-    needs: [ frontend-build ]
+    needs: [ frontend-build, backoffice-build ]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v6
@@ -140,6 +195,12 @@ jobs:
         with:
           name: frontend-artifacts
           path: ${{ env.WWWROOT_DIRECTORY }}
+
+      - name: Download backoffice artifacts
+        uses: actions/download-artifact@v7.0.0
+        with:
+          name: backoffice-artifacts
+          path: ${{ env.BACKOFFICE_WWWROOT_DIRECTORY }}
 
       - name: dotnet publish
         run: dotnet publish -c Release --runtime linux-x64 --self-contained -o ./artifacts ./src/Jalles.Web/Jalles.Web.csproj
@@ -200,3 +261,4 @@ jobs:
           name: |
             dotnet-artifacts
             frontend-artifacts
+            backoffice-artifacts

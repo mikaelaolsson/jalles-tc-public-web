@@ -13,7 +13,11 @@
     <PackageVersion Include="RobotsTxtCore" Version="3.1.0-preview1" />
     <PackageVersion Include="Shorthand.Vite" Version="0.2.0" />
     <PackageVersion Include="Umbraco.Cms" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Api.Common" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Api.Management" Version="17.1.0" />
     <PackageVersion Include="Umbraco.Cms.Core" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Web.Common" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Web.Website" Version="17.1.0" />
     <PackageVersion Include="Umbraco.Community.Contentment" Version="6.1.1" />
     <PackageVersion Include="Umbraco.StorageProviders.AzureBlob" Version="17.0.0" />
     <PackageVersion Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" Version="17.0.0" />

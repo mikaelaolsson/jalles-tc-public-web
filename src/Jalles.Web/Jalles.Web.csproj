@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Jalles.Core\Jalles.Core.csproj" />
+    <ProjectReference Include="..\Jalles.BackofficeExtensions\Jalles.BackofficeExtensions.csproj" />
   </ItemGroup>
 
   <ItemGroup>

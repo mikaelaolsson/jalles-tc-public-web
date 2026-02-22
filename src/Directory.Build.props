@@ -8,10 +8,10 @@
   </ImportGroup>
 
   <ItemGroup>
-    <Using Include="Jalles.Core.Models.Content" />
-    <Using Include="Jalles.Core.ViewModels" />
-    <Using Include="Jalles.Core.ViewModels.Blocks" />
-    <Using Include="Jalles.Core.ViewModels.MediaTypes" />
+    <Using Include="Jalles.Core.Models.Content" Condition="'$(MSBuildProjectName)' != 'Jalles.BackofficeExtensions'" />
+    <Using Include="Jalles.Core.ViewModels" Condition="'$(MSBuildProjectName)' != 'Jalles.BackofficeExtensions'" />
+    <Using Include="Jalles.Core.ViewModels.Blocks" Condition="'$(MSBuildProjectName)' != 'Jalles.BackofficeExtensions'" />
+    <Using Include="Jalles.Core.ViewModels.MediaTypes" Condition="'$(MSBuildProjectName)' != 'Jalles.BackofficeExtensions'" />
     <Using Include="Microsoft.AspNetCore.Mvc" />
     <Using Include="Microsoft.Extensions.Logging.Abstractions" />
     <Using Include="System.Diagnostics.CodeAnalysis" />

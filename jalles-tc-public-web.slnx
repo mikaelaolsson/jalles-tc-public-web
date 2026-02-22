@@ -5,5 +5,6 @@
       <BuildDependency Project="src/Jalles.Core/Jalles.Core.csproj" />
     </Project>
     <Project Path="src/Jalles.Frontend/Jalles.Frontend.csproj" />
+    <Project Path="src/Jalles.BackofficeExtensions/Jalles.BackofficeExtensions.csproj" />
   </Folder>
 </Solution>
