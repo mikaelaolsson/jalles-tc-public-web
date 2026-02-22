@@ -370,3 +370,6 @@ FodyWeavers.xsd
 /Jalles.Frontend/Properties/launchSettings.json
 /db-snapshots
 .cr/personal
+
+/src/.DS_Store
+/.DS_Store

@@ -40,12 +40,14 @@ public class CategoryDataSource : IContentmentDataSource
 
     public IEnumerable<DataListItem> GetItems(Dictionary<string, object> config)
     {
-        var listingPage = ContentAccessor.GetChildrenOfType<StartPage, ListingPage>().FirstOrDefault();
+        var listingPages = ContentAccessor.GetChildrenOfType<StartPage, ListingPage>();
+        var guid = Guid.Parse("c764a2ff-a9b8-4491-b84c-d89e30fc17b1"); // Prod Aktuellt
+        var aktuellt = listingPages.FirstOrDefault(x => x.Key == guid);
 
-        if(listingPage == null)
+        if(aktuellt == null)
             return [];
 
-        var categories = listingPage.Categories;
+        var categories = aktuellt.Categories;
 
         return categories?.Select(category => new DataListItem
         {

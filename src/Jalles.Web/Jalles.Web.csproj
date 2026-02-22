@@ -16,13 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="RobotsTxtCore" />
     <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" />
     <PackageReference Include="MiniExcel" />
+    <PackageReference Include="RobotsTxtCore" />
     <PackageReference Include="Shorthand.Vite" />
     <PackageReference Include="Umbraco.Cms" />
     <PackageReference Include="Umbraco.Cms.Core" />
-    <PackageReference Include="Umbraco.Community.Contentment" />
     <PackageReference Include="Umbraco.StorageProviders.AzureBlob" />
     <PackageReference Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" />
     <PackageReference Include="uSync" />

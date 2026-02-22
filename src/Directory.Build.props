@@ -8,27 +8,23 @@
   </ImportGroup>
 
   <ItemGroup>
-    <Using Include="Microsoft.Extensions.Logging.Abstractions" />
-    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <Using Include="System.Diagnostics.CodeAnalysis" />
-    <Using Include="Microsoft.AspNetCore.Mvc" />
-    <Using Include="Umbraco.Cms.Core.Models" />
-    <Using Include="Umbraco.Cms.Core.Models.PublishedContent" />
     <Using Include="Jalles.Core.Models.Content" />
     <Using Include="Jalles.Core.ViewModels" />
     <Using Include="Jalles.Core.ViewModels.Blocks" />
     <Using Include="Jalles.Core.ViewModels.MediaTypes" />
+    <Using Include="Microsoft.AspNetCore.Mvc" />
+    <Using Include="Microsoft.Extensions.Logging.Abstractions" />
+    <Using Include="System.Diagnostics.CodeAnalysis" />
+    <Using Include="Umbraco.Cms.Core.Models" />
+    <Using Include="Umbraco.Cms.Core.Models.PublishedContent" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle">
+    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Umbraco.Community.Contentment" />
   </ItemGroup>
 
   <ItemGroup>
