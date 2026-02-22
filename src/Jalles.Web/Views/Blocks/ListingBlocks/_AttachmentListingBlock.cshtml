@@ -10,7 +10,7 @@
                     @foreach(var attachment in Model.Attachments)
                     {
                         <li>
-                            <a class="attachment" href="@attachment.File?.MediaUrl()" target="_blank">@attachment.Title</a>
+                            <a class="attachment" href="@attachment.FileSource" target="_blank">@attachment.Title</a>
                         </li>
                     }
                 </ul>

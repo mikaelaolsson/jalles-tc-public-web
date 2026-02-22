@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Jalles.Core.Contracts;
 using Jalles.Core.Extensions;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Jalles.Web.Views.Components.Footer;
 
@@ -8,18 +8,23 @@ public class FooterViewComponent : ViewComponent
 {
     private readonly ILogger<FooterViewComponent> _logger;
     private readonly IMapper _mapper;
+    private readonly IContentAccessor _contentAccessor;
 
-    public FooterViewComponent(ILogger<FooterViewComponent> logger, IMapper mapper)
+    public FooterViewComponent(
+        IMapper mapper,
+        IContentAccessor contentAccessor,
+        ILogger<FooterViewComponent> logger)
     {
         _logger = logger;
         _mapper = mapper;
+        _contentAccessor = contentAccessor;
     }
 
     public IViewComponentResult Invoke(IPublishedContent content)
     {
-        var startPage = content.Root<StartPage>();
+        var root = _contentAccessor.GetRoot();
 
-        if (startPage == null)
+        if(root is not StartPage startPage)
         {
             _logger.LogError("{StartPage} cannot be found.", nameof(StartPage));
             throw new NullReferenceException(nameof(StartPage));

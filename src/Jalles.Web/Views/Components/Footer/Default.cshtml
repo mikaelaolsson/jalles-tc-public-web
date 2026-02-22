@@ -13,14 +13,14 @@
                 </div>
             }
 
-            @if(Model.UmemaranLogo is not null)
+            @if(!string.IsNullOrWhiteSpace(Model.UmemaranLogoSource))
             {
                 <ul class="umemaran">
                     <li>
                         <h2>Stolt arrangör av</h2>
                     </li>
                     <li>
-                        <img src="@Model.UmemaranLogo.MediaUrl()" alt="Umemaran Logo" />
+                        <img src="@Model.UmemaranLogoSource" alt="Umemaran Logo" />
                     </li>
                 </ul>
             }

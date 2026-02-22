@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
-using Jalles.Core.Helpers;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels;
-using Umbraco.Extensions;
+using Jalles.Core.MappingProfiles.Resolvers;
 
 namespace Jalles.Core.MappingProfiles.Pages;
 
@@ -17,15 +14,14 @@ public class SecondaryListingPageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom<PagePathResolver<SecondaryListingPage, SecondaryListingPageViewModel>>())
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<SecondaryListingPage, SecondaryListingPageViewModel>>())
             .ForMember(d => d.DisplayedCategories, opt => opt
                 .MapFrom(s => s.DisplayedCategories.GetFilters()))
             .ForMember(d => d.PinThisBlock, opt => opt
                 .MapFrom(s => s.Block.GetElementByContentTypeAlias<PinThisBlock>("pinThisBlock")))
-            .ForMember(d => d.ContentPages, opt => opt
-                .MapFrom(s => s.Children.OfType<ContentPage>().Where(c => c.IsVisible()).OrderByDescending(c => c.CreateDate)))
+            .ForMember(d => d.ContentPages, opt => opt.Ignore())
             .ForMember(d => d.Page, opt => opt.Ignore())
             .ForMember(d => d.Pagination, opt => opt.Ignore())
             .ForMember(d => d.AllCategories, opt => opt.Ignore())

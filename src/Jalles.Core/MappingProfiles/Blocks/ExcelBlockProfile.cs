@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
-using Jalles.Core.Extensions;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels.Blocks;
-using Umbraco.Cms.Core.Models.Blocks;
+using Jalles.Core.MappingProfiles.Resolvers;
 
 namespace Jalles.Core.MappingProfiles.Blocks;
 
@@ -12,6 +9,8 @@ public class ExcelBlockProfile : Profile
     {
         CreateMap<ExcelBlock, ExcelBlockViewModel>()
             .ForMember(d => d.ExcelFile, opt => opt
-                .MapFrom(s => s.File));
+                .MapFrom(s => s.File))
+            .ForMember(d => d.ExcelFileSource, opt => opt
+                .MapFrom<SourceResolver>());
     }
 }

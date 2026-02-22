@@ -1,8 +1,9 @@
+using Jalles.Core.Constants;
 using RobotsTxt;
 
 namespace Jalles.Web.Extensions;
 
-public static class ServiceCollectionExtensions
+public static partial class ServiceCollectionExtensions
 {
     public static IServiceCollection AddRobotsTxt(this IServiceCollection services)
     {
@@ -16,8 +17,8 @@ public static class ServiceCollectionExtensions
     {
         return robotBuilder
             .ForEnvironment("Production")
-            .ForHostnames("jalles.se", "www.jalles.se")
-            .AddSitemap("https://www.jalles.se/sitemap")
+            .ForHostnames(JallesConstants.PublicDomainWithoutWww, JallesConstants.PublicDomain)
+            .AddSitemap($"https://{JallesConstants.PublicDomain}/sitemap")
             .AddSection(section =>
                 section
                     .AddUserAgent("*")

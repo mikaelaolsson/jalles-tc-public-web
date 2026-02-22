@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Jalles.Core.Contracts;
 using Jalles.Core.Extensions;
+using Jalles.Web.Contracts;
 using Umbraco.Cms.Core.Models.Blocks;
 
 namespace Jalles.Web.Services;

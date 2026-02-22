@@ -1,10 +1,10 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
-
-namespace Jalles.Core.Contracts;
+﻿namespace Jalles.Core.Contracts;
 
 public interface IContentAccessor
 {
-    IReadOnlyList<TChild> GetChildPages<TParent, TChild>() where TParent : IPublishedContent where TChild : IPublishedContent;
-    TParent? GetLandingPage<TParent>() where TParent : IPublishedContent;
+    TParent? GetParent<TParent>(IPublishedContent child) where TParent : class, IPublishedContent;
+    IEnumerable<IPublishedContent> GetAllChildren(IPublishedContent parent);
+    IReadOnlyList<TChild> GetChildrenOfType<TParent, TChild>() where TParent : IPublishedContent where TChild : IPublishedContent;
+    IReadOnlyList<TChild> GetChildrenOfTypeFromParent<TChild>(IPublishedContent parent) where TChild : IPublishedContent;
     IPublishedContent GetRoot();
 }

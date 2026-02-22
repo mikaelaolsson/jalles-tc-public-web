@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
-using Jalles.Core.Helpers;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels;
+using Jalles.Core.MappingProfiles.Resolvers;
 
 namespace Jalles.Core.MappingProfiles.Pages;
 
@@ -32,30 +30,30 @@ public class BasePageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<ContentPage, BasePageViewModel>>())
             .ForMember(d => d.Header, opt => opt
                 .MapFrom(s => s.Header.GetElement<HeaderBlock>()))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()));
+                .MapFrom<PagePathResolver<ContentPage, BasePageViewModel>>());
 
         CreateMap<ListingPage, BasePageViewModel>()
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<ListingPage, BasePageViewModel>>())
             .ForMember(d => d.Header, opt => opt
                 .MapFrom(s => s.Header.GetElement<HeaderBlock>()))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()));
+                .MapFrom<PagePathResolver<ListingPage, BasePageViewModel>>());
 
         CreateMap<SecondaryListingPage, BasePageViewModel>()
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<SecondaryListingPage, BasePageViewModel>>())
             .ForMember(d => d.Header, opt => opt
                 .MapFrom(s => s.Header.GetElement<HeaderBlock>()))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()));
+                .MapFrom<PagePathResolver<SecondaryListingPage, BasePageViewModel>>());
     }
 }

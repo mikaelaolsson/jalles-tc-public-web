@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels;
-using Jalles.Core.ViewModels.Blocks;
-using Umbraco.Cms.Core.Models.Blocks;
-using Umbraco.Cms.Core.Models.PublishedContent;
 
 namespace Jalles.Core.MappingProfiles.Blocks;
 
@@ -28,13 +23,13 @@ public class HighlightsResolver
     {
         var highlights = source.Highlights;
         if(highlights == null)
-            return Enumerable.Empty<ContentPageViewModel>();
+            return [];
 
         var viewModels = new List<ContentPageViewModel>();
 
-        foreach (var highlight in highlights)
+        foreach(var highlight in highlights)
         {
-            switch (highlight.ContentType.Alias)
+            switch(highlight.ContentType.Alias)
             {
                 case "contentPage":
                     viewModels.Add(context.Mapper.Map<ContentPageViewModel>(highlight as ContentPage));

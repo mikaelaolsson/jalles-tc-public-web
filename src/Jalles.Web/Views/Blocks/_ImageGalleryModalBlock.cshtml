@@ -10,10 +10,10 @@
         @{
             var index = 0;
         }
-        @foreach (var image in Model.ImageGallery)
+        @foreach (var image in Model.ImageGallerySources)
         {
             index++;
-            <img src="@image.Url()" id="@index" alt="" />
+            <img src="@image" id="@index" alt="" />
         }
     </div>
 </div>

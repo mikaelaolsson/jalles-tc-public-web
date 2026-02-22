@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels.MediaTypes;
+using Jalles.Core.MappingProfiles.Resolvers;
 
 namespace Jalles.Core.MappingProfiles.MediaTypes;
 
@@ -11,8 +10,8 @@ public class SponsorProfile : Profile
         CreateMap<Sponsor, SponsorViewModel>()
             .ForMember(d => d.Name, opt => opt
                 .MapFrom(s => s.SponsorName))
-            .ForMember(d => d.Logo, opt => opt
-                .MapFrom(s => s.SponsorLogo))
+            .ForMember(d => d.LogoSource, opt => opt
+                .MapFrom<SourceResolver>())
             .ForMember(d => d.Website, opt => opt
                 .MapFrom(s => s.SponsorWebsite));
     }

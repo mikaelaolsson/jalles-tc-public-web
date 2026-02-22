@@ -1,6 +1,5 @@
 ﻿using Jalles.Core.Contracts;
 using Jalles.Core.Utilities;
-using Jalles.Core.ViewModels;
 
 namespace Jalles.Core.Services;
 

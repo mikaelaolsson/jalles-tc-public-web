@@ -1,13 +1,11 @@
-﻿using Umbraco.Cms.Core.Models;
+﻿using Jalles.Core.Constants;
 using MediaType = Jalles.Core.Enum.MediaType;
 
 namespace Jalles.Core.ViewModels.Blocks;
 
 public class MediaBlockViewModel
 {
-    private const string _defaultFallbackMedia = "/static/images/jalles-media.jpg";
-
-    public string MediaSource { get; set; } = _defaultFallbackMedia;
+    public string MediaSource { get; set; } = JallesConstants.DefaultFallbackMedia;
     public MediaWithCrops? Media { get; set; }
     public string? BackgroundColor { get; set; }
     public bool AddBlurOverlay { get; set; }

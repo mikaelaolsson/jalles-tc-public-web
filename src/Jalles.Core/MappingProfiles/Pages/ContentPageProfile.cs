@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
-using Jalles.Core.Helpers;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels;
+using Jalles.Core.MappingProfiles.Resolvers;
 
 namespace Jalles.Core.MappingProfiles.Pages;
 
@@ -16,9 +14,9 @@ public class ContentPageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<ContentPage, ContentPageViewModel>>())
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom<PagePathResolver<ContentPage, ContentPageViewModel>>())
             .ForMember(d => d.LastEdited, opt => opt
                 .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.Published, opt => opt
@@ -32,9 +30,9 @@ public class ContentPageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<ListingPage, ContentPageViewModel>>())
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom<PagePathResolver<ListingPage, ContentPageViewModel>>())
             .ForMember(d => d.LastEdited, opt => opt
                 .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.Published, opt => opt
@@ -50,9 +48,9 @@ public class ContentPageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<SecondaryListingPage, ContentPageViewModel>>())
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom<PagePathResolver<SecondaryListingPage, ContentPageViewModel>>())
             .ForMember(d => d.LastEdited, opt => opt
                 .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.Published, opt => opt

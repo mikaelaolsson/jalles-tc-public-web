@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Umbraco.Cms.Core.Models.Trees;
+using Jalles.Core.Constants;
+using Jalles.Core.Contracts;
 
 namespace Jalles.Web.Views.Components.MainMenu;
 
@@ -8,36 +8,45 @@ public class MainMenuViewComponent : ViewComponent
 {
     private readonly ILogger<MainMenuViewComponent> _logger;
     private readonly IMapper _mapper;
+    private readonly IContentAccessor _contentAccessor;
+    private readonly IUmbracoPagePathService _umbracoPagePathService;
 
-    public MainMenuViewComponent(ILogger<MainMenuViewComponent> logger, IMapper mapper)
+    public MainMenuViewComponent(
+        IMapper mapper,
+        IContentAccessor contentAccessor,
+        IUmbracoPagePathService umbracoPagePathService,
+        ILogger<MainMenuViewComponent> logger)
     {
         _logger = logger;
         _mapper = mapper;
+        _contentAccessor = contentAccessor;
+        _umbracoPagePathService = umbracoPagePathService;
     }
 
     public IViewComponentResult Invoke(IPublishedContent content)
     {
-        var startPage = content.Root<StartPage>();
+        var root = _contentAccessor.GetRoot();
 
-        if (startPage == null)
+        if(root is not StartPage startPage)
         {
             _logger.LogError("{StartPage} cannot be found.", nameof(StartPage));
             throw new NullReferenceException(nameof(StartPage));
         }
 
-        if (startPage.MainMenu == null)
+        if(startPage.MainMenu == null)
         {
             _logger.LogWarning("{StartPage.MainMenu} could not be found.", nameof(StartPage.MainMenu));
         }
 
         var menuItems = _mapper.Map<IEnumerable<BasePageViewModel>>(startPage?.MainMenu);
+        var startPagePath = _umbracoPagePathService.GetPagePath(startPage);
 
         var model = new MainMenuViewModel
         {
-            StartPageTitle = startPage?.Title ?? string.Empty,
-            StartPageUrl = startPage?.Url() ?? string.Empty,
-            Facebook = startPage?.Facebook?.First().Url ?? string.Empty,
-            MenuItems = menuItems.ToList()
+            StartPageTitle = startPage?.Title ?? "Jalles TC",
+            StartPageUrl = startPagePath,
+            Facebook = startPage?.Facebook?.Url ?? JallesConstants.FacebookUrl,
+            MenuItems = [.. menuItems]
         };
 
         return View(model);

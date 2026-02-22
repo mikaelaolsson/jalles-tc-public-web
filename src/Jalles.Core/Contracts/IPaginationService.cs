@@ -1,6 +1,4 @@
-﻿using Jalles.Core.ViewModels;
-
-namespace Jalles.Core.Contracts;
+﻿namespace Jalles.Core.Contracts;
 
 public interface IPaginationService
 {

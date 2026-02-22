@@ -16,16 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Net.Http.Json" />
     <PackageReference Include="RobotsTxtCore" />
     <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" />
-    <PackageReference Include="Microsoft.TypeScript.MSBuild">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="MiniExcel" />
     <PackageReference Include="Shorthand.Vite" />
     <PackageReference Include="Umbraco.Cms" />
+    <PackageReference Include="Umbraco.Community.Contentment" />
     <PackageReference Include="Umbraco.StorageProviders.AzureBlob" />
     <PackageReference Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" />
     <PackageReference Include="uSync" />

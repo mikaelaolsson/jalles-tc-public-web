@@ -1,5 +1,4 @@
 ﻿using Jalles.Core.Contracts;
-using Jalles.Core.ViewModels;
 
 namespace Jalles.Core.Services;
 
@@ -9,9 +8,7 @@ public class FilterService : IFilterService
     {
         if(string.IsNullOrEmpty(category) || category == "Alla") return contentPages;
 
-        var filteredContentPages = contentPages
+        return contentPages
             .Where(p => p.Categories.Any(c => c == category));
-
-        return filteredContentPages;
     }
 }

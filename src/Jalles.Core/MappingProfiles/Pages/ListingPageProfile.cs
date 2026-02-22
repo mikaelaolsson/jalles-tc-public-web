@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
-using Jalles.Core.Helpers;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels;
-using Umbraco.Extensions;
+using Jalles.Core.MappingProfiles.Resolvers;
 
 namespace Jalles.Core.MappingProfiles.Pages;
 
@@ -17,16 +14,15 @@ public class ListingPageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom<PagePathResolver<ListingPage, ListingPageViewModel>>())
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<ListingPage, ListingPageViewModel>>())
             .ForMember(d => d.DisplayedCategories, opt => opt
                 .MapFrom(s => s.DisplayedCategories.GetFilters()))
             .ForMember(d => d.AllCategories, opt => opt
                 .MapFrom(s => s.Categories))
             .ForMember(d => d.ContentPages, opt => opt
-                .MapFrom(s =>
-                    s.Children.OfType<ContentPage>().Where(c => c.IsVisible()).OrderByDescending(c => c.CreateDate)))
+                .MapFrom<ContentPagesResolver<ListingPage, ListingPageViewModel, ContentPageViewModel>>())
             .ForMember(d => d.Page, opt => opt.Ignore())
             .ForMember(d => d.Pagination, opt => opt.Ignore())
             .ForMember(d => d.SelectedCategory, opt => opt.Ignore());

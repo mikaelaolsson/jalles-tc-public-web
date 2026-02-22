@@ -10,7 +10,7 @@
 
         @if(Model.ExcelFile != null)
         {
-            var mediaUrl = "https://" + Context.Request.Host + Model.ExcelFile.MediaUrl();
+            var mediaUrl = "https://" + Context.Request.Host + Model.ExcelFileSource;
 
             // ReSharper disable once RedundantNameQualifier
             using var httpClient = new System.Net.Http.HttpClient();

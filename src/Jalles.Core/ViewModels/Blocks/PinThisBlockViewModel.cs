@@ -2,5 +2,5 @@
 
 public class PinThisBlockViewModel
 {
-    public IEnumerable<ContentPageViewModel> Pins { get; set; } = Enumerable.Empty<ContentPageViewModel>();
+    public IEnumerable<ContentPageViewModel> Pins { get; set; } = [];
 }

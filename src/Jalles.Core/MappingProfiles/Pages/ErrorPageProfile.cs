@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
-using Jalles.Core.Helpers;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels;
+using Jalles.Core.MappingProfiles.Resolvers;
 
 namespace Jalles.Core.MappingProfiles.Pages;
 
@@ -16,9 +14,9 @@ public class ErrorPageProfile : Profile
             .ForMember(d => d.Guid, opt => opt
                 .MapFrom(s => s.Key))
             .ForMember(d => d.ParentPagePath, opt => opt
-                .MapFrom(s => s.GetParentPagePath()))
+                .MapFrom<ParentPagePathResolver<ErrorPage, ErrorPageViewModel>>())
             .ForMember(d => d.PagePath, opt => opt
-                .MapFrom(s => s.GetPagePath()))
+                .MapFrom<PagePathResolver<ErrorPage, ErrorPageViewModel>>())
             .ForMember(d => d.LastEdited, opt => opt
                 .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.Published, opt => opt

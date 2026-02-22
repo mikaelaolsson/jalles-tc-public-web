@@ -1,6 +1,4 @@
-﻿using Jalles.Core.ViewModels.Blocks;
-
-namespace Jalles.Core.ViewModels;
+﻿namespace Jalles.Core.ViewModels;
 
 public class BasePageViewModel
 {

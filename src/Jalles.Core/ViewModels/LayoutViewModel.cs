@@ -1,30 +1,24 @@
-﻿using Jalles.Core.Extensions;
-using Jalles.Core.Models.Content;
+using System.Globalization;
 using Microsoft.AspNetCore.Http;
-using Umbraco.Cms.Core.Models.Blocks;
-using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Extensions;
+using Jalles.Core.Contracts;
 
 namespace Jalles.Core.ViewModels;
 
 public class LayoutViewModel : ContentModel
 {
-    public LayoutViewModel(IPublishedContent content, HttpContext context) : base(content)
+    public LayoutViewModel(
+        IPublishedContent content,
+        HttpContext context,
+        ILayoutViewModelService layoutViewModelService)
+        : base(content)
     {
-        var titleProperty = content.Value<string>("title");
-        Title = !string.IsNullOrWhiteSpace(titleProperty) ? titleProperty : content.Name;
-        var metaDescriptionProperty = content.Value<string>("metaDescription", fallback: Fallback.ToAncestors);
-        MetaDescription = !string.IsNullOrWhiteSpace(metaDescriptionProperty) ? metaDescriptionProperty : string.Empty;
-        var host = "https://" + context.Request.Host;
-        Url = host + content.Url();
-        Thumbnail = (content?.Value<MediaWithCrops>("thumbnail")?.GetCropUrl("thumbnail") ?? host + "/images/jalles-logo-yellow.png");
+        var culture = CultureInfo.CurrentUICulture;
 
-        var headerProperty = content?.Value<BlockListItem<HeaderBlock>>("header")?.Content;
-        Header = new HeaderViewModel
-        {
-            MediaBlock = headerProperty.GetMediaForHeader(),
-            Content = content
-        };
+        Title = layoutViewModelService.GetTitle(content);
+        MetaDescription = layoutViewModelService.GetMetaDescription(content);
+        Url = layoutViewModelService.GetUrl(content, context);
+        Thumbnail = layoutViewModelService.GetThumbnail(content, context);
+        Header = layoutViewModelService.BuildHeader(content, culture);
     }
 
     public string Title { get; set; }
@@ -36,17 +30,17 @@ public class LayoutViewModel : ContentModel
 
 public class LayoutViewModel<T> : LayoutViewModel where T : class
 {
-    protected LayoutViewModel(T viewModel, IPublishedContent content, HttpContext context) : base(content, context)
+    protected LayoutViewModel(T viewModel, IPublishedContent content, HttpContext context, ILayoutViewModelService layoutViewModelService)
+        : base(content, context, layoutViewModelService)
     {
         ViewModel = viewModel;
     }
 
     public T ViewModel { get; set; }
 
-    public static Task<LayoutViewModel<T>> CreateAsync(T viewModel, IPublishedContent content, HttpContext context)
+    public static Task<LayoutViewModel<T>> CreateAsync(T viewModel, IPublishedContent content, HttpContext context, ILayoutViewModelService layoutViewModelService)
     {
-        var model = new LayoutViewModel<T>(viewModel, content, context);
-
+        var model = new LayoutViewModel<T>(viewModel, content, context, layoutViewModelService);
         return Task.FromResult(model);
     }
 }

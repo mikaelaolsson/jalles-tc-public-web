@@ -6,6 +6,6 @@ public class ContentBlockViewModel
     public string? Text { get; set; }
     public MediaBlockViewModel MediaBlock { get; set; } = new();
     public string MediaAlign { get; set; } = "Left";
-    public IEnumerable<CtaBlockViewModel> CtaBlocks { get; set; } = Enumerable.Empty<CtaBlockViewModel>();
+    public IEnumerable<CtaBlockViewModel> CtaBlocks { get; set; } = [];
     public string BackgroundColor { get; set; } = "#FAFAEC";
 }

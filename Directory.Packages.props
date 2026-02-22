@@ -1,29 +1,33 @@
 <Project>
-  <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
-  </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="AutoMapper" Version="14.0.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.10.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="4.10.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="4.10.0" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.SqlServer" Version="9.0.8" />
+    <GlobalPackageReference Include="Roslynator.Analyzers" Version="4.15.0" />
+    <GlobalPackageReference Include="Roslynator.Formatting.Analyzers" Version="4.15.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Include="AutoMapper" Version="[14.0.0,15.0.0)" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.SqlServer" Version="10.0.3" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageVersion Include="Microsoft.TypeScript.MSBuild" Version="5.9.2" />
-    <PackageVersion Include="MiniExcel" Version="1.41.3" />
-    <PackageVersion Include="Our.Umbraco.Community.Contentment" Version="4.7.0" />
-    <PackageVersion Include="Our.Umbraco.Community.Contentment.Core" Version="4.7.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="MiniExcel" Version="1.42.0" />
     <PackageVersion Include="RobotsTxtCore" Version="3.1.0-preview1" />
     <PackageVersion Include="Shorthand.Vite" Version="0.2.0" />
-    <PackageVersion Include="System.Net.Http.Json" Version="9.0.8" />
-    <PackageVersion Include="System.Text.Json" Version="9.0.8" />
-    <PackageVersion Include="Umbraco.Cms" Version="13.13.0" />
-    <PackageVersion Include="Umbraco.Cms.Core" Version="13.13.0" />
-    <PackageVersion Include="Umbraco.Cms.Web.BackOffice" Version="13.13.0" />
-    <PackageVersion Include="Umbraco.StorageProviders.AzureBlob" Version="13.1.0" />
-    <PackageVersion Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" Version="13.1.0" />
-    <PackageVersion Include="uSync" Version="13.3.1" />
+    <PackageVersion Include="System.Net.Http.Json" Version="10.0.3" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.3" />
+    <PackageVersion Include="Umbraco.Cms" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Api.Common" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Api.Management" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Core" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Examine.Lucene" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Web.Common" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms.Web.Website" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Community.Contentment" Version="6.1.1" />
+    <PackageVersion Include="Umbraco.StorageProviders.AzureBlob" Version="17.0.0" />
+    <PackageVersion Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" Version="17.0.0" />
+    <PackageVersion Include="uSync" Version="17.0.2" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
   </ItemGroup>
 </Project>

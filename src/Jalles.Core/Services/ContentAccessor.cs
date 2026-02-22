@@ -1,35 +1,92 @@
-﻿using Jalles.Core.Contracts;
-using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Core;
+﻿using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Services.Navigation;
+using Jalles.Core.Contracts;
 
 namespace Jalles.Core.Services;
 
 public class ContentAccessor : IContentAccessor
 {
     private readonly IPublishedContentQuery _publishedContentQuery;
+    private readonly IDocumentNavigationQueryService _documentNavigationQueryService;
 
-    public ContentAccessor(IPublishedContentQuery publishedContentQuery)
+    public ContentAccessor(
+        IPublishedContentQuery publishedContentQuery,
+        IDocumentNavigationQueryService documentNavigationQueryService)
     {
         _publishedContentQuery = publishedContentQuery;
-
+        _documentNavigationQueryService = documentNavigationQueryService;
     }
 
-    public IReadOnlyList<TChild> GetChildPages<TParent, TChild>() where TParent : IPublishedContent where TChild : IPublishedContent
+    public TParent? GetParent<TParent>(IPublishedContent child)
+        where TParent : class, IPublishedContent
     {
-        var parent = GetLandingPage<TParent>();
+        _documentNavigationQueryService.TryGetParentKey(child.Key, out var parentKey);
 
-        return parent?.Children.OfType<TChild>().ToList() ?? new List<TChild>();
+        if(parentKey == null)
+            return null;
+
+        return _publishedContentQuery.Content(parentKey) as TParent;
     }
 
-    public TParent? GetLandingPage<TParent>() where TParent : IPublishedContent
+    public IEnumerable<IPublishedContent> GetAllChildren(IPublishedContent parent)
     {
-        var root = GetRoot();
+        return !_documentNavigationQueryService.TryGetChildrenKeys(parent.Key, out var childKeys)
+            ? []
+            : _publishedContentQuery
+                .Content(childKeys);
+    }
 
-        return root.Children.OfType<TParent>().FirstOrDefault();
+    public IReadOnlyList<TChild> GetChildrenOfType<TParent, TChild>()
+        where TParent : IPublishedContent
+        where TChild : IPublishedContent
+    {
+        var parent = typeof(TParent) == typeof(StartPage)
+            ? GetRoot()
+            : GetFirstChildOfTypeFromRoot<TParent>();
+
+        if(parent == null)
+            return [];
+
+        if(!_documentNavigationQueryService.TryGetChildrenKeys(parent.Key, out var childKeys))
+            return [];
+
+        return _publishedContentQuery
+            .Content(childKeys)
+            .OfType<TChild>()
+            .ToList();
+    }
+
+    public IReadOnlyList<TChild> GetChildrenOfTypeFromParent<TChild>(IPublishedContent parent)
+        where TChild : IPublishedContent
+    {
+        if(!_documentNavigationQueryService.TryGetChildrenKeys(parent.Key, out var childKeys))
+            return [];
+
+        return _publishedContentQuery
+            .Content(childKeys)
+            .OfType<TChild>()
+            .ToList();
     }
 
     public IPublishedContent GetRoot()
     {
-        return _publishedContentQuery.ContentAtRoot().FirstOrDefault() ?? throw new InvalidOperationException("Could not find root node.");
+        return _publishedContentQuery
+            .ContentAtRoot()
+            .FirstOrDefault() ??
+                throw new InvalidOperationException("Could not find root node.");
+    }
+
+    internal T? GetFirstChildOfTypeFromRoot<T>() where T : IPublishedContent
+    {
+        var root = GetRoot();
+
+        _documentNavigationQueryService.TryGetChildrenKeys(root.Key, out var childKeys);
+
+        var poop = _publishedContentQuery
+            .Content(childKeys)
+            .OfType<T>();
+
+        return poop
+            .FirstOrDefault();
     }
 }

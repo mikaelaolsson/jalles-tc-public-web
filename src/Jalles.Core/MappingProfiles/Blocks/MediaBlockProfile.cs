@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Jalles.Core.Extensions;
-using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels.Blocks;
+using Jalles.Core.MappingProfiles.Resolvers;
 using MediaType = Jalles.Core.Enum.MediaType;
 
 namespace Jalles.Core.MappingProfiles.Blocks;
@@ -22,7 +21,7 @@ public class MediaBlockProfile : Profile
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom<MediaSourceResolver<MediaBlock>>());
 
         CreateMap<IMediaProperties, MediaBlockViewModel>()
             .ForMember(d => d.IsEmbeddedVideo, opt => opt
@@ -36,7 +35,7 @@ public class MediaBlockProfile : Profile
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom<MediaSourceResolver<IMediaProperties>>());
 
         CreateMap<SimpleMediaBlock, MediaBlockViewModel>()
             .ForMember(d => d.IsEmbeddedVideo, opt => opt
@@ -49,7 +48,7 @@ public class MediaBlockProfile : Profile
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom<MediaSourceResolver<SimpleMediaBlock>>());
 
         CreateMap<ISimpleMediaProperties, MediaBlockViewModel>()
             .ForMember(d => d.IsEmbeddedVideo, opt => opt
@@ -62,7 +61,7 @@ public class MediaBlockProfile : Profile
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom<MediaSourceResolver<ISimpleMediaProperties>>());
 
         CreateMap<HeaderBlock, MediaBlockViewModel>()
             .ForMember(d => d.IsEmbeddedVideo, opt => opt
@@ -74,7 +73,7 @@ public class MediaBlockProfile : Profile
             .ForMember(d => d.MediaType, opt => opt
                 .MapFrom(s => s.GetMediaType()))
             .ForMember(d => d.MediaSource, opt => opt
-                .MapFrom(s => s.GetMediaSource(s.GetMediaType())));
+                .MapFrom<MediaSourceResolver<HeaderBlock>>());
 
         CreateMap<IVideoBlockProperties, MediaBlockViewModel>()
             .ForMember(d => d.Media, opt => opt

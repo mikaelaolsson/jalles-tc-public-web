@@ -4,4 +4,5 @@ public class ExcelBlockViewModel
 {
     public string Heading { get; set; } = string.Empty;
     public MediaWithCrops? ExcelFile { get; set; }
+    public string ExcelFileSource { get; set; } = string.Empty;
 }

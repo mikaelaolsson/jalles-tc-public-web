@@ -12,28 +12,28 @@
         }
         <div class="image-gallery" id="@Model.Id">
 
-            @if (Model.ImageGallery.Count() >= 3)
+            @if (Model.ImageGallerySources.Count() >= 3)
             {
-                var imageList = Model.ImageGallery.ToList();
+                var imageList = Model.ImageGallerySources.ToList();
                 var overlay = imageList.Count() > 3 ? "overlay" : string.Empty;
 
-                <img name="1" src="@imageList[0].Url()" alt="" />
+                <img name="1" src="@imageList[0]" alt="" />
 
                 <div class="sub-container">
                     <span class="img-container">
-                        <img name="2" src="@imageList[1].Url()" alt="" />
+                        <img name="2" src="@imageList[1]" alt="" />
                     </span>
 
                     <span class="img-container @overlay">
-                        <img name="3" src="@imageList[2].Url()" alt="" />
+                        <img name="3" src="@imageList[2]" alt="" />
                     </span>
                 </div>
             }
             else
             {
-                @foreach (var image in Model.ImageGallery)
+                @foreach (var image in Model.ImageGallerySources)
                 {
-                    <img src="@image.Url()" alt="" />
+                    <img src="@image" alt="" />
 
                 }
             }

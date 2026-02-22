@@ -3,6 +3,6 @@
 public class SponsorViewModel
 {
     public string Name { get; set; } = string.Empty;
-    public MediaWithCrops? Logo { get; set; }
+    public string LogoSource { get; set; } = string.Empty;
     public Link? Website { get; set; }
 }

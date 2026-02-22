@@ -1,40 +1,15 @@
-﻿using Jalles.Core.Models.Content;
-using Jalles.Core.ViewModels.Blocks;
-using System.Text.RegularExpressions;
-using Umbraco.Extensions;
+﻿using System.Text.RegularExpressions;
+using static Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter;
 using MediaType = Jalles.Core.Enum.MediaType;
 
 namespace Jalles.Core.Extensions;
 
-public static class MediaBlockExtensions
+public static partial class MediaBlockExtensions
 {
-    private static readonly Regex _vimeoRegex = new(@"(?:vimeo\.com/(?:.*#|.*videos?/|.*channels/.*/)?(?<VideoId>[0-9]+))|(?:vimeo\.com/showcase/(?<ShowcaseId>[0-9]+))",
-        RegexOptions.CultureInvariant | RegexOptions.Compiled);
-
-    private static readonly Regex _youTubeRegex = new("youtu(?:\\.be|be\\.com)/(?:.*v(?:/|=)|(?:.*/)?)(?<VideoId>[a-zA-Z0-9-_]+)", RegexOptions.CultureInvariant | RegexOptions.Compiled);
-
-    private const string _defaultFallbackMedia = "/static/images/jalles-media.jpg";
-
-    public static MediaBlockViewModel GetMediaForHeader(this HeaderBlock? headerBlock)
-    {
-        if (headerBlock == null) return new MediaBlockViewModel();
-
-        var mediaType = headerBlock.GetMediaType();
-        return new MediaBlockViewModel
-        {
-            Media = headerBlock.Media,
-            BackgroundColor = headerBlock.BackgroundColor.GetMediaBackgroundColor(),
-            AddBlurOverlay = headerBlock.AddBlurOverlay,
-            MediaType = mediaType,
-            MediaSource = headerBlock.GetMediaSource(mediaType),
-            IsLazy = false
-        };
-    }
-
     public static MediaType GetMediaType(this IMediaProperties? mediaProperties)
     {
         var mediaType = MediaType.Image;
-        if (mediaProperties?.Media != null)
+        if(mediaProperties?.Media != null)
         {
             return mediaProperties.Media.ContentType.Alias switch
             {
@@ -44,13 +19,13 @@ public static class MediaBlockExtensions
             };
         }
 
-        return !string.IsNullOrEmpty(mediaProperties?.BackgroundColor) ? MediaType.BackgroundColor : mediaType;
+        return !string.IsNullOrEmpty(mediaProperties?.BackgroundColor?.Color) ? MediaType.BackgroundColor : mediaType;
     }
 
     public static MediaType GetMediaType(this ISimpleMediaProperties? mediaProperties)
     {
         var mediaType = MediaType.Image;
-        if (mediaProperties?.Media != null)
+        if(mediaProperties?.Media != null)
         {
             mediaType = mediaProperties.Media.ContentType.Alias switch
             {
@@ -70,7 +45,7 @@ public static class MediaBlockExtensions
 
         var videoUrl = videoProperties.VideoUrl;
 
-        var vimeoMatch = _vimeoRegex.Match(videoUrl);
+        var vimeoMatch = VimeoRegex().Match(videoUrl);
         if(vimeoMatch.Success)
         {
             var vimeoVideoId = vimeoMatch.Groups["VideoId"].Value;
@@ -82,7 +57,7 @@ public static class MediaBlockExtensions
                 return $"https://vimeo.com/showcase/{vimeoShowcaseId}/embed";
         }
 
-        var youTubeMatch = _youTubeRegex.Match(videoUrl);
+        var youTubeMatch = YouTubeRegex().Match(videoUrl);
         if(!youTubeMatch.Success)
             return string.Empty;
 
@@ -90,47 +65,31 @@ public static class MediaBlockExtensions
         return $"https://www.youtube.com/embed/{youTubeVideoId}";
     }
 
-    public static string GetMediaSource(this IMediaProperties mediaProperties, MediaType mediaType)
+    public static string GetMediaBackgroundColor(this PickedColor? backgroundColor)
     {
-        var mediaSource = mediaType switch
-        {
-            MediaType.Video or MediaType.Image => mediaProperties.Media?.MediaUrl(),
-            MediaType.BackgroundColor => mediaProperties.BackgroundColor.GetMediaBackgroundColor(),
-            _ => ""
-        };
-
-        return mediaSource ?? _defaultFallbackMedia;
-    }
-
-    public static string GetMediaSource(this ISimpleMediaProperties mediaProperties, MediaType mediaType)
-    {
-        var mediaSource = mediaType switch
-        {
-            MediaType.Video or MediaType.Image => mediaProperties.Media?.MediaUrl(),
-            _ => ""
-        };
-
-        return mediaSource ?? _defaultFallbackMedia;
-    }
-
-    public static string GetMediaBackgroundColor(this string? backgroundColor)
-    {
-        if (string.IsNullOrEmpty(backgroundColor) || !ColorFormatIsValid($"#{backgroundColor}"))
+        if(string.IsNullOrEmpty(backgroundColor?.Color))
         {
             return string.Empty;
         }
 
-        return $"#{backgroundColor}";
+        var color = backgroundColor.Color;
+
+        if(!color.StartsWith("#"))
+        {
+            color = $"#{color}";
+        }
+
+        if(!ColorFormatIsValid(color))
+        {
+            return string.Empty;
+        }
+
+        return color;
     }
 
-    private static bool ColorFormatIsValid(string inputColor)
+    public static string GetBackgroundColorName(this PickedColor? backgroundColor)
     {
-        return Regex.Match(inputColor, "^#(?:[0-9a-fA-F]{3}){1,2}$").Success;
-    }
-
-    public static string GetBackgroundColorName(this string? backgroundColor)
-    {
-        return backgroundColor?.ToUpper() switch
+        return backgroundColor?.Color?.ToUpper() switch
         {
             "FFEB19" => "color-jalles-yellow",
             "FAFAEC" => "color-off-white",
@@ -141,4 +100,18 @@ public static class MediaBlockExtensions
             _ => "color-off-white"
         };
     }
+
+    private static bool ColorFormatIsValid(string inputColor)
+    {
+        return HexColorCodeRegex().IsMatch(inputColor);
+    }
+
+    [GeneratedRegex("(?:vimeo\\.com/(?:.*#|.*videos?/|.*channels/.*/)?(?<VideoId>[0-9]+))|(?:vimeo\\.com/showcase/(?<ShowcaseId>[0-9]+))", RegexOptions.CultureInvariant | RegexOptions.Compiled)]
+    private static partial Regex VimeoRegex();
+
+    [GeneratedRegex("youtu(?:\\.be|be\\.com)/(?:.*v(?:/|=)|(?:.*/)?)(?<VideoId>[a-zA-Z0-9-_]+)", RegexOptions.CultureInvariant | RegexOptions.Compiled)]
+    private static partial Regex YouTubeRegex();
+
+    [GeneratedRegex("^#(?:[0-9a-fA-F]{3}){1,2}$")]
+    private static partial Regex HexColorCodeRegex();
 }

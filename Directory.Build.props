@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <Version>1.0.0</Version>
@@ -10,8 +10,7 @@
     <DeterministicSourcePaths Condition="'$(TF_BUILD)' == 'True' Or '$(CI)' == 'true'">true</DeterministicSourcePaths>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!-- TODO: Remove NU1902 from NoWarn as soon as Umbraco is upgraded past 13.13.0 -->
-    <NoWarn>$(NoWarn);CS1591;CS1573;NU1902</NoWarn>
+    <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
     <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>

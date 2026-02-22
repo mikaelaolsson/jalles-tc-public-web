@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
 using Jalles.Core.Contracts;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.Extensions.Primitives;
-using System.Collections.Specialized;
-using System.Web;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Web.Common.Controllers;
 
 namespace Jalles.Web.Controllers;
+
 public class ListingPageController : RenderControllerBase
 {
     private readonly IPublishedValueFallback _publishedValueFallback;
@@ -15,13 +13,16 @@ public class ListingPageController : RenderControllerBase
     private readonly IPaginationService _paginationService;
     private readonly IFilterService _filterService;
 
-    public ListingPageController(ICompositeViewEngine compositeViewEngine,
+    public ListingPageController(
+        ICompositeViewEngine compositeViewEngine,
         IUmbracoContextAccessor umbracoContextAccessor,
         IPublishedValueFallback publishedValueFallback,
         IMapper mapper,
         IPaginationService paginationService,
         IFilterService filterService,
-        ILogger<RenderController> logger) : base(compositeViewEngine, umbracoContextAccessor, logger)
+        ILogger<RenderController> logger,
+        ILayoutViewModelService layoutViewModelService)
+        : base(compositeViewEngine, umbracoContextAccessor, logger, layoutViewModelService)
     {
         _publishedValueFallback = publishedValueFallback;
         _mapper = mapper;
@@ -36,7 +37,7 @@ public class ListingPageController : RenderControllerBase
         var viewModel = _mapper.Map<ListingPageViewModel>(listingPage);
         viewModel.ContentPages = viewModel.ContentPages.OrderByDescending(c => c.DateBlock?.PublishedDate ?? c.Published);
 
-        if (categories.Any(c => !string.IsNullOrWhiteSpace(c)))
+        if(categories.Any(c => !string.IsNullOrWhiteSpace(c)))
         {
             var category = categories.Find(c => !string.IsNullOrWhiteSpace(c));
 
@@ -46,7 +47,7 @@ public class ListingPageController : RenderControllerBase
 
         viewModel = _paginationService.GetPaginatedViewModel(viewModel, page <= 0 ? 1 : page);
 
-        var model = await LayoutViewModel<ListingPageViewModel>.CreateAsync(viewModel, CurrentPage!, HttpContext);
+        var model = await LayoutViewModel<ListingPageViewModel>.CreateAsync(viewModel, CurrentPage!, HttpContext, LayoutViewModelService);
 
         return View(model);
     }

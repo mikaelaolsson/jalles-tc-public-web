@@ -1,9 +1,7 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
-
-namespace Jalles.Core.ViewModels.MediaTypes;
+﻿namespace Jalles.Core.ViewModels.MediaTypes;
 
 public class AttachmentViewModel
 {
     public string Title { get; set; } = string.Empty;
-    public IPublishedContent? File { get; set; }
+    public string FileSource { get; set; } = string.Empty;
 }

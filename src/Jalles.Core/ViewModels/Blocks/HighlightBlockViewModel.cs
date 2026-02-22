@@ -3,6 +3,6 @@
 public class HighlightBlockViewModel
 {
     public string Heading { get; set; } = string.Empty;
-    public IEnumerable<ContentPageViewModel> Highlights { get; set; } = Enumerable.Empty<ContentPageViewModel>();
+    public IEnumerable<ContentPageViewModel> Highlights { get; set; } = [];
     public string BackgroundColor { get; set; } = "color-off-white";
 }

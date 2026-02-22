@@ -1,6 +1,4 @@
-﻿using Umbraco.Cms.Core.Models.PublishedContent;
-
-namespace Jalles.Core.ViewModels;
+﻿namespace Jalles.Core.ViewModels;
 
 public class MainMenuViewModel
 {
