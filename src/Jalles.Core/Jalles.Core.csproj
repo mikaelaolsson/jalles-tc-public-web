@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" />
-    <!-- <PackageReference Include="Umbraco.Cms.Core" /> -->
+    <PackageReference Include="Umbraco.Cms.Core" />
     <PackageReference Include="Umbraco.Cms.Api.Management" />
     <PackageReference Include="Umbraco.Cms.Examine.Lucene" />
     <PackageReference Include="Umbraco.Cms.Web.Common" />
