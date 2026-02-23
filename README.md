@@ -2,7 +2,7 @@
 
 Välkommen till **Jalles TC Public Web** – en enkel, rak och rolig webbplats för Jalles TC! ⛷️🏃‍♂️❄️
 
-> **Jalles TC är en klubb för längdskidor och löpning – inte tennis!**
+> **Jalles TC Umeå är idrottsförening grundad 1973. Inriktningen är löpning och skidor. Arrangör av Umemaran & Gammliaterrängen**
 
 ---
 
