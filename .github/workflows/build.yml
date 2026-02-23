@@ -106,14 +106,6 @@ jobs:
       - name: Run .NET tests
         run: dotnet test --configuration Release
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v6
-        with:
-          name: net-test-results
-          path: |
-            ./**/*.trx
-            ./**/coverage.cobertura.xml
-
   frontend-build:
     name: 🎨 Frontend build
     runs-on: ubuntu-latest
@@ -260,6 +252,5 @@ jobs:
         with:
           name: |
             dotnet-artifacts
-            net-test-results
             frontend-artifacts
             backoffice-artifacts

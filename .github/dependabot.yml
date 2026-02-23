@@ -11,8 +11,77 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 5
+    groups:
+      roslynator:
+        patterns:
+          - "Roslynator*"
+      ms-codeanalysis:
+        patterns:
+          - "Microsoft.CodeAnalysis*"
+      umbraco:
+        patterns:
+          - "Umbraco*"
+      xunit:
+        patterns:
+          - "xunit*"
+      fakeiteasy:
+        patterns:
+          - "FakeItEasy*"
+
+  - package-ecosystem: "npm"
+    directory: "/src/Jalles.Frontend/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    groups:
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+      vite:
+        patterns:
+          - "vite"
+          - "vite-*"
+      babel:
+        patterns:
+          - "@babel/*"
+      postcss:
+        patterns:
+          - "postcss"
+          - "postcss-*"
+          - "autoprefixer"
+          - "cssnano"
+          - "sass"
+      stylelint:
+        patterns:
+          - "stylelint"
+          - "stylelint-*"
+
+  - package-ecosystem: "npm"
+    directory: "/src/Jalles.BackofficeExtensions/Client/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    groups:
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+      tiptap:
+        patterns:
+          - "@tiptap/*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
+
+  - package-ecosystem: "dotnet-sdk"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "wednesday"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
