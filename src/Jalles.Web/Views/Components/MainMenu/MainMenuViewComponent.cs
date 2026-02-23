@@ -23,7 +23,7 @@ public class MainMenuViewComponent : ViewComponent
         _umbracoPagePathService = umbracoPagePathService;
     }
 
-    public IViewComponentResult Invoke(IPublishedContent content)
+    public IViewComponentResult Invoke()
     {
         var root = _contentAccessor.GetRoot();
 

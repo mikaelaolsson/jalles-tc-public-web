@@ -98,6 +98,6 @@ public class UmbracoPagePathService : IUmbracoPagePathService
             .Select(c => c!.UrlSegment)
             .ToList();
 
-        return segments.Count > 0 ? "/" + string.Join("/", segments) : "/";
+        return segments.Count > 0 ? $"/{string.Join("/", segments)}/" : "/";
     }
 }

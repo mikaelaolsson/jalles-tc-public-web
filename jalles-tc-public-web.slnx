@@ -1,10 +1,18 @@
 <Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
   <Folder Name="/src/">
-    <Project Path="src/Jalles.Core/Jalles.Core.csproj" />
-    <Project Path="src/Jalles.Web/Jalles.Web.csproj">
-      <BuildDependency Project="src/Jalles.Core/Jalles.Core.csproj" />
-    </Project>
-    <Project Path="src/Jalles.Frontend/Jalles.Frontend.csproj" />
     <Project Path="src/Jalles.BackofficeExtensions/Jalles.BackofficeExtensions.csproj" />
+    <Project Path="src/Jalles.Core/Jalles.Core.csproj" />
+    <Project Path="src/Jalles.Frontend/Jalles.Frontend.csproj" />
+    <Project Path="src/Jalles.Web/Jalles.Web.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Jalles.Core.Tests/Jalles.Core.Tests.csproj" />
+    <Project Path="test/Jalles.TestHelpers/Jalles.TestHelpers.csproj" />
+    <Project Path="test/Jalles.Web.Tests/Jalles.Web.Tests.csproj" />
   </Folder>
 </Solution>

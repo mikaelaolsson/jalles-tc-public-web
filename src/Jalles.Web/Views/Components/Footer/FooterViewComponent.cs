@@ -20,7 +20,7 @@ public class FooterViewComponent : ViewComponent
         _contentAccessor = contentAccessor;
     }
 
-    public IViewComponentResult Invoke(IPublishedContent content)
+    public IViewComponentResult Invoke()
     {
         var root = _contentAccessor.GetRoot();
 

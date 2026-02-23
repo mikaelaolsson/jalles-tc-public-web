@@ -32,10 +32,12 @@
 
     @RenderBody()
 
-    <vc:footer content="@Model.Content"></vc:footer>
+    @* TODO v17: kolla att footer funkar utan params *@
+    <vc:footer></vc:footer>
 
 
     <script type="module" src="@await Vite.GetAssetUrlAsync("scripts/index.mjs")"></script>
+    @* TODO v17: ta bort denna??? *@
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>

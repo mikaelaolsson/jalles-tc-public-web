@@ -373,3 +373,6 @@ FodyWeavers.xsd
 
 /src/.DS_Store
 /.DS_Store
+
+/test/Jalles.Web.Tests/appsettings-schema*
+/test/Jalles.Core.Tests/appsettings-schema*

@@ -1,6 +1,7 @@
 <Project>
   <PropertyGroup>
     <ParentDirectoryBuildPropsPath>$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))</ParentDirectoryBuildPropsPath>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ImportGroup>
@@ -29,6 +30,13 @@
 
   <ItemGroup>
     <AdditionalFiles Include="..\BannedSymbols.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(ProjectName).Tests" />
+    <InternalsVisibleTo Include="Jalles.TestHelpers" />
+    <!-- Needed for FakeItEasy to work with InternalsVisibleTo -->
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
   </ItemGroup>
 
 </Project>
