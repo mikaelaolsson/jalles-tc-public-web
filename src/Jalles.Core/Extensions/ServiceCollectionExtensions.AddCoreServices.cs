@@ -14,6 +14,8 @@ public static partial class ServiceCollectionExtensions
         services.AddScoped<IPaginationService, PaginationService>();
         services.AddScoped<ISitemapService, SitemapService>();
         services.AddScoped<IUmbracoPagePathService, UmbracoPagePathService>();
+        services.AddScoped<IExcelService, ExcelService>();
+        services.AddHttpClient<IExcelService, ExcelService>();
 
         return services;
     }

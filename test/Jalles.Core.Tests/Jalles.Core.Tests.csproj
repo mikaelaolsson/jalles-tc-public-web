@@ -4,4 +4,8 @@
     <ProjectReference Include="../../src/Jalles.Core/Jalles.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\adelskalender.xlsx" />
+  </ItemGroup>
+
 </Project>

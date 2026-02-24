@@ -8,6 +8,7 @@ public static partial class ServiceCollectionExtensions
     public static IServiceCollection AddUmbracoServices(this IServiceCollection services)
     {
         services.AddScoped<IMixedListingBlockService, MixedListingBlockService>();
+        services.AddScoped<ExcelBlockDataLoader>();
 
         return services;
     }

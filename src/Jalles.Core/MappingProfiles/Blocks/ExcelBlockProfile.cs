@@ -11,6 +11,10 @@ public class ExcelBlockProfile : Profile
             .ForMember(d => d.ExcelFile, opt => opt
                 .MapFrom(s => s.File))
             .ForMember(d => d.ExcelFileSource, opt => opt
-                .MapFrom<SourceResolver>());
+                .MapFrom<SourceResolver>())
+            .ForMember(d => d.Rows, opt => opt
+                .Ignore())
+            .ForMember(d => d.LoadFailed, opt => opt
+                .Ignore());
     }
 }
