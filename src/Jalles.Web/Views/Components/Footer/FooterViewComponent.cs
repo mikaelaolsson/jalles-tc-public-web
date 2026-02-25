@@ -27,7 +27,7 @@ public class FooterViewComponent : ViewComponent
         if(root is not StartPage startPage)
         {
             _logger.LogError("{StartPage} cannot be found.", nameof(StartPage));
-            throw new NullReferenceException(nameof(StartPage));
+            throw new InvalidOperationException(nameof(StartPage));
         }
 
         var footer = _mapper.Map<FooterViewModel>(startPage.Footer.GetElement<FooterBlock>());

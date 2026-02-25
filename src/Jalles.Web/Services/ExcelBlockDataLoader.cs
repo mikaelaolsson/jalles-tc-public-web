@@ -21,7 +21,14 @@ public class ExcelBlockDataLoader
         }
 
         var httpContext = _httpContextAccessor.HttpContext;
-        var fullUrl = $"https://{httpContext?.Request.Host}{viewModel.ExcelFileSource}";
+        if(httpContext == null)
+        {
+            viewModel.LoadFailed = true;
+            viewModel.Rows = [];
+            return;
+        }
+
+        var fullUrl = $"https://{httpContext.Request.Host}{viewModel.ExcelFileSource}";
 
         var rows = await _excelService.GetExcelRowsAsync(fullUrl);
         if(rows == null)

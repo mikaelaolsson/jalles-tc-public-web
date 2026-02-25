@@ -30,7 +30,7 @@ public class MainMenuViewComponent : ViewComponent
         if(root is not StartPage startPage)
         {
             _logger.LogError("{StartPage} cannot be found.", nameof(StartPage));
-            throw new NullReferenceException(nameof(StartPage));
+            throw new InvalidOperationException(nameof(StartPage));
         }
 
         if(startPage.MainMenu == null)
