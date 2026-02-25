@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Jalles.Core.Extensions;
 using Jalles.Core.MappingProfiles.Resolvers;
 
@@ -21,10 +21,6 @@ public class SecondaryListingPageProfile : Profile
                 .MapFrom(s => s.DisplayedCategories.GetFilters()))
             .ForMember(d => d.PinThisBlock, opt => opt
                 .MapFrom(s => s.Block.GetElementByContentTypeAlias<PinThisBlock>("pinThisBlock")))
-            .ForMember(d => d.ContentPages, opt => opt.Ignore())
-            .ForMember(d => d.Page, opt => opt.Ignore())
-            .ForMember(d => d.Pagination, opt => opt.Ignore())
-            .ForMember(d => d.AllCategories, opt => opt.Ignore())
-            .ForMember(d => d.SelectedCategory, opt => opt.Ignore());
+            .ForMember(d => d.ContentPages, opt => opt.Ignore());
     }
 }

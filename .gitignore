@@ -376,3 +376,11 @@ FodyWeavers.xsd
 
 /test/Jalles.Web.Tests/appsettings-schema*
 /test/Jalles.Core.Tests/appsettings-schema*
+
+# Claude Code
+.claude/
+.claude/launch.json
+
+# Vite build output
+src/Jalles.Web/wwwroot/assets/
+src/Jalles.Web/wwwroot/.vite/

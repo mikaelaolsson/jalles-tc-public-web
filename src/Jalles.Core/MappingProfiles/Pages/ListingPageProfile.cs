@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Jalles.Core.Extensions;
 using Jalles.Core.MappingProfiles.Resolvers;
 
@@ -19,12 +19,7 @@ public class ListingPageProfile : Profile
                 .MapFrom<ParentPagePathResolver<ListingPage, ListingPageViewModel>>())
             .ForMember(d => d.DisplayedCategories, opt => opt
                 .MapFrom(s => s.DisplayedCategories.GetFilters()))
-            .ForMember(d => d.AllCategories, opt => opt
-                .MapFrom(s => s.Categories))
             .ForMember(d => d.ContentPages, opt => opt
-                .MapFrom<ContentPagesResolver<ListingPage, ListingPageViewModel, ContentPageViewModel>>())
-            .ForMember(d => d.Page, opt => opt.Ignore())
-            .ForMember(d => d.Pagination, opt => opt.Ignore())
-            .ForMember(d => d.SelectedCategory, opt => opt.Ignore());
+                .MapFrom<ContentPagesResolver<ListingPage, ListingPageViewModel, ContentPageViewModel>>());
     }
 }

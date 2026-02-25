@@ -4,6 +4,10 @@
   gap: $spacing-standard;
   margin-top: $spacing-standard;
 
+  .page-buttons {
+    display: contents;
+  }
+
   button {
     font-size: $font-size-large;
     color: $foreground-color-secondary;
@@ -13,17 +17,19 @@
       font-weight: $font-weight-bold;
     }
 
-    svg {
-      path {
-        fill: $foreground-color-main;
+    &#previous,
+    &#next {
+      &:before {
+        content: '';
+        display: block;
+        width: 18px;
+        height: 10.606px;
+        background-color: $foreground-color-main;
+        mask: url('/static/images/arrow.svg') no-repeat center / contain;
       }
-    }
 
-    &:disabled {
-      svg {
-        path {
-          fill: $color-battleship-gray;
-        }
+      &:disabled:before {
+        background-color: $color-battleship-gray;
       }
     }
 

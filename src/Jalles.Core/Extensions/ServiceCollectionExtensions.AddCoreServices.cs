@@ -11,7 +11,6 @@ public static partial class ServiceCollectionExtensions
         services.AddScoped<IContentAccessor, ContentAccessor>();
         services.AddScoped<IFilterService, FilterService>();
         services.AddScoped<ILayoutViewModelService, LayoutViewModelService>();
-        services.AddScoped<IPaginationService, PaginationService>();
         services.AddScoped<ISitemapService, SitemapService>();
         services.AddScoped<IUmbracoPagePathService, UmbracoPagePathService>();
         services.AddScoped<IExcelService, ExcelService>();
