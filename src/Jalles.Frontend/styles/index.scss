@@ -29,7 +29,7 @@
 @import 'pages/listing-page';
 
 @import 'partials/header';
-@import 'partials/listing-page-form';
+@import 'partials/listing-categories';
 @import 'partials/pagination';
 
 :root {
@@ -57,6 +57,10 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important; // stylelint-disable-line declaration-no-important
 }
 
 p {

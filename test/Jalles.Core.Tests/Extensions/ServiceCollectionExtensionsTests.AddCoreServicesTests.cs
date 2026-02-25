@@ -26,7 +26,6 @@ public class ServiceCollectionExtensionsTests
         provider.GetRequiredService<IContentAccessor>().ShouldBeOfType<ContentAccessor>();
         provider.GetRequiredService<IFilterService>().ShouldBeOfType<FilterService>();
         provider.GetRequiredService<ILayoutViewModelService>().ShouldBeOfType<LayoutViewModelService>();
-        provider.GetRequiredService<IPaginationService>().ShouldBeOfType<PaginationService>();
         provider.GetRequiredService<ISitemapService>().ShouldBeOfType<SitemapService>();
         provider.GetRequiredService<IUmbracoPagePathService>().ShouldBeOfType<UmbracoPagePathService>();
     }

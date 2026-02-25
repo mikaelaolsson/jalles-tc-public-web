@@ -1,0 +1,23 @@
+@model ListingPageViewModel
+
+<div id="listing-categories" class="listing-categories">
+    @if (Model.DisplayedCategories.Any())
+    {
+        <div class="categories">
+            <button class="category-button selected"
+                    id="clear-button"
+                    value="Alla">
+                Alla
+            </button>
+
+            @foreach (var category in Model.DisplayedCategories)
+            {
+                <button class="category-button"
+                        id="@category.Value"
+                        value="@category.Value">
+                    @category.Value
+                </button>
+            }
+        </div>
+    }
+</div>

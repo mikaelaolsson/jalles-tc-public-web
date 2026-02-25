@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Jalles.Core.Contracts;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Umbraco.Cms.Core.Web;
@@ -12,7 +12,6 @@ public class SecondaryListingPageController : RenderControllerBase
     private readonly IMapper _mapper;
     private readonly IFilterService _filterService;
     private readonly IContentAccessor _contentAccessor;
-    private readonly IPaginationService _paginationService;
 
     public SecondaryListingPageController(
         ICompositeViewEngine compositeViewEngine,
@@ -21,7 +20,6 @@ public class SecondaryListingPageController : RenderControllerBase
         IMapper mapper,
         IFilterService filterService,
         IContentAccessor contentAccessor,
-        IPaginationService paginationService,
         ILogger<RenderController> logger,
         ILayoutViewModelService layoutViewModelService)
         : base(compositeViewEngine, umbracoContextAccessor, logger, layoutViewModelService)
@@ -30,10 +28,9 @@ public class SecondaryListingPageController : RenderControllerBase
         _mapper = mapper;
         _filterService = filterService;
         _contentAccessor = contentAccessor;
-        _paginationService = paginationService;
     }
 
-    public async Task<IActionResult> IndexAsync(List<string> categories, int page)
+    public async Task<IActionResult> IndexAsync()
     {
         var secondaryListingPage = new SecondaryListingPage(CurrentPage, _publishedValueFallback);
         var viewModel = _mapper.Map<SecondaryListingPageViewModel>(secondaryListingPage);
@@ -48,17 +45,8 @@ public class SecondaryListingPageController : RenderControllerBase
 
         var contentPages = _mapper.Map<IEnumerable<ContentPageViewModel>>(children) ?? [];
 
-        viewModel.ContentPages = _filterService.GetFilteredContentPages(contentPages, viewModel.MainCategory).OrderByDescending(c => c.DateBlock?.PublishedDate ?? c.Published);
-
-        if(categories.Any(c => !string.IsNullOrWhiteSpace(c)))
-        {
-            var category = categories.Find(c => !string.IsNullOrWhiteSpace(c));
-
-            viewModel.ContentPages = _filterService.GetFilteredContentPages(viewModel.ContentPages, category);
-            viewModel.SelectedCategory = category ?? "Alla";
-        }
-
-        viewModel = _paginationService.GetPaginatedViewModel(viewModel, page <= 0 ? 1 : page);
+        viewModel.ContentPages = _filterService.GetFilteredContentPages(contentPages, viewModel.MainCategory)
+            .OrderByDescending(c => c.DateBlock?.PublishedDate ?? c.Published);
 
         var model = await LayoutViewModel<SecondaryListingPageViewModel>.CreateAsync(viewModel, CurrentPage!, HttpContext, LayoutViewModelService);
 
