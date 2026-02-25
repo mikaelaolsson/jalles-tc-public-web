@@ -1,4 +1,3 @@
-#nullable enable
 using Jalles.Core.Contracts;
 using Jalles.Core.ViewModels.Blocks;
 using Jalles.Web.Services;
@@ -75,7 +74,7 @@ public class ExcelBlockDataLoaderTests
         A.CallTo(() => httpContext.Request).Returns(request);
         A.CallTo(() => _httpContextAccessor.HttpContext).Returns(httpContext);
         A.CallTo(() => _excelService.GetExcelRowsAsync(A<string>._, A<int>._))
-            .Returns((List<IDictionary<string, string>>?)null);
+            .Returns((List<IDictionary<string, string>>)null);
 
         var viewModel = new ExcelBlockViewModel { ExcelFileSource = "/files/test.xlsx" };
 
