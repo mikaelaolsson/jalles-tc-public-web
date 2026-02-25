@@ -82,11 +82,9 @@ public class ContentAccessor : IContentAccessor
 
         _documentNavigationQueryService.TryGetChildrenKeys(root.Key, out var childKeys);
 
-        var poop = _publishedContentQuery
+        return _publishedContentQuery
             .Content(childKeys)
-            .OfType<T>();
-
-        return poop
+            .OfType<T>()
             .FirstOrDefault();
     }
 }
