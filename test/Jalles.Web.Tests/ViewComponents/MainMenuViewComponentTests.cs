@@ -101,7 +101,7 @@ public class MainMenuViewComponentTests
     }
 
     [Fact]
-    public void Invoke_ThrowsNullReferenceException_WhenStartPageIsNotFound()
+    public void Invoke_ThrowsInvalidOperationException_WhenStartPageIsNotFound()
     {
         // Arrange
         A.CallTo(() => _contentAccessor.GetRoot())
@@ -111,12 +111,12 @@ public class MainMenuViewComponentTests
         var exception = Record.Exception(_component.Invoke);
 
         // Assert
-        exception.ShouldBeOfType<NullReferenceException>();
+        exception.ShouldBeOfType<InvalidOperationException>();
         exception.Message.ShouldContain("StartPage");
     }
 
     [Fact]
-    public void Invoke_ThrowsNullReferenceException_WhenStartPageCastFails()
+    public void Invoke_ThrowsInvalidOperationException_WhenStartPageCastFails()
     {
         // Arrange
         var notStartPage = A.Fake<IPublishedContent>();
@@ -127,7 +127,7 @@ public class MainMenuViewComponentTests
         var exception = Record.Exception(_component.Invoke);
 
         // Assert
-        exception.ShouldBeOfType<NullReferenceException>();
+        exception.ShouldBeOfType<InvalidOperationException>();
         exception.Message.ShouldContain("StartPage");
     }
 

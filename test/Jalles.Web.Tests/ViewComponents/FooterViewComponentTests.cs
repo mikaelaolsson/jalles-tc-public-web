@@ -29,7 +29,7 @@ public class FooterViewComponentTests
     }
 
     [Fact]
-    public void Invoke_ThrowsNullReferenceException_WhenStartPageIsNotFound()
+    public void Invoke_ThrowsInvalidOperationException_WhenStartPageIsNotFound()
     {
         // Arrange
         A.CallTo(() => _contentAccessor.GetRoot())
@@ -38,12 +38,12 @@ public class FooterViewComponentTests
         // Act & Assert
         var act = () => _component.Invoke();
 
-        act.ShouldThrow<NullReferenceException>()
+        act.ShouldThrow<InvalidOperationException>()
             .Message.ShouldContain(nameof(StartPage));
     }
 
     [Fact]
-    public void Invoke_ThrowsNullReferenceException_WhenStartPageCastFails()
+    public void Invoke_ThrowsInvalidOperationException_WhenStartPageCastFails()
     {
         // Arrange
         var notAStartPage = A.Fake<IPublishedContent>();
@@ -54,7 +54,7 @@ public class FooterViewComponentTests
         // Act & Assert
         var act = () => _component.Invoke();
 
-        act.ShouldThrow<NullReferenceException>()
+        act.ShouldThrow<InvalidOperationException>()
             .Message.ShouldContain(nameof(StartPage));
     }
 
