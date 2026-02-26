@@ -28,5 +28,7 @@ public class ServiceCollectionExtensionsTests
         provider.GetRequiredService<ILayoutViewModelService>().ShouldBeOfType<LayoutViewModelService>();
         provider.GetRequiredService<ISitemapService>().ShouldBeOfType<SitemapService>();
         provider.GetRequiredService<IUmbracoPagePathService>().ShouldBeOfType<UmbracoPagePathService>();
+        provider.GetRequiredService<IExcelService>().ShouldBeOfType<ExcelService>();
+        provider.GetRequiredService<IHttpClientFactory>().ShouldNotBeNull();
     }
 }

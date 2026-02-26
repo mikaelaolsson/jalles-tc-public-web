@@ -27,6 +27,7 @@ umbracoBuilder.EmbedProviders();
 
 umbracoBuilder
     .AddBackOffice()
+    .AddAsciiFoldingToExternalIndex()
     .AddWebsite()
     .AddComposers()
     .AddContentment(x => { x.DisableTree = false; x.DisableTelemetry = true; })

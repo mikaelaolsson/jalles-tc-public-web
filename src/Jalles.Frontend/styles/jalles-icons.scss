@@ -1,6 +1,6 @@
 @font-face {
   font-family: jalles-icons;
-  src: url('../fonts/jalles-icons.woff2?79566559') format('woff2');
+  src: url('../static/fonts/jalles-icons.woff2?79566559') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -55,4 +55,8 @@
 
 .icon-facebook-squared:before {
   content: '\f308';
+}
+
+.icon-search:before {
+  content: '\e807';
 }

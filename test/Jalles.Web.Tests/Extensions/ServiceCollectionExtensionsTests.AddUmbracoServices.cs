@@ -1,3 +1,4 @@
+using Jalles.Core.Extensions;
 using Jalles.TestHelpers;
 using Jalles.Web.Contracts;
 using Jalles.Web.Extensions;
@@ -20,10 +21,13 @@ public partial class ServiceCollectionExtensionsTests
         services.AddLogging();
 
         // Act
+        services.AddCoreServices();
         services.AddUmbracoServices();
         var provider = services.BuildServiceProvider();
 
         // Assert
         provider.GetRequiredService<IMixedListingBlockService>().ShouldBeOfType<MixedListingBlockService>();
+        provider.GetRequiredService<ExcelBlockDataLoader>().ShouldBeOfType<ExcelBlockDataLoader>();
+        provider.GetRequiredService<ISearchService>().ShouldBeOfType<SearchService>();
     }
 }

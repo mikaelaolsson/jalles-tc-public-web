@@ -7,6 +7,7 @@ import initCategoryPaginationFilter from './category-pagination-filter.mjs';
 import initMenuToggle from './menu-toggle.mjs';
 import initTableWrapper from './table-wrapper.mjs';
 import initImageGalleryModal from './image-gallery-modal.mjs';
+import initSiteSearch from './site-search.mjs';
 
 initBackgroundColor();
 initExtraSideScroller();
@@ -15,3 +16,4 @@ initCategoryPaginationFilter();
 initMenuToggle();
 initTableWrapper();
 initImageGalleryModal();
+initSiteSearch();

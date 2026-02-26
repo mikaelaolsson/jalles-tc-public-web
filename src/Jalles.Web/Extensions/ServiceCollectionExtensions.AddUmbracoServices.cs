@@ -9,6 +9,7 @@ public static partial class ServiceCollectionExtensions
     {
         services.AddScoped<IMixedListingBlockService, MixedListingBlockService>();
         services.AddScoped<ExcelBlockDataLoader>();
+        services.AddScoped<ISearchService, SearchService>();
 
         return services;
     }

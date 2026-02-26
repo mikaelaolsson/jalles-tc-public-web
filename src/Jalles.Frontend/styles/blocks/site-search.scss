@@ -1,0 +1,198 @@
+.site-search-overlay {
+  display: none;
+  flex-direction: column;
+  gap: $spacing-large;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: $spacing-large $side-margins;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+
+  background-color: $color-taupe;
+  color: $color-off-white;
+  border: none;
+  z-index: $z-index-search-modal;
+
+  &[open] {
+    display: flex;
+  }
+
+  a {
+    color: $color-off-white;
+  }
+
+  .heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      margin: 0;
+      color: $color-off-white;
+    }
+
+    .close-search {
+      color: $color-off-white;
+      font-size: $font-size-large;
+      padding: $spacing-small;
+    }
+  }
+
+  .input-container {
+    label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      padding: $spacing-small $spacing-standard;
+      font-size: $font-size;
+      font-family: $font-family;
+      border: 2px solid $color-off-white;
+      border-radius: $border-radius-small;
+      background-color: transparent;
+      color: $color-off-white;
+      outline: none;
+
+      &::placeholder {
+        color: $color-battleship-gray;
+      }
+
+      &:focus {
+        border-color: $color-jalles-yellow;
+      }
+    }
+  }
+
+  .search-results-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+
+    &.loading:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(70, 63, 58, 60%);
+    }
+
+    > span {
+      display: block;
+      margin-bottom: $spacing-standard;
+      color: $color-off-white;
+    }
+
+    .search-results-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-standard;
+      overflow-y: auto;
+      flex: 1;
+
+      /* Firefox */
+      scrollbar-width: thin;
+      scrollbar-color: $color-battleship-gray transparent;
+
+      /* Chrome, Edge, Safari */
+      &::-webkit-scrollbar {
+        width: 0.5rem;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-battleship-gray;
+        border-radius: $border-radius;
+
+        &:hover {
+          background-color: $color-jalles-yellow;
+        }
+      }
+
+      li {
+        a {
+          display: block;
+          text-decoration: none;
+
+          hgroup {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-small;
+            padding: $spacing-standard;
+            border: 2px solid rgb(250, 250, 236, 30%);
+            border-radius: $border-radius-small;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+
+            &:hover {
+              border-color: $color-jalles-yellow;
+              background-color: rgb(255, 235, 25, 10%);
+            }
+
+            span {
+              font-size: $font-size-small;
+              color: $color-jalles-yellow;
+            }
+
+            h3 {
+              margin: 0;
+              font-size: $font-size;
+              color: $color-off-white;
+            }
+
+            p {
+              margin: 0;
+              font-size: $font-size-small;
+              color: $color-battleship-gray;
+              line-height: $font-line-height;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .site-search-overlay {
+    padding: $spacing-large $side-margins-desktop;
+
+    .search-results-container {
+      max-width: $text-max-width-large;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .input-container {
+      max-width: $text-max-width-large;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .heading-container {
+      max-width: $text-max-width-large;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

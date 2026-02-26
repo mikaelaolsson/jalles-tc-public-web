@@ -36,6 +36,8 @@
     <vc:footer></vc:footer>
 
 
+    @await Html.PartialAsync("../Partials/_SiteSearch")
+
     <script type="module" src="@await Vite.GetAssetUrlAsync("scripts/index.mjs")"></script>
     @* TODO v17: ta bort denna??? *@
     @await RenderSectionAsync("Scripts", required: false)
