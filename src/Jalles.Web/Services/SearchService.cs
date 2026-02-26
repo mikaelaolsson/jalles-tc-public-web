@@ -98,11 +98,23 @@ public class SearchService : ISearchService
             if(searchItem == null)
                 continue;
 
-            searchItem.ContentTypeTagName = GetDescription(pageType);
+            searchItem.ContentTypeTagName = GetContentTypeTagName(result, pageType);
             searchItems.Add(searchItem);
         }
 
         return new SearchResult(searchItems, totalNumberOfItems);
+    }
+
+    private static string GetContentTypeTagName(IPublishedContent result, SearchablePages pageType)
+    {
+        if(pageType == SearchablePages.ContentPage && result is ContentPage contentPage)
+        {
+            var categories = contentPage.Categories;
+            if(categories is { Count: > 0 })
+                return string.Join(" | ", categories);
+        }
+
+        return GetDescription(pageType);
     }
 
     private static string GetDescription(SearchablePages pageType)

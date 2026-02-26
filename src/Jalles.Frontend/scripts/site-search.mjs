@@ -173,7 +173,7 @@ function createResultsList(items) {
 }
 
 function createResultItem(item) {
-  const { title, uriPath, text, contentTypeTagName } = item;
+  const { title, uriPath, text, contentTypeTagName, updateDate } = item;
   if (!title || !uriPath) return null;
 
   const li = document.createElement('li');
@@ -196,8 +196,23 @@ function createResultItem(item) {
     hgroup.appendChild(p);
   }
 
+  if (updateDate) {
+    const time = document.createElement('time');
+    time.dateTime = updateDate;
+    time.textContent = formatDate(updateDate);
+    hgroup.appendChild(time);
+  }
+
   a.href = uriPath;
   a.appendChild(hgroup);
   li.appendChild(a);
   return li;
+}
+
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString('sv-SE', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
 }

@@ -14,6 +14,8 @@ public class SearchResultItemProfile : Profile
             .ForMember(d => d.Text, opt => opt
                 .MapFrom(s => s.MetaDescription ?? string.Empty))
             .ForMember(d => d.ContentTypeTagName, opt => opt.Ignore())
+            .ForMember(d => d.UpdateDate, opt => opt
+                .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.UriPath, opt => opt
                 .MapFrom<SearchResultUriResolver<ContentPage>>());
 
@@ -23,6 +25,8 @@ public class SearchResultItemProfile : Profile
             .ForMember(d => d.Text, opt => opt
                 .MapFrom(s => s.MetaDescription ?? string.Empty))
             .ForMember(d => d.ContentTypeTagName, opt => opt.Ignore())
+            .ForMember(d => d.UpdateDate, opt => opt
+                .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.UriPath, opt => opt
                 .MapFrom<SearchResultUriResolver<ListingPage>>());
 
@@ -32,6 +36,8 @@ public class SearchResultItemProfile : Profile
             .ForMember(d => d.Text, opt => opt
                 .MapFrom(s => s.MetaDescription ?? string.Empty))
             .ForMember(d => d.ContentTypeTagName, opt => opt.Ignore())
+            .ForMember(d => d.UpdateDate, opt => opt
+                .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.UriPath, opt => opt
                 .MapFrom<SearchResultUriResolver<SecondaryListingPage>>());
 
@@ -41,6 +47,8 @@ public class SearchResultItemProfile : Profile
             .ForMember(d => d.Text, opt => opt
                 .MapFrom(s => s.MetaDescription ?? string.Empty))
             .ForMember(d => d.ContentTypeTagName, opt => opt.Ignore())
+            .ForMember(d => d.UpdateDate, opt => opt
+                .MapFrom(s => s.UpdateDate))
             .ForMember(d => d.UriPath, opt => opt
                 .MapFrom<SearchResultUriResolver<StartPage>>());
     }

@@ -13,5 +13,6 @@ public sealed record SearchResultItem
     public string Title { get; }
     public string Text { get; init; } = string.Empty;
     public string ContentTypeTagName { get; set; } = string.Empty;
+    public DateTime? UpdateDate { get; init; }
     public required Uri UriPath { get; init; }
 }
