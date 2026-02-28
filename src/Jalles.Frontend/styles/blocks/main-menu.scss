@@ -4,63 +4,97 @@
   right: 0;
   left: 0;
   z-index: $z-index-main-menu;
-  width: 100%;
 
   a {
-    color: $color-off-white;
     text-decoration: none;
   }
 
   .menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     margin: $spacing-standard;
-    padding: $spacing-small $side-margins $spacing-small;
+    padding: $spacing-small $side-margins;
+
     border-radius: $border-radius;
-    background-color: $color-taupe;
-    color: $color-off-white;
+    background-color: $color-black;
+    color: $color-oat-milk;
+
+    .startpage-link {
+      display: flex;
+      align-items: center;
+      gap: $spacing-small;
+
+      font-size: $font-size;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+
+      color: $color-oat-milk;
+
+      img.logo {
+        height: $icon-size-large;
+        width: auto;
+
+        transform: translateY(0.15rem);
+      }
+    }
 
     .open-menu-button {
       display: flex;
+      flex: 1;
       align-items: center;
-      width: 100%;
-      color: $color-off-white;
+      justify-content: flex-end;
+
+      min-height: $min-touch-target-size;
+
       font-size: 1.5rem;
+
+      color: $color-oat-milk;
     }
 
     .menu-items {
       display: none;
-      padding: 0;
-      padding-top: $spacing-standard;
-      margin: 0;
       width: 100%;
+      padding: $spacing-standard 0 0;
+      margin: 0;
+
       list-style: none;
-      color: $color-off-white;
 
       li {
         margin-bottom: $spacing-standard;
 
-        .open-search-button {
-          @include vertical-center-with-icon;
-          color: $color-off-white;
-          padding: 0.5rem 1rem;
-        }
+        a:not(.facebook) {
+          display: block;
+          padding: $spacing-small $spacing-standard;
 
-        a {
-          background-color: transparent;
           border-radius: $border-radius-small;
+          color: $color-oat-milk;
 
           &.current {
-            background-color: $active-link-bg-color;
-          }
+            font-weight: $font-weight-bold;
 
-          &:not(.facebook) {
-            padding: 0.5rem 1rem;
+            color: $color-jalles-yellow;
           }
+        }
+
+        .open-search-button {
+          @include vertical-center-with-icon;
+          padding: $spacing-small $spacing-standard;
+
+          color: $color-oat-milk;
         }
 
         .facebook {
+          display: flex;
+          align-items: center;
+          gap: $spacing-small;
+          padding: $spacing-small $spacing-standard;
+
+          color: $color-oat-milk;
+
           img {
-            padding-left: 1rem;
-            height: 2rem;
+            height: 1.25rem;
+            width: auto;
           }
         }
       }
@@ -78,10 +112,13 @@
     justify-content: center;
     padding: 1rem $side-margins-desktop;
     width: 100%;
+
     font-size: $font-size-small-desktop;
 
     .menu {
       @include desktop-container-content;
+      flex-wrap: nowrap;
+      width: 100%;
 
       .open-menu-button {
         display: none;
@@ -89,29 +126,43 @@
 
       .menu-items {
         display: flex;
-        gap: $spacing-large;
+        flex: 1;
+        align-items: stretch;
+        justify-content: flex-end;
+        gap: $spacing-standard;
         padding: 0;
         margin: 0;
 
         li {
-          margin: auto;
+          display: flex;
+          align-items: center;
+          margin-bottom: 0;
 
-          .open-search-button span {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip-path: inset(50%);
-            white-space: nowrap;
-            border: 0;
+          a:not(.facebook) {
+            @include hover-underline;
+
+            &.current:after {
+              transform: scaleX(1);
+            }
+          }
+
+          .open-search-button {
+            @include hover-underline;
+
+            span {
+              @include visually-hidden;
+            }
           }
 
           .facebook {
+            @include hover-underline;
+
             img {
-              padding-left: 0;
-              padding-top: 6px;
+              height: 1.5rem;
+            }
+
+            span {
+              @include visually-hidden;
             }
           }
         }

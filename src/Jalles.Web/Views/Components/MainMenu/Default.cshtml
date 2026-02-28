@@ -2,6 +2,10 @@
 
 <div class="menu-container">
     <nav class="menu">
+        <a href="/" class="startpage-link">
+            <img class="logo" src="/static/images/jalles-logo-reverse.svg" alt="Jalles TC - Gå till startsida" title="Jalles TC - Gå till startsida">
+            Jalles TC
+        </a>
         <button class="open-menu-button" aria-label="Öppna menyn">
             &#9776;
         </button>
@@ -29,7 +33,7 @@
             @if (!string.IsNullOrWhiteSpace(Model.Facebook))
             {
                 <li>
-                    <a href="@Model.Facebook" target="_blank" class="facebook"><img src="/static/images/facebook.svg" alt="Facebook"></a>
+                    <a href="@Model.Facebook" target="_blank" class="facebook"><img src="/static/images/facebook.svg" alt=""> <span>Facebook</span></a>
                 </li>
             }
         </ul>
