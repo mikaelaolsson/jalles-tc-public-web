@@ -5,29 +5,3 @@
   right: 0;
   bottom: 0;
 }
-
-@mixin darken-by-absolute-fill {
-  &:after {
-    @include fill-by-absolute-position;
-
-    content: '';
-    background-color: $overlay-bg-color;
-  }
-}
-
-@mixin darken-with-rounded-borders-by-absolute-fill {
-  &:after {
-    @include fill-by-absolute-position;
-    content: '';
-    background-color: $overlay-bg-color;
-    border-radius: $border-radius;
-  }
-}
-
-@mixin blur-by-absolute-fill {
-  &:after {
-    @include fill-by-absolute-position;
-
-    backdrop-filter: blur(0.5rem);
-  }
-}

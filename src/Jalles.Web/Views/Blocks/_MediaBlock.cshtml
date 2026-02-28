@@ -7,11 +7,10 @@
         _ => "transparent"
         };
 
-    var blur = Model.AddBlurOverlay ? "blur" : string.Empty;
     var isLazy = Model.IsLazy ? "lazy" : "eager";
 }
 
-<div class="media @blur" style="background-color: @backgroundColor">
+<div class="media" style="background-color: @backgroundColor">
     @if (Model.MediaType == MediaType.Image)
     {
         <picture>

@@ -62,11 +62,14 @@ public class LayoutViewModelService : ILayoutViewModelService
     public HeaderViewModel BuildHeader(IPublishedContent? content, CultureInfo culture)
     {
         var headerProperty = content?.GetBlockListItem<HeaderBlock>("header")?.Content;
+        var heading = headerProperty?.GetString("heading") ?? string.Empty;
+        var subHeading = headerProperty?.GetString("subHeading") ?? string.Empty;
 
         return new HeaderViewModel
         {
             MediaBlock = GetMediaForHeader(headerProperty, culture),
-            Content = content
+            Heading = heading,
+            SubHeading = subHeading
         };
     }
 
@@ -89,7 +92,6 @@ public class LayoutViewModelService : ILayoutViewModelService
         {
             Media = header.Media,
             BackgroundColor = header.BackgroundColor.GetMediaBackgroundColor(),
-            AddBlurOverlay = header.AddBlurOverlay,
             MediaType = mediaType,
             MediaSource = mediaSource,
             IsLazy = false

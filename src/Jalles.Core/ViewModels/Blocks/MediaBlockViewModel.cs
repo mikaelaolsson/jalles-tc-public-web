@@ -8,7 +8,6 @@ public class MediaBlockViewModel
     public string MediaSource { get; set; } = JallesConstants.DefaultFallbackMedia;
     public MediaWithCrops? Media { get; set; }
     public string? BackgroundColor { get; set; }
-    public bool AddBlurOverlay { get; set; }
     public MediaType MediaType { get; set; }
     public bool IsLazy { get; set; } = true;
     public bool IsEmbeddedVideo { get; set; }

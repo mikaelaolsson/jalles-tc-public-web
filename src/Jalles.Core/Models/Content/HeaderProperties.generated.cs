@@ -18,14 +18,29 @@ using Umbraco.Extensions;
 
 namespace Jalles.Core.Models.Content
 {
-	/// <summary>Header Block</summary>
-	[PublishedModel("headerBlock")]
-	public partial class HeaderBlock : PublishedElementModel, IHeaderProperties, IMediaProperties
+	// Mixin Content Type with alias "headerProperties"
+	/// <summary>Header Properties</summary>
+	public partial interface IHeaderProperties : IPublishedElement
+	{
+		/// <summary>Heading</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string Heading { get; }
+
+		/// <summary>Sub Heading</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string SubHeading { get; }
+	}
+
+	/// <summary>Header Properties</summary>
+	[PublishedModel("headerProperties")]
+	public partial class HeaderProperties : PublishedElementModel, IHeaderProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		public new const string ModelTypeAlias = "headerBlock";
+		public new const string ModelTypeAlias = "headerProperties";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
@@ -34,14 +49,14 @@ namespace Jalles.Core.Models.Content
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<HeaderBlock, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<HeaderProperties, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public HeaderBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public HeaderProperties(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -55,7 +70,12 @@ namespace Jalles.Core.Models.Content
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("heading")]
-		public virtual string Heading => global::Jalles.Core.Models.Content.HeaderProperties.GetHeading(this, _publishedValueFallback);
+		public virtual string Heading => GetHeading(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Heading</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetHeading(IHeaderProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "heading");
 
 		///<summary>
 		/// Sub Heading
@@ -63,29 +83,11 @@ namespace Jalles.Core.Models.Content
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("subHeading")]
-		public virtual string SubHeading => global::Jalles.Core.Models.Content.HeaderProperties.GetSubHeading(this, _publishedValueFallback);
+		public virtual string SubHeading => GetSubHeading(this, _publishedValueFallback);
 
-		///<summary>
-		/// Add Blur Overlay?: Markera den här rutan om du vill lägga till ett suddigt lager på mediat
-		///</summary>
+		/// <summary>Static getter for Sub Heading</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[ImplementPropertyType("addBlurOverlay")]
-		public virtual bool AddBlurOverlay => global::Jalles.Core.Models.Content.MediaProperties.GetAddBlurOverlay(this, _publishedValueFallback);
-
-		///<summary>
-		/// Background Color: Välj en bakgrundsfärg för media. Detta kommer endast att visas om det inte är valt någon annan form av media.
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("backgroundColor")]
-		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor BackgroundColor => global::Jalles.Core.Models.Content.MediaProperties.GetBackgroundColor(this, _publishedValueFallback);
-
-		///<summary>
-		/// Media: Välj media. Om varken media eller bakgrundsfärg väljs kommer standardbilden att visas
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("media")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Media => global::Jalles.Core.Models.Content.MediaProperties.GetMedia(this, _publishedValueFallback);
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetSubHeading(IHeaderProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "subHeading");
 	}
 }

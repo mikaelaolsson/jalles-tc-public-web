@@ -86,8 +86,6 @@ public class MediaBlockProfile : Profile
                 .MapFrom(_ => true))
             .ForMember(d => d.BackgroundColor, opt => opt
                 .Ignore())
-            .ForMember(d => d.AddBlurOverlay, opt => opt
-                .Ignore())
             .ForMember(d => d.IsLazy, opt => opt
                 .Ignore());
 
@@ -101,8 +99,6 @@ public class MediaBlockProfile : Profile
             .ForMember(d => d.IsEmbeddedVideo, opt => opt
                 .MapFrom(_ => true))
             .ForMember(d => d.BackgroundColor, opt => opt
-                .Ignore())
-            .ForMember(d => d.AddBlurOverlay, opt => opt
                 .Ignore())
             .ForMember(d => d.IsLazy, opt => opt
                 .Ignore());

@@ -10,22 +10,6 @@
 
   .media {
     @include fill-by-absolute-position;
-    @include darken-by-absolute-fill;
-  }
-
-  .login {
-    display: none;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 5;
-
-    padding: $spacing-standard;
-
-    a {
-      color: transparent;
-    }
   }
 
   .content {

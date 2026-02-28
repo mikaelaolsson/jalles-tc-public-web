@@ -317,7 +317,6 @@ public class LayoutViewModelServiceTests
 
         // Setup HeaderBlock properties
         A.CallTo(() => headerBlock.Media).Returns(media);
-        A.CallTo(() => headerBlock.AddBlurOverlay).Returns(true);
         A.CallTo(() => headerBlock.BackgroundColor).Returns(new ColorPickerValueConverter.PickedColor("#FFEB19", "Jalles Yellow"));
 
         // Setup page type
@@ -336,7 +335,6 @@ public class LayoutViewModelServiceTests
         result.MediaBlock.Media.ShouldBe(media);
         result.MediaBlock.MediaSource.ShouldBe("/media/test.jpg");
         result.MediaBlock.BackgroundColor.ShouldBe("#FFEB19");
-        result.MediaBlock.AddBlurOverlay.ShouldBe(true);
         result.MediaBlock.IsLazy.ShouldBe(false);
     }
 

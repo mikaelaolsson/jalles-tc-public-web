@@ -26,7 +26,6 @@
 
         .media {
           @include fill-by-absolute-position;
-          @include darken-with-rounded-borders-by-absolute-fill;
           border-radius: $border-radius;
         }
 
