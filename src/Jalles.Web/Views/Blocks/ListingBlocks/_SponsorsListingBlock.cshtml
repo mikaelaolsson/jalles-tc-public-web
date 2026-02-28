@@ -1,4 +1,4 @@
-﻿@model SponsorBlockViewModel
+@model SponsorBlockViewModel
 
 <div class="sponsors">
     <h2>@Model.Heading</h2>
@@ -9,7 +9,7 @@
             {
                 <li>
                     <a href="@sponsor.Website.Url" target="_blank">
-                        <img src="@sponsor.LogoSource" alt="@sponsor.Name">
+                        <img src="@(sponsor.LogoSource)?width=256&amp;format=webp" alt="@sponsor.Name" loading="lazy">
                     </a>
                 </li>
 
@@ -18,7 +18,7 @@
             {
                 <li>
                     <span>
-                        <img src="@sponsor.LogoSource" alt="@sponsor.Name">
+                        <img src="@(sponsor.LogoSource)?width=256&amp;format=webp" alt="@sponsor.Name" loading="lazy">
                     </span>
                 </li>
 

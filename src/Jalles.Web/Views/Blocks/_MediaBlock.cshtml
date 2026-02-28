@@ -26,7 +26,14 @@
                 <source srcset="@Model.MediaSource?width=600&amp;autoorient=false&amp;format=jpg" media="(min-width: 0)" type="image/jpeg">
             }
 
-            <img src="@Model.MediaSource" alt="" loading="@isLazy"/>
+            @if (Model.MediaSource.EndsWith(".svg"))
+            {
+                <img src="@Model.MediaSource" alt="" loading="@isLazy"/>
+            }
+            else
+            {
+                <img src="@Model.MediaSource?width=1280&amp;format=jpg" alt="" loading="@isLazy"/>
+            }
         </picture>
 
     }

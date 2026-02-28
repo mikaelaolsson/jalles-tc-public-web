@@ -13,7 +13,15 @@
         @foreach (var image in Model.ImageGallerySources)
         {
             index++;
-            <img src="@image" id="@index" alt="" />
+            <picture>
+                <source srcset="@(image)?width=1280&amp;format=webp" media="(min-width: 900px)" type="image/webp">
+                <source srcset="@(image)?width=1280&amp;format=jpg" media="(min-width: 900px)" type="image/jpeg">
+                <source srcset="@(image)?width=700&amp;format=webp" media="(min-width: 500px)" type="image/webp">
+                <source srcset="@(image)?width=700&amp;format=jpg" media="(min-width: 500px)" type="image/jpeg">
+                <source srcset="@(image)?width=500&amp;format=webp" type="image/webp">
+                <source srcset="@(image)?width=500&amp;format=jpg" type="image/jpeg">
+                <img src="@(image)?width=700&amp;format=jpg" id="@index" alt="" loading="lazy" />
+            </picture>
         }
     </div>
 </div>

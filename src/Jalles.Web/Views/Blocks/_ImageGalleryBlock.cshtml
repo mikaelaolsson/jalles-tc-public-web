@@ -17,15 +17,15 @@
                 var imageList = Model.ImageGallerySources.ToList();
                 var overlay = imageList.Count() > 3 ? "overlay" : string.Empty;
 
-                <img name="1" src="@imageList[0]" alt="" />
+                <img name="1" src="@(imageList[0])?width=800&amp;format=webp" alt="" loading="lazy" />
 
                 <div class="sub-container">
                     <span class="img-container">
-                        <img name="2" src="@imageList[1]" alt="" />
+                        <img name="2" src="@(imageList[1])?width=600&amp;format=webp" alt="" loading="lazy" />
                     </span>
 
                     <span class="img-container @overlay">
-                        <img name="3" src="@imageList[2]" alt="" />
+                        <img name="3" src="@(imageList[2])?width=600&amp;format=webp" alt="" loading="lazy" />
                     </span>
                 </div>
             }
@@ -33,7 +33,7 @@
             {
                 @foreach (var image in Model.ImageGallerySources)
                 {
-                    <img src="@image" alt="" />
+                    <img src="@(image)?width=800&amp;format=webp" alt="" loading="lazy" />
 
                 }
             }
