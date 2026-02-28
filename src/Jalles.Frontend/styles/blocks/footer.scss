@@ -1,18 +1,43 @@
 footer {
   padding: $spacing-vertical-medium $side-margins;
 
-  background-color: $color-taupe;
-  color: $color-off-white;
+  border-top: 2rem solid $color-jalles-yellow;
+
   text-align: center;
 
+  background-color: $color-black;
+  color: $color-oat-milk;
+
+  .startpage-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-small;
+
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: $color-oat-milk;
+
+    img.logo {
+      height: 4rem;
+      width: auto;
+    }
+  }
+
   p {
-    margin: 0 auto;
     max-width: $text-max-width;
+    margin: $spacing-standard auto $spacing-vertical-large;
+
+    line-height: $font-line-height;
   }
 
   span {
-    color: $color-battleship-gray;
     font-size: $font-size-small;
+
+    color: $color-pine;
   }
 
   .content {
@@ -34,8 +59,9 @@ footer {
 
       h2 {
         margin: 0;
+
         font-size: $font-size;
-        color: $color-battleship-gray;
+        color: $color-oat-milk;
       }
 
       img {
@@ -51,6 +77,7 @@ footer {
 
     .content {
       @include desktop-container-content;
+
       align-items: center;
 
       .umemaran {
