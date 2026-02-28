@@ -5,3 +5,12 @@
   right: 0;
   bottom: 0;
 }
+
+@mixin gradient-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(to right, rgba($color-mossy-rock, 0.9), rgba($color-jalles-yellow, 0.7));
+
+  pointer-events: none;
+}

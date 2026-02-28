@@ -3,26 +3,51 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 
-  min-height: $header-height;
-  padding: $spacing-vertical-large $side-margins $spacing-vertical-medium;
+  min-height: 100vh;
+  padding: 6rem $side-margins $spacing-vertical-medium;
 
   .media {
     @include fill-by-absolute-position;
   }
 
+  .gradient-overlay {
+    @include gradient-overlay;
+  }
+
   .content {
-    @include desktop-container-content;
+    position: relative;
 
     display: flex;
     flex-direction: column;
-    z-index: 1;
 
-    .startpage-link {
-      img {
-        max-height: 15rem;
-        width: 12rem;
+    .startpage-header-link {
+      align-self: center;
+
+      img.logo {
+        height: 20rem;
+        width: auto;
+      }
+    }
+
+    .heading, .sub-heading {
+      margin: 0;
+    }
+  }
+
+  &.header-has-text {
+    justify-content: flex-end;
+    align-items: stretch;
+
+    .content {
+      .startpage-header-link {
+        align-self: flex-start;
+
+        img.logo {
+          height: 10rem;
+        }
       }
     }
   }
@@ -30,16 +55,34 @@
 
 @media only screen and (min-width: $screen-min-desktop) {
   .header {
+    min-height: $header-height-desktop;
     padding: $spacing-vertical-large-desktop $side-margins-desktop $spacing-vertical-medium-desktop;
 
-    .login {
-      display: block;
+    .content {
+      @include desktop-container-content;
+
+      .startpage-header-link {
+        padding-top: 3rem;
+      }
     }
 
-    .content {
-      a {
-        img {
-          max-height: 20rem;
+    &.header-has-text {
+      .content {
+        @include desktop-container-content;
+        @include desktop-container-grid;
+
+        width: 100%;
+
+        .startpage-header-link {
+          grid-column: 3 / 11;
+
+          img.logo {
+            height: 8rem;
+          }
+        }
+
+        .heading, .sub-heading {
+          grid-column: 3 / 11;
         }
       }
     }
