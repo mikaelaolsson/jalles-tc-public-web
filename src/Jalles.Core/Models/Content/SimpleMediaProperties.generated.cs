@@ -22,10 +22,6 @@ namespace Jalles.Core.Models.Content
 	/// <summary>Simple Media Properties</summary>
 	public partial interface ISimpleMediaProperties : IPublishedElement
 	{
-		/// <summary>Add Blur Overlay?</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		bool AddBlurOverlay { get; }
-
 		/// <summary>Media</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -62,17 +58,6 @@ namespace Jalles.Core.Models.Content
 		}
 
 		// properties
-
-		///<summary>
-		/// Add Blur Overlay?: Markera den här rutan om du vill lägga till ett suddigt lager på mediat
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[ImplementPropertyType("addBlurOverlay")]
-		public virtual bool AddBlurOverlay => GetAddBlurOverlay(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Add Blur Overlay?</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		public static bool GetAddBlurOverlay(ISimpleMediaProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "addBlurOverlay");
 
 		///<summary>
 		/// Media: Välj media. Om varken media eller bakgrundsfärg väljs kommer standardbilden att visas

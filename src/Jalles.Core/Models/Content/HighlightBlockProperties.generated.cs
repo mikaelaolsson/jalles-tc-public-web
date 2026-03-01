@@ -22,6 +22,10 @@ namespace Jalles.Core.Models.Content
 	/// <summary>Highlight Block Properties</summary>
 	public partial interface IHighlightBlockProperties : IPublishedElement
 	{
+		/// <summary>Auto</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		bool Auto { get; }
+
 		/// <summary>Background Color</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -35,7 +39,7 @@ namespace Jalles.Core.Models.Content
 		/// <summary>Highlights</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::System.Collections.Generic.List<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights { get; }
+		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights { get; }
 	}
 
 	/// <summary>Highlight Block Properties</summary>
@@ -70,6 +74,17 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
+		/// Auto: Listar automatiskt de 3 senast publicerade innehållssidorna från under Aktuellt.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[ImplementPropertyType("auto")]
+		public virtual bool Auto => GetAuto(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Auto</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		public static bool GetAuto(IHighlightBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "auto");
+
+		///<summary>
 		/// Background Color: Bakgrundsfärg
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
@@ -96,16 +111,16 @@ namespace Jalles.Core.Models.Content
 		public static string GetHeading(IHighlightBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "heading");
 
 		///<summary>
-		/// Highlights: Lägg till upp till 3 höjdpunkter. Endast innehållssidor och listningssidor kommer att renderas.
+		/// Highlights: Lägg till upp till 3 höjdpunkter.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("highlights")]
-		public virtual global::System.Collections.Generic.List<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights => GetHighlights(this, _publishedValueFallback);
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights => GetHighlights(this, _publishedValueFallback);
 
 		/// <summary>Static getter for Highlights</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::System.Collections.Generic.List<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> GetHighlights(IHighlightBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.List<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>>(publishedValueFallback, "highlights");
+		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> GetHighlights(IHighlightBlockProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>>(publishedValueFallback, "highlights");
 	}
 }

@@ -50,6 +50,13 @@ namespace Jalles.Core.Models.Content
 		// properties
 
 		///<summary>
+		/// Auto: Listar automatiskt de 3 senast publicerade innehållssidorna från under Aktuellt.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[ImplementPropertyType("auto")]
+		public virtual bool Auto => global::Jalles.Core.Models.Content.HighlightBlockProperties.GetAuto(this, _publishedValueFallback);
+
+		///<summary>
 		/// Background Color: Bakgrundsfärg
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
@@ -66,11 +73,11 @@ namespace Jalles.Core.Models.Content
 		public virtual string Heading => global::Jalles.Core.Models.Content.HighlightBlockProperties.GetHeading(this, _publishedValueFallback);
 
 		///<summary>
-		/// Highlights: Lägg till upp till 3 höjdpunkter. Endast innehållssidor och listningssidor kommer att renderas.
+		/// Highlights: Lägg till upp till 3 höjdpunkter.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("highlights")]
-		public virtual global::System.Collections.Generic.List<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights => global::Jalles.Core.Models.Content.HighlightBlockProperties.GetHighlights(this, _publishedValueFallback);
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> Highlights => global::Jalles.Core.Models.Content.HighlightBlockProperties.GetHighlights(this, _publishedValueFallback);
 	}
 }
