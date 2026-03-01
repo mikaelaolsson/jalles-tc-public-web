@@ -1,7 +1,7 @@
 .content-block {
   padding: $spacing-vertical-large $side-margins;
 
-  &.color-off-white, &.color-jalles-yellow, &.color-vanilla, &.color-battleship-gray {
+  &.color-jalles-yellow, &.color-oat-milk, &.color-granola {
     .content-container {
       .content {
         .cta-block {
@@ -21,31 +21,31 @@
     background-color: $color-jalles-yellow;
   }
 
-  &.color-off-white {
-    background-color: $color-off-white;
+  &.color-pine {
+    background-color: $color-pine;
   }
 
-  &.color-vanilla {
-    background-color: $color-vanilla;
+  &.color-mossy-rock {
+    background-color: $color-mossy-rock;
   }
 
-  &.color-taupe {
-    background-color: $color-taupe;
+  &.color-granola {
+    background-color: $color-granola;
   }
 
-  &.color-battleship-gray {
-    background-color: $color-battleship-gray;
+  &.color-oat-milk {
+    background-color: $color-oat-milk;
   }
 
   &.color-black {
     background-color: $color-black;
   }
 
-  &.color-taupe, &.color-black {
+  &.color-pine, &.color-mossy-rock, &.color-black {
     .content-container {
       .content {
         h2, p {
-          color: $color-white;
+          color: $color-oat-milk;
         }
       }
     }

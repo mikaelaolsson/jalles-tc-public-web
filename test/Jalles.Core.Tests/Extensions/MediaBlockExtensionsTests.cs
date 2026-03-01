@@ -108,13 +108,16 @@ public class MediaBlockExtensionsTests
 
     [Theory]
     [InlineData("FFEB19", "color-jalles-yellow")]
-    [InlineData("FAFAEC", "color-off-white")]
-    [InlineData("FFF8AD", "color-vanilla")]
-    [InlineData("463F3A", "color-taupe")]
-    [InlineData("8A817C", "color-battleship-gray")]
-    [InlineData("1E2022", "color-black")]
-    [InlineData("ABCDEF", "color-off-white")]
-    [InlineData(null, "color-off-white")]
+    [InlineData("3A3418", "color-pine")]
+    [InlineData("7A7F50", "color-mossy-rock")]
+    [InlineData("A79B6E", "color-granola")]
+    [InlineData("F4F2E2", "color-oat-milk")]
+    [InlineData("0A0A0A", "color-black")]
+    [InlineData("#FFEB19", "color-jalles-yellow")]
+    [InlineData("#3a3418", "color-pine")]
+    [InlineData("#0A0A0A", "color-black")]
+    [InlineData("ABCDEF", "color-oat-milk")]
+    [InlineData(null, "color-oat-milk")]
     public void GetBackgroundColorName_ReturnsExpected(string input, string expected)
     {
         // Arrange

@@ -3,10 +3,10 @@ export default function initBackgroundColor() {
   const mixedListingBlock = document.querySelector('.mixed-listing-block');
   const colors = [
     'color-jalles-yellow',
-    'color-off-white',
-    'color-vanilla',
-    'color-taupe',
-    'color-battleship-gray',
+    'color-pine',
+    'color-mossy-rock',
+    'color-granola',
+    'color-oat-milk',
     'color-black'
   ];
 

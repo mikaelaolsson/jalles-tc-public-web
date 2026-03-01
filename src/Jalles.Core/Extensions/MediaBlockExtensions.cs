@@ -89,15 +89,15 @@ public static partial class MediaBlockExtensions
 
     public static string GetBackgroundColorName(this PickedColor? backgroundColor)
     {
-        return backgroundColor?.Color?.ToUpper() switch
+        return backgroundColor?.Color?.TrimStart('#').ToUpper() switch
         {
             "FFEB19" => "color-jalles-yellow",
-            "FAFAEC" => "color-off-white",
-            "FFF8AD" => "color-vanilla",
-            "463F3A" => "color-taupe",
-            "8A817C" => "color-battleship-gray",
-            "1E2022" => "color-black",
-            _ => "color-off-white"
+            "3A3418" => "color-pine",
+            "7A7F50" => "color-mossy-rock",
+            "A79B6E" => "color-granola",
+            "F4F2E2" => "color-oat-milk",
+            "0A0A0A" => "color-black",
+            _ => "color-oat-milk"
         };
     }
 
