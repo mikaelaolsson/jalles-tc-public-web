@@ -10,6 +10,8 @@
 @import 'mixins/media';
 @import 'mixins/accessibility';
 
+@import 'animations';
+
 @import 'blocks/content-block';
 @import 'blocks/cta-block';
 @import 'blocks/data-block';
@@ -54,7 +56,7 @@ body {
   font-family: $font-family;
   color: $color-black;
 
-  background-color: $color-off-white;
+  background-color: $color-oat-milk;
 }
 
 * {

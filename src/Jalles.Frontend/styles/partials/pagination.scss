@@ -1,46 +1,56 @@
 .pagination {
   display: flex;
   justify-content: center;
-  gap: $spacing-standard;
-  margin-top: $spacing-standard;
+  align-items: center;
+
+  margin-top: $spacing-large;
 
   .page-buttons {
     display: contents;
   }
 
   button {
+    padding: $spacing-small;
+
     font-size: $font-size-large;
-    color: $color-battleship-gray;
+    color: $color-granola;
 
     &.active {
-      color: $foreground-color-main;
       font-weight: $font-weight-bold;
+      color: $foreground-color-main;
     }
 
     &#previous,
     &#next {
+      color: $foreground-color-main;
+
       &:before {
         content: '';
         display: block;
-        width: 18px;
-        height: 10.606px;
+        width: 10px;
+        height: 6px;
+
         background-color: $foreground-color-main;
         mask: url('/static/images/arrow.svg') no-repeat center / contain;
       }
 
-      &:disabled:before {
-        background-color: $color-battleship-gray;
+      &:disabled {
+        color: $color-granola;
+
+        &:before {
+          background-color: $color-granola;
+        }
       }
     }
 
     &#previous {
       transform: rotate(90deg);
-      margin-right: $spacing-standard;
+      margin-right: $spacing-small;
     }
 
     &#next {
       transform: rotate(-90deg);
-      margin-left: $spacing-standard;
+      margin-left: $spacing-small;
     }
   }
 }

@@ -10,6 +10,8 @@
 
       .pin {
         @include button-on-light-background;
+
+        padding: $spacing-small $spacing-standard;
       }
     }
   }

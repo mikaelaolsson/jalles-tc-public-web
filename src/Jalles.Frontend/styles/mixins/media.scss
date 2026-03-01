@@ -6,6 +6,22 @@
   bottom: 0;
 }
 
+@mixin card-shadow {
+  box-shadow: 0 8px 24px rgb($color-pine, 25%);
+}
+
+@mixin card-hover {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+
+    @include card-shadow;
+  }
+}
+
 @mixin gradient-overlay {
   position: absolute;
   inset: 0;

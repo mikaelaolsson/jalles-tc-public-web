@@ -6,7 +6,6 @@
     flex-direction: column;
     gap: $spacing-standard;
 
-
     h2 {
       margin: 0;
     }
@@ -14,33 +13,58 @@
     .listings {
       display: flex;
       flex-direction: column;
-      gap: $spacing-standard;
+      gap: $spacing-large;
+
       margin: 0;
       padding: 0;
 
       .listing {
-        position: relative;
         display: flex;
-        align-items: flex-end;
-        min-height: 270px;
+        flex-direction: column;
+        overflow: hidden;
+
+        text-decoration: none;
+
+        background-color: $color-black;
+        border-radius: $border-radius;
+
+        @include card-hover;
 
         .media {
-          @include fill-by-absolute-position;
-          border-radius: $border-radius;
+          height: 14rem;
         }
 
         .content {
+          flex: 1;
           padding: $puff-padding;
-          width: 100%;
-          z-index: 0;
+
+          border-left: 0.3rem solid $color-jalles-yellow;
 
           .content-container {
-            @include button-on-dark-background;
-
             h3 {
               margin: 0;
-              font-weight: bold;
+
+              font-weight: $font-weight-bold;
+              color: $color-oat-milk;
             }
+
+            span {
+              font-size: $font-size-small;
+              color: $color-granola;
+
+              &:after {
+                display: inline-block;
+                margin-left: $spacing-small;
+
+                content: '\276F';
+              }
+            }
+          }
+        }
+
+        &:hover .content-container span:after {
+          @media (prefers-reduced-motion: no-preference) {
+            animation: arrow-animation 0.45s $animation-bounce-timing;
           }
         }
       }
@@ -55,8 +79,8 @@
     .main-content-container {
       @include desktop-container-content;
       @include desktop-container-grid;
-      gap: $spacing-standard;
 
+      gap: $spacing-standard;
 
       h2 {
         grid-row: 1;
@@ -71,7 +95,30 @@
       .listings {
         grid-row: 3;
         grid-column: 3 / 11;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-large;
+
         width: 100%;
+
+        .listing {
+          .media {
+            height: 16rem;
+          }
+
+          .content {
+            padding: $puff-padding-desktop;
+          }
+        }
+
+        .no-results {
+          grid-column: 1 / -1;
+        }
+
+        .pagination {
+          grid-column: 1 / -1;
+        }
       }
     }
   }

@@ -31,11 +31,11 @@
 @mixin button-on-light-background {
   @include button;
 
-  background-color: $color-taupe;
-  color: $color-off-white;
+  background-color: $color-mossy-rock;
+  color: $color-oat-milk;
 
   &:hover {
-    @include button-secondary-on-light-background;
+    background-color: $color-pine;
   }
 }
 
@@ -101,13 +101,23 @@
 }
 
 @mixin category-button {
-  @include button-secondary-on-light-background;
+  @include button;
+
   padding: $spacing-small $spacing-standard;
 
+  color: $color-pine;
+
+  border: 1px solid $color-granola;
   cursor: pointer;
 
+  &:hover {
+    background-color: rgb($color-granola, 15%);
+  }
+
   &.selected {
-    background-color: rgb(255, 248, 173, 60%);
-    backdrop-filter: blur(0.5rem);
+    color: $color-black;
+
+    background-color: $color-jalles-yellow;
+    border-color: $color-jalles-yellow;
   }
 }

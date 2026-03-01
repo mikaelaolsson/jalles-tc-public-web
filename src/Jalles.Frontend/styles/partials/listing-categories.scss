@@ -5,7 +5,8 @@
     align-items: center;
     gap: $spacing-small;
 
-    .clear-button, .category-button {
+    .clear-button,
+    .category-button {
       @include category-button;
     }
   }
