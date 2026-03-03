@@ -41,53 +41,66 @@
       grid-template-columns: 1fr;
       grid-template-rows: auto;
       gap: $spacing-standard;
-      margin: $spacing-standard 0 $spacing-standard;
+      margin: $spacing-standard 0;
 
-      img {
-        width: 100%;
-        height: auto;
+      .img-container {
+        position: relative;
+
         border-radius: $border-radius;
-        object-fit: cover;
+
+        overflow: hidden;
         cursor: pointer;
+
+        img {
+          width: 100%;
+          height: auto;
+
+          object-fit: cover;
+
+          @media (prefers-reduced-motion: no-preference) {
+            transition: transform 0.4s ease;
+          }
+        }
+
+        &:hover img {
+          transform: scale(1.04);
+        }
+
+        &.overlay {
+          &:after {
+            position: absolute;
+            inset: 0;
+
+            background-color: rgba($color-pine, 0.5);
+
+            content: '';
+            pointer-events: none;
+          }
+
+          .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+
+            font-size: $font-size-large;
+            font-weight: $font-weight-bold;
+
+            color: $color-white;
+
+            white-space: nowrap;
+            pointer-events: none;
+          }
+        }
       }
 
       .sub-container {
         display: flex;
         flex-direction: column;
         gap: $spacing-standard;
+
         height: 100%;
-
-        .img-container {
-          height: auto;
-
-          img {
-            max-height: 100%;
-            width: 100%;
-            border-radius: $border-radius;
-          }
-
-          &.overlay {
-            position: relative;
-
-            img {
-              border-radius: $border-radius;
-              filter: opacity(0.3);
-            }
-
-            &:after {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              content: 'Se alla bilder \276F';
-              text-align: center;
-              color: $color-white;
-              font-size: $font-size-large;
-              font-weight: $font-weight;
-              transform: translate(-50%, -50%);
-              cursor: pointer;
-            }
-          }
-        }
       }
     }
   }
@@ -116,11 +129,14 @@
         grid-row: 3;
         grid-column: 3 / 11;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 35rem;
+        grid-template-rows: 42rem;
 
-        img {
-          width: 100%;
+        .img-container {
           height: 100%;
+
+          img {
+            height: 100%;
+          }
 
           &:only-child {
             grid-column: 1 / 3;
@@ -129,7 +145,7 @@
 
         .sub-container {
           .img-container {
-            height: calc(50% - 8px) ;
+            height: calc(50% - #{$spacing-standard / 2});
           }
         }
       }

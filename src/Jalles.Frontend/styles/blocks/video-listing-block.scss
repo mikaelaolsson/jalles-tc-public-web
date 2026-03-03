@@ -1,10 +1,12 @@
 .video-listing-block {
-  margin: $spacing-vertical-medium $side-margins;
+  padding: $spacing-vertical-medium $side-margins;
+
   text-align: center;
 
   .video-listing-header {
     display: flex;
     flex-direction: column;
+
     margin-bottom: $spacing-standard;
     margin-left: auto;
     margin-right: auto;
@@ -12,6 +14,7 @@
 
     h2 {
       margin-bottom: $spacing-standard;
+
       color: $color-black;
     }
 
@@ -33,18 +36,25 @@
   }
 }
 
-@media screen and (min-width: $screen-min-desktop) {
+@media only screen and (min-width: $screen-min-desktop) {
   .video-listing-block {
-    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
     @include desktop-container-content;
+    @include desktop-container-grid;
+    row-gap: 0;
+
+    padding: $spacing-vertical-large-desktop $side-margins-desktop;
 
     .video-listing-header {
+      grid-column: 3 / 11;
+
       margin-bottom: $spacing-large;
       max-width: $text-max-width-large;
     }
 
     .videos {
-      width: 80%;
+      grid-column: 3 / 11;
+
+      margin: 0;
     }
   }
 }

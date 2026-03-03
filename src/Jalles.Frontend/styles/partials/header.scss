@@ -70,6 +70,7 @@
       .content {
         @include desktop-container-content;
         @include desktop-container-grid;
+        row-gap: 0;
 
         width: 100%;
 
