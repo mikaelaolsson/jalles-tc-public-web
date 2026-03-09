@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" />
+    <PackageReference Include="MimeKit" />
     <PackageReference Include="RobotsTxtCore" />
     <PackageReference Include="Shorthand.Vite" />
     <PackageReference Include="Umbraco.Cms" />
