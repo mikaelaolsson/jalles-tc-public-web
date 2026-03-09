@@ -8,6 +8,7 @@ import initMenuToggle from './menu-toggle.mjs';
 import initTableWrapper from './table-wrapper.mjs';
 import initImageGalleryModal from './image-gallery-modal.mjs';
 import initSiteSearch from './site-search.mjs';
+import initScrollAnimations from './scroll-animations.mjs';
 
 initBackgroundColor();
 initExtraSideScroller();
@@ -17,3 +18,4 @@ initMenuToggle();
 initTableWrapper();
 initImageGalleryModal();
 initSiteSearch();
+initScrollAnimations();

@@ -4,6 +4,12 @@
   &.color-jalles-yellow, &.color-oat-milk, &.color-granola {
     .content-container {
       .content {
+        h2 {
+          @include section-heading($color-pine);
+
+          color: $color-pine;
+        }
+
         .cta-block {
           a {
             @include button-on-light-background;
@@ -44,7 +50,11 @@
   &.color-pine, &.color-mossy-rock, &.color-black {
     .content-container {
       .content {
-        h2, p {
+        h2 {
+          color: $color-jalles-yellow;
+        }
+
+        p {
           color: $color-oat-milk;
         }
       }
@@ -71,8 +81,21 @@
       flex-direction: column;
       gap: $spacing-large;
 
-      h2, p {
+      h2 {
+        @include section-heading;
+      }
+
+      p {
         margin: 0;
+      }
+    }
+  }
+
+  .content.fade-up {
+    h2:before {
+      @media (prefers-reduced-motion: no-preference) {
+        /* stylelint-disable-next-line no-unknown-animations */
+        animation: accent-line-draw 0.6s ease-out 0.4s both;
       }
     }
   }

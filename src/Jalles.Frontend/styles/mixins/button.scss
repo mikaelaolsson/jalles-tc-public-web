@@ -10,20 +10,20 @@
   box-sizing: border-box;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border 0.4s ease-in-out, opacity 0.4s ease-in-out;
   }
 }
 
 @mixin button-on-dark-background {
   @include button;
 
-  background-color: $color-vanilla;
-  color: $color-taupe;
+  background-color: $color-oat-milk;
+  color: $color-pine;
 
   &:hover {
-    background-color: rgb(250, 250, 236, 0.20%);
-    color: $color-vanilla;
-    border: 1px solid $color-vanilla;
+    background-color: transparent;
+    color: $color-oat-milk;
+    border-color: $color-oat-milk;
     backdrop-filter: blur(0.5rem);
   }
 }
@@ -31,11 +31,14 @@
 @mixin button-on-light-background {
   @include button;
 
-  background-color: $color-mossy-rock;
+  background-color: $color-pine;
   color: $color-oat-milk;
 
   &:hover {
-    background-color: $color-pine;
+    background-color: transparent;
+    color: $color-pine;
+    border-color: $color-pine;
+    backdrop-filter: blur(0.5rem);
   }
 }
 
@@ -43,11 +46,11 @@
   @include button;
 
   background-color: transparent;
-  color: $color-off-white;
-  border: 1px solid $color-off-white;
+  color: $color-oat-milk;
+  border-color: $color-oat-milk;
 
   &:hover {
-    background-color: rgb(250, 250, 236, 10%);
+    background-color: rgb($color-oat-milk, 15%);
     backdrop-filter: blur(0.5rem);
   }
 }
@@ -56,11 +59,11 @@
   @include button;
 
   background-color: transparent;
-  color: $color-taupe;
-  border: 1px solid $color-taupe;
+  color: $color-pine;
+  border-color: $color-pine;
 
   &:hover {
-    background-color: rgb(255, 248, 173, 60%);
+    background-color: rgb($color-oat-milk, 15%);
     backdrop-filter: blur(0.5rem);
   }
 }
