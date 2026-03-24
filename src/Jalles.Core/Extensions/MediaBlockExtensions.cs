@@ -92,7 +92,7 @@ public static partial class MediaBlockExtensions
         return backgroundColor?.Color?.TrimStart('#').ToUpper() switch
         {
             "FFEB19" => "color-jalles-yellow",
-            "3A3418" => "color-pine",
+            "1A1F12" => "color-pine",
             "7A7F50" => "color-mossy-rock",
             "A79B6E" => "color-granola",
             "F4F2E2" => "color-oat-milk",
