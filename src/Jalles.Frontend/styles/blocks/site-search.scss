@@ -1,31 +1,33 @@
 .site-search-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-search-modal;
+
   display: none;
   flex-direction: column;
   gap: $spacing-large;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  padding: $spacing-large $side-margins;
   width: 100vw;
   max-width: 100vw;
   height: 100vh;
   max-height: 100vh;
+  padding: $spacing-large $side-margins;
 
-  background-color: $color-taupe;
-  color: $color-off-white;
+  background-color: $color-black;
+  color: $color-oat-milk;
   border: none;
-  z-index: $z-index-search-modal;
+
+  overflow: hidden;
 
   &[open] {
     display: flex;
   }
 
   a {
-    color: $color-off-white;
+    color: $color-oat-milk;
   }
 
   .heading-container {
@@ -35,21 +37,26 @@
 
     h2 {
       margin: 0;
-      color: $color-off-white;
+
+      color: $color-oat-milk;
     }
 
     .close-search {
-      color: $color-off-white;
-      font-size: $font-size-large;
       padding: $spacing-small;
+
+      font-size: $font-size-large;
+
+      color: $color-oat-milk;
     }
   }
 
   .input-container {
     label {
       position: absolute;
+
       width: 1px;
       height: 1px;
+
       overflow: hidden;
       clip-path: inset(50%);
       white-space: nowrap;
@@ -58,16 +65,18 @@
     input[type="search"] {
       width: 100%;
       padding: $spacing-small $spacing-standard;
+
       font-size: $font-size;
       font-family: $font-family;
-      border: 2px solid $color-off-white;
+
+      background-color: rgba($color-oat-milk, 0);
+      color: $color-oat-milk;
+      border: 2px solid $color-oat-milk;
       border-radius: $border-radius-small;
-      background-color: transparent;
-      color: $color-off-white;
       outline: none;
 
       &::placeholder {
-        color: $color-battleship-gray;
+        color: $color-mossy-rock;
       }
 
       &:focus {
@@ -77,41 +86,50 @@
   }
 
   .search-results-container {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     flex: 1;
+
     overflow: hidden;
-    position: relative;
 
     &.loading:after {
       content: '';
       position: absolute;
       inset: 0;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: rgb(70, 63, 58, 60%);
+
+      background-color: rgba($color-black, 0.6);
     }
 
     > span {
       display: block;
+
       margin-bottom: $spacing-standard;
-      color: $color-off-white;
+
+      color: $color-oat-milk;
     }
 
     .search-results-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
       flex-direction: column;
-      gap: $spacing-standard;
-      overflow-y: auto;
       flex: 1;
+      gap: $spacing-standard;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
 
       /* Firefox */
       scrollbar-width: thin;
-      scrollbar-color: $color-battleship-gray transparent;
+      scrollbar-color: $color-jalles-yellow rgba($color-black, 0);
+
+      overflow-y: auto;
 
       /* Chrome, Edge, Safari */
       &::-webkit-scrollbar {
@@ -119,7 +137,7 @@
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: $color-battleship-gray;
+        background-color: $color-mossy-rock;
         border-radius: $border-radius;
 
         &:hover {
@@ -130,43 +148,55 @@
       li {
         a {
           display: block;
+
           text-decoration: none;
 
           hgroup {
             display: flex;
             flex-direction: column;
             gap: $spacing-small;
+
             padding: $spacing-standard;
-            border: 2px solid rgb(250, 250, 236, 30%);
+
+            border: 2px solid rgba($color-oat-milk, 0.3);
             border-radius: $border-radius-small;
+            background-color: rgba($color-oat-milk, 0);
+
             transition: border-color 0.2s ease, background-color 0.2s ease;
 
             &:hover {
+              background-color: rgba($color-jalles-yellow, 0.1);
+
               border-color: $color-jalles-yellow;
-              background-color: rgb(255, 235, 25, 10%);
             }
 
             span {
               font-size: $font-size-small;
+
               color: $color-jalles-yellow;
             }
 
             h3 {
               margin: 0;
+
               font-size: $font-size;
-              color: $color-off-white;
+
+              color: $color-oat-milk;
             }
 
             time {
               font-size: $font-size-small;
-              color: $color-battleship-gray;
+
+              color: $color-mossy-rock;
             }
 
             p {
               margin: 0;
+
               font-size: $font-size-small;
-              color: $color-battleship-gray;
               line-height: $font-line-height;
+
+              color: $color-oat-milk;
             }
           }
         }
@@ -179,25 +209,25 @@
   .site-search-overlay {
     padding: $spacing-large $side-margins-desktop;
 
-    .search-results-container {
-      max-width: $text-max-width-large;
+    .heading-container {
       width: 100%;
-      margin-left: auto;
+      max-width: $text-max-width-large;
       margin-right: auto;
+      margin-left: auto;
     }
 
     .input-container {
-      max-width: $text-max-width-large;
       width: 100%;
-      margin-left: auto;
+      max-width: $text-max-width-large;
       margin-right: auto;
+      margin-left: auto;
     }
 
-    .heading-container {
-      max-width: $text-max-width-large;
+    .search-results-container {
       width: 100%;
-      margin-left: auto;
+      max-width: $text-max-width-large;
       margin-right: auto;
+      margin-left: auto;
     }
   }
 }

@@ -111,7 +111,7 @@ public class SearchService : ISearchService
         {
             var categories = contentPage.Categories;
             if(categories is { Count: > 0 })
-                return string.Join(" | ", categories);
+                return $"{GetDescription(pageType)} - {string.Join(" | ", categories)}";
         }
 
         return GetDescription(pageType);

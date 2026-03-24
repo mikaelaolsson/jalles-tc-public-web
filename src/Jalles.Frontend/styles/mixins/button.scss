@@ -68,41 +68,6 @@
   }
 }
 
-@mixin anchor-link-button {
-  @include button;
-  display: flex;
-  align-items: center;
-  gap: $spacing-small;
-
-  padding: $spacing-small $spacing-standard;
-  font-size: $font-size-small-desktop;
-
-  background-color: transparent;
-  color: $foreground-color-main;
-  border: 1px solid $button-secondary-light-border-color;
-
-  &:after {
-    width: $icon-size-small;
-    height: $icon-size-small;
-
-    transform: rotate(90deg);
-
-    content: '';
-    background-image: url('../static/images/arrow-right.svg');
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-size: contain;
-  }
-
-  &:hover {
-    &:after {
-      @media (prefers-reduced-motion: no-preference) {
-        animation: anchor-arrow-animation 0.45s $animation-bounce-timing;
-      }
-    }
-  }
-}
-
 @mixin category-button {
   @include button;
 
