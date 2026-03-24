@@ -9,10 +9,11 @@
 @mixin link-with-color {
   @include link;
 
-  color: $color-taupe;
+  color: $color-pine;
+  font-weight: $font-weight-bold;
 }
 
-@mixin hover-underline($color: $color-jalles-yellow) {
+@mixin link-hover-underline($color: $color-jalles-yellow) {
   position: relative;
 
   &:after {
