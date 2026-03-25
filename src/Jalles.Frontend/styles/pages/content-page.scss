@@ -4,7 +4,6 @@
     padding: 0 $side-margins $spacing-vertical-medium;
     list-style: none;
     text-align: right;
-    color: $color-granola;
 
     &.color-jalles-yellow {
       background-color: $color-jalles-yellow;
@@ -39,6 +38,20 @@
 
   .back-button {
     padding: $spacing-vertical-medium $side-margins 0;
+    text-align: left;
+
+    a {
+      span {
+        display: inline-block;
+        margin-right: 0.25rem;
+      }
+
+      &:hover span {
+        @media (prefers-reduced-motion: no-preference) {
+          animation: back-arrow-animation 0.45s $animation-bounce-timing;
+        }
+      }
+    }
   }
 }
 
@@ -57,7 +70,7 @@
         }
 
         a {
-          grid-column: 10 / 11;
+          grid-column: 3 / 4;
         }
       }
     }
