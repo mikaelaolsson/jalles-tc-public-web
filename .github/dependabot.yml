@@ -10,6 +10,8 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    assignees:
+      - "mikaelaolsson"
     open-pull-requests-limit: 5
     groups:
       roslynator:
@@ -32,6 +34,8 @@ updates:
     directory: "/src/Jalles.Frontend/"
     schedule:
       interval: "monthly"
+    assignees:
+      - "mikaelaolsson"
     open-pull-requests-limit: 5
     groups:
       eslint:
@@ -61,6 +65,8 @@ updates:
     directory: "/src/Jalles.BackofficeExtensions/Client/"
     schedule:
       interval: "monthly"
+    assignees:
+      - "mikaelaolsson"
     open-pull-requests-limit: 5
     groups:
       eslint:
@@ -75,12 +81,16 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    assignees:
+      - "mikaelaolsson"
 
   - package-ecosystem: "dotnet-sdk"
     directory: "/"
     schedule:
       interval: "monthly"
       day: "wednesday"
+    assignees:
+      - "mikaelaolsson"
     ignore:
       - dependency-name: "*"
         update-types:
