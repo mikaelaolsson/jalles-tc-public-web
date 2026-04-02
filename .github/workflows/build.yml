@@ -130,7 +130,7 @@ jobs:
         working-directory: ${{ env.FRONTEND_DIRECTORY }}
 
       - name: Upload frontend artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: frontend-artifacts
           path: ${{ env.WWWROOT_DIRECTORY }}
@@ -160,7 +160,7 @@ jobs:
         working-directory: ${{ env.BACKOFFICE_DIRECTORY }}
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: backoffice-artifacts
           path: ${{ env.BACKOFFICE_WWWROOT_DIRECTORY }}
@@ -183,13 +183,13 @@ jobs:
         run: dotnet restore
 
       - name: Download frontend artifacts
-        uses: actions/download-artifact@v7.0.0
+        uses: actions/download-artifact@v8.0.1
         with:
           name: frontend-artifacts
           path: ${{ env.WWWROOT_DIRECTORY }}
 
       - name: Download backoffice artifacts
-        uses: actions/download-artifact@v7.0.0
+        uses: actions/download-artifact@v8.0.1
         with:
           name: backoffice-artifacts
           path: ${{ env.BACKOFFICE_WWWROOT_DIRECTORY }}
@@ -205,7 +205,7 @@ jobs:
           directory: ./artifacts/
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dotnet-artifacts
           path: ./artifacts.zip
