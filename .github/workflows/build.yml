@@ -183,13 +183,13 @@ jobs:
         run: dotnet restore
 
       - name: Download frontend artifacts
-        uses: actions/download-artifact@v7.0.0
+        uses: actions/download-artifact@v8
         with:
           name: frontend-artifacts
           path: ${{ env.WWWROOT_DIRECTORY }}
 
       - name: Download backoffice artifacts
-        uses: actions/download-artifact@v7.0.0
+        uses: actions/download-artifact@v8
         with:
           name: backoffice-artifacts
           path: ${{ env.BACKOFFICE_WWWROOT_DIRECTORY }}
