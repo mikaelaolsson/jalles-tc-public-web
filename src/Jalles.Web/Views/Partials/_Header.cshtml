@@ -14,7 +14,7 @@
 <div class="@classes">
     @if (Model.MediaBlock?.MediaSource is not null)
     {
-        @await Html.PartialAsync("../Blocks/_MediaBlock.cshtml", Model.MediaBlock)
+        @await Html.PartialAsync("../Blocks/_HeaderMediaBlock.cshtml", Model.MediaBlock)
     }
 
     @if (hasGradient)
