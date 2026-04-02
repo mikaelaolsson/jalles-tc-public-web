@@ -64,7 +64,10 @@
         }
       }
 
-      .embedded-video-container {
+      .embedded-video-container,
+      .umb-embed-holder {
+        display: block;
+
         @include embedded-video;
       }
     }

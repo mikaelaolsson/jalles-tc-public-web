@@ -4,7 +4,7 @@
     <UserSecretsId>c56ea76d-02f7-4528-ba77-cdec24aa8b26</UserSecretsId>
   </PropertyGroup>
 
-  <!-- Force include of Vite 5 manifest (todo: we need to add vite!) -->
+  <!-- Force include of Vite 5 manifest -->
   <ItemGroup>
     <Content Include="wwwroot\.vite\**" CopyToPublishDirectory="PreserveNewest" Exclude="$(DefaultItemExcludes)" />
   </ItemGroup>

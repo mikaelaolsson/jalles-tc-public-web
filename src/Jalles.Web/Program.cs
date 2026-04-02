@@ -22,7 +22,6 @@ builder.ConfigureKestrelLimits();
 IdentityModelEventSource.ShowPII = builder.Environment.IsDevelopment();
 
 var umbracoBuilder = builder.CreateUmbracoBuilder();
-// TODO v17: kolla att detta funkar för både YouTube och Vimeo
 umbracoBuilder.EmbedProviders();
 
 umbracoBuilder

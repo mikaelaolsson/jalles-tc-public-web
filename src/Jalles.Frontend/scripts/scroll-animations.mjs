@@ -64,10 +64,9 @@ export default function initScrollAnimations() {
     '.listing-page .listing',
     '.listing-page .listing-categories',
     '.footer .content',
-    // TODO: add when redesigned:
-    // '.text-block-container'
-    // '.data-block-container'
-    // '.excel-block'
-    // '.our-sponsor-block'
+    '.text-block-container',
+    '.data-block-container',
+    '.excel-block',
+    '.our-sponsor-block',
   ]);
 }
