@@ -30,21 +30,14 @@ $color-granola: #A79B6E;
 $color-oat-milk: #F4F2E2;
 $color-black: #0A0A0A;
 
+$color-pine-muted: rgba($color-pine, 0.8);
+$color-granola-subtle: rgba($color-granola, 0.2);
+$color-granola-muted: rgba($color-granola, 0.4);
+$color-mossy-rock-subtle: rgba($color-mossy-rock, 0.12);
+$color-mossy-rock-muted: rgba($color-mossy-rock, 0.25);
+
 $color-white: #FFF;
 $foreground-color-main: $color-black;
-
-// Old colors, phase out in favor of new palette
-$color-off-white: #FAFAEC;
-$color-vanilla: #FFF8AD;
-$color-taupe: #463F3A;
-$color-battleship-gray: #8A817C;
-
-$color-battleship-muted: rgb(138, 129, 124, 50%);
-$color-battleship-more-muted: rgb(138, 129, 124, 20%);
-$color-vanilla-muted: rgb(255, 248, 173, 50%);
-$color-vanilla-more-muted: rgb(255, 248, 173, 20%);
-
-$button-secondary-light-border-color: rgb(0, 0, 0, 20%);
 
 /* Border */
 $border-radius-small: 0.5rem;
@@ -86,7 +79,6 @@ $button-padding: 1rem 2rem;
 $puff-padding: 1.5rem 1.25rem;
 $puff-padding-small: 1rem 1rem;
 $puff-padding-desktop: 2.5rem 2rem;
-$puff-padding-small-desktop: 1.5rem 1.5rem;
 
 $side-margins: 1.25rem;
 $side-margins-desktop: 5rem;
@@ -95,11 +87,9 @@ $side-margins-desktop: 5rem;
 
 $z-index-main-menu: 100;
 $z-index-search-modal: 50;
-$z-index-modal: 150;
 
 /* Breakpoints */
 
-$screen-min-tablet: 700px;
 $screen-min-desktop: 1200px;
 
 /* Animations */

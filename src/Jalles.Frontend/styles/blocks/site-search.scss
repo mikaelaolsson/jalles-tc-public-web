@@ -125,25 +125,9 @@
 
       list-style: none;
 
-      /* Firefox */
-      scrollbar-width: thin;
-      scrollbar-color: $color-jalles-yellow rgba($color-black, 0);
-
       overflow-y: auto;
 
-      /* Chrome, Edge, Safari */
-      &::-webkit-scrollbar {
-        width: 0.5rem;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: $color-mossy-rock;
-        border-radius: $border-radius;
-
-        &:hover {
-          background-color: $color-jalles-yellow;
-        }
-      }
+      @include custom-scrollbar;
 
       li {
         a {

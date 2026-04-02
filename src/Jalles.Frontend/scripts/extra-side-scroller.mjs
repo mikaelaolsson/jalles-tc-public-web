@@ -1,25 +1,44 @@
 export default function initExtraSideScroller() {
   const extraScroller = document.querySelector('.extra-scroller');
+  const extraScrollerInner = extraScroller?.querySelector('div');
   const tableWrapper = document.querySelector('.table-wrapper');
+  const table = tableWrapper?.querySelector('table');
+
+  if (!extraScroller || !extraScrollerInner || !tableWrapper || !table) return;
+
+  function syncInnerWidth() {
+    extraScrollerInner.style.width = `${table.scrollWidth}px`;
+  }
 
   function toggleExtraScroller() {
     extraScroller.style.display =
       tableWrapper.scrollWidth > tableWrapper.clientWidth ? 'block' : 'none';
   }
 
-  if (extraScroller && tableWrapper) {
-    // Initial check and toggle
+  const resizeObserver = new ResizeObserver(() => {
+    syncInnerWidth();
     toggleExtraScroller();
+  });
 
-    // Update on window resize
-    window.addEventListener('resize', toggleExtraScroller);
+  resizeObserver.observe(table);
 
-    extraScroller.addEventListener('scroll', function() {
-      tableWrapper.scrollLeft = extraScroller.scrollLeft;
-    });
+  let syncingFromExtra = false;
+  let syncingFromTable = false;
 
-    tableWrapper.addEventListener('scroll', function() {
-      extraScroller.scrollLeft = tableWrapper.scrollLeft;
-    });
-  }
+  extraScroller.addEventListener('scroll', () => {
+    if (syncingFromTable) return;
+    syncingFromExtra = true;
+    tableWrapper.scrollLeft = extraScroller.scrollLeft;
+    syncingFromExtra = false;
+  });
+
+  tableWrapper.addEventListener('scroll', () => {
+    if (syncingFromExtra) return;
+    syncingFromTable = true;
+    extraScroller.scrollLeft = tableWrapper.scrollLeft;
+    syncingFromTable = false;
+  });
+
+  syncInnerWidth();
+  toggleExtraScroller();
 }

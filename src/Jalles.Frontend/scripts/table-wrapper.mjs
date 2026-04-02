@@ -2,7 +2,9 @@ export default function initTableWrapper() {
   function addTableWrapper() {
     const tables = document.querySelectorAll('table');
     tables.forEach((table) => {
-      wrapElement(table, 'table-wrapper');
+      if (!table.closest('.table-wrapper')) {
+        wrapElement(table, 'table-wrapper');
+      }
     });
   }
 

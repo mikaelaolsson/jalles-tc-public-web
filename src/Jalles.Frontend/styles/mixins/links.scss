@@ -9,7 +9,7 @@
 @mixin link-with-color {
   @include link;
 
-  color: $color-pine;
+  color: $color-pine-muted;
   font-weight: $font-weight-bold;
 }
 
