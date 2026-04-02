@@ -13,7 +13,7 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <!-- MimeKit: Explicit version to address vulnerability GHSA-g7hc-96xr-gvvx in 4.14.0 https://github.com/advisories/GHSA-g7hc-96xr-gvvx -->
     <PackageVersion Include="MimeKit" Version="4.15.1" />
-    <PackageVersion Include="MiniExcel" Version="1.42.0" />
+    <PackageVersion Include="MiniExcel" Version="1.43.0" />
     <PackageVersion Include="RobotsTxtCore" Version="3.1.0-preview1" />
     <PackageVersion Include="Shorthand.Vite" Version="0.2.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
