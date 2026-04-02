@@ -1,0 +1,37 @@
+@mixin link {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin link-with-color {
+  @include link;
+
+  color: $color-pine-muted;
+  font-weight: $font-weight-bold;
+}
+
+@mixin link-hover-underline($color: $color-jalles-yellow) {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: $color;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+  }
+}

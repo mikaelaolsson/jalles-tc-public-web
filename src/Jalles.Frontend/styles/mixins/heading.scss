@@ -1,0 +1,14 @@
+@mixin section-heading($color: $color-jalles-yellow) {
+  margin: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    margin-bottom: $spacing-small;
+
+    width: 4rem;
+    height: 3px;
+
+    background-color: $color;
+  }
+}

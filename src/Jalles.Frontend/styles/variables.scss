@@ -1,0 +1,93 @@
+/* Font */
+
+$font-family: 'DM Sans', 'Trebuchet MS', sans-serif, verdana, tahoma;
+
+$font-size-small: 0.875rem;
+$font-size: 1rem;
+$font-size-large: 1.125rem;
+$font-size-small-desktop: 1rem;
+$font-size-desktop: 1.125rem;
+
+$font-size-heading-extra-small: 1.375rem;
+$font-size-heading-small: 1.5rem;
+$font-size-heading-medium: 2.25rem;
+$font-size-heading-large: 3rem;
+$font-size-heading-xlarge: 5rem;
+
+$font-line-height: 170%;
+$font-line-height-heading: 130%;
+
+$font-weight: 400;
+$font-weight-bold: 700;
+
+/* Color */
+
+$color-jalles-yellow: #FFEB19;
+$color-pine: #1A1F12;
+$color-mossy-rock: #7A7F50;
+$color-granola: #A79B6E;
+$color-oat-milk: #F4F2E2;
+$color-black: #0A0A0A;
+
+$color-pine-muted: rgba($color-pine, 0.8);
+$color-granola-subtle: rgba($color-granola, 0.2);
+$color-granola-muted: rgba($color-granola, 0.4);
+$color-mossy-rock-subtle: rgba($color-mossy-rock, 0.12);
+$color-mossy-rock-muted: rgba($color-mossy-rock, 0.25);
+
+$color-white: #FFF;
+$foreground-color-main: $color-black;
+
+/* Border */
+$border-radius-small: 0.5rem;
+$border-radius: 1rem;
+
+/* Sizes */
+
+$max-width: 1980px;
+$text-max-width: 800px;
+$text-max-width-large: 950px;
+
+$icon-size-small: 0.75rem;
+$icon-size: 1rem;
+$icon-size-large: 2.5rem;
+
+$min-touch-target-size: 3rem;
+
+$header-height: 25rem;
+$header-height-desktop: 40rem;
+
+/* Spacing and padding */
+
+$spacing-small: 0.5rem;
+$spacing-standard: 1rem;
+$spacing-large: 2rem;
+
+$spacing-vertical-small: 1.5rem;
+$spacing-vertical-medium: 2rem;
+$spacing-vertical-large: 3rem;
+$spacing-vertical-medium-desktop: 3rem;
+$spacing-vertical-large-desktop: 5rem;
+
+$spacing-two-column-layout-desktop: 4rem;
+
+$button-padding: 1rem 2rem;
+
+$puff-padding: 1.5rem 1.25rem;
+$puff-padding-desktop: 2.5rem 2rem;
+
+$side-margins: 1.25rem;
+$side-margins-desktop: 5rem;
+
+/* z-index */
+
+$z-index-main-menu: 100;
+$z-index-search-modal: 50;
+
+/* Breakpoints */
+
+$screen-min-desktop: 1200px;
+
+/* Animations */
+
+$animation-bounce-timing: cubic-bezier(0.175, 0.885, 0.32, 1.275);

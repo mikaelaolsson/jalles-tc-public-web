@@ -1,0 +1,15 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" />
+    <PackageReference Include="MimeKit" />
+    <PackageReference Include="MiniExcel" />
+    <PackageReference Include="Umbraco.Cms.Core" />
+  </ItemGroup>
+
+</Project>

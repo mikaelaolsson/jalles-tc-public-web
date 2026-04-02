@@ -1,0 +1,33 @@
+<Project>
+  <ItemGroup>
+    <GlobalPackageReference Include="Roslynator.Analyzers" Version="4.15.0" />
+    <GlobalPackageReference Include="Roslynator.Formatting.Analyzers" Version="4.15.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Include="AutoMapper" Version="[14.0.0,15.0.0)" />
+    <PackageVersion Include="coverlet.msbuild" Version="8.0.1" />
+    <PackageVersion Include="FakeItEasy" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.SqlServer" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
+    <!-- MimeKit: Explicit version to address vulnerability GHSA-g7hc-96xr-gvvx in 4.14.0 https://github.com/advisories/GHSA-g7hc-96xr-gvvx -->
+    <PackageVersion Include="MimeKit" Version="4.15.1" />
+    <PackageVersion Include="MiniExcel" Version="1.43.0" />
+    <PackageVersion Include="RobotsTxtCore" Version="3.1.0-preview1" />
+    <PackageVersion Include="Shorthand.Vite" Version="0.2.0" />
+    <PackageVersion Include="Shouldly" Version="4.3.0" />
+    <PackageVersion Include="Umbraco.Cms" Version="17.3.0" />
+    <PackageVersion Include="Umbraco.Cms.Api.Common" Version="17.3.0" />
+    <PackageVersion Include="Umbraco.Cms.Api.Management" Version="17.3.0" />
+    <PackageVersion Include="Umbraco.Cms.Core" Version="17.3.0" />
+    <PackageVersion Include="Umbraco.Cms.Web.Common" Version="17.3.0" />
+    <PackageVersion Include="Umbraco.Cms.Web.Website" Version="17.3.0" />
+    <PackageVersion Include="Umbraco.Community.Contentment" Version="6.1.1" />
+    <PackageVersion Include="Umbraco.StorageProviders.AzureBlob" Version="17.0.0" />
+    <PackageVersion Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" Version="17.0.0" />
+    <PackageVersion Include="uSync" Version="17.0.4" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Jalles.BackofficeExtensions</PackageId>
+    <Product>Jalles.BackofficeExtensions</Product>
+    <Title>Jalles.BackofficeExtensions</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MimeKit" />
+    <PackageReference Include="Umbraco.Cms.Web.Website"/>
+    <PackageReference Include="Umbraco.Cms.Web.Common"/>
+    <PackageReference Include="Umbraco.Cms.Api.Common"/>
+    <PackageReference Include="Umbraco.Cms.Api.Management"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Client\**" />
+    <None Include="Client\public\umbraco-package.json" Pack="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>

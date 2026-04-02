@@ -1,0 +1,56 @@
+﻿@using Jalles.Web.Services
+@inject ExcelBlockDataLoader DataLoader
+@model ExcelBlockViewModel
+
+@{
+    await DataLoader.LoadExcelDataAsync(Model);
+}
+
+<div class="excel-block">
+    <div class="wrapper">
+        @if(!string.IsNullOrWhiteSpace(Model.Heading))
+        {
+            <h2>@Model.Heading</h2>
+        }
+
+        @if(Model.LoadFailed)
+        {
+            <div class="container">
+                <p>Hoppsan! Det gick inte att ladda Excel-filen. Försök igen senare.</p>
+            </div>
+        }
+        else if(Model.Rows.Count > 0)
+        {
+            <div class="container">
+                <div class="extra-scroller">
+                    <div></div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                @foreach(var header in Model.Rows[0].Keys)
+                                {
+                                    <th>@header</th>
+                                }
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach(var row in Model.Rows)
+                            {
+                                <tr>
+                                    @foreach(var property in row.Values)
+                                    {
+                                        <td title="@property">@property</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</div>

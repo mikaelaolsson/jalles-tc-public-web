@@ -1,0 +1,144 @@
+.content-block {
+  padding: $spacing-vertical-large $side-margins;
+
+  &.color-jalles-yellow, &.color-oat-milk, &.color-granola {
+    .content-container {
+      .content {
+        h2 {
+          @include section-heading($color-pine);
+
+          color: $color-pine;
+        }
+
+        .cta-block {
+          a {
+            @include button-on-light-background;
+
+            &:not(:first-child) {
+              @include button-secondary-on-light-background;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.color-jalles-yellow {
+    background-color: $color-jalles-yellow;
+  }
+
+  &.color-pine {
+    background-color: $color-pine;
+  }
+
+  &.color-mossy-rock {
+    background-color: $color-mossy-rock;
+  }
+
+  &.color-granola {
+    background-color: $color-granola;
+  }
+
+  &.color-oat-milk {
+    background-color: $color-oat-milk;
+  }
+
+  &.color-black {
+    background-color: $color-black;
+  }
+
+  &.color-pine, &.color-mossy-rock, &.color-black {
+    .content-container {
+      .content {
+        h2 {
+          color: $color-jalles-yellow;
+        }
+
+        p {
+          color: $color-oat-milk;
+        }
+      }
+    }
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-vertical-medium;
+
+    .media-container {
+      .media {
+        height: 15rem;
+
+        img, video {
+          border-radius: $border-radius;
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-large;
+
+      h2 {
+        @include section-heading;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .content.fade-up {
+    h2:before {
+      @media (prefers-reduced-motion: no-preference) {
+        /* stylelint-disable-next-line no-unknown-animations */
+        animation: accent-line-draw 0.6s ease-out 0.4s both;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .content-block {
+    padding: $spacing-vertical-large-desktop $side-margins-desktop;
+
+    .content-container {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+
+      .media-container {
+        grid-column: 3 / 7;
+
+        .media {
+          height: 30rem;
+        }
+      }
+
+      .content {
+        display: grid;
+        align-content: center;
+        grid-column: 7 / 11;
+
+        margin-left: $spacing-two-column-layout-desktop;
+      }
+
+      &.right {
+        .media-container {
+          grid-column: 7 / 11;
+          grid-row: 1;
+        }
+
+        .content {
+          grid-column: 3 / 7;
+          grid-row: 1;
+
+          margin-left: 0;
+          margin-right: $spacing-two-column-layout-desktop;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@import 'jalles-icons';
+@import 'fonts';
+@import 'variables';
+
+@import 'mixins/button';
+@import 'mixins/containers';
+@import 'mixins/heading';
+@import 'mixins/embedded-video';
+@import 'mixins/icon';
+@import 'mixins/links';
+@import 'mixins/media';
+@import 'mixins/accessibility';
+@import 'mixins/scrollbar';
+
+@import 'animations';
+
+@import 'blocks/content-block';
+@import 'blocks/cta-block';
+@import 'blocks/data-block';
+@import 'blocks/excel-block';
+@import 'blocks/footer';
+@import 'blocks/highlight-listing-block';
+@import 'blocks/image-gallery-block';
+@import 'blocks/image-gallery-modal-block';
+@import 'blocks/main-menu';
+@import 'blocks/site-search';
+@import 'blocks/media';
+@import 'blocks/pin-this-block';
+@import 'blocks/sponsors';
+@import 'blocks/text-block';
+@import 'blocks/video-listing-block';
+
+@import 'pages/content-page';
+@import 'pages/error-page';
+@import 'pages/listing-page';
+
+@import 'partials/header';
+@import 'partials/listing-categories';
+@import 'partials/pagination';
+
+:root {
+  font-size: 16px; // stylelint-disable-line declaration-property-unit-allowed-list
+}
+
+html {
+  min-height: 100%;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-size: $font-size;
+  font-family: $font-family;
+  color: $color-black;
+
+  background-color: $color-oat-milk;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important; // stylelint-disable-line declaration-no-important
+}
+
+p {
+  line-height: $font-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  line-height: $font-line-height-heading;
+  color: $color-black;
+}
+
+h1 {
+  font-size: $font-size-heading-large;
+  font-weight: $font-weight-bold;
+  line-height: $font-line-height-heading;
+
+  hyphens: auto;
+}
+
+h2 {
+  font-size: $font-size-heading-medium;
+}
+
+h3 {
+  font-size: $font-size-heading-small;
+}
+
+h4, h5, h6 {
+  font-size: $font-size-heading-extra-small;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: $font-size;
+  font-family: $font-family;
+}
+
+a {
+  color: $color-black;
+  text-decoration-line: none;
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  body {
+    font-size: $font-size-desktop;
+
+    &.hide-header {
+      margin-top: $spacing-vertical-large-desktop;
+    }
+  }
+
+  h1 {
+    font-size: $font-size-heading-xlarge;
+  }
+}

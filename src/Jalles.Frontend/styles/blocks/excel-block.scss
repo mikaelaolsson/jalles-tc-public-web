@@ -1,0 +1,120 @@
+.excel-block {
+  margin: $spacing-vertical-medium $side-margins;
+
+  .wrapper {
+    h2 {
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+
+      .extra-scroller {
+        width: 100%;
+        border: none;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: 20px;
+
+        @include custom-scrollbar(x, 0.375rem);
+
+        div {
+          height: 20px;
+        }
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+
+        @include custom-scrollbar(x, 0.375rem);
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          overflow: hidden;
+          border-radius: $border-radius;
+
+          thead {
+            display: table-header-group;
+            background-color: $color-black;
+            font-weight: $font-weight-bold;
+            color: $color-jalles-yellow;
+            white-space: nowrap;
+
+            tr {
+              display: table-row;
+
+              th {
+                padding: $spacing-small $spacing-standard;
+                line-height: $font-line-height;
+                font-size: $font-size;
+                text-align: left;
+                writing-mode: vertical-rl;
+                text-transform: uppercase;
+                border: none;
+              }
+            }
+          }
+
+          tbody {
+            display: table-row-group;
+
+            tr {
+              display: table-row;
+
+              &:hover {
+                background-color: $color-granola-muted;
+              }
+
+              td {
+                padding: $spacing-small $spacing-standard;
+                line-height: $font-line-height;
+                font-size: $font-size;
+                text-align: left;
+                border: none;
+
+                &:nth-child(even) {
+                  background-color: $color-mossy-rock-subtle;
+                }
+
+                &:hover {
+                  background-color: $color-mossy-rock-muted;
+                }
+              }
+
+              &:nth-child(even) {
+                background-color: $color-granola-subtle;
+              }
+            }
+          }
+        }
+
+        .highlight-column {
+          background-color: $color-mossy-rock-subtle;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .excel-block {
+    margin: 0;
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
+    .wrapper {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+
+      h2 {
+        grid-row: 1;
+        grid-column: 3 / 11;
+      }
+
+      .container {
+        grid-column: 3 / 11;
+        width: 100%;
+      }
+    }
+  }
+}

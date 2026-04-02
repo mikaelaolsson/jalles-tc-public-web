@@ -1,0 +1,10 @@
+﻿namespace Jalles.Core.ViewModels.Blocks;
+
+public class ExcelBlockViewModel
+{
+    public string Heading { get; set; } = string.Empty;
+    public MediaWithCrops? ExcelFile { get; set; }
+    public string ExcelFileSource { get; set; } = string.Empty;
+    public List<IDictionary<string, string>> Rows { get; set; } = [];
+    public bool LoadFailed { get; set; }
+}

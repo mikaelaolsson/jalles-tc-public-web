@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csharp",
+        "dbaeumer.vscode-eslint",
+        "sibiraj-s.vscode-scss-formatter",
+        "mrmlnc.vscode-scss",
+        "eamodio.gitlens",
+        "stylelint.vscode-stylelint",
+        "editorconfig.editorconfig",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        "bierner.markdown-mermaid",
+        "runem.lit-plugin"
+    ]
+}

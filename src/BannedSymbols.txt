@@ -1,0 +1,2 @@
+T:System.Net.WebClient;Don't use WebClient, use HttpClient instead.
+T:Umbraco.Extensions.FriendlyPublishedContentExtensions;Not very testable, avoid

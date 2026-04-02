@@ -1,0 +1,112 @@
+name: '[Dependabot NPM and Yarn] Build Frontend + BackofficeExtensions'
+
+on:
+  push:
+    branches:
+      - 'dependabot/npm_and_yarn/**'
+
+jobs:
+
+  frontend-test:
+    name: Tests (${{ matrix.name }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: Frontend
+            path: ./src/Jalles.Frontend
+            packageManager: yarn
+            hasTests: false
+          - name: BackofficeExtensions
+            path: ./src/Jalles.BackofficeExtensions/Client
+            packageManager: npm
+            hasTests: true
+
+    steps:
+
+      # This is needed to pass linting
+      - name: Set GIT to use CRLF
+        run: |
+          git config --global core.autocrlf true
+          git config --global core.eol crlf
+
+      - name: Checkout sources
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          check-latest: true
+
+      - name: Restore node packages (yarn)
+        if: matrix.packageManager == 'yarn'
+        run: yarn --immutable --immutable-cache
+        working-directory: ${{ matrix.path }}/
+
+      - name: Restore node packages (npm)
+        if: matrix.packageManager == 'npm'
+        run: npm ci
+        working-directory: ${{ matrix.path }}/
+
+      - name: Run ${{ matrix.name }} linting (yarn)
+        if: matrix.packageManager == 'yarn'
+        run: |
+          yarn lint:js
+          yarn lint:css
+        working-directory: ${{ matrix.path }}/
+
+      - name: Run ${{ matrix.name }} linting (npm)
+        if: matrix.packageManager == 'npm'
+        run: npm run lint
+        working-directory: ${{ matrix.path }}/
+
+      - name: Run ${{ matrix.name }} tests
+        if: matrix.hasTests == true
+        run: npm run test
+        working-directory: ${{ matrix.path }}/
+
+  frontend-build:
+    name: Build (${{ matrix.name }})
+    runs-on: ubuntu-latest
+    needs: [ frontend-test ]
+
+    strategy:
+      matrix:
+        include:
+          - name: Frontend
+            path: ./src/Jalles.Frontend
+            packageManager: yarn
+          - name: BackofficeExtensions
+            path: ./src/Jalles.BackofficeExtensions/Client
+            packageManager: npm
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          check-latest: true
+
+      - name: Install node packages (yarn)
+        if: matrix.packageManager == 'yarn'
+        run: yarn --immutable --immutable-cache
+        working-directory: ${{ matrix.path }}/
+
+      - name: Install node packages (npm)
+        if: matrix.packageManager == 'npm'
+        run: npm ci
+        working-directory: ${{ matrix.path }}/
+
+      - name: Build ${{ matrix.name }} (yarn)
+        if: matrix.packageManager == 'yarn'
+        run: yarn build
+        working-directory: ${{ matrix.path }}/
+
+      - name: Build ${{ matrix.name }} (npm)
+        if: matrix.packageManager == 'npm'
+        run: npm run build
+        working-directory: ${{ matrix.path }}/

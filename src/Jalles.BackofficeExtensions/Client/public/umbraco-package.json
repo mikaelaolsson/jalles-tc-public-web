@@ -1,0 +1,14 @@
+{
+  "id": "Jalles.BackofficeExtensions",
+  "name": "Jalles.BackofficeExtensions",
+  "version": "0.0.0",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "Jalles Backoffice Extensions Bundle",
+      "alias": "Jalles.BackofficeExtensions.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/JallesBackofficeExtensions/jalles-backoffice-extensions.js"
+    }
+  ]
+}

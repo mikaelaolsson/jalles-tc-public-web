@@ -1,0 +1,106 @@
+@using Jalles.Core.Constants
+@inject Shorthand.Vite.Contracts.IViteService Vite
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="sv-SE" xml:lang="sv-SE">
+<head>
+    <meta charset="UTF-8">
+    <title>Jalles TC - Underhåll</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        html, body {
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1.25rem;
+            background-color: #F4F2E2;
+            font-family: 'DM Sans', 'Trebuchet MS', sans-serif, verdana, tahoma;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            max-width: 950px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.25rem;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.125rem;
+        }
+
+        .maintenance-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            padding: 1rem 2rem;
+
+            background-color: #1A1F12;
+            color: #F4F2E2;
+
+            border: 1px solid transparent;
+            border-radius: 1rem;
+            text-decoration: none;
+            transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border 0.4s ease-in-out;
+        }
+
+        .maintenance-cta a:hover {
+            background-color: transparent;
+            color: #1A1F12;
+            border-color: #1A1F12;
+        }
+
+        .maintenance-cta a:hover img {
+            filter: brightness(0);
+        }
+
+        .maintenance-cta img {
+            height: 1.5rem;
+            transition: filter 0.4s ease-in-out;
+        }
+
+        main > img {
+            height: 15rem;
+        }
+
+        @@media only screen and (min-width: 1200px) {
+            body {
+                padding: 3rem 5rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Webbplatsen är under underhåll</h1>
+        <p>Återkom om några minuter så bör vi vara på banan igen!</p>
+
+        <div class="maintenance-cta">
+            <a href="@JallesConstants.FacebookUrl"><img src="/static/images/facebook.svg" alt="Facebook">Här hittar du oss på Facebook!</a>
+        </div>
+
+        <img src="/static/images/jalles-logo-reverse.svg" alt="Jalles TC Logo">
+    </main>
+</body>
+</html>

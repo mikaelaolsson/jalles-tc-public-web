@@ -1,0 +1,34 @@
+﻿@model FooterViewModel
+
+<footer class="footer">
+    <div class="footer-content-container">
+        <a href="/" class="startpage-link">
+            <img class="logo" src="/static/images/jalles-logo-yellow.svg" alt="Jalles TC - Gå till startsida" title="Jalles TC - Gå till startsida">
+            Jalles TC
+        </a>
+        <p>@Model.FooterText</p>
+
+
+        <div class="content">
+            @if(Model.Sponsors.Any())
+            {
+                <div class="footer-sponsors">
+                    @await Html.PartialAsync("../Blocks/ListingBlocks/_SponsorsListingBlock", new SponsorBlockViewModel{Heading = "Sponsorer", Sponsors = Model.Sponsors})
+                </div>
+            }
+
+            @if(!string.IsNullOrWhiteSpace(Model.UmemaranLogoSource))
+            {
+                <ul class="umemaran">
+                    <li>
+                        <h2>Stolt arrangör av</h2>
+                    </li>
+                    <li>
+                        <img src="@(Model.UmemaranLogoSource)?width=256&amp;format=webp" alt="Umemaran Logo" loading="lazy" />
+                    </li>
+                </ul>
+            }
+        </div>
+        <span>Copyright &copy; @DateTime.Now.Year</span>
+    </div>
+</footer>

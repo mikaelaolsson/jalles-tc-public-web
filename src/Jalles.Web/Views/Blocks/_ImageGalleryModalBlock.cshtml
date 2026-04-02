@@ -1,0 +1,40 @@
+@model ImageGalleryBlockViewModel
+
+@{
+    var totalImages = Model.ImageGallerySources.Count();
+}
+
+<dialog class="image-gallery-modal" id="image-gallery-modal-@Model.Id">
+    <div class="modal-header">
+        <span class="modal-counter">1 / @totalImages</span>
+        <button class="close-button" aria-label="Stäng">
+            <img src="/static/images/close.svg" alt="" />
+        </button>
+    </div>
+    <div class="modal-viewer">
+        <div class="modal-slides">
+            @foreach (var image in Model.ImageGallerySources)
+            {
+                <div class="modal-slide">
+                    <picture>
+                        <source srcset="@(image)?width=1280&amp;format=webp" media="(min-width: 900px)" type="image/webp">
+                        <source srcset="@(image)?width=1280&amp;format=jpg" media="(min-width: 900px)" type="image/jpeg">
+                        <source srcset="@(image)?width=700&amp;format=webp" media="(min-width: 500px)" type="image/webp">
+                        <source srcset="@(image)?width=700&amp;format=jpg" media="(min-width: 500px)" type="image/jpeg">
+                        <source srcset="@(image)?width=500&amp;format=webp" type="image/webp">
+                        <source srcset="@(image)?width=500&amp;format=jpg" type="image/jpeg">
+                        <img src="@(image)?width=700&amp;format=jpg" alt="" loading="lazy" />
+                    </picture>
+                </div>
+            }
+        </div>
+        <div class="modal-nav">
+            <button class="modal-prev" aria-label="Föregående bild">
+                <img src="/static/images/arrow-right.svg" alt="" />
+            </button>
+            <button class="modal-next" aria-label="Nästa bild">
+                <img src="/static/images/arrow-right.svg" alt="" />
+            </button>
+        </div>
+    </div>
+</dialog>

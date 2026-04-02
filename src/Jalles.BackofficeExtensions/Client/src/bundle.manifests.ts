@@ -1,0 +1,11 @@
+import StartDashboard from './elements/start-dashboard/manifest';
+import BackofficeTheme from './elements/backoffice-theme/manifest';
+import TipTapClearFormatting from './elements/tiptap-clear-formatting/manifest';
+
+// Job of the bundle is to collate all the manifests from different parts of the extension and load other manifests
+// We load this bundle from umbraco-package.json
+export const manifests: Array<UmbExtensionManifest> = [
+  ...StartDashboard,
+  ...BackofficeTheme,
+  ...TipTapClearFormatting
+];

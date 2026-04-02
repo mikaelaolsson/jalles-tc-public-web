@@ -1,0 +1,54 @@
+@model ImageGalleryBlockViewModel
+
+<div class="image-gallery-container @Model.BackgroundColor">
+    <div class="gallery-wrapper">
+        @if (!string.IsNullOrWhiteSpace(Model.Heading))
+        {
+            <h2>@Model.Heading</h2>
+        }
+        @if (!string.IsNullOrWhiteSpace(Model.Text))
+        {
+            <p>@Model.Text</p>
+        }
+        <div class="image-gallery" id="@Model.Id">
+
+            @if (Model.ImageGallerySources.Count() >= 3)
+            {
+                var imageList = Model.ImageGallerySources.ToList();
+                var remainingCount = imageList.Count - 3;
+                var hasOverlay = remainingCount > 0;
+
+                <span class="img-container" data-index="0">
+                    <img src="@(imageList[0])?width=800&amp;format=webp" alt="" loading="lazy" />
+                </span>
+
+                <div class="sub-container">
+                    <span class="img-container" data-index="1">
+                        <img src="@(imageList[1])?width=600&amp;format=webp" alt="" loading="lazy" />
+                    </span>
+
+                    <span class="img-container @(hasOverlay ? "overlay" : "")" data-index="2">
+                        <img src="@(imageList[2])?width=600&amp;format=webp" alt="" loading="lazy" />
+                        @if (hasOverlay)
+                        {
+                            <span class="overlay-text">+@remainingCount bilder</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                var index = 0;
+                foreach (var image in Model.ImageGallerySources)
+                {
+                    <span class="img-container" data-index="@index">
+                        <img src="@(image)?width=800&amp;format=webp" alt="" loading="lazy" />
+                    </span>
+                    index++;
+                }
+            }
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_ImageGalleryModalBlock.cshtml", Model)
+</div>

@@ -1,0 +1,32 @@
+@mixin fill-by-absolute-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin card-shadow {
+  box-shadow: 0 8px 24px rgb($color-pine, 25%);
+}
+
+@mixin card-hover {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+
+    @include card-shadow;
+  }
+}
+
+@mixin gradient-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(to top, rgba($color-pine, 0.9) 0%, rgba($color-pine, 0.4) 55%, rgba($color-pine, 0) 100%);
+
+  pointer-events: none;
+}

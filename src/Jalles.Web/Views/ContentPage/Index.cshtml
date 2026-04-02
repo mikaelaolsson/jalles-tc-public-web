@@ -1,0 +1,41 @@
+﻿@inherits UmbracoViewPage<LayoutViewModel<ContentPageViewModel>>
+
+@{
+    var hasUpdate = Model.ViewModel.Published.ToString("yyyy-MM-dd") != @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd");
+    var hasImageGalleryBlock = Model.ViewModel.Blocks.Any(b => b.Content.ContentType.Alias == "imageGalleryBlock");
+    var hasDataBlock = Model.ViewModel.Blocks.Any(b => b.Content.ContentType.Alias == "dataBlock");
+    var hasExcelBlock = Model.ViewModel.Blocks.Any(b => b.Content.ContentType.Alias == "excelBlock");
+
+}
+
+<main class="content-page">
+    @if (!string.IsNullOrWhiteSpace(Model.ViewModel.ParentPagePath) && Model.ViewModel.ParentPagePath != "/")
+    {
+        <div class="back-button">
+            <span class="wrapper"><a href="@Model.ViewModel.ParentPagePath"><span>&#10094;</span> Aktuellt</a></span>
+        </div>
+    }
+
+    @if (Model.ViewModel.Blocks.Any())
+    {
+        @await Html.PartialAsync("../Blocks/ListingBlocks/_MixedListingBlock.cshtml", Model.ViewModel.Blocks)
+    }
+
+    @if(!string.IsNullOrWhiteSpace(Model.ViewModel.ParentPagePath) && Model.ViewModel.ParentPagePath != "/")
+    {
+        <ul class="date">
+            @if (Model.ViewModel.DateBlock?.PublishedDate != null)
+            {
+                <li><span>Publicerad: @Model.ViewModel.DateBlock?.PublishedDate.ToString("yyyy-MM-dd")</span></li>
+            }
+            else
+            {
+                <li><span>Publicerad: @Model.ViewModel.Published.ToString("yyyy-MM-dd")</span></li>
+            }
+            @if (hasUpdate)
+            {
+                <li><span>Uppdaterad: @Model.ViewModel.LastEdited.ToString("yyyy-MM-dd")</span></li>
+            }
+        </ul>
+    }
+</main>

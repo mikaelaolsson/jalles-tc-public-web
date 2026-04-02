@@ -1,0 +1,43 @@
+@using Jalles.Core.Enum
+@model HeaderViewModel
+@{
+    var hasGradient = Model.MediaBlock?.MediaType == MediaType.Image
+                    || Model.MediaBlock?.MediaType == MediaType.Video;
+    var hasText = !string.IsNullOrWhiteSpace(Model.Heading)
+                    || !string.IsNullOrWhiteSpace(Model.SubHeading);
+    var classes = "header"
+        + (hasGradient ? " header-has-gradient" : "")
+        + (hasText ? " header-has-text" : "")
+        + (!hasGradient && !string.IsNullOrEmpty(Model.BackgroundColorName) ? $" {Model.BackgroundColorName}" : "");
+}
+
+<div class="@classes">
+    @if (Model.MediaBlock?.MediaSource is not null)
+    {
+        @await Html.PartialAsync("../Blocks/_HeaderMediaBlock.cshtml", Model.MediaBlock)
+    }
+
+    @if (hasGradient)
+    {
+        <div class="gradient-overlay"></div>
+    }
+
+    <div class="content">
+        <a href="/" class="startpage-header-link">
+            <img class="logo" src="/static/images/jalles-logo-reverse.svg"
+                alt="Jalles TC - Gå till startsida"
+                title="Jalles TC - Gå till startsida">
+        </a>
+        @if (!string.IsNullOrWhiteSpace(Model.Heading))
+        {
+            <h1 class="heading">@Model.Heading</h1>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.SubHeading))
+        {
+            <p class="sub-heading">@Model.SubHeading</p>
+        }
+
+        <vc:main-menu></vc:main-menu>
+    </div>
+</div>

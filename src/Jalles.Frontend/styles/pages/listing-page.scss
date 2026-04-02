@@ -1,0 +1,125 @@
+.listing-page {
+  padding: $spacing-vertical-medium $side-margins;
+
+  .main-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-standard;
+
+    h2 {
+      margin: 0;
+    }
+
+    .listings {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-large;
+
+      margin: 0;
+      padding: 0;
+
+      .listing {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        text-decoration: none;
+
+        background-color: $color-black;
+        border-radius: $border-radius;
+
+        @include card-hover;
+
+        .media {
+          height: 14rem;
+        }
+
+        .content {
+          flex: 1;
+          padding: $puff-padding;
+
+          border-left: 0.3rem solid $color-jalles-yellow;
+
+          .content-container {
+            h3 {
+              margin: 0;
+
+              font-weight: $font-weight-bold;
+              color: $color-oat-milk;
+            }
+
+            span {
+              font-size: $font-size-small;
+              color: $color-granola;
+
+              &:after {
+                display: inline-block;
+                margin-left: $spacing-small;
+
+                content: '\276F';
+              }
+            }
+          }
+        }
+
+        &:hover .content-container span:after {
+          @media (prefers-reduced-motion: no-preference) {
+            animation: arrow-animation 0.45s $animation-bounce-timing;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .listing-page {
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
+    .main-content-container {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+
+      gap: $spacing-standard;
+
+      h2 {
+        grid-row: 1;
+        grid-column: 3 / 11;
+      }
+
+      .listing-categories {
+        grid-row: 2;
+        grid-column: 3 / 11;
+      }
+
+      .listings {
+        grid-row: 3;
+        grid-column: 3 / 11;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-large;
+
+        width: 100%;
+
+        .listing {
+          .media {
+            height: 16rem;
+          }
+
+          .content {
+            padding: $puff-padding-desktop;
+          }
+        }
+
+        .no-results {
+          grid-column: 1 / -1;
+        }
+
+        .pagination {
+          grid-column: 1 / -1;
+        }
+      }
+    }
+  }
+}

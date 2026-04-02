@@ -1,0 +1,99 @@
+.data-block-container {
+  margin: $spacing-vertical-medium $side-margins;
+
+  .wrapper {
+    .data-block {
+      overflow-wrap: break-word;
+
+      h1 {
+        font-size: $font-size-heading-medium;
+        line-height: $font-line-height-heading;
+      }
+
+      p {
+        img {
+          max-width: 100%;
+          height: auto;
+          border-radius: $border-radius;
+        }
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+        border-radius: $border-radius;
+        padding-bottom: $spacing-small;
+
+        @include custom-scrollbar(x, 0.375rem);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 0;
+
+        caption {
+          display: none;
+        }
+
+        tbody {
+          tr {
+            &:first-child {
+              border: none;
+              background-color: $color-black;
+              font-weight: $font-weight-bold;
+              color: $color-jalles-yellow;
+              white-space: nowrap;
+              overflow: hidden;
+
+              td {
+                border: none;
+
+                &:last-child {
+                  border-radius: 0 $border-radius-small 0 0;
+                }
+              }
+            }
+
+            th {
+              font-weight: $font-weight;
+            }
+
+            th,
+            td {
+              // stylelint-disable-next-line declaration-no-important
+              padding: $spacing-small $spacing-standard !important;
+              line-height: $font-line-height;
+              font-size: $font-size;
+              text-align: left;
+              // stylelint-disable-next-line declaration-no-important
+              border: solid 0.25px $color-granola-muted !important;
+              background-color: transparent;
+
+              h1, h2, h3, h4, h5, h6 {
+                font-size: $font-size;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .data-block-container {
+    margin: 0;
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
+    .wrapper {
+      @include desktop-container-content;
+      @include desktop-container-grid;
+
+      .data-block {
+        grid-column: 3 / 11;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@using Jalles.Web.Contracts
+@inject IMixedListingBlockService MixedListingBlockService
+
+@model IEnumerable<BlockListItem>
+
+<div class="mixed-listing-block">
+    @foreach(var block in Model)
+    {
+        switch(block.Content.ContentType.Alias)
+        {
+
+            case "contentBlock":
+                @await Html.PartialAsync("../_ContentBlock.cshtml", MixedListingBlockService.MapContentBlock(block))
+                break;
+            case "textBlock":
+                @await Html.PartialAsync("../_TextBlock.cshtml", MixedListingBlockService.MapTextBlock(block))
+                break;
+            case "imageGalleryBlock":
+                @await Html.PartialAsync("../_ImageGalleryBlock.cshtml", MixedListingBlockService.MapImageGalleryBlock(block))
+                break;
+            case "highlightBlock":
+                var highlightBlock = MixedListingBlockService.MapHighlightBlock(block);
+
+                if(highlightBlock.Highlights.Any())
+                {
+                    @await Html.PartialAsync("_HighlightListingBlock.cshtml", highlightBlock)
+                }
+                break;
+            case "dataBlock":
+                @await Html.PartialAsync("../_DataBlock.cshtml", MixedListingBlockService.MapDataBlock(block))
+                break;
+            case "attachmentBlock":
+                @await Html.PartialAsync("_AttachmentListingBlock.cshtml", MixedListingBlockService.MapAttachmentBlock(block))
+                break;
+            case "sponsorBlock":
+                <div class="our-sponsor-block">
+                    <div class="content-container">
+                        @await Html.PartialAsync("_SponsorsListingBlock.cshtml", MixedListingBlockService.MapSponsorBlock(block))
+                    </div>
+                </div>
+                break;
+            case "excelBlock":
+                @await Html.PartialAsync("../_ExcelBlock.cshtml", MixedListingBlockService.MapExcelBlock(block))
+                break;
+            case "videoListingBlock":
+                @await Html.PartialAsync("_VideoListingBlock.cshtml", MixedListingBlockService.MapVideoListingBlock(block))
+                break;
+        }
+    }
+</div>

@@ -1,0 +1,61 @@
+.error-page {
+  display: flex;
+  justify-content: center;
+  padding: $spacing-vertical-medium $side-margins;
+
+  background-color: $color-oat-milk;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-large;
+
+    max-width: $text-max-width-large;
+
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      font-size: $font-size-heading-medium;
+      font-weight: $font-weight;
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
+
+    .error-page-cta {
+      a {
+        @include button-on-light-background;
+
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-small;
+
+        &:hover img {
+          filter: brightness(0);
+        }
+      }
+
+      img {
+        height: 1.5rem;
+        transition: filter 0.4s ease-in-out;
+      }
+    }
+
+    > img {
+      height: 15rem;
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .error-page {
+    padding: $spacing-vertical-medium-desktop $side-margins-desktop;
+
+    main h1 {
+      font-size: $font-size-heading-large;
+    }
+  }
+}

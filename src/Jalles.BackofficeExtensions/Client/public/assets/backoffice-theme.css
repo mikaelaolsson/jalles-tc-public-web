@@ -1,0 +1,26 @@
+:root {
+    --uui-palette-spanish-pink: #FFEB19; /* Jalles Yellow */
+    --uui-palette-spanish-pink-light: rgba(255, 235, 25, 0.7);
+    --uui-palette-spanish-pink-dark: rgba(255, 235, 25, 1);
+    --uui-palette-spanish-pink-dimmed: rgba(255, 235, 25, 0.5);
+
+    --uui-palette-space-cadet: #463F3A; /* Taupe */
+    --uui-palette-space-cadet-light: rgba(70, 63, 58, 0.7);
+    --uui-palette-space-cadet-dark: rgba(70, 63, 58, 1);
+    --uui-palette-space-cadet-dimmed: rgba(70, 63, 58, 0.5);
+
+    --uui-palette-violet-blue: #8A817C; /* Battleship Gray */
+    --uui-palette-violet-blue-light: rgba(138, 129, 124, 0.7);
+    --uui-palette-violet-blue-dark: rgba(138, 129, 124, 1);
+    --uui-palette-violet-blue-dimmed: rgba(138, 129, 124, 0.5);
+
+    --uui-menu-item-color-active: var(--uui-palette-space-cadet-dark);
+    --uui-menu-item-background-color-hover: #FAFAEC; /* Off White */
+
+    --umb-header-logo-height: 50px;
+    --uui-tab-text: #1E2022; /* Black */
+    --uui-tab-text-active: var(--uui-palette-space-cadet);
+    --uui-color-header-contrast-emphasis: var(--uui-palette-spanish-pink);
+
+    --uui-color-background: #FAFAEC; /* Off White */
+}

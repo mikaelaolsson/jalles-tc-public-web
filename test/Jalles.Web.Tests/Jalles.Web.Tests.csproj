@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms" />
+    <PackageReference Include="Umbraco.StorageProviders.AzureBlob" />
+    <PackageReference Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Jalles.Web/Jalles.Web.csproj" />
+  </ItemGroup>
+
+</Project>

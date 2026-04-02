@@ -1,0 +1,9 @@
+﻿@inherits UmbracoViewPage<XmlSiteMap>
+
+@inject Jalles.Core.Contracts.ISitemapService SitemapService
+@{
+    Layout = null;
+    Context.Response.ContentType = "text/xml";
+}
+
+@Html.Raw(SitemapService.RenderXml(Model))

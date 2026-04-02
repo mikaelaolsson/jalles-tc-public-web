@@ -1,0 +1,39 @@
+<Project>
+  <PropertyGroup>
+    <ParentDirectoryBuildPropsPath>$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))</ParentDirectoryBuildPropsPath>
+    <IsPublishable>false</IsPublishable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ImportGroup>
+    <Import Project="$(ParentDirectoryBuildPropsPath)" />
+  </ImportGroup>
+
+  <ItemGroup>
+    <Using Include="FakeItEasy" />
+    <Using Include="Microsoft.Extensions.Logging.Abstractions" />
+    <Using Include="Shouldly" />
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jalles.TestHelpers\Jalles.TestHelpers.csproj" Condition=" '$(ProjectName)' != 'Jalles.TestHelpers' " />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Shouldly" />
+    <PackageReference Include="Umbraco.Cms.Core" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.msbuild" Condition=" '$(ProjectName)' != 'Jalles.TestHelpers' ">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

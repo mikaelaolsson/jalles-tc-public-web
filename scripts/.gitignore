@@ -1,0 +1,2 @@
+## Ignore powershell tools that should be installed locally
+tools/

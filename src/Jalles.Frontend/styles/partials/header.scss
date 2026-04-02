@@ -1,0 +1,100 @@
+.header {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  padding: 6rem $side-margins $spacing-vertical-medium;
+
+  .media {
+    @include fill-by-absolute-position;
+  }
+
+  .gradient-overlay {
+    @include gradient-overlay;
+  }
+
+  .content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    .startpage-header-link {
+      align-self: center;
+
+      img.logo {
+        height: 20rem;
+        width: auto;
+      }
+    }
+
+    .heading, .sub-heading {
+      margin: 0;
+      color: $color-oat-milk;
+    }
+  }
+
+  &.color-jalles-yellow, &.color-mossy-rock, &.color-granola, &.color-oat-milk {
+    .content {
+      .heading, .sub-heading {
+        color: $color-black;
+      }
+    }
+  }
+
+  &.header-has-text {
+    justify-content: flex-end;
+    align-items: stretch;
+
+    .content {
+      .startpage-header-link {
+        align-self: flex-start;
+
+        img.logo {
+          height: 10rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .header {
+    min-height: $header-height-desktop;
+    padding: $spacing-vertical-large-desktop $side-margins-desktop $spacing-vertical-medium-desktop;
+
+    .content {
+      @include desktop-container-content;
+
+      .startpage-header-link {
+        padding-top: 3rem;
+      }
+    }
+
+    &.header-has-text {
+      .content {
+        @include desktop-container-content;
+        @include desktop-container-grid;
+        row-gap: 0;
+
+        width: 100%;
+
+        .startpage-header-link {
+          grid-column: 3 / 11;
+
+          img.logo {
+            height: 8rem;
+          }
+        }
+
+        .heading, .sub-heading {
+          grid-column: 3 / 11;
+        }
+      }
+    }
+  }
+}

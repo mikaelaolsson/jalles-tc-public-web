@@ -1,0 +1,86 @@
+.content-page {
+  .back-button, .date {
+    margin: 0;
+    padding: 0 $side-margins $spacing-vertical-medium;
+    list-style: none;
+    text-align: right;
+
+    &.color-jalles-yellow {
+      background-color: $color-jalles-yellow;
+    }
+
+    &.color-pine {
+      background-color: $color-pine;
+    }
+
+    &.color-mossy-rock {
+      background-color: $color-mossy-rock;
+    }
+
+    &.color-granola {
+      background-color: $color-granola;
+    }
+
+    &.color-oat-milk {
+      background-color: $color-oat-milk;
+    }
+
+    &.color-black {
+      background-color: $color-black;
+    }
+
+    &.color-pine, &.color-mossy-rock, &.color-black {
+      li, a {
+        color: $color-oat-milk;
+      }
+    }
+  }
+
+  .date {
+    color: $color-pine-muted;
+  }
+
+  .back-button {
+    padding: $spacing-vertical-medium $side-margins 0;
+    text-align: left;
+
+    a {
+      span {
+        display: inline-block;
+        margin-right: 0.25rem;
+      }
+
+      &:hover span {
+        @media (prefers-reduced-motion: no-preference) {
+          animation: back-arrow-animation 0.45s $animation-bounce-timing;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-min-desktop) {
+  .content-page {
+    .back-button, .date {
+      padding: 0 $side-margins-desktop $spacing-vertical-medium-desktop;
+
+      li, .wrapper {
+        @include desktop-container-content;
+        @include desktop-container-grid;
+        gap: 0;
+
+        span {
+          grid-column: 3 / 11;
+        }
+
+        a {
+          grid-column: 3 / 4;
+        }
+      }
+    }
+
+    .back-button {
+      padding: $spacing-vertical-medium-desktop $side-margins-desktop 0;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@font-face {
+  font-family: jalles-icons;
+  src: url('../static/fonts/jalles-icons.woff2?79566559') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+[class^='jalles-icon-']:before, [class*=' jalles-icon-']:before {
+  font-family: jalles-icons, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  margin-right: 0.2rem;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes */
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1rem;
+
+  /* Animation center compensation - margins should be symmetric */
+
+  /* remove if not needed */
+  margin-left: 0.2rem;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-down-open:before {
+  content: '\e800';
+}
+
+.icon-up-open:before {
+  content: '\e801';
+}
+
+.icon-right-open:before {
+  content: '\e802';
+}
+
+.icon-left-open:before {
+  content: '\e803';
+}
+
+.icon-menu:before {
+  content: '\f0c9';
+}
+
+.icon-facebook-squared:before {
+  content: '\f308';
+}
+
+.icon-search:before {
+  content: '\e807';
+}

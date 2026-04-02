@@ -1,0 +1,33 @@
+@inherits UmbracoViewPage<LayoutViewModel<ListingPageViewModel>>
+
+<main class="listing-page">
+    <div class="main-content-container">
+        @if (Model.ViewModel.DisplayTitle)
+        {
+            <h2>@Model.ViewModel.Title</h2>
+        }
+
+        @await Html.PartialAsync("../Partials/_ListingCategories.cshtml", Model.ViewModel)
+
+        <div class="listings">
+            @foreach (var contentPage in Model.ViewModel.ContentPages)
+            {
+                <a href="@contentPage.PagePath" class="listing" data-categories="@string.Join(",", contentPage.Categories)">
+
+                    @await Html.PartialAsync("../Blocks/_MediaBlock", contentPage.Header)
+                    <div class="content">
+                        <div class="content-container">
+                            <h3>@contentPage.Title</h3>
+                            <span>Läs mer</span>
+                        </div>
+                    </div>
+                </a>
+            }
+
+            <p class="no-results" hidden>Inga resultat</p>
+
+            @await Html.PartialAsync("~/Views/Partials/_Pagination.cshtml")
+        </div>
+    </div>
+
+</main>

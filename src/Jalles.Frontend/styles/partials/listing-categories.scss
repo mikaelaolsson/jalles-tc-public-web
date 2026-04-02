@@ -1,0 +1,13 @@
+.listing-categories {
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing-small;
+
+    .clear-button,
+    .category-button {
+      @include category-button;
+    }
+  }
+}
