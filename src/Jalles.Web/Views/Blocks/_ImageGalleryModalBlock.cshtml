@@ -6,7 +6,6 @@
 
 <dialog class="image-gallery-modal" id="image-gallery-modal-@Model.Id">
     <div class="modal-header">
-        <span class="modal-counter">1 / @totalImages</span>
         <button class="close-button" aria-label="Stäng">
             <img src="/static/images/close.svg" alt="" />
         </button>
@@ -32,6 +31,7 @@
             <button class="modal-prev" aria-label="Föregående bild">
                 <img src="/static/images/arrow-right.svg" alt="" />
             </button>
+            <span class="modal-counter">1 / @totalImages</span>
             <button class="modal-next" aria-label="Nästa bild">
                 <img src="/static/images/arrow-right.svg" alt="" />
             </button>

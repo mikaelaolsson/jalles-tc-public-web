@@ -4,23 +4,23 @@
     --uui-palette-spanish-pink-dark: rgba(255, 235, 25, 1);
     --uui-palette-spanish-pink-dimmed: rgba(255, 235, 25, 0.5);
 
-    --uui-palette-space-cadet: #463F3A; /* Taupe */
-    --uui-palette-space-cadet-light: rgba(70, 63, 58, 0.7);
-    --uui-palette-space-cadet-dark: rgba(70, 63, 58, 1);
-    --uui-palette-space-cadet-dimmed: rgba(70, 63, 58, 0.5);
+    --uui-palette-space-cadet: #1A1F12; /* Pine */
+    --uui-palette-space-cadet-light: rgba(26, 31, 18, 0.7);
+    --uui-palette-space-cadet-dark: rgba(26, 31, 18, 1);
+    --uui-palette-space-cadet-dimmed: rgba(26, 31, 18, 0.5);
 
-    --uui-palette-violet-blue: #8A817C; /* Battleship Gray */
-    --uui-palette-violet-blue-light: rgba(138, 129, 124, 0.7);
-    --uui-palette-violet-blue-dark: rgba(138, 129, 124, 1);
-    --uui-palette-violet-blue-dimmed: rgba(138, 129, 124, 0.5);
+    --uui-palette-violet-blue: #7A7F50; /* Mossy Rock */
+    --uui-palette-violet-blue-light: rgba(122, 127, 80, 0.7);
+    --uui-palette-violet-blue-dark: rgba(122, 127, 80, 1);
+    --uui-palette-violet-blue-dimmed: rgba(122, 127, 80, 0.5);
 
     --uui-menu-item-color-active: var(--uui-palette-space-cadet-dark);
-    --uui-menu-item-background-color-hover: #FAFAEC; /* Off White */
+    --uui-menu-item-background-color-hover: #F4F2E2; /* Oat Milk */
 
     --umb-header-logo-height: 50px;
-    --uui-tab-text: #1E2022; /* Black */
+    --uui-tab-text: #0A0A0A; /* Black */
     --uui-tab-text-active: var(--uui-palette-space-cadet);
     --uui-color-header-contrast-emphasis: var(--uui-palette-spanish-pink);
 
-    --uui-color-background: #FAFAEC; /* Off White */
+    --uui-color-background: #F4F2E2; /* Oat Milk */
 }

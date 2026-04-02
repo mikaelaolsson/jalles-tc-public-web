@@ -9,9 +9,6 @@
   padding: 0;
 
   background-color: transparent;
-  backdrop-filter: blur(0.5rem);
-  /* stylelint-disable-next-line property-no-vendor-prefix */
-  -webkit-backdrop-filter: blur(0.5rem);
   border: none;
 
   overflow: hidden;
@@ -22,22 +19,19 @@
   }
 
   &::backdrop {
-    background-color: transparent;
+    background-color: rgba($color-black, 0.85);
+    backdrop-filter: blur(0.5rem);
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-backdrop-filter: blur(0.5rem);
   }
 
   .modal-header {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     padding: $spacing-standard;
-
-    .modal-counter {
-      font-size: $font-size-small;
-
-      color: $color-white;
-    }
 
     .close-button {
       display: flex;
@@ -121,6 +115,13 @@
       gap: $spacing-large;
 
       padding: $spacing-standard;
+
+      .modal-counter {
+        font-size: $font-size-small;
+        color: $color-white;
+        min-width: 4rem;
+        text-align: center;
+      }
     }
 
     .modal-prev,
@@ -176,6 +177,13 @@
 
       .modal-nav {
         display: contents;
+      }
+
+      .modal-counter {
+        position: absolute;
+        bottom: $spacing-standard;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .modal-prev,
