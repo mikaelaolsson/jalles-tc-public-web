@@ -17,7 +17,6 @@ describe('clearFormatting', () => {
 
   it('clears formatting with full document selection', () => {
     editor = new Editor({
-      //@ts-expect-error StarterKitOptions type issue
       extensions: [StarterKit, ...umbTiptapTestExtensions],
       content: `
         <h2><strong>Heading</strong></h2>
@@ -38,7 +37,6 @@ describe('clearFormatting', () => {
 
   it('clears formatting across selected blocks', () => {
     editor = new Editor({
-      //@ts-expect-error StarterKitOptions type issue
       extensions: [StarterKit, ...umbTiptapTestExtensions],
       content: `
         <h3><strong>A</strong> Head</h3>
@@ -56,7 +54,6 @@ describe('clearFormatting', () => {
 
   it('clears formatting for a text selection inside a paragraph', () => {
     editor = new Editor({
-      //@ts-expect-error StarterKitOptions type issue
       extensions: [StarterKit, ...umbTiptapTestExtensions],
       content: `<p>Start <strong>BoldWord</strong> <em>End</em></p>`,
     });
@@ -69,7 +66,6 @@ describe('clearFormatting', () => {
 
   it('clears formatting only for selected block', () => {
     editor = new Editor({
-      //@ts-expect-error StarterKitOptions type issue
       extensions: [StarterKit, ...umbTiptapTestExtensions],
       content: `
         <p>One <strong>bold</strong></p>
@@ -90,7 +86,6 @@ describe('clearFormatting', () => {
 
   it('clears formatting only for selected partial word', () => {
     editor = new Editor({
-      //@ts-expect-error StarterKitOptions type issue
       extensions: [StarterKit, ...umbTiptapTestExtensions],
       content: `<p><strong>WholeWord</strong> Tail</p>`,
     });
@@ -104,7 +99,6 @@ describe('clearFormatting', () => {
 
   it('strips attributes from ul/ol/blockquote while preserving structure', () => {
     editor = new Editor({
-      //@ts-expect-error StarterKitOptions type issue
       extensions: [StarterKit, ...umbTiptapTestExtensions],
       content: `
         <ul class="main-list" data-x="1" style="padding:0">

@@ -7,9 +7,9 @@ import { resolveToEsbuildTarget } from 'esbuild-plugin-browserslist';
 import copy from 'rollup-plugin-copy';
 
 
-const esBuildTarget = resolveToEsbuildTarget(browserslist(), {
+const esBuildTarget = [...new Set(resolveToEsbuildTarget(browserslist(), {
   printUnknownTargets: false
-});
+}))];
 
 export default defineConfig({
   plugins: [
