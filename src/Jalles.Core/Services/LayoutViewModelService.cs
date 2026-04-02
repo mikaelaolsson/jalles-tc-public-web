@@ -69,7 +69,8 @@ public class LayoutViewModelService : ILayoutViewModelService
         {
             MediaBlock = GetMediaForHeader(headerProperty, culture),
             Heading = heading,
-            SubHeading = subHeading
+            SubHeading = subHeading,
+            BackgroundColorName = headerProperty?.BackgroundColor.GetBackgroundColorName() ?? string.Empty
         };
     }
 

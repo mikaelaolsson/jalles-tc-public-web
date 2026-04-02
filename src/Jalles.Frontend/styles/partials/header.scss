@@ -38,6 +38,14 @@
     }
   }
 
+  &.color-jalles-yellow, &.color-mossy-rock, &.color-granola, &.color-oat-milk {
+    .content {
+      .heading, .sub-heading {
+        color: $color-black;
+      }
+    }
+  }
+
   &.header-has-text {
     justify-content: flex-end;
     align-items: stretch;
