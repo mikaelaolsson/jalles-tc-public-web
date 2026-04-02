@@ -2,14 +2,7 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import mkcert from 'vite-plugin-mkcert';
-import browserslist from 'browserslist';
-import { resolveToEsbuildTarget } from 'esbuild-plugin-browserslist';
 import copy from 'rollup-plugin-copy';
-
-
-const esBuildTarget = [...new Set(resolveToEsbuildTarget(browserslist(), {
-  printUnknownTargets: false
-}))];
 
 export default defineConfig({
   plugins: [
@@ -22,7 +15,6 @@ export default defineConfig({
     })
   ],
   build: {
-    target: esBuildTarget,
     outDir: resolve(__dirname, '../Jalles.Web/wwwroot/'),
     emptyOutDir: false,
     assetsDir: 'assets',
