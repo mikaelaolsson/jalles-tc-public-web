@@ -248,7 +248,7 @@ jobs:
     needs: [ deploy-test, deploy-production ]
     if: always()
     steps:
-      - uses: geekyeggo/delete-artifact@v5
+      - uses: geekyeggo/delete-artifact@v6
         with:
           name: |
             dotnet-artifacts
