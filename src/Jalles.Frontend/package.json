@@ -20,7 +20,7 @@
     "esbuild-plugin-browserslist": "^2.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-jsdoc": "^62.6.0",
-    "globals": "^17.3.0",
+    "globals": "^17.4.0",
     "rollup-plugin-copy": "^3.5.0",
     "sass-embedded": "^1.97.3",
     "stylelint": "^17.3.0",
