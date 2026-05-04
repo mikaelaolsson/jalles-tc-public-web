@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@umbraco-cms/backoffice": "^17.3.0",
+    "@umbraco-cms/backoffice": "^17.3.5",
     "chalk": "^5.6.2",
     "cross-env": "^10.1.0",
     "eslint": "^10.2.0",
