@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MimeKit" />
+    <PackageReference Include="System.Security.Cryptography.Xml" />
     <PackageReference Include="Umbraco.Cms.Web.Website"/>
     <PackageReference Include="Umbraco.Cms.Web.Common"/>
     <PackageReference Include="Umbraco.Cms.Api.Common"/>
