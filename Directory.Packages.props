@@ -10,7 +10,7 @@
     <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0" />
     <PackageVersion Include="Microsoft.Extensions.Caching.SqlServer" Version="10.0.5" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
     <!-- MimeKit: Explicit version to address vulnerability GHSA-g7hc-96xr-gvvx in 4.14.0 https://github.com/advisories/GHSA-g7hc-96xr-gvvx -->
     <PackageVersion Include="MimeKit" Version="4.15.1" />
     <PackageVersion Include="MiniExcel" Version="1.43.0" />
