@@ -12,7 +12,7 @@
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
     <!-- MailKit: Explicit version to address vulnerability GHSA-9j88-vvj5-vhgr in <4.16.0 https://github.com/advisories/GHSA-9j88-vvj5-vhgr -->
-    <PackageVersion Include="MailKit" Version="4.16.0" />
+    <PackageVersion Include="MailKit" Version="4.17.0" />
     <!-- System.Security.Cryptography.Xml: Explicit version to address vulnerabilities GHSA-37gx-xxp4-5rgx and GHSA-w3x6-4m5h-cxqf in 8.0.0 -->
     <PackageVersion Include="System.Security.Cryptography.Xml" Version="10.0.7" />
     <PackageVersion Include="MiniExcel" Version="1.43.0" />
