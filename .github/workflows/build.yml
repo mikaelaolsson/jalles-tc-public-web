@@ -43,7 +43,7 @@ jobs:
           git config --global core.eol crlf
 
       - name: Checkout sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v6
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set node version
         uses: actions/setup-node@v6
@@ -93,7 +93,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install .NET
         uses: actions/setup-dotnet@v5
@@ -112,7 +112,7 @@ jobs:
     needs: [ frontend-test ]
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v6
@@ -143,7 +143,7 @@ jobs:
     needs: backoffice-test
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set node version
         uses: actions/setup-node@v6
@@ -172,7 +172,7 @@ jobs:
     needs: [ frontend-build, backoffice-build, net-test ]
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up .NETs
         uses: actions/setup-dotnet@v5
